@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.2.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.9.0",
+    "lucide-react": "^0.447.0",
+    "react-countup": "^6.5.3",
+    "react-slick": "^0.30.2",
+    "react-visibility-sensor": "^5.1.1",
+    "slick-carousel": "^1.8.1",
+    "tailwind-merge": "^2.5.2"
+  }
+}
