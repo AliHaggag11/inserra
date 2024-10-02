@@ -31,7 +31,7 @@ const Home = () => {
   const featuredProjects = [
     {
       id: '01',
-      title: 'Plastech KSA',
+      title: 'Plastech Egypt',
       description: 'Extrusion blow molding and injection molding machines for production of various packing products for industrial oil and detergents. Project value EUR 13 million.',
       image: 'projectImage1',
     },
@@ -73,13 +73,13 @@ const Home = () => {
   const testimonials = [
     {
       quote: "We committed to the continuous development of its employees, pursuit of excellence in its operations, and adherence to high environmental and safety standards in all its activities.",
-      author: "Musaad Al-Ruwatea",
+      author: "Ali Haggag",
       position: "CEO",
       image: "https://randomuser.me/api/portraits/men/1.jpg"
     },
     {
       quote: "Inserra is a trading company which exists since 1992, and working with machinery since 2002. Our strategy is to represent only high quality machines of German and European made",
-      author: "Musaad Al-Ruwatea",
+      author: "Ali Haggag",
       position: "CEO",
       image: "https://randomuser.me/api/portraits/men/1.jpg"
     },
@@ -188,7 +188,7 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-16">
             {[ 
               { icon: <PieChart className="w-8 h-8" />, title: "Circular Intelligence", description: "Product promotions, visibility studies, product development with our partners" },
-              { icon: <Award className="w-8 h-8" />, title: "Authorised Brand", description: "Inserra is a locally owned company existing since 1988 and always had good relations with SIDF in KSA" },
+              { icon: <Award className="w-8 h-8" />, title: "Authorised Brand", description: "Inserra is a locally owned company existing since 1988 and always had good relations with SIDF in Egypt" },
               { icon: <FileText className="w-8 h-8" />, title: "Expert Advice", description: "We give our suggestions and recommendations to the customer and the partners" },
               { icon: <TrendingUp className="w-8 h-8" />, title: "Best Solutions", description: "Thanks to the experience of our team, we chose for them the best solution and the right machinery" },
             ].map((item, index) => (
