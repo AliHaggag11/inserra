@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-// import logo from '../assets/logo.png'; // Make sure to add a logo image to your assets folder
+import logo from '../assets/insera.png'; // Import the logo
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPartnersDropdownOpen, setIsPartnersDropdownOpen] = useState(false);
+  const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -23,10 +24,17 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (isPartnersDropdownOpen) setIsPartnersDropdownOpen(false);
+    if (isIndustriesDropdownOpen) setIsIndustriesDropdownOpen(false);
   };
 
   const togglePartnersDropdown = () => {
     setIsPartnersDropdownOpen(!isPartnersDropdownOpen);
+    if (isIndustriesDropdownOpen) setIsIndustriesDropdownOpen(false);
+  };
+
+  const toggleIndustriesDropdown = () => {
+    setIsIndustriesDropdownOpen(!isIndustriesDropdownOpen);
+    if (isPartnersDropdownOpen) setIsPartnersDropdownOpen(false);
   };
 
   const menuVariants = {
@@ -75,13 +83,20 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { 
+      name: 'Industries', 
+      subItems: [
+        { name: 'Packaging & Recycling', path: '/industries/packaging-recycling' },
+        { name: 'Appliance', path: '/industries/appliance' },
+        { name: 'Food & Pharmaceutical', path: '/industries/food-pharmaceutical' },
+      ]
+    },
+    { 
       name: 'Partners', 
       path: '/partners',
       subItems: [
         { name: 'All Partners', path: '/partners' },
         { name: 'Partner 1', path: '/partners/partner1' },
         { name: 'Partner 2', path: '/partners/partner2' },
-        // Add more partners as needed
       ]
     },
     { name: 'News', path: '/news' },
@@ -90,13 +105,11 @@ const Navbar = () => {
   ];
 
   const getNavbarBackground = () => {
-    if (isScrolled || !isHomePage) return 'bg-white/30 backdrop-blur-lg shadow-md';
-    return 'bg-transparent';
+    return 'bg-white shadow-md';
   };
 
   const getTextColor = () => {
-    if (!isHomePage || isScrolled) return 'text-gray-800';
-    return 'text-white';
+    return 'text-primary';
   };
 
   return (
@@ -104,15 +117,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            {/* <img src={logo} alt="Inserra Logo" className="h-10 w-auto" /> */}
-            <motion.span 
-              className={`text-xl font-bold ${getTextColor()}`}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Inserra
-            </motion.span>
+            <img src={logo} alt="Inserra Logo" className="h-10 w-auto" /> {/* Use the imported logo */}
           </Link>
           
           {/* Hamburger menu button for mobile */}
@@ -145,7 +150,7 @@ const Navbar = () => {
                     <>
                       <button 
                         className={`flex items-center hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
-                        onClick={togglePartnersDropdown}
+                        onClick={item.name === 'Partners' ? togglePartnersDropdown : toggleIndustriesDropdown}
                       >
                         {item.name}
                         <ChevronDown className="ml-1 h-4 w-4" />
@@ -183,7 +188,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="fixed inset-0 bg-blue-600/90 backdrop-blur-xl z-40"
+              className="fixed inset-0 bg-primary z-40"
               initial="closed"
               animate="open"
               exit="closed"
@@ -200,13 +205,13 @@ const Navbar = () => {
                         <div>
                           <button 
                             className="text-2xl font-semibold text-white hover:text-blue-200 transition duration-300"
-                            onClick={togglePartnersDropdown}
+                            onClick={item.name === 'Partners' ? togglePartnersDropdown : toggleIndustriesDropdown}
                           >
                             {item.name}
-                            <ChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform duration-300 ${isPartnersDropdownOpen ? 'rotate-180' : ''}`} />
+                            <ChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform duration-300 ${(item.name === 'Partners' ? isPartnersDropdownOpen : isIndustriesDropdownOpen) ? 'rotate-180' : ''}`} />
                           </button>
                           <AnimatePresence>
-                            {isPartnersDropdownOpen && (
+                            {(item.name === 'Partners' ? isPartnersDropdownOpen : isIndustriesDropdownOpen) && (
                               <motion.ul 
                                 className="mt-2 space-y-2"
                                 initial="closed"

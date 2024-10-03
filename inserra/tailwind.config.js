@@ -16,7 +16,22 @@ export default {
         border: 'var(--border)',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        'footer-blue': '#1e3a8a',
+        'primary': {
+          DEFAULT: '#1e1b4b',
+          light: '#2e2a5c',
+          dark: '#14123a',
+        },
+        'blue': {
+          100: '#e6e5f0',
+          200: '#cdcbe1',
+          300: '#b4b1d2',
+          400: '#9b97c3',
+          500: '#827db4',
+          600: '#6964a5',
+          700: '#504b96',
+          800: '#373287',
+          900: '#1e1b4b',
+        },
       },
       backgroundColor: {
         DEFAULT: 'hsl(var(--background))',
@@ -24,6 +39,11 @@ export default {
       textColor: {
         DEFAULT: 'hsl(var(--foreground))',
       },
+      gradientColorStops: theme => ({
+        ...theme('colors'),
+        'primary-gradient-start': '#2e2a5c',
+        'primary-gradient-end': '#14123a',
+      }),
     },
   },
   plugins: [],

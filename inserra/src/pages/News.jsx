@@ -22,7 +22,7 @@ const News = () => {
       const newsData = [
         {
           id: 1,
-          title: "Inserra Unveils Revolutionary Plastic Recycling Technology",
+          title: "Insera Unveils Revolutionary Plastic Recycling Technology",
           date: "2024-03-15",
           excerpt: "Our latest innovation promises to transform the plastic recycling industry, making it more efficient and environmentally friendly.",
           image: "https://example.com/image1.jpg"
@@ -31,12 +31,12 @@ const News = () => {
           id: 2,
           title: "Expansion into Asian Markets: New Partnerships Announced",
           date: "2024-03-10",
-          excerpt: "Inserra is proud to announce new strategic partnerships that will strengthen our presence in key Asian markets.",
+          excerpt: "Insera is proud to announce new strategic partnerships that will strengthen our presence in key Asian markets.",
           image: "https://example.com/image2.jpg"
         },
         {
           id: 3,
-          title: "Inserra Wins Industry Award for Sustainable Practices",
+          title: "Insera Wins Industry Award for Sustainable Practices",
           date: "2024-03-05",
           excerpt: "Our commitment to sustainability has been recognized with a prestigious industry award, highlighting our eco-friendly initiatives.",
           image: "https://example.com/image3.jpg"
@@ -45,7 +45,7 @@ const News = () => {
           id: 4,
           title: "Q4 Financial Results Exceed Expectations",
           date: "2024-02-28",
-          excerpt: "Inserra's Q4 financial results show strong growth, surpassing market expectations and setting a positive tone for the year ahead.",
+          excerpt: "Insera's Q4 financial results show strong growth, surpassing market expectations and setting a positive tone for the year ahead.",
           image: "https://example.com/image4.jpg"
         },
         // Add more news articles as needed
@@ -74,7 +74,7 @@ const News = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-blue-800 min-h-screen text-white -mt-20">
+    <div className="bg-gradient-to-br from-primary to-primary-dark min-h-screen text-white -mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32">
         <motion.h1 
           className="text-4xl sm:text-5xl font-bold mb-8 text-center"
@@ -145,7 +145,7 @@ const News = () => {
         {displayedNews.length < allNewsArticles.length && (
           <div className="text-center mt-12">
             <button 
-              className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300 flex items-center justify-center"
+              className="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300 flex items-center justify-center"
               onClick={loadMoreNews}
               disabled={isLoading}
             >

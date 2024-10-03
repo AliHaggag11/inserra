@@ -80,7 +80,7 @@ const Contact = () => {
   );
 
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-blue-800 min-h-screen text-white -mt-20">
+    <div className="bg-gradient-to-br from-primary to-primary-dark min-h-screen text-white -mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32">
         <motion.h1 
           className="text-4xl sm:text-5xl font-bold mb-8 text-center"
@@ -156,7 +156,7 @@ const Contact = () => {
                       ></textarea>
                       {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                     </div>
-                    <button type="submit" className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300">Send Message</button>
+                    <button type="submit" className="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Send Message</button>
                   </form>
                 </>
               )}
@@ -184,7 +184,7 @@ const Contact = () => {
                 </li>
                 <li className="flex items-center">
                   <Mail className="mr-4" />
-                  <span>info@inserra.com</span>
+                  <span>info@Insera.com</span>
                 </li>
               </ul>
             </div>

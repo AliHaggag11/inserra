@@ -9,7 +9,10 @@ import Partners from './pages/Partners';
 import News from './pages/News';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
-import ScrollToTop from './components/ScrollToTop'; // Add this import
+import ScrollToTop from './components/ScrollToTop';
+import PackagingRecycling from './pages/Packaging&Recycling';
+import Appliance from './pages/Appliance';
+import FoodPharmaceutical from './pages/Food&Pharmaceutical';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -40,7 +43,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <ScrollToTop /> {/* Add this line */}
+      <ScrollToTop />
       <Navbar />
       <main className="flex-grow">
         <AnimatePresence mode="wait">
@@ -51,6 +54,9 @@ function App() {
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
             <Route path="/partners" element={<PageWrapper><Partners /></PageWrapper>} />
             <Route path="/news" element={<PageWrapper><News /></PageWrapper>} />
+            <Route path="/industries/packaging-recycling" element={<PageWrapper><PackagingRecycling /></PageWrapper>} />
+            <Route path="/industries/appliance" element={<PageWrapper><Appliance /></PageWrapper>} />
+            <Route path="/industries/food-pharmaceutical" element={<PageWrapper><FoodPharmaceutical /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>

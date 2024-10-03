@@ -4,10 +4,10 @@ import Slider from "react-slick";
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Briefcase, Users, SmilePlus, Building, PieChart, Award, FileText, TrendingUp } from 'lucide-react';
+import { Briefcase, Users, SmilePlus, Building, PieChart, Award, FileText, TrendingUp, Shield, Lightbulb, Network, Cpu, HeartHandshake, ClipboardCheck } from 'lucide-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import heroImage from '../assets/hero-image.png'; // Add a hero image to your assets folder
+import heroImage from '../assets/plastic.png'; // Make sure this path is correct
 // Import partner logos
 // import kiefelLogo from '../assets/partner-logos/kiefel.png';
 // import viscotecLogo from '../assets/partner-logos/viscotec.png';
@@ -78,7 +78,7 @@ const Home = () => {
       image: "https://randomuser.me/api/portraits/men/1.jpg"
     },
     {
-      quote: "Inserra is a trading company which exists since 1992, and working with machinery since 2002. Our strategy is to represent only high quality machines of German and European made",
+      quote: "Insera is a trading company which exists since 1992, and working with machinery since 2002. Our strategy is to represent only high quality machines of German and European made",
       author: "Ali Haggag",
       position: "CEO",
       image: "https://randomuser.me/api/portraits/men/1.jpg"
@@ -127,9 +127,9 @@ const Home = () => {
   const [activeTab, setActiveTab] = useState('vision');
 
   const tabContent = {
-    vision: "Inserra will pursue business opportunities across all segments of the Plastic management value chain through establishing alliances with European partners, attracting Domestics investments and promoting the utilization of innovative technologies.",
-    mission: "Our mission is to provide cutting-edge solutions in plastic conversion and Life Sciences Automation, focusing on quality, innovation, and customer satisfaction.",
-    strategy: "We aim to represent only high-quality machines of German and European origin, expanding our reach across all segments of the Plastic management value chain and Life Sciences automation solutions."
+    vision: " Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology.",
+    mission: "Our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them.",
+    strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver innovative, sustainable solutions across all segments of the plastic management value chain. We focus on attracting domestic investments, promoting the utilization of cutting-edge technologies, and fostering a culture of continuous improvement and environmental responsibility. By staying at the forefront of industry trends and technological advancements, we aim to provide our clients with the tools and expertise they need to succeed in an ever-evolving market landscape."
   };
 
   const partnerLogos = [
@@ -158,89 +158,110 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [featuredProjects.length]);
 
+  const coreValues = [
+    { icon: <Shield className="w-12 h-12" />, title: "Integrity", description: "We uphold the highest ethical standards, fostering trust and transparency in all our interactions." },
+    { icon: <Lightbulb className="w-12 h-12" />, title: "Innovation", description: "We embrace a culture of continuous improvement, encouraging creativity and innovation in all aspects of our business and always looking for more sustainable solutions." },
+    { icon: <Users className="w-12 h-12" />, title: "Customer-Oriented", description: "Our customers are at the heart of everything we do. We are committed to understand their needs, exceed expectations, and build lasting relationships." },
+    { icon: <Network className="w-12 h-12" />, title: "Collaboration", description: "We believe in the power of collaboration and we thrive on teamwork. By working as a team, we encourage diverse perspectives to achieve collective success and solve complex challenges." },
+    { icon: <Cpu className="w-12 h-12" />, title: "Adaptability", description: "In a dynamic business environment, we embrace change and demonstrate flexibility. We are agile in responding to new opportunities and challenges." },
+    { icon: <HeartHandshake className="w-12 h-12" />, title: "Social Responsibility", description: "We are committed to making a positive impact on society and the environment. Through responsible business practices, we contribute to the well-being of communities and the planet." },
+    { icon: <ClipboardCheck className="w-12 h-12" />, title: "Accountability", description: "We take ownership of our actions and decisions. Accountability is the foundation of our reliability and the key to building a culture of trust." },
+  ];
+
   return (
     <div className="bg-gray-100 relative">
       {/* Hero Section */}
       <motion.div 
-        className="relative z-10 bg-gradient-to-br from-blue-600 to-blue-800 text-white"
+        className="relative z-10 bg-cover bg-center text-white"
+        style={{ backgroundImage: `url(${heroImage})` }}
         initial="hidden"
         animate="visible"
         variants={fadeInUpVariants}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-4">One Name For All Your Needs</h1>
-              <p className="text-lg sm:text-xl mb-8 text-blue-100">Export/Import, Trading, Engineering, Manufacturing</p>
-              <div className="space-y-4 sm:space-y-0 sm:space-x-4">
-                <Link to="/contact" className="block sm:inline-block bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-100 text-center">WORK WITH US</Link>
-                <Link to="/about" className="block sm:inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-blue-600 text-center mt-4 sm:mt-0">LEARN MORE</Link>
-              </div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-10">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Insera</h1>
+            <p className="text-lg sm:text-xl mb-8 text-blue-100">Partners for growth</p>
+            <div className="flex space-x-4">
+              <Link 
+                to="/contact" 
+                className="inline-block bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300"
+              >
+                WORK WITH US
+              </Link>
+              <Link 
+                to="/about" 
+                className="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-primary transition duration-300"
+              >
+                LEARN MORE
+              </Link>
             </div>
-            <div className="md:w-1/2">
-              {/* <img src={heroImage} alt="Plastic Manufacturing" className="w-full h-auto rounded-lg shadow-lg" /> */}
-              {/* Placeholder for hero image */}
-              <div className="bg-blue-500 h-64 sm:h-80 rounded-lg shadow-lg"></div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-16">
-            {[ 
-              { icon: <PieChart className="w-8 h-8" />, title: "Circular Intelligence", description: "Product promotions, visibility studies, product development with our partners" },
-              { icon: <Award className="w-8 h-8" />, title: "Authorised Brand", description: "Inserra is a locally owned company existing since 1988 and always had good relations with SIDF in Egypt" },
-              { icon: <FileText className="w-8 h-8" />, title: "Expert Advice", description: "We give our suggestions and recommendations to the customer and the partners" },
-              { icon: <TrendingUp className="w-8 h-8" />, title: "Best Solutions", description: "Thanks to the experience of our team, we chose for them the best solution and the right machinery" },
-            ].map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-blue-600 mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-800">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
-            ))}
           </div>
         </div>
       </motion.div>
 
-      {/* Services Section */}
-      <motion.div 
-        className="relative z-20 bg-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
+      {/* Features Section */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: <PieChart className="w-8 h-8" />, title: "Circular Intelligence", description: "Product promotions, visibility studies, product development with our partners" },
+              { icon: <Award className="w-8 h-8" />, title: "Authorised Brand", description: "Insera is a locally owned company existing since 1988 and always had good relations with SIDF in Egypt" },
+              { icon: <FileText className="w-8 h-8" />, title: "Expert Advice", description: "We give our suggestions and recommendations to the customer and the partners" },
+              { icon: <TrendingUp className="w-8 h-8" />, title: "Best Solutions", description: "Thanks to the experience of our team, we chose for them the best solution and the right machinery" },
+            ].map((item, index) => (
+              <div key={index} className="bg-gradient-to-br from-primary to-primary-dark p-6 rounded-lg shadow-md text-white">
+                <div className="text-white mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Core Values Section */}
+      <motion.div
+        className="relative z-20 bg-gradient-to-br from-primary to-primary-dark shadow-lg -mt-8 rounded-t-3xl overflow-hidden py-16 sm:py-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUpVariants}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-red-500 font-semibold mb-2">CORE VALUES</h2>
-            <h3 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Services we serve to all<br />over the world</h3>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">CORE VALUES</h3>
+            <p className="text-blue-100 text-lg max-w-3xl mx-auto">
+              These values collectively guide our actions, decisions, and
+              relationships, shaping the culture of our company and
+              influencing our contributions to the world
+            </p>
           </div>
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <p className="text-gray-600 leading-relaxed">
-                Since 2002 we have been eager to represent only the best world known companies in the field of plastic conversion and Life Sciences Automation Solutions. We offer the best solutions in the plastic industry for the manmade fibers, extrusion blow molding, thermoforming, material handling, recycling and washing. Furthermore, we provide state-of-the-art automation solutions for manufacturing medical devices, medical diagnostics and pharmaceuticals.
-              </p>
-              <div className="mt-8 space-y-4 sm:space-y-0 sm:space-x-4">
-                <Link to="/contact" className="block sm:inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 text-center">WORK WITH US</Link>
-                <Link to="/about" className="block sm:inline-block bg-white text-blue-600 border border-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 text-center mt-4 sm:mt-0">LEARN MORE</Link>
-              </div>
-            </div>
-            <div className="md:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-              {partners.map((partner, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center">
-                  {/* <img src={partner.logo} alt={partner.name} className="max-w-full max-h-16" /> */}
-                  <p className="text-center mt-2">{partner.name}</p>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {coreValues.map((value, index) => (
+              <motion.div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUpVariants}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+              >
+                <div className="text-primary mb-4">{value.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </motion.div>
 
       {/* Company Vision Section */}
-      <motion.div 
-        className="relative z-30 bg-gradient-to-tr from-blue-700 to-blue-500 text-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
+      <motion.div
+        className="relative z-30 bg-white text-primary shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -249,35 +270,36 @@ const Home = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">The Largest Business Expert!</h2>
-            <div className="mb-8">
-              <p className="mb-4">
-                Inserra is a trading company which exists since 1992, and working with machinery since 2002. Our strategy is to represent only high quality machines of German and European made, will pursue business opportunities across all segments of the Plastic management value chain and Life Sciences automation solutions through establishing alliances with European partners, attracting Domestics investments and promoting.
-              </p>
-            </div>
-            <div className="flex mb-4 border-b border-blue-400">
+            <h2 className="text-3xl font-bold text-center mb-8 text-primary">Our Guiding Principles</h2>
+            <div className="flex mb-4 border-b border-primary">
               {['vision', 'mission', 'strategy'].map((tab) => (
                 <button
                   key={tab}
-                  className={`flex-1 py-2 px-4 text-sm font-medium ${activeTab === tab ? 'text-white border-b-2 border-white' : 'text-blue-200 hover:text-white'}`}
+                  className={`flex-1 py-2 px-4 text-sm font-medium ${activeTab === tab ? 'text-primary border-b-2 border-primary' : 'text-gray-500 hover:text-primary'}`}
                   onClick={() => setActiveTab(tab)}
                 >
                   {tab.charAt(0).toUpperCase() + tab.slice(1)}
                 </button>
               ))}
             </div>
-            <div className="bg-blue-600 bg-opacity-50 p-6 rounded-lg min-h-[150px]">
+            <div className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-6 shadow-md">
               <AnimatePresence mode="wait">
-                <motion.p
+                <motion.div
                   key={activeTab}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
                   variants={tabVariants}
                   transition={{ duration: 0.3 }}
+                  className="text-white"
                 >
-                  {tabContent[activeTab]}
-                </motion.p>
+                  <h3 className="text-xl font-bold mb-4 text-white">
+                    {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+                  </h3>
+                  <p className="text-blue-100">
+                    {tabContent[activeTab]}
+                  </p>
+                </motion.div>
               </AnimatePresence>
             </div>
           </div>
@@ -285,7 +307,7 @@ const Home = () => {
       </motion.div>
 
       {/* Partner Logos Marquee */}
-      <div className="relative z-40 bg-gradient-to-r from-blue-100 to-blue-200 shadow-lg -mt-8 py-12 overflow-hidden">
+      <div className="relative z-40 bg-gradient-to-r from-gray-100 to-gray-200 shadow-lg -mt-8 py-12 overflow-hidden">
         <div className="flex animate-marquee">
           {[...partnerLogos, ...partnerLogos].map((logo, index) => (
             <div key={index} className="flex-shrink-0 w-48 mx-8">
@@ -297,8 +319,8 @@ const Home = () => {
       </div>
 
       {/* Featured Projects Section */}
-      <motion.div 
-        className="relative z-50 bg-gradient-to-bl from-blue-600 to-blue-800 text-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
+      <motion.div
+        className="relative z-50 bg-gradient-to-bl from-primary to-primary-dark text-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -313,7 +335,7 @@ const Home = () => {
           <Slider {...projectSliderSettings}>
             {featuredProjects.map((project, index) => (
               <div key={project.id} className="px-4">
-                <motion.div 
+                <motion.div
                   className="bg-white rounded-lg shadow-lg overflow-hidden h-full"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -326,7 +348,7 @@ const Home = () => {
                     </div>
                     <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
                       <div>
-                        <motion.h2 
+                        <motion.h2
                           className="text-6xl sm:text-8xl font-bold mb-4 text-blue-600 opacity-20"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 0.2, y: 0 }}
@@ -334,7 +356,7 @@ const Home = () => {
                         >
                           {project.id}
                         </motion.h2>
-                        <motion.h3 
+                        <motion.h3
                           className="text-xl sm:text-2xl font-bold mb-4 text-gray-800"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -342,7 +364,7 @@ const Home = () => {
                         >
                           {project.title}
                         </motion.h3>
-                        <motion.p 
+                        <motion.p
                           className="mb-6 text-blue-800" // Changed to dark blue
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -371,10 +393,13 @@ const Home = () => {
             ))}
           </Slider>
         </div>
+        {/* <Link to="/projects" className="inline-block bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300 mt-8">
+          VIEW ALL PROJECTS
+        </Link> */}
       </motion.div>
 
       {/* Stats Section */}
-      <motion.div 
+      <motion.div
         className="relative z-60 bg-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
         initial="hidden"
         whileInView="visible"
@@ -412,8 +437,8 @@ const Home = () => {
       </motion.div>
 
       {/* Testimonials Section */}
-      <motion.div 
-        className="relative z-70 bg-gradient-to-tr from-blue-700 to-blue-500 text-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
+      <motion.div
+        className="relative z-70 bg-gradient-to-tr from-primary-dark to-primary text-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -428,7 +453,7 @@ const Home = () => {
           <Slider {...testimonialSettings} className="testimonial-slider">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="px-2 h-full">
-                <motion.div 
+                <motion.div
                   className="bg-white text-gray-800 rounded-lg p-6 flex flex-col h-full border border-blue-300"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}

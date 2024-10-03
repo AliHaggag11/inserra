@@ -129,7 +129,7 @@ const Careers = () => {
   );
 
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-blue-800 min-h-screen text-white -mt-20">
+    <div className="bg-gradient-to-br from-primary to-primary-dark min-h-screen text-white -mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32">
         <motion.h1 
           className="text-4xl sm:text-5xl font-bold mb-8 text-center"
@@ -138,7 +138,7 @@ const Careers = () => {
           variants={fadeInUpVariants}
           transition={{ duration: 0.5 }}
         >
-          Careers at Inserra
+          Careers at Insera
         </motion.h1>
         
         <motion.p
@@ -197,7 +197,7 @@ const Careers = () => {
           <h2 className="text-2xl font-bold mb-4">Don't see a position that fits?</h2>
           <p className="mb-6">We're always looking for talented individuals to join our team. Send us your resume, and we'll keep it on file for future opportunities.</p>
           <button 
-            className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300"
+            className="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300"
             onClick={() => setIsResumeModalOpen(true)}
           >
             Submit Your Resume
