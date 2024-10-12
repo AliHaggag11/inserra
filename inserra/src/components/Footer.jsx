@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,9 +9,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-            <p>Cairo, Egypt</p>
-            <p>+20 1220 566 640</p>
-            <p>info@insera-eg.com</p>
+            <p className="flex items-center mb-2">
+              <MapPin size={16} className="mr-2" />
+              <span>Cairo, Egypt</span>
+            </p>
+            <p className="flex items-center mb-2">
+              <Phone size={16} className="mr-2" />
+              <a href="tel:+201220566640" className="hover:text-blue-200">+20 1220 566 640</a>
+            </p>
+            <p className="flex items-center">
+              <Mail size={16} className="mr-2" />
+              <a href="mailto:info@insera-eg.com" className="hover:text-blue-200">info@insera-eg.com</a>
+            </p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
@@ -38,9 +47,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-blue-700">
-          <div className="flex justify-between items-center">
-            <p>© 2023 Insera. All rights reserved.</p>
-            <div className="flex space-x-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-center mb-4 sm:mb-0">© 2023 Insera. All rights reserved.</p>
+            <div className="flex space-x-4 justify-center sm:justify-start">
               <a href="#" className="text-white hover:text-blue-200"><Facebook size={20} /></a>
               <a href="#" className="text-white hover:text-blue-200"><Twitter size={20} /></a>
               <a href="#" className="text-white hover:text-blue-200"><Linkedin size={20} /></a>

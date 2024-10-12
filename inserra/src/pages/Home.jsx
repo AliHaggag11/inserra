@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import { motion, AnimatePresence } from 'framer-motion';
+import { Flipper, Flipped } from 'react-flip-toolkit';
 import { HeadphonesIcon, Users, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon, ArrowRight, Shield, Lightbulb, Network, Cpu, HeartHandshake, ClipboardCheck } from 'lucide-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import heroImage from '../assets/plastic.png';
+import { FlipWords } from '../components/FlipWords';
 
 const Home = () => {
   const partners = [
@@ -149,6 +151,13 @@ const Home = () => {
     { icon: <ClipboardCheck className="w-12 h-12" />, title: "Accountability", description: "We take ownership of our actions and decisions. Accountability is the foundation of our reliability and the key to building a culture of trust." },
   ];
 
+  const words = [
+    "Cutting-Edge Solutions",
+    "Innovative Technologies",
+    "Sustainable Practices",
+    "Industry Expertise"
+  ];
+
   return (
     <div className="bg-gray-100 relative">
       {/* Hero Section */}
@@ -175,20 +184,32 @@ const Home = () => {
         </motion.div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.h1 
-              className="text-5xl sm:text-6xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Empowering Industries with <span className="text-blue-300">Cutting-Edge Solutions</span>
+              Empowering Industries with
             </motion.h1>
+            <motion.div
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <FlipWords 
+                words={words} 
+                duration={3000} 
+                className="text-blue-300" 
+              />
+            </motion.div>
             <motion.p 
               className="text-xl sm:text-2xl mb-10 text-blue-100"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
               Your trusted partner for innovative machinery and sustainable growth
             </motion.p>
@@ -196,7 +217,7 @@ const Home = () => {
               className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
             >
               <Link 
                 to="/contact" 
