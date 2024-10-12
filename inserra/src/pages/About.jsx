@@ -137,8 +137,8 @@ const About = () => {
             { icon: <Globe size={48} />, title: "Global Reach", description: "Partnering with leading international manufacturers" },
             { icon: <Rocket size={48} />, title: "Innovation", description: "Driving industry advancements and sustainability" }
           ].map((feature, index) => (
-            <div key={index} className="bg-blue-700 rounded-lg p-6 text-center">
-              <div className="text-white mb-4">{feature.icon}</div>
+            <div key={index} className="bg-blue-700 rounded-lg p-6 text-center flex flex-col items-center">
+              <div className="text-white mb-4 flex justify-center">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-blue-100">{feature.description}</p>
             </div>
