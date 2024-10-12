@@ -1,21 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
-import CountUp from 'react-countup';
-import VisibilitySensor from 'react-visibility-sensor';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Briefcase, Users, SmilePlus, Building, PieChart, Award, FileText, TrendingUp, Shield, Lightbulb, Network, Cpu, HeartHandshake, ClipboardCheck, HeadphonesIcon, UsersIcon, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon, ArrowRight } from 'lucide-react';
+import { HeadphonesIcon, Users, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon, ArrowRight, Shield, Lightbulb, Network, Cpu, HeartHandshake, ClipboardCheck } from 'lucide-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import heroImage from '../assets/plastic.png'; // Make sure this path is correct
-// Import partner logos
-// import kiefelLogo from '../assets/partner-logos/kiefel.png';
-// import viscotecLogo from '../assets/partner-logos/viscotec.png';
-// import bekumLogo from '../assets/partner-logos/bekum.png';
-// import autefaLogo from '../assets/partner-logos/autefa.png';
-// import motanLogo from '../assets/partner-logos/motan.png';
-// import bbeLogo from '../assets/partner-logos/bbe.png';
-// import kraussmaffeLogo from '../assets/partner-logos/kraussmaffe.png';
+import heroImage from '../assets/plastic.png';
 
 const Home = () => {
   const partners = [
@@ -31,21 +21,19 @@ const Home = () => {
   const featuredProjects = [
     {
       id: '01',
-      title: 'Plastech Egypt',
-      description: 'Extrusion blow molding and injection molding machines for production of various packing products for industrial oil and detergents. Project value EUR 13 million.',
-      image: 'projectImage1',
+      title: 'Al Baraka Pack',
+      customerLogo: '/path/to/albaraka-logo.png', // Update with actual path
+      partnerLogo: '/path/to/viscotec-logo.png', // Update with actual path
+      description: "Al Baraka Pack, with extensive experience in Syrian food packaging, began collaborating with us in September 2021 for their new Egyptian facility. Seeking to enter the Egyptian market with premium packaging products, they required top-tier equipment for high-quality PET sheet production. In partnership with Viscotec, we engaged in thorough discussions to determine the optimal solution for their needs. Our team approach involved close communication and multiple on-site visits throughout implementation, ensuring project success. Q1 2023 saw the successful installation and startup of our PET Extrusion line. Since then, we've provided continuous support for their aftersales requirements.",
+      website: 'https://albarakapack.com/about-us/',
     },
     {
       id: '02',
-      title: 'Project Two',
-      description: 'Description for Project Two. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: 'projectImage2',
-    },
-    {
-      id: '03',
-      title: 'Project Three',
-      description: 'Description for Project Three. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: 'projectImage3',
+      title: 'IFF',
+      customerLogo: '/path/to/iff-logo.png', // Update with actual path
+      partnerLogo: '/path/to/hanningfield-logo.png', // Update with actual path
+      description: "Our project with IFF, a global leader in food, beverage, scent, home and personal care, and health, was both interesting and challenging. Working on their expansion project alongside our partner Hanningfield, we recognized early on that their needs required a customized solution. Through numerous meetings and extensive discussions, we developed the best technical solution to meet their specific requirements. The project involved coordinating with the customer and third parties to ensure our powder processing equipment integrated seamlessly with their new blending equipment and WIP system.",
+      website: 'https://www.iff.com/',
     },
   ];
 
@@ -62,13 +50,6 @@ const Home = () => {
     beforeChange: (current, next) => setActiveProject(next),
     arrows: false, // Remove side arrows
   };
-
-  const stats = [
-    { icon: <Briefcase className="w-8 h-8" />, value: 1000, label: "Projects Completed", suffix: "+" },
-    { icon: <Users className="w-8 h-8" />, value: 250, label: "Trusted Client's", suffix: "+" },
-    { icon: <SmilePlus className="w-8 h-8" />, value: 100, label: "Client Satisfaction", suffix: "%" },
-    { icon: <Building className="w-8 h-8" />, value: 4, label: "Branches", suffix: "" },
-  ];
 
   const testimonials = [
     {
@@ -254,7 +235,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { icon: <HeadphonesIcon className="w-10 h-10" />, title: "Prompt Aftersales Support", description: "Providing quick and efficient support after purchase" },
-              { icon: <UsersIcon className="w-10 h-10" />, title: "Strong Relationships", description: "Having strong relationships with our customers and partners" },
+              { icon: <Users className="w-10 h-10" />, title: "Strong Relationships", description: "Having strong relationships with our customers and partners" },
               { icon: <AwardIcon className="w-10 h-10" />, title: "Renowned Reputation", description: "Known for our excellence and quality in the industry" },
               { icon: <ShieldCheckIcon className="w-10 h-10" />, title: "Trustworthiness", description: "Building trust through consistent reliability and integrity" },
               { icon: <ClockIcon className="w-10 h-10" />, title: "Reliability", description: "Consistently delivering on our promises and commitments" },
@@ -282,7 +263,7 @@ const Home = () => {
 
       {/* Core Values Section */}
       <motion.div
-        className="relative z-20 bg-gradient-to-br from-primary to-primary-dark shadow-lg -mt-8 rounded-t-3xl overflow-hidden py-16 sm:py-20"
+        className="relative z-20 bg-gradient-to-br from-primary to-primary-dark text-white py-16 sm:py-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -291,7 +272,7 @@ const Home = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">CORE VALUES</h3>
+            <h3 className="text-3xl sm:text-4xl font-bold mb-4">CORE VALUES</h3>
             <p className="text-blue-100 text-lg max-w-3xl mx-auto">
               These values collectively guide our actions, decisions, and
               relationships, shaping the culture of our company and
@@ -319,14 +300,14 @@ const Home = () => {
 
       {/* Company Vision Section */}
       <motion.div
-        className="relative z-30 bg-white text-primary shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
+        className="relative z-30 bg-white text-primary py-16 sm:py-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUpVariants}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8 text-primary">Our Guiding Principles</h2>
             <div className="flex mb-4 border-b border-primary">
@@ -365,7 +346,7 @@ const Home = () => {
       </motion.div>
 
       {/* Partner Logos Marquee */}
-      <div className="relative z-40 bg-gradient-to-r from-gray-100 to-gray-200 shadow-lg -mt-8 py-12 overflow-hidden">
+      <div className="relative z-40 bg-gray-100 py-12 overflow-hidden">
         <div className="flex animate-marquee">
           {[...partnerLogos, ...partnerLogos].map((logo, index) => (
             <div key={index} className="flex-shrink-0 w-48 mx-8">
@@ -378,14 +359,14 @@ const Home = () => {
 
       {/* Featured Projects Section */}
       <motion.div
-        className="relative z-50 bg-gradient-to-bl from-primary to-primary-dark text-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
+        className="relative z-50 bg-gradient-to-bl from-primary to-primary-dark text-white py-16 sm:py-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUpVariants}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-blue-200 font-semibold mb-2">FEATURED CASES</h2>
             <h3 className="text-3xl sm:text-4xl font-bold mb-4">Completed Projects</h3>
@@ -399,51 +380,25 @@ const Home = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="flex flex-col md:flex-row h-full">
-                    <div className="md:w-1/2 h-64 md:h-auto">
-                      {/* Replace with actual project images */}
-                      <div className="bg-gray-300 w-full h-full object-cover"></div>
-                    </div>
-                    <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
-                      <div>
-                        <motion.h2
-                          className="text-6xl sm:text-8xl font-bold mb-4 text-blue-600 opacity-20"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 0.2, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.1 }}
-                        >
-                          {project.id}
-                        </motion.h2>
-                        <motion.h3
-                          className="text-xl sm:text-2xl font-bold mb-4 text-gray-800"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                          {project.title}
-                        </motion.h3>
-                        <motion.p
-                          className="mb-6 text-blue-800" // Changed to dark blue
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          {project.description}
-                        </motion.p>
+                  <div className="flex flex-col h-full">
+                    <div className="p-6 bg-gray-100">
+                      <div className="flex justify-between items-center mb-4">
+                        <img src={project.customerLogo} alt={`${project.title} Logo`} className="w-24 h-12 object-contain" />
+                        <img src={project.partnerLogo} alt="Partner Logo" className="w-24 h-12 object-contain" />
                       </div>
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
+                      <h2 className="text-6xl font-bold mb-2 text-primary opacity-20">{project.id}</h2>
+                      <h3 className="text-2xl font-bold text-primary">{project.title}</h3>
+                    </div>
+                    <div className="flex-grow p-6">
+                      <p className="text-gray-700 mb-4">{project.description}</p>
+                      <a 
+                        href={project.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-block bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-dark transition duration-300"
                       >
-                        <Link to="/projects" className="text-blue-600 hover:text-blue-800 inline-flex items-center">
-                          READ MORE
-                          <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                          </svg>
-                        </Link>
-                      </motion.div>
+                        Visit Customer Website
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -451,82 +406,41 @@ const Home = () => {
             ))}
           </Slider>
         </div>
-        {/* <Link to="/projects" className="inline-block bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300 mt-8">
-          VIEW ALL PROJECTS
-        </Link> */}
-      </motion.div>
-
-      {/* Stats Section */}
-      <motion.div
-        className="relative z-60 bg-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUpVariants}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-blue-600 mb-4 flex justify-center">{stat.icon}</div>
-                <VisibilitySensor partialVisibility offset={{ bottom: 50 }}>
-                  {({ isVisible }) => (
-                    <div style={{ height: 60 }}>
-                      {isVisible ? (
-                        <CountUp
-                          start={0}
-                          end={stat.value}
-                          duration={2.5}
-                          suffix={stat.suffix}
-                          className="text-4xl font-bold text-blue-600"
-                        />
-                      ) : (
-                        <span className="text-4xl font-bold text-blue-600">0{stat.suffix}</span>
-                      )}
-                    </div>
-                  )}
-                </VisibilitySensor>
-                <p className="text-gray-600 mt-2">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </motion.div>
 
       {/* Testimonials Section */}
       <motion.div
-        className="relative z-70 bg-gradient-to-tr from-primary-dark to-primary text-white shadow-lg -mt-8 rounded-t-3xl overflow-hidden"
+        className="relative z-60 bg-gray-100 py-16 sm:py-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUpVariants}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">What Our Clients Say</h2>
-            <p className="text-xl text-blue-100">Hear from the companies we've worked with</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-primary">What Our Clients Say</h2>
+            <p className="text-xl text-gray-600">Hear from the companies we've worked with</p>
           </div>
           <Slider {...testimonialSettings} className="testimonial-slider">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="px-2 h-full">
                 <motion.div
-                  className="bg-white text-gray-800 rounded-lg p-6 flex flex-col h-full border border-blue-300"
+                  className="bg-white rounded-lg p-6 flex flex-col h-full border border-primary shadow-md hover:shadow-lg transition-shadow duration-300"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <div className="flex-grow">
-                    <svg className="text-blue-500 w-8 h-8 mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <svg className="text-primary w-8 h-8 mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                       <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                     </svg>
-                    <p className="text-gray-600 text-lg mb-6">{testimonial.quote}</p>
+                    <p className="text-gray-800 text-lg mb-6">{testimonial.quote}</p>
                   </div>
                   <div className="flex items-center mt-4">
                     <img className="w-12 h-12 rounded-full mr-4" src={testimonial.image} alt={testimonial.author} />
                     <div>
-                      <p className="font-semibold text-gray-800">{testimonial.author}</p>
+                      <p className="font-semibold text-primary">{testimonial.author}</p>
                       <p className="text-gray-600">{testimonial.position}</p>
                     </div>
                   </div>
