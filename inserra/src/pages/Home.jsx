@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Briefcase, Users, SmilePlus, Building, PieChart, Award, FileText, TrendingUp, Shield, Lightbulb, Network, Cpu, HeartHandshake, ClipboardCheck } from 'lucide-react';
+import { Briefcase, Users, SmilePlus, Building, PieChart, Award, FileText, TrendingUp, Shield, Lightbulb, Network, Cpu, HeartHandshake, ClipboardCheck, HeadphonesIcon, UsersIcon, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon, ArrowRight } from 'lucide-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import heroImage from '../assets/plastic.png'; // Make sure this path is correct
@@ -172,50 +172,108 @@ const Home = () => {
     <div className="bg-gray-100 relative">
       {/* Hero Section */}
       <motion.div 
-        className="relative z-10 bg-cover bg-center text-white"
+        className="relative z-10 bg-cover bg-center text-white overflow-hidden"
         style={{ backgroundImage: `url(${heroImage})` }}
         initial="hidden"
         animate="visible"
         variants={fadeInUpVariants}
         transition={{ duration: 0.5 }}
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
+        
+        {/* Animated background shapes */}
+        <motion.div 
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+        >
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full filter blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary-dark/20 rounded-full filter blur-3xl"></div>
+        </motion.div>
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-10">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Insera</h1>
-            <p className="text-lg sm:text-xl mb-8 text-blue-100">Partners for growth</p>
-            <div className="flex space-x-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h1 
+              className="text-5xl sm:text-6xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Empowering Industries with <span className="text-blue-300">Cutting-Edge Solutions</span>
+            </motion.h1>
+            <motion.p 
+              className="text-xl sm:text-2xl mb-10 text-blue-100"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Your trusted partner for innovative machinery and sustainable growth
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
               <Link 
                 to="/contact" 
-                className="inline-block bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300"
+                className="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-blue-100 transition duration-300 group"
               >
-                WORK WITH US
+                <span>Work with Us</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 to="/about" 
-                className="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-primary transition duration-300"
+                className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition duration-300"
               >
-                LEARN MORE
+                Learn More
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
+
+        {/* Animated scroll indicator */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, repeat: Infinity, repeatType: "reverse" }}
+        >
+          <div className="w-6 h-10 border-2 border-white rounded-full p-1">
+            <div className="w-1 h-3 bg-white rounded-full mx-auto"></div>
+          </div>
+        </motion.div>
       </motion.div>
 
       {/* Features Section */}
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary">Our Key Strengths</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: <PieChart className="w-8 h-8" />, title: "Circular Intelligence", description: "Product promotions, visibility studies, product development with our partners" },
-              { icon: <Award className="w-8 h-8" />, title: "Authorised Brand", description: "Insera is a locally owned company existing since 1988 and always had good relations with SIDF in Egypt" },
-              { icon: <FileText className="w-8 h-8" />, title: "Expert Advice", description: "We give our suggestions and recommendations to the customer and the partners" },
-              { icon: <TrendingUp className="w-8 h-8" />, title: "Best Solutions", description: "Thanks to the experience of our team, we chose for them the best solution and the right machinery" },
+              { icon: <HeadphonesIcon className="w-10 h-10" />, title: "Prompt Aftersales Support", description: "Providing quick and efficient support after purchase" },
+              { icon: <UsersIcon className="w-10 h-10" />, title: "Strong Relationships", description: "Having strong relationships with our customers and partners" },
+              { icon: <AwardIcon className="w-10 h-10" />, title: "Renowned Reputation", description: "Known for our excellence and quality in the industry" },
+              { icon: <ShieldCheckIcon className="w-10 h-10" />, title: "Trustworthiness", description: "Building trust through consistent reliability and integrity" },
+              { icon: <ClockIcon className="w-10 h-10" />, title: "Reliability", description: "Consistently delivering on our promises and commitments" },
+              { icon: <LightbulbIcon className="w-10 h-10" />, title: "Industry Knowledge", description: "Deep understanding of market and industry dynamics" },
+              { icon: <TrendingUpIcon className="w-10 h-10" />, title: "Technology Developments", description: "Well-versed in market and technology advancements" },
             ].map((item, index) => (
-              <div key={index} className="bg-gradient-to-br from-primary to-primary-dark p-6 rounded-lg shadow-md text-white">
-                <div className="text-white mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p>{item.description}</p>
+              <div 
+                key={index} 
+                className={`bg-gradient-to-br from-primary to-primary-dark p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-white $
+                  index === 6 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
+              >
+                <div className="flex items-center mb-4">
+                  <div className="bg-white bg-opacity-10 p-3 rounded-full mr-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                </div>
+                <p className="text-blue-100">{item.description}</p>
               </div>
             ))}
           </div>
