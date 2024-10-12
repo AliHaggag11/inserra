@@ -29,6 +29,29 @@ This website is for INSERA, a company specializing in industrial machinery and s
 
 ## Project Structure
 
+inserra/
+├── src/
+│ ├── assets/
+│ │ └── plastic.png
+│ ├── components/
+│ │ ├── FlipWords.jsx
+│ │ ├── Footer.jsx
+│ │ └── ... (other components)
+│ ├── pages/
+│ │ ├── Home.jsx
+│ │ ├── About.jsx
+│ │ ├── Contact.jsx
+│ │ ├── Careers.jsx
+│ │ ├── Partners.jsx
+│ │ └── News.jsx
+│ ├── App.jsx
+│ ├── index.css
+│ └── main.jsx
+├── public/
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
+
 ## Key Components
 
 ### Home (src/pages/Home.jsx)
