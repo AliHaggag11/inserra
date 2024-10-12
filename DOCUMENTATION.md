@@ -10,18 +10,22 @@
 7. [Routing](#routing)
 8. [State Management](#state-management)
 9. [Third-party Libraries](#third-party-libraries)
-10. [Making Amendments](#making-amendments)
-11. [Deployment](#deployment)
+10. [Performance Optimization](#performance-optimization)
+11. [Accessibility](#accessibility)
+12. [Responsive Design](#responsive-design)
+13. [Making Amendments](#making-amendments)
+14. [Deployment](#deployment)
+15. [Troubleshooting](#troubleshooting)
 
 ## Project Overview
-This website is for INSERA, a company specializing in industrial machinery and solutions. The site showcases the company's services, projects, and expertise in various industries.
+This website is for INSERA, a company specializing in industrial machinery and solutions. The site showcases the company's services, projects, and expertise in various industries, with a focus on plastic packaging & recycling, food manufacturing, and pharmaceutical solutions.
 
 ## Technology Stack
-- React.js
-- Vite (as the build tool)
-- Tailwind CSS
-- Framer Motion (for animations)
-- React Router (for routing)
+- React.js (v18.2.0) - A JavaScript library for building user interfaces
+- Vite (v5.4.8) - Next generation frontend tooling
+- Tailwind CSS (v3.4.1) - A utility-first CSS framework
+- Framer Motion (v11.9.0) - A production-ready motion library for React
+- React Router (v6.22.3) - Declarative routing for React applications
 
 ## Project Structure
 
