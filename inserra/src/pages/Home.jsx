@@ -162,7 +162,7 @@ const Home = () => {
     <div className="bg-gray-100 relative">
       {/* Hero Section */}
       <motion.div 
-        className="relative z-10 bg-cover bg-center text-white overflow-hidden"
+        className="relative z-10 bg-cover bg-center text-white overflow-hidden min-h-screen flex items-center"
         style={{ backgroundImage: `url(${heroImage})` }}
         initial="hidden"
         animate="visible"
@@ -183,10 +183,10 @@ const Home = () => {
           <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary-dark/20 rounded-full filter blur-3xl"></div>
         </motion.div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -194,7 +194,7 @@ const Home = () => {
               Empowering Industries with
             </motion.h1>
             <motion.div
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -202,11 +202,11 @@ const Home = () => {
               <FlipWords 
                 words={words} 
                 duration={3000} 
-                className="text-blue-300" 
+                className="text-blue-300 inline-block" 
               />
             </motion.div>
             <motion.p 
-              className="text-xl sm:text-2xl mb-10 text-blue-100"
+              className="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-10 text-blue-100"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -221,14 +221,14 @@ const Home = () => {
             >
               <Link 
                 to="/contact" 
-                className="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-blue-100 transition duration-300 group"
+                className="inline-flex items-center justify-center bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-blue-100 transition duration-300 group"
               >
                 <span>Work with Us</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 to="/about" 
-                className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition duration-300"
+                className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition duration-300"
               >
                 Learn More
               </Link>
