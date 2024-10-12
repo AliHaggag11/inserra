@@ -27,7 +27,7 @@ This website is for INSERA, a company specializing in industrial machinery and s
 - Framer Motion (v11.9.0) - A production-ready motion library for React
 - React Router (v6.22.3) - Declarative routing for React applications
 
-## Project Structure
+<!-- ## Project Structure -->
 
 inserra/
 ├── src/
