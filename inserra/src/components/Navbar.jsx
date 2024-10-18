@@ -2,15 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import logo from '../assets/insera.png'; // Import the logo
+import logo from '../assets/insera.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPartnersDropdownOpen, setIsPartnersDropdownOpen] = useState(false);
-  const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,18 +22,17 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    if (isPartnersDropdownOpen) setIsPartnersDropdownOpen(false);
-    if (isIndustriesDropdownOpen) setIsIndustriesDropdownOpen(false);
+    setOpenDropdown(null);
+    setOpenSubDropdown(null);
   };
 
-  const togglePartnersDropdown = () => {
-    setIsPartnersDropdownOpen(!isPartnersDropdownOpen);
-    if (isIndustriesDropdownOpen) setIsIndustriesDropdownOpen(false);
+  const toggleDropdown = (dropdownName) => {
+    setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
+    setOpenSubDropdown(null);
   };
 
-  const toggleIndustriesDropdown = () => {
-    setIsIndustriesDropdownOpen(!isIndustriesDropdownOpen);
-    if (isPartnersDropdownOpen) setIsPartnersDropdownOpen(false);
+  const toggleSubDropdown = (subDropdownName) => {
+    setOpenSubDropdown(openSubDropdown === subDropdownName ? null : subDropdownName);
   };
 
   const menuVariants = {
@@ -85,9 +83,39 @@ const Navbar = () => {
     { 
       name: 'Industries', 
       subItems: [
-        { name: 'Packaging & Recycling', path: '/industries/packaging-recycling' },
-        { name: 'Appliance', path: '/industries/appliance' },
-        { name: 'Food & Pharmaceutical', path: '/industries/food-pharmaceutical' },
+        { 
+          name: 'Packaging', 
+          path: '/industries/packaging',
+          subItems: [
+            { name: 'Kiefel', path: '/industries/packaging/kiefel' },
+            { name: 'Kiefel Fiber', path: '/industries/packaging/kiefel-fiber' },
+            { name: 'Viscotec (Starlinger)', path: '/industries/packaging/viscotec' },
+          ]
+        },
+        { 
+          name: 'Recycling', 
+          path: '/industries/recycling',
+          subItems: [
+            { name: 'Starlinger Recycling', path: '/industries/recycling/starlinger-recycling' },
+            { name: 'Washing', path: '/industries/recycling/washing' },
+            { name: 'Sorting', path: '/industries/recycling/sorting' },
+          ]
+        },
+        { 
+          name: 'Appliance', 
+          path: '/industries/appliance',
+          subItems: [
+            { name: 'Kiefel Appliance', path: '/industries/appliance/kiefel-appliance' },
+          ]
+        },
+        { 
+          name: 'Food & Pharmaceutical', 
+          path: '/industries/food-pharmaceutical',
+          subItems: [
+            { name: 'Hanningfield', path: '/industries/food-pharmaceutical/hanningfield' },
+            { name: 'Kiefel Medical & Pharma', path: '/industries/food-pharmaceutical/kiefel-medical-pharma' },
+          ]
+        },
       ]
     },
     { 
@@ -117,10 +145,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Inserra Logo" className="h-10 w-auto" /> {/* Use the imported logo */}
+            <img src={logo} alt="Inserra Logo" className="h-10 w-auto" />
           </Link>
           
-          {/* Hamburger menu button for mobile */}
           <motion.button
             className={`md:hidden focus:outline-none z-50 ${isMenuOpen ? 'text-white' : getTextColor()}`}
             onClick={toggleMenu}
@@ -135,7 +162,6 @@ const Navbar = () => {
             </svg>
           </motion.button>
 
-          {/* Desktop menu */}
           <nav className="hidden md:block">
             <ul className="flex space-x-6">
               {navItems.map((item, index) => (
@@ -150,25 +176,58 @@ const Navbar = () => {
                     <>
                       <button 
                         className={`flex items-center hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
-                        onClick={item.name === 'Partners' ? togglePartnersDropdown : toggleIndustriesDropdown}
+                        onClick={() => toggleDropdown(item.name)}
                       >
                         {item.name}
                         <ChevronDown className="ml-1 h-4 w-4" />
                       </button>
-                      <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                        <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                          {item.subItems.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              to={subItem.path}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                              role="menuitem"
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
+                      <AnimatePresence>
+                        {openDropdown === item.name && (
+                          <motion.div 
+                            className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            variants={dropdownVariants}
+                          >
+                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                              {item.subItems.map((subItem) => (
+                                <div key={subItem.name} className="relative">
+                                  <button 
+                                    className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex items-center justify-between"
+                                    onClick={() => toggleSubDropdown(subItem.name)}
+                                  >
+                                    {subItem.name}
+                                    {subItem.subItems && <ChevronDown className="ml-1 h-4 w-4" />}
+                                  </button>
+                                  <AnimatePresence>
+                                    {openSubDropdown === subItem.name && subItem.subItems && (
+                                      <motion.div 
+                                        className="mt-2 w-full bg-gray-50"
+                                        initial="closed"
+                                        animate="open"
+                                        exit="closed"
+                                        variants={dropdownVariants}
+                                      >
+                                        {subItem.subItems.map((subSubItem) => (
+                                          <Link
+                                            key={subSubItem.name}
+                                            to={subSubItem.path}
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                            role="menuitem"
+                                          >
+                                            {subSubItem.name}
+                                          </Link>
+                                        ))}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </>
                   ) : (
                     <Link 
@@ -184,7 +243,6 @@ const Navbar = () => {
           </nav>
         </div>
 
-        {/* Mobile menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -205,13 +263,13 @@ const Navbar = () => {
                         <div>
                           <button 
                             className="text-2xl font-semibold text-white hover:text-blue-200 transition duration-300"
-                            onClick={item.name === 'Partners' ? togglePartnersDropdown : toggleIndustriesDropdown}
+                            onClick={() => toggleDropdown(item.name)}
                           >
                             {item.name}
-                            <ChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform duration-300 ${(item.name === 'Partners' ? isPartnersDropdownOpen : isIndustriesDropdownOpen) ? 'rotate-180' : ''}`} />
+                            <ChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform duration-300 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
                           </button>
                           <AnimatePresence>
-                            {(item.name === 'Partners' ? isPartnersDropdownOpen : isIndustriesDropdownOpen) && (
+                            {openDropdown === item.name && (
                               <motion.ul 
                                 className="mt-2 space-y-2"
                                 initial="closed"
@@ -224,13 +282,41 @@ const Navbar = () => {
                                     key={subItem.name}
                                     variants={menuItemVariants}
                                   >
-                                    <Link 
-                                      to={subItem.path}
-                                      className="text-xl font-semibold text-white hover:text-blue-200 transition duration-300" 
-                                      onClick={toggleMenu}
+                                    <button 
+                                      className="text-xl font-semibold text-white hover:text-blue-200 transition duration-300"
+                                      onClick={() => toggleSubDropdown(subItem.name)}
                                     >
                                       {subItem.name}
-                                    </Link>
+                                      {subItem.subItems && (
+                                        <ChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform duration-300 ${openSubDropdown === subItem.name ? 'rotate-180' : ''}`} />
+                                      )}
+                                    </button>
+                                    <AnimatePresence>
+                                      {openSubDropdown === subItem.name && subItem.subItems && (
+                                        <motion.ul 
+                                          className="mt-1 space-y-1"
+                                          initial="closed"
+                                          animate="open"
+                                          exit="closed"
+                                          variants={dropdownVariants}
+                                        >
+                                          {subItem.subItems.map((subSubItem) => (
+                                            <motion.li 
+                                              key={subSubItem.name}
+                                              variants={menuItemVariants}
+                                            >
+                                              <Link 
+                                                to={subSubItem.path}
+                                                className="text-lg text-white hover:text-blue-200 transition duration-300" 
+                                                onClick={toggleMenu}
+                                              >
+                                                {subSubItem.name}
+                                              </Link>
+                                            </motion.li>
+                                          ))}
+                                        </motion.ul>
+                                      )}
+                                    </AnimatePresence>
                                   </motion.li>
                                 ))}
                               </motion.ul>

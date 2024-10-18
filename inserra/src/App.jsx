@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 import PackagingRecycling from './pages/Packaging&Recycling';
 import Appliance from './pages/Appliance';
 import FoodPharmaceutical from './pages/Food&Pharmaceutical';
+import KiefelAppliance from './pages/industries/appliance/KiefelAppliance';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -57,6 +58,7 @@ function App() {
             <Route path="/industries/packaging-recycling" element={<PageWrapper><PackagingRecycling /></PageWrapper>} />
             <Route path="/industries/appliance" element={<PageWrapper><Appliance /></PageWrapper>} />
             <Route path="/industries/food-pharmaceutical" element={<PageWrapper><FoodPharmaceutical /></PageWrapper>} />
+            <Route path="/industries/appliance/kiefel-appliance" element={<KiefelAppliance />} />
           </Routes>
         </AnimatePresence>
       </main>
