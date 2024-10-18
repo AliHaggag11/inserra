@@ -37,7 +37,7 @@ const About = () => {
     const isLeft = index % 2 === 0;
 
     return (
-      <motion.div 
+      <motion.div
         ref={ref}
         className={`flex items-center mb-12 ${isLeft ? 'justify-start' : 'justify-end'}`}
         initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
@@ -51,7 +51,7 @@ const About = () => {
               <p className="text-blue-100">{milestone.description}</p>
             </div>
             <div className="w-2/12 flex justify-center">
-              <motion.div 
+              <motion.div
                 className="w-4 h-4 bg-blue-500 rounded-full timeline-dot"
                 initial={{ scale: 0 }}
                 animate={inView ? { scale: 1 } : {}}
@@ -64,7 +64,7 @@ const About = () => {
           <>
             <div className="w-5/12"></div>
             <div className="w-2/12 flex justify-center">
-              <motion.div 
+              <motion.div
                 className="w-4 h-4 bg-blue-500 rounded-full timeline-dot"
                 initial={{ scale: 0 }}
                 animate={inView ? { scale: 1 } : {}}
@@ -84,7 +84,7 @@ const About = () => {
   return (
     <div className="bg-gradient-to-br from-primary to-primary-dark min-h-screen text-white -mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32">
-        <motion.h1 
+        <motion.h1
           className="text-4xl sm:text-5xl font-bold mb-8 text-center"
           initial="hidden"
           animate="visible"
@@ -93,8 +93,8 @@ const About = () => {
         >
           About INSERA
         </motion.h1>
-        
-        <motion.div 
+
+        <motion.div
           className="max-w-3xl mx-auto mb-16"
           initial="hidden"
           animate="visible"
@@ -119,8 +119,7 @@ const About = () => {
         >
           <h2 className="text-3xl font-bold mb-4 text-center">Our Mission</h2>
           <p className="text-lg text-gray-700 text-center">
-            To empower industries with cutting-edge machinery and sustainable solutions, 
-            driving innovation and efficiency in production processes across the MENA region and beyond.
+            Our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them. Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology
           </p>
         </motion.div>
 
@@ -156,7 +155,7 @@ const About = () => {
           <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                 variants={fadeInUpVariants}
@@ -184,7 +183,7 @@ const About = () => {
         >
           <h2 className="text-3xl font-bold mb-8 text-center">Our Journey</h2>
           <div className="relative">
-            <motion.div 
+            <motion.div
               className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-300"
               initial={{ height: 0 }}
               animate={{ height: '100%' }}
