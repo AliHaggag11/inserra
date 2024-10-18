@@ -110,8 +110,8 @@ const Home = () => {
   const [activeTab, setActiveTab] = useState('vision');
 
   const tabContent = {
-    vision: " Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology.",
-    mission: "Our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them.",
+    vision: "Our vision is to continuously offer innovative solutions that drive a positive change in the industry to enhance the well-being of communities and create a more sustainable and eco-friendly world.",
+    mission: "At INSERA, our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them. Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology",
     strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver innovative, sustainable solutions across all segments of the plastic management value chain. We focus on attracting domestic investments, promoting the utilization of cutting-edge technologies, and fostering a culture of continuous improvement and environmental responsibility. By staying at the forefront of industry trends and technological advancements, we aim to provide our clients with the tools and expertise they need to succeed in an ever-evolving market landscape."
   };
 
@@ -157,23 +157,48 @@ const Home = () => {
     "Sustainable Practices",
     "Industry Expertise"
   ];
+  const [activeImage, setActiveImage] = useState(0);
+
+  const heroImages = [
+    heroImage, // Existing image
+    heroImage, // Duplicate for now
+    heroImage, // Duplicate for now
+    heroImage  // Duplicate for now
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
 
   return (
     <div className="bg-gray-100 relative">
       {/* Hero Section */}
-      <motion.div 
+      <motion.div
         className="relative z-10 bg-cover bg-center text-white overflow-hidden min-h-screen flex items-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
         initial="hidden"
         animate="visible"
         variants={fadeInUpVariants}
         transition={{ duration: 0.5 }}
       >
+        {heroImages.map((img, index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${img})` }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === activeImage ? 1 : 0 }}
+            transition={{ duration: 1.5 }} // Subtle fade transition
+          />
+        ))}
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
-        
+
         {/* Animated background shapes */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -185,7 +210,7 @@ const Home = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
+            <motion.h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -199,35 +224,35 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <FlipWords 
-                words={words} 
-                duration={3000} 
-                className="text-blue-300 inline-block" 
+              <FlipWords
+                words={words}
+                duration={3000}
+                className="text-blue-300 inline-block"
               />
             </motion.div>
-            <motion.p 
+            <motion.p
               className="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-10 text-blue-100"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              Your trusted partner for innovative machinery and sustainable growth
+              <em>"Partners for Growth"</em>
             </motion.p>
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-blue-100 transition duration-300 group"
               >
                 <span>Work with Us</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link 
-                to="/about" 
+              <Link
+                to="/about"
                 className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition duration-300"
               >
                 Learn More
@@ -237,7 +262,7 @@ const Home = () => {
         </div>
 
         {/* Animated scroll indicator */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -263,8 +288,8 @@ const Home = () => {
               { icon: <LightbulbIcon className="w-10 h-10" />, title: "Industry Knowledge", description: "Deep understanding of market and industry dynamics" },
               { icon: <TrendingUpIcon className="w-10 h-10" />, title: "Technology Developments", description: "Well-versed in market and technology advancements" },
             ].map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`bg-gradient-to-br from-primary to-primary-dark p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-white $
                   index === 6 ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
@@ -412,10 +437,10 @@ const Home = () => {
                     </div>
                     <div className="flex-grow p-6">
                       <p className="text-gray-700 mb-4">{project.description}</p>
-                      <a 
-                        href={project.website} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href={project.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-block bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-dark transition duration-300"
                       >
                         Visit Customer Website
