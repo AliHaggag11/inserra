@@ -191,7 +191,7 @@ const KiefelAppliance = () => {
           </button>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           className="text-center"
           initial="hidden"
           animate="visible"
@@ -200,7 +200,7 @@ const KiefelAppliance = () => {
         >
           <p className="text-2xl text-blue-200 mb-6">Ready to revolutionize your appliance production?</p>
           <a href="#contact" className="text-white text-xl underline hover:text-blue-200 transition duration-300">Contact us today</a>
-        </motion.div>
+        </motion.div> */}
 
         <AnimatePresence>
           {showModal && (
