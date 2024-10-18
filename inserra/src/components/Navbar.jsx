@@ -122,9 +122,15 @@ const Navbar = () => {
       name: 'Partners', 
       path: '/partners',
       subItems: [
-        { name: 'All Partners', path: '/partners' },
-        { name: 'Partner 1', path: '/partners/partner1' },
-        { name: 'Partner 2', path: '/partners/partner2' },
+        { name: 'Kiefel', path: '/partners/kiefel' },
+        { name: 'Kiefel Fiber', path: '/partners/kiefel-fiber' },
+        { name: 'Viscotec (Starlinger)', path: '/partners/viscotec' },
+        { name: 'Starlinger Recycling', path: '/partners/starlinger-recycling' },
+        { name: 'Washing', path: '/partners/washing' },
+        { name: 'Sorting', path: '/partners/sorting' },
+        { name: 'Kiefel Appliance', path: '/industries/appliance/kiefel-appliance' },
+        { name: 'Hanningfield', path: '/partners/hanningfield' },
+        { name: 'Kiefel Medical & Pharma', path: '/partners/kiefel-medical-pharma' },
       ]
     },
     { name: 'News', path: '/news' },
