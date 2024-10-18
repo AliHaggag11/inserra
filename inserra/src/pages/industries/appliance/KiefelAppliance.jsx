@@ -1,29 +1,28 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, X } from 'lucide-react';
 
 const KiefelAppliance = () => {
-  const [showIframe, setShowIframe] = useState(false);
-  const [iframeError, setIframeError] = useState(false);
-  const iframeRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
 
-  const toggleIframe = () => {
-    if (iframeError) {
-      // If there was an error loading the iframe, open in a new tab
-      window.open("https://www.kiefel.com/en/Appliance", "_blank");
-    } else {
-      setShowIframe(!showIframe);
-    }
+  const modalVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 }
   };
 
-  const handleIframeError = () => {
-    setIframeError(true);
-    setShowIframe(false);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+    setIframeLoaded(false);
+  };
+
+  const handleIframeLoad = () => {
+    setIframeLoaded(true);
   };
 
   return (
@@ -78,32 +77,46 @@ const KiefelAppliance = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <button 
-            onClick={toggleIframe}
+            onClick={toggleModal}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300"
           >
-            {iframeError ? 'Open' : (showIframe ? 'Hide' : 'Show')} Kiefel Appliance Website
+            Open Kiefel Appliance Website
             <ExternalLink className="ml-2 h-5 w-5" />
           </button>
         </motion.div>
 
-        {showIframe && !iframeError && (
-          <motion.div
-            className="w-full h-[80vh] bg-white rounded-lg shadow-lg overflow-hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '80vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <iframe
-              ref={iframeRef}
-              src="https://www.kiefel.com/en/Appliance"
-              title="Kiefel Appliance Website"
-              className="w-full h-full border-0"
-              allowFullScreen
-              onError={handleIframeError}
-            />
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {showModal && (
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={modalVariants}
+            >
+              <div className="bg-white rounded-lg shadow-lg w-11/12 h-5/6 md:w-4/5 md:h-5/6 relative flex flex-col">
+                <button
+                  onClick={toggleModal}
+                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
+                >
+                  <X size={24} />
+                </button>
+                {!iframeLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+                  </div>
+                )}
+                <iframe
+                  src="https://www.kiefel.com/en/Appliance"
+                  title="Kiefel Appliance Website"
+                  className="w-full h-full rounded-lg"
+                  onLoad={handleIframeLoad}
+                  style={{ display: iframeLoaded ? 'block' : 'none' }}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
