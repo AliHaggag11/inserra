@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck, ArrowRight } from 'lucide-react';
+import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck, ArrowRight, Factory, Recycle, Package, Refrigerator } from 'lucide-react';
 import heroImage from '../assets/plastic.png';
 import { FlipWords } from '../components/FlipWords';
 import Slider from "react-slick";
@@ -278,19 +278,19 @@ const Home = () => {
               {
                 title: "Packaging Solutions",
                 description: "Innovative packaging solutions for various industries",
-                icon: "🏭",
+                icon: <Package className="w-12 h-12 text-primary" />,
                 link: "/industries/packaging"
               },
               {
                 title: "Appliance Manufacturing",
                 description: "Cutting-edge technology for appliance production",
-                icon: "⚡",
+                icon: <Refrigerator className="w-12 h-12 text-primary" />,
                 link: "/industries/appliance/kiefel-appliance"
               },
               {
                 title: "Recycling Systems",
                 description: "Sustainable recycling solutions for a greener future",
-                icon: "♻️",
+                icon: <Recycle className="w-12 h-12 text-primary" />,
                 link: "/industries/recycling"
               }
             ].map((industry, index) => (
@@ -305,7 +305,7 @@ const Home = () => {
               >
                 <Link to={industry.link} className="block">
                   <div className="bg-white p-6 rounded-2xl h-full transition-transform duration-300 group-hover:translate-y-[-2px]">
-                    <div className="text-4xl mb-4">{industry.icon}</div>
+                    <div className="mb-4">{industry.icon}</div>
                     <h3 className="text-xl font-bold text-primary mb-2">{industry.title}</h3>
                     <p className="text-gray-600 mb-4">{industry.description}</p>
                     <div className="flex items-center text-primary font-semibold">

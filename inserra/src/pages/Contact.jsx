@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Check, Clock, Globe } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +24,6 @@ const Contact = () => {
       ...prevState,
       [name]: value
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prevErrors => ({
         ...prevErrors,
@@ -49,10 +48,7 @@ const Contact = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      // Form is valid, you can submit the data here
-      console.log('Form submitted:', formData);
       setIsSubmitted(true);
-      // Reset form after submission
       setTimeout(() => {
         setFormData({ name: '', email: '', subject: '', message: '' });
         setIsSubmitted(false);
@@ -60,141 +56,187 @@ const Contact = () => {
     }
   };
 
-  const SuccessAnimation = ({ message }) => (
-    <motion.div
-      className="flex flex-col items-center justify-center h-full"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <motion.div
-        className="rounded-full bg-green-500 p-2 mb-4"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.2, type: 'spring', stiffness: 500, damping: 15 }}
-      >
-        <Check size={48} color="white" />
-      </motion.div>
-      <p className="text-xl font-semibold text-gray-800">{message}</p>
-    </motion.div>
-  );
+  const contactInfo = [
+    {
+      icon: <MapPin className="w-6 h-6" />,
+      title: "Our Location",
+      content: "Cairo, Egypt",
+      link: "https://goo.gl/maps/yourLocation",
+      linkText: "Get Directions"
+    },
+    {
+      icon: <Phone className="w-6 h-6" />,
+      title: "Phone Number",
+      content: "+20 1220 566 640",
+      link: "tel:+201220566640",
+      linkText: "Call Us"
+    },
+    {
+      icon: <Mail className="w-6 h-6" />,
+      title: "Email Address",
+      content: "info@insera-eg.com",
+      link: "mailto:info@insera-eg.com",
+      linkText: "Send Email"
+    },
+    {
+      icon: <Clock className="w-6 h-6" />,
+      title: "Business Hours",
+      content: "Monday - Friday: 9:00 AM - 5:00 PM",
+      subContent: "Saturday: 10:00 AM - 2:00 PM"
+    }
+  ];
 
   return (
-    <div className="bg-gradient-to-br from-primary to-primary-dark min-h-screen text-white -mt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32">
-        <motion.h1 
-          className="text-4xl sm:text-5xl font-bold mb-8 text-center"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5 }}
-        >
-          Contact Us
-        </motion.h1>
-        
-        <div className="flex flex-col lg:flex-row gap-12">
+    <div className="min-h-screen bg-gradient-to-br from-primary to-primary-dark">
+      {/* Hero Section */}
+      <div className="relative pt-32 pb-20 text-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center max-w-3xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUpVariants}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
+            <p className="text-xl text-blue-200">
+              Have questions about our solutions? We're here to help you find the perfect fit for your industry needs.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Contact Information Cards */}
+          <div className="lg:col-span-1 space-y-6">
+            {contactInfo.map((info, index) => (
+              <motion.div
+                key={index}
+                className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="flex items-start">
+                  <div className="p-3 bg-white/10 rounded-lg">
+                    {info.icon}
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
+                    <p className="text-blue-200 mb-2">{info.content}</p>
+                    {info.subContent && (
+                      <p className="text-blue-200 text-sm">{info.subContent}</p>
+                    )}
+                    {info.link && (
+                      <a 
+                        href={info.link}
+                        className="inline-flex items-center text-blue-300 hover:text-white transition-colors duration-300"
+                        target={info.link.startsWith('http') ? '_blank' : undefined}
+                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {info.linkText} →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
           {/* Contact Form */}
           <motion.div 
-            className="lg:w-2/3 bg-white rounded-lg shadow-lg p-8"
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUpVariants}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-2 bg-white rounded-xl shadow-xl overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
           >
-            <AnimatePresence>
-              {isSubmitted ? (
-                <SuccessAnimation message="Message sent successfully!" />
-              ) : (
-                <>
-                  <h2 className="text-2xl font-bold mb-6 text-gray-800">Send us a message</h2>
-                  <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                      <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        value={formData.name}
-                        onChange={handleChange}
-                        className={`w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500 ${errors.name ? 'border-red-500' : ''}`} 
-                      />
-                      {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+            <div className="p-8">
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+              <AnimatePresence mode="wait">
+                {isSubmitted ? (
+                  <motion.div
+                    className="flex flex-col items-center justify-center py-12"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="bg-green-100 rounded-full p-3 mb-4">
+                      <Check className="w-8 h-8 text-green-500" />
                     </div>
-                    <div className="mb-4">
-                      <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={`w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500 ${errors.email ? 'border-red-500' : ''}`} 
-                      />
-                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Message Sent Successfully!</h3>
+                    <p className="text-gray-600">We'll get back to you as soon as possible.</p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 rounded-lg border ${
+                            errors.name ? 'border-red-500' : 'border-gray-300'
+                          } focus:outline-none focus:ring-2 focus:ring-primary/50`}
+                        />
+                        {errors.name && <p className="mt-1 text-red-500 text-sm">{errors.name}</p>}
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 rounded-lg border ${
+                            errors.email ? 'border-red-500' : 'border-gray-300'
+                          } focus:outline-none focus:ring-2 focus:ring-primary/50`}
+                        />
+                        {errors.email && <p className="mt-1 text-red-500 text-sm">{errors.email}</p>}
+                      </div>
                     </div>
-                    <div className="mb-4">
-                      <label htmlFor="subject" className="block text-gray-700 font-bold mb-2">Subject</label>
-                      <input 
-                        type="text" 
-                        id="subject" 
-                        name="subject" 
+                    <div>
+                      <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">Subject</label>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500 ${errors.subject ? 'border-red-500' : ''}`} 
+                        className={`w-full px-4 py-3 rounded-lg border ${
+                          errors.subject ? 'border-red-500' : 'border-gray-300'
+                        } focus:outline-none focus:ring-2 focus:ring-primary/50`}
                       />
-                      {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
+                      {errors.subject && <p className="mt-1 text-red-500 text-sm">{errors.subject}</p>}
                     </div>
-                    <div className="mb-4">
-                      <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
-                      <textarea 
-                        id="message" 
-                        name="message" 
-                        rows="4" 
+                    <div>
+                      <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
                         value={formData.message}
                         onChange={handleChange}
-                        className={`w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500 ${errors.message ? 'border-red-500' : ''}`}
+                        className={`w-full px-4 py-3 rounded-lg border ${
+                          errors.message ? 'border-red-500' : 'border-gray-300'
+                        } focus:outline-none focus:ring-2 focus:ring-primary/50`}
                       ></textarea>
-                      {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                      {errors.message && <p className="mt-1 text-red-500 text-sm">{errors.message}</p>}
                     </div>
-                    <button type="submit" className="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Send Message</button>
+                    <button
+                      type="submit"
+                      className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300"
+                    >
+                      Send Message
+                    </button>
                   </form>
-                </>
-              )}
-            </AnimatePresence>
-          </motion.div>
-
-          {/* Contact Information */}
-          <motion.div 
-            className="lg:w-1/3"
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUpVariants}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <div className="bg-blue-700 rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-              <ul className="space-y-4">
-                <li className="flex items-center">
-                  <MapPin className="mr-4" />
-                  <span>123 Plastic Ave, New York, NY 10001</span>
-                </li>
-                <li className="flex items-center">
-                  <Phone className="mr-4" />
-                  <span>(555) 123-4567</span>
-                </li>
-                <li className="flex items-center">
-                  <Mail className="mr-4" />
-                  <span>info@Insera.com</span>
-                </li>
-              </ul>
-            </div>
-            <div className="mt-8 bg-blue-700 rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-6">Business Hours</h2>
-              <ul className="space-y-2">
-                <li>Monday - Friday: 9:00 AM - 5:00 PM</li>
-                <li>Saturday: 10:00 AM - 2:00 PM</li>
-                <li>Sunday: Closed</li>
-              </ul>
+                )}
+              </AnimatePresence>
             </div>
           </motion.div>
         </div>

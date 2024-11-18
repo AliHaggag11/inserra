@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -10,14 +10,27 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const location = useLocation();
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
+    const handleClickOutside = (event) => {
+      if (window.innerWidth >= 768 && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+        setOpenSubDropdown(null);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -118,23 +131,6 @@ const Navbar = () => {
         },
       ]
     },
-    { 
-      name: 'Partners', 
-      path: '/partners',
-      subItems: [
-        { name: 'Kiefel', path: '/partners/kiefel' },
-        { name: 'Kiefel Fiber', path: '/partners/kiefel-fiber' },
-        { name: 'Viscotec (Starlinger)', path: '/partners/viscotec' },
-        { name: 'Starlinger Recycling', path: '/partners/starlinger-recycling' },
-        { name: 'Washing', path: '/partners/washing' },
-        { name: 'Sorting', path: '/partners/sorting' },
-        { name: 'Kiefel Appliance', path: '/industries/appliance/kiefel-appliance' },
-        { name: 'Hanningfield', path: '/partners/hanningfield' },
-        { name: 'Kiefel Medical & Pharma', path: '/partners/kiefel-medical-pharma' },
-      ]
-    },
-    { name: 'News', path: '/news' },
-    { name: 'Careers', path: '/careers' },
     { name: 'Contact', path: '/contact' }
   ];
 
@@ -144,6 +140,11 @@ const Navbar = () => {
 
   const getTextColor = () => {
     return 'text-primary';
+  };
+
+  const handleLinkClick = () => {
+    setOpenDropdown(null);
+    setOpenSubDropdown(null);
   };
 
   return (
@@ -168,7 +169,7 @@ const Navbar = () => {
             </svg>
           </motion.button>
 
-          <nav className="hidden md:block">
+          <nav className="hidden md:block" ref={dropdownRef}>
             <ul className="flex space-x-6">
               {navItems.map((item, index) => (
                 <motion.li 
@@ -199,13 +200,23 @@ const Navbar = () => {
                             <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                               {item.subItems.map((subItem) => (
                                 <div key={subItem.name} className="relative">
-                                  <button 
-                                    className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex items-center justify-between"
-                                    onClick={() => toggleSubDropdown(subItem.name)}
-                                  >
-                                    {subItem.name}
-                                    {subItem.subItems && <ChevronDown className="ml-1 h-4 w-4" />}
-                                  </button>
+                                  {subItem.subItems ? (
+                                    <button 
+                                      className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex items-center justify-between"
+                                      onClick={() => toggleSubDropdown(subItem.name)}
+                                    >
+                                      {subItem.name}
+                                      <ChevronDown className="ml-1 h-4 w-4" />
+                                    </button>
+                                  ) : (
+                                    <Link
+                                      to={subItem.path}
+                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                      onClick={handleLinkClick}
+                                    >
+                                      {subItem.name}
+                                    </Link>
+                                  )}
                                   <AnimatePresence>
                                     {openSubDropdown === subItem.name && subItem.subItems && (
                                       <motion.div 
@@ -220,6 +231,7 @@ const Navbar = () => {
                                             key={subSubItem.name}
                                             to={subSubItem.path}
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                            onClick={handleLinkClick}
                                             role="menuitem"
                                           >
                                             {subSubItem.name}
@@ -239,6 +251,7 @@ const Navbar = () => {
                     <Link 
                       to={item.path} 
                       className={`hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
+                      onClick={handleLinkClick}
                     >
                       {item.name}
                     </Link>
