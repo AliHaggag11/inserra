@@ -1,199 +1,272 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Factory, Package, Utensils, Stethoscope, Users, Zap, HeartHandshake, Award, Globe, Rocket } from 'lucide-react';
-import { useInView } from 'react-intersection-observer';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck,
+         HeadphonesIcon, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon } from 'lucide-react';
+import heroImage from '../assets/plastic.png';
 
 const About = () => {
+  const [activeTab, setActiveTab] = useState('vision');
+  
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
 
-  const services = [
-    { icon: <Factory />, title: "Production Expertise", description: "Representing top international manufacturers of production lines and machines." },
-    { icon: <Package />, title: "Plastic & Recycling Focus", description: "Specializing in plastic packaging and recycling solutions." },
-    { icon: <Utensils />, title: "Food Manufacturing", description: "Providing cutting-edge solutions for food production processes." },
-    { icon: <Stethoscope />, title: "Pharmaceutical Solutions", description: "Offering specialized equipment for pharmaceutical manufacturing." },
-    { icon: <Users />, title: "Client Partnership", description: "We're not just suppliers; we're partners in our clients' success stories." },
-    { icon: <Zap />, title: "Tailored Solutions", description: "Assisting clients in formulating solutions tailored to their unique production needs." },
-    { icon: <HeartHandshake />, title: "Ongoing Support", description: "Committed to providing continuous after-sales services and fostering enduring relationships." }
+  const tabVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 }
+  };
+
+  const keyStrengths = [
+    { icon: <HeadphonesIcon className="w-10 h-10" />, title: "Prompt Aftersales Support", description: "Providing quick and efficient support after purchase" },
+    { icon: <Users className="w-10 h-10" />, title: "Strong Relationships", description: "Having strong relationships with our customers and partners" },
+    { icon: <AwardIcon className="w-10 h-10" />, title: "Renowned Reputation", description: "Known for our excellence and quality in the industry" },
+    { icon: <ShieldCheckIcon className="w-10 h-10" />, title: "Trustworthiness", description: "Building trust through consistent reliability and integrity" },
+    { icon: <ClockIcon className="w-10 h-10" />, title: "Reliability", description: "Consistently delivering on our promises and commitments" },
+    { icon: <LightbulbIcon className="w-10 h-10" />, title: "Industry Knowledge", description: "Deep understanding of market and industry dynamics" },
+    { icon: <TrendingUpIcon className="w-10 h-10" />, title: "Technology Developments", description: "Well-versed in market and technology advancements" },
   ];
 
-  const milestones = [
-    { year: "1992", description: "INSERA was founded" },
-    { year: "2002", description: "Expanded into machinery representation" },
-    { year: "2010", description: "Became a leading supplier in the MENA region" },
-    { year: "2015", description: "Launched innovative recycling solutions" },
-    { year: "2020", description: "Expanded into new international markets" },
-    { year: "2023", description: "Celebrated 30 years of excellence" }
+  const coreValues = [
+    { icon: <Shield className="w-12 h-12" />, title: "Integrity", description: "We uphold the highest ethical standards, fostering trust and transparency in all our interactions." },
+    { icon: <Lightbulb className="w-12 h-12" />, title: "Innovation", description: "We embrace a culture of continuous improvement, encouraging creativity and innovation in all aspects of our business and always looking for more sustainable solutions." },
+    { icon: <Users className="w-12 h-12" />, title: "Customer-Oriented", description: "Our customers are at the heart of everything we do. We are committed to understand their needs, exceed expectations, and build lasting relationships." },
+    { icon: <Network className="w-12 h-12" />, title: "Collaboration", description: "We believe in the power of collaboration and we thrive on teamwork. By working as a team, we encourage diverse perspectives to achieve collective success and solve complex challenges." },
+    { icon: <Cpu className="w-12 h-12" />, title: "Adaptability", description: "In a dynamic business environment, we embrace change and demonstrate flexibility. We are agile in responding to new opportunities and challenges." },
+    { icon: <HeartHandshake className="w-12 h-12" />, title: "Social Responsibility", description: "We are committed to making a positive impact on society and the environment. Through responsible business practices, we contribute to the well-being of communities and the planet." },
+    { icon: <ClipboardCheck className="w-12 h-12" />, title: "Accountability", description: "We take ownership of our actions and decisions. Accountability is the foundation of our reliability and the key to building a culture of trust." },
   ];
 
-  const TimelineItem = ({ milestone, index }) => {
-    const [ref, inView] = useInView({
-      triggerOnce: true,
-      threshold: 0.2,
-    });
-
-    const isLeft = index % 2 === 0;
-
-    return (
-      <motion.div
-        ref={ref}
-        className={`flex items-center mb-12 ${isLeft ? 'justify-start' : 'justify-end'}`}
-        initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-      >
-        {isLeft ? (
-          <>
-            <div className="w-5/12 text-right pr-8">
-              <h3 className="text-2xl font-bold mb-2">{milestone.year}</h3>
-              <p className="text-blue-100">{milestone.description}</p>
-            </div>
-            <div className="w-2/12 flex justify-center">
-              <motion.div
-                className="w-4 h-4 bg-blue-500 rounded-full timeline-dot"
-                initial={{ scale: 0 }}
-                animate={inView ? { scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-              />
-            </div>
-            <div className="w-5/12"></div>
-          </>
-        ) : (
-          <>
-            <div className="w-5/12"></div>
-            <div className="w-2/12 flex justify-center">
-              <motion.div
-                className="w-4 h-4 bg-blue-500 rounded-full timeline-dot"
-                initial={{ scale: 0 }}
-                animate={inView ? { scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-              />
-            </div>
-            <div className="w-5/12 text-left pl-8">
-              <h3 className="text-2xl font-bold mb-2">{milestone.year}</h3>
-              <p className="text-blue-100">{milestone.description}</p>
-            </div>
-          </>
-        )}
-      </motion.div>
-    );
+  const tabContent = {
+    vision: "Our vision is to continuously offer innovative solutions that drive a positive change in the industry to enhance the well-being of communities and create a more sustainable and eco-friendly world.",
+    mission: "At INSERA, our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services.",
+    strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver innovative, sustainable solutions across all segments of the plastic management value chain."
   };
 
   return (
-    <div className="bg-gradient-to-br from-primary to-primary-dark min-h-screen text-white -mt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32">
-        <motion.h1
-          className="text-4xl sm:text-5xl font-bold mb-8 text-center"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5 }}
-        >
-          About INSERA
-        </motion.h1>
+    <div className="min-h-screen text-white -mt-20">
+      {/* Hero Section - Dark gradient background */}
+      <div className="relative h-[60vh] overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div 
+            className="text-center px-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">About INSERA</h1>
+            <p className="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto">
+              Three Decades of Excellence in Industrial Solutions
+            </p>
+          </motion.div>
+        </div>
+      </div>
 
-        <motion.div
-          className="max-w-3xl mx-auto mb-16"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <p className="text-xl leading-relaxed text-center text-blue-100">
-            At INSERA, we are the local representatives of international manufacturers of production lines and
-            machines. Our focus lies in plastic packaging & recycling, as well as food &
-            pharmaceutical manufacturing. We pride ourselves on being partners in our clients' success stories,
-            from initial project development through implementation and ongoing support.
-          </p>
-        </motion.div>
-
-        {/* Our Mission */}
-        <motion.div
-          className="bg-white text-primary rounded-lg shadow-lg p-8 mb-16"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h2 className="text-3xl font-bold mb-4 text-center">Our Mission</h2>
-          <p className="text-lg text-gray-700 text-center">
-            Our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them. Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology
-          </p>
-        </motion.div>
-
-        {/* Key Features */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          {[
-            { icon: <Award size={48} />, title: "Excellence", description: "Committed to delivering top-quality solutions" },
-            { icon: <Globe size={48} />, title: "Global Reach", description: "Partnering with leading international manufacturers" },
-            { icon: <Rocket size={48} />, title: "Innovation", description: "Driving industry advancements and sustainability" }
-          ].map((feature, index) => (
-            <div key={index} className="bg-blue-700 rounded-lg p-6 text-center flex flex-col items-center">
-              <div className="text-white mb-4 flex justify-center">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-blue-100">{feature.description}</p>
+      {/* Company Overview - Light background */}
+      <div className="bg-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div 
+            className="mb-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUpVariants}
+          >
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-8 text-primary">Our Story</h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Since our establishment in 1992, INSERA has been at the forefront of industrial innovation. 
+                We've grown from a local enterprise to a respected international player, representing world-class 
+                manufacturers and delivering cutting-edge solutions across the MENA region.
+              </p>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+        </div>
+      </div>
 
-        {/* Our Services */}
-        <motion.div
-          className="mb-16"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                variants={fadeInUpVariants}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <div className="flex items-center mb-4">
-                  <div className="text-primary mr-4">
-                    {service.icon}
+      {/* Key Strengths Section - Dark gradient background */}
+      <div className="bg-gradient-to-br from-primary to-primary-dark">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div className="mb-0">
+            <h2 className="text-3xl font-bold text-center mb-12 text-white">Our Key Strengths</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+                {keyStrengths.slice(0, 6).map((strength, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="bg-primary/10 p-3 rounded-full mr-4">
+                        <div className="text-primary">{strength.icon}</div>
+                      </div>
+                      <h3 className="text-xl font-semibold text-primary">{strength.title}</h3>
+                    </div>
+                    <p className="text-gray-600">{strength.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+              {/* Last item centered */}
+              <div className="col-span-1 md:col-span-3 flex justify-center">
+                <motion.div
+                  className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.6 }}
+                >
+                  <div className="flex items-center mb-4">
+                    <div className="bg-primary/10 p-3 rounded-full mr-4">
+                      <div className="text-primary">{keyStrengths[6].icon}</div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-primary">{keyStrengths[6].title}</h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-primary">{service.title}</h3>
-                </div>
-                <p className="text-gray-600">{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+                  <p className="text-gray-600">{keyStrengths[6].description}</p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
-        {/* Company Timeline */}
-        <motion.div
-          className="mb-16"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Journey</h2>
-          <div className="relative">
-            <motion.div
-              className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-300"
-              initial={{ height: 0 }}
-              animate={{ height: '100%' }}
-              transition={{ duration: 1, delay: 1.2 }}
-            />
-            {milestones.map((milestone, index) => (
-              <TimelineItem key={index} milestone={milestone} index={index} />
-            ))}
+      {/* Vision/Mission/Strategy Tabs - Light background */}
+      <div className="bg-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div 
+            className="mb-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUpVariants}
+          >
+            <h2 className="text-3xl font-bold text-center mb-12 text-primary">Our Guiding Principles</h2>
+            <div className="flex justify-center mb-12 space-x-4 flex-wrap">
+              {['vision', 'mission', 'strategy'].map((tab) => (
+                <button
+                  key={tab}
+                  className={`px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 mb-4 ${
+                    activeTab === tab
+                      ? 'bg-primary text-white shadow-lg transform scale-105'
+                      : 'bg-white text-primary hover:bg-blue-100 hover:scale-105'
+                  }`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </button>
+              ))}
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={tabVariants}
+                transition={{ duration: 0.3 }}
+                className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-6 shadow-xl"
+              >
+                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-8">
+                  <h3 className="text-3xl font-bold mb-8 text-white">
+                    Our {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+                  </h3>
+                  <p className="text-xl text-blue-100">{tabContent[activeTab]}</p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Background Image Section - Full width image */}
+      <motion.div 
+        className="relative h-[50vh] bg-fixed bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
+        <div className="relative h-full flex items-center justify-center">
+          <div className="text-center px-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Leading Industrial Innovation</h2>
+            <p className="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto">
+              Delivering cutting-edge solutions and world-class machinery to empower industries across the MENA region
+            </p>
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Core Values - Dark gradient background */}
+      <div className="bg-gradient-to-br from-primary to-primary-dark">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div className="mb-0">
+            <h2 className="text-3xl font-bold text-center mb-12 text-white">Our Core Values</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+                {coreValues.slice(0, 6).map((value, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-white/10 backdrop-blur-lg rounded-lg p-6 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <div className="text-blue-300 mb-4">{value.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                    <p className="text-blue-100">{value.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+              {/* Last item centered */}
+              <div className="col-span-1 md:col-span-3 flex justify-center">
+                <motion.div
+                  className="bg-white/10 backdrop-blur-lg rounded-lg p-6 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.6 }}
+                >
+                  <div className="text-blue-300 mb-4">{coreValues[6].icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{coreValues[6].title}</h3>
+                  <p className="text-blue-100">{coreValues[6].description}</p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Final CTA Section - Light background */}
+      <div className="bg-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div 
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUpVariants}
+          >
+            <h2 className="text-3xl font-bold mb-6 text-primary">Ready to Work Together?</h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Let's discuss how we can help your business grow with our innovative solutions.
+            </p>
+            <a 
+              href="/contact" 
+              className="inline-block bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-dark transition duration-300"
+            >
+              Contact Us Today
+            </a>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

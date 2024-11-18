@@ -1,15 +1,52 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Slider from "react-slick";
-import { motion, AnimatePresence } from 'framer-motion';
-import { Flipper, Flipped } from 'react-flip-toolkit';
-import { HeadphonesIcon, Users, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon, ArrowRight, Shield, Lightbulb, Network, Cpu, HeartHandshake, ClipboardCheck } from 'lucide-react';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { motion } from 'framer-motion';
+import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck, ArrowRight } from 'lucide-react';
 import heroImage from '../assets/plastic.png';
 import { FlipWords } from '../components/FlipWords';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const words = [
+    "Cutting-Edge Solutions",
+    "Innovative Technologies",
+    "Sustainable Practices",
+    "Industry Expertise"
+  ];
+
+  const [activeImage, setActiveImage] = useState(0);
+
+  const heroImages = [
+    heroImage,
+    heroImage,
+    heroImage,
+    heroImage
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
+  const coreValues = [
+    { icon: <Shield className="w-12 h-12" />, title: "Integrity", description: "We uphold the highest ethical standards, fostering trust and transparency in all our interactions." },
+    { icon: <Lightbulb className="w-12 h-12" />, title: "Innovation", description: "We embrace a culture of continuous improvement, encouraging creativity and innovation in all aspects of our business and always looking for more sustainable solutions." },
+    { icon: <Users className="w-12 h-12" />, title: "Customer-Oriented", description: "Our customers are at the heart of everything we do. We are committed to understand their needs, exceed expectations, and build lasting relationships." },
+    { icon: <Network className="w-12 h-12" />, title: "Collaboration", description: "We believe in the power of collaboration and we thrive on teamwork. By working as a team, we encourage diverse perspectives to achieve collective success and solve complex challenges." },
+    { icon: <Cpu className="w-12 h-12" />, title: "Adaptability", description: "In a dynamic business environment, we embrace change and demonstrate flexibility. We are agile in responding to new opportunities and challenges." },
+    { icon: <HeartHandshake className="w-12 h-12" />, title: "Social Responsibility", description: "We are committed to making a positive impact on society and the environment. Through responsible business practices, we contribute to the well-being of communities and the planet." },
+    { icon: <ClipboardCheck className="w-12 h-12" />, title: "Accountability", description: "We take ownership of our actions and decisions. Accountability is the foundation of our reliability and the key to building a culture of trust." },
+  ];
+
   const partners = [
     { name: 'Kiefel', logo: 'kiefelLogo' },
     { name: 'Viscotec', logo: 'viscotecLogo' },
@@ -24,34 +61,20 @@ const Home = () => {
     {
       id: '01',
       title: 'Al Baraka Pack',
-      customerLogo: '/path/to/albaraka-logo.png', // Update with actual path
-      partnerLogo: '/path/to/viscotec-logo.png', // Update with actual path
+      customerLogo: '/path/to/albaraka-logo.png',
+      partnerLogo: '/path/to/viscotec-logo.png',
       description: "Al Baraka Pack, with extensive experience in Syrian food packaging, began collaborating with us in September 2021 for their new Egyptian facility. Seeking to enter the Egyptian market with premium packaging products, they required top-tier equipment for high-quality PET sheet production. In partnership with Viscotec, we engaged in thorough discussions to determine the optimal solution for their needs. Our team approach involved close communication and multiple on-site visits throughout implementation, ensuring project success. Q1 2023 saw the successful installation and startup of our PET Extrusion line. Since then, we've provided continuous support for their aftersales requirements.",
       website: 'https://albarakapack.com/about-us/',
     },
     {
       id: '02',
       title: 'IFF',
-      customerLogo: '/path/to/iff-logo.png', // Update with actual path
-      partnerLogo: '/path/to/hanningfield-logo.png', // Update with actual path
+      customerLogo: '/path/to/iff-logo.png',
+      partnerLogo: '/path/to/hanningfield-logo.png',
       description: "Our project with IFF, a global leader in food, beverage, scent, home and personal care, and health, was both interesting and challenging. Working on their expansion project alongside our partner Hanningfield, we recognized early on that their needs required a customized solution. Through numerous meetings and extensive discussions, we developed the best technical solution to meet their specific requirements. The project involved coordinating with the customer and third parties to ensure our powder processing equipment integrated seamlessly with their new blending equipment and WIP system.",
       website: 'https://www.iff.com/',
     },
   ];
-
-  const projectSliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000, // Changed from 5000 to 3000 for faster auto-scroll
-    fade: true,
-    cssEase: 'linear',
-    beforeChange: (current, next) => setActiveProject(next),
-    arrows: false, // Remove side arrows
-  };
 
   const testimonials = [
     {
@@ -80,6 +103,37 @@ const Home = () => {
     }
   ];
 
+  const projectSliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: false,
+    swipe: true,
+    swipeToSlide: true,
+    touchThreshold: 10,
+    cssEase: 'cubic-bezier(0.87, 0, 0.13, 1)',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  };
+
   const testimonialSettings = {
     dots: true,
     infinite: true,
@@ -107,73 +161,6 @@ const Home = () => {
     ]
   };
 
-  const [activeTab, setActiveTab] = useState('vision');
-
-  const tabContent = {
-    vision: "Our vision is to continuously offer innovative solutions that drive a positive change in the industry to enhance the well-being of communities and create a more sustainable and eco-friendly world.",
-    mission: "At INSERA, our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them. Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology",
-    strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver innovative, sustainable solutions across all segments of the plastic management value chain. We focus on attracting domestic investments, promoting the utilization of cutting-edge technologies, and fostering a culture of continuous improvement and environmental responsibility. By staying at the forefront of industry trends and technological advancements, we aim to provide our clients with the tools and expertise they need to succeed in an ever-evolving market landscape."
-  };
-
-  const partnerLogos = [
-    'kiefelLogo', 'viscotecLogo', 'bekumLogo', 'autefaLogo', 'motanLogo', 'bbeLogo', 'kraussmaffeLogo'
-  ];
-
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
-  const tabVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -10 }
-  };
-
-  const [activeProject, setActiveProject] = useState(0);
-
-  // Auto-scroll effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveProject((prev) => (prev + 1) % featuredProjects.length);
-    }, 4000); // Changed from 5000 to 3000 for faster auto-scroll
-
-    return () => clearInterval(interval);
-  }, [featuredProjects.length]);
-
-  const coreValues = [
-    { icon: <Shield className="w-12 h-12" />, title: "Integrity", description: "We uphold the highest ethical standards, fostering trust and transparency in all our interactions." },
-    { icon: <Lightbulb className="w-12 h-12" />, title: "Innovation", description: "We embrace a culture of continuous improvement, encouraging creativity and innovation in all aspects of our business and always looking for more sustainable solutions." },
-    { icon: <Users className="w-12 h-12" />, title: "Customer-Oriented", description: "Our customers are at the heart of everything we do. We are committed to understand their needs, exceed expectations, and build lasting relationships." },
-    { icon: <Network className="w-12 h-12" />, title: "Collaboration", description: "We believe in the power of collaboration and we thrive on teamwork. By working as a team, we encourage diverse perspectives to achieve collective success and solve complex challenges." },
-    { icon: <Cpu className="w-12 h-12" />, title: "Adaptability", description: "In a dynamic business environment, we embrace change and demonstrate flexibility. We are agile in responding to new opportunities and challenges." },
-    { icon: <HeartHandshake className="w-12 h-12" />, title: "Social Responsibility", description: "We are committed to making a positive impact on society and the environment. Through responsible business practices, we contribute to the well-being of communities and the planet." },
-    { icon: <ClipboardCheck className="w-12 h-12" />, title: "Accountability", description: "We take ownership of our actions and decisions. Accountability is the foundation of our reliability and the key to building a culture of trust." },
-  ];
-
-  const words = [
-    "Cutting-Edge Solutions",
-    "Innovative Technologies",
-    "Sustainable Practices",
-    "Industry Expertise"
-  ];
-  const [activeImage, setActiveImage] = useState(0);
-
-  const heroImages = [
-    heroImage, // Existing image
-    heroImage, // Duplicate for now
-    heroImage, // Duplicate for now
-    heroImage  // Duplicate for now
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveImage((prev) => (prev + 1) % heroImages.length);
-    }, 5000); // Change image every 5 seconds
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
-
-
   return (
     <div className="bg-gray-100 relative">
       {/* Hero Section */}
@@ -191,7 +178,7 @@ const Home = () => {
             style={{ backgroundImage: `url(${img})` }}
             initial={{ opacity: 0 }}
             animate={{ opacity: index === activeImage ? 1 : 0 }}
-            transition={{ duration: 1.5 }} // Subtle fade transition
+            transition={{ duration: 1.5 }}
           />
         ))}
         <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -274,118 +261,116 @@ const Home = () => {
         </motion.div>
       </motion.div>
 
-      {/* Features Section */}
-      <div className="bg-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary">Our Key Strengths</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Industries We Serve */}
+      <motion.div className="relative z-20 bg-white py-20">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Industries We Serve</h2>
+            <p className="text-gray-600 text-lg">Delivering innovative solutions across diverse sectors</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: <HeadphonesIcon className="w-10 h-10" />, title: "Prompt Aftersales Support", description: "Providing quick and efficient support after purchase" },
-              { icon: <Users className="w-10 h-10" />, title: "Strong Relationships", description: "Having strong relationships with our customers and partners" },
-              { icon: <AwardIcon className="w-10 h-10" />, title: "Renowned Reputation", description: "Known for our excellence and quality in the industry" },
-              { icon: <ShieldCheckIcon className="w-10 h-10" />, title: "Trustworthiness", description: "Building trust through consistent reliability and integrity" },
-              { icon: <ClockIcon className="w-10 h-10" />, title: "Reliability", description: "Consistently delivering on our promises and commitments" },
-              { icon: <LightbulbIcon className="w-10 h-10" />, title: "Industry Knowledge", description: "Deep understanding of market and industry dynamics" },
-              { icon: <TrendingUpIcon className="w-10 h-10" />, title: "Technology Developments", description: "Well-versed in market and technology advancements" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`bg-gradient-to-br from-primary to-primary-dark p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-white $
-                  index === 6 ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
-              >
-                <div className="flex items-center mb-4">
-                  <div className="bg-white bg-opacity-10 p-3 rounded-full mr-4">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                </div>
-                <p className="text-blue-100">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Core Values Section */}
-      <motion.div
-        className="relative z-20 bg-gradient-to-br from-primary to-primary-dark text-white py-16 sm:py-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUpVariants}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl sm:text-4xl font-bold mb-4">CORE VALUES</h3>
-            <p className="text-blue-100 text-lg max-w-3xl mx-auto">
-              These values collectively guide our actions, decisions, and
-              relationships, shaping the culture of our company and
-              influencing our contributions to the world
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreValues.map((value, index) => (
+              {
+                title: "Packaging Solutions",
+                description: "Innovative packaging solutions for various industries",
+                icon: "🏭",
+                link: "/industries/packaging"
+              },
+              {
+                title: "Appliance Manufacturing",
+                description: "Cutting-edge technology for appliance production",
+                icon: "⚡",
+                link: "/industries/appliance/kiefel-appliance"
+              },
+              {
+                title: "Recycling Systems",
+                description: "Sustainable recycling solutions for a greener future",
+                icon: "♻️",
+                link: "/industries/recycling"
+              }
+            ].map((industry, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUpVariants}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary-dark p-1"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <div className="text-primary mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-primary">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
+                <Link to={industry.link} className="block">
+                  <div className="bg-white p-6 rounded-2xl h-full transition-transform duration-300 group-hover:translate-y-[-2px]">
+                    <div className="text-4xl mb-4">{industry.icon}</div>
+                    <h3 className="text-xl font-bold text-primary mb-2">{industry.title}</h3>
+                    <p className="text-gray-600 mb-4">{industry.description}</p>
+                    <div className="flex items-center text-primary font-semibold">
+                      Learn More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.div>
 
-      {/* Company Vision Section */}
-      <motion.div
-        className="relative z-30 bg-white text-primary py-16 sm:py-20"
-        initial="hidden"
-        whileInView="visible"
+      {/* Global Presence */}
+      <motion.div 
+        className="relative z-30 py-20 overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        variants={fadeInUpVariants}
-        transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8 text-primary">Our Guiding Principles</h2>
-            <div className="flex mb-4 border-b border-primary">
-              {['vision', 'mission', 'strategy'].map((tab) => (
-                <button
-                  key={tab}
-                  className={`flex-1 py-2 px-4 text-sm font-medium ${activeTab === tab ? 'text-primary border-b-2 border-primary' : 'text-gray-500 hover:text-primary'}`}
-                  onClick={() => setActiveTab(tab)}
-                >
-                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                </button>
-              ))}
-            </div>
-            <div className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-6 shadow-md">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={tabVariants}
-                  transition={{ duration: 0.3 }}
-                  className="text-white"
-                >
-                  <h3 className="text-xl font-bold mb-4 text-white">
-                    {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
-                  </h3>
-                  <p className="text-blue-100">
-                    {tabContent[activeTab]}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        ></div>
+        <div className="relative container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Global Presence</h2>
+              <p className="text-blue-200 text-lg">Connecting industries with world-class solutions</p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">European Partners</h3>
+                <p className="text-blue-100 mb-6">
+                  Exclusive partnerships with leading European manufacturers, bringing cutting-edge technology to the MENA region.
+                </p>
+                <div className="flex items-center text-blue-200 font-semibold group cursor-pointer">
+                  View Partners <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </motion.div>
+              <motion.div
+                className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">MENA Presence</h3>
+                <p className="text-blue-100 mb-6">
+                  Strong regional presence with successful implementations across the Middle East and North Africa.
+                </p>
+                <div className="flex items-center text-blue-200 font-semibold group cursor-pointer">
+                  Our Projects <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -393,10 +378,29 @@ const Home = () => {
 
       {/* Partner Logos Marquee */}
       <div className="relative z-40 bg-gray-100 py-12 overflow-hidden">
+        <style>
+          {`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            
+            @media (max-width: 768px) {
+              .animate-marquee {
+                animation: marquee 10s linear infinite; /* Even faster on mobile (changed from 15s to 10s) */
+              }
+            }
+            
+            @media (min-width: 769px) {
+              .animate-marquee {
+                animation: marquee 30s linear infinite; /* Original speed on desktop */
+              }
+            }
+          `}
+        </style>
         <div className="flex animate-marquee">
-          {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+          {[...partners, ...partners].map((partner, index) => (
             <div key={index} className="flex-shrink-0 w-48 mx-8">
-              {/* Replace with actual logo images */}
               <div className="h-16 bg-gray-400 rounded-lg filter grayscale"></div>
             </div>
           ))}
@@ -404,14 +408,7 @@ const Home = () => {
       </div>
 
       {/* Featured Projects Section */}
-      <motion.div
-        className="relative z-50 bg-gradient-to-bl from-primary to-primary-dark text-white py-16 sm:py-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUpVariants}
-        transition={{ duration: 0.5 }}
-      >
+      <motion.div className="relative z-50 bg-gradient-to-bl from-primary to-primary-dark text-white py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-blue-200 font-semibold mb-2">FEATURED CASES</h2>
@@ -455,14 +452,7 @@ const Home = () => {
       </motion.div>
 
       {/* Testimonials Section */}
-      <motion.div
-        className="relative z-60 bg-gray-100 py-16 sm:py-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUpVariants}
-        transition={{ duration: 0.5 }}
-      >
+      <motion.div className="relative z-60 bg-gray-100 py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-primary">What Our Clients Say</h2>
@@ -494,6 +484,62 @@ const Home = () => {
               </div>
             ))}
           </Slider>
+        </div>
+      </motion.div>
+
+      {/* New CTA Section */}
+      <motion.div 
+        className="relative z-70 py-24 overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        ></div>
+        <div className="relative container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Ready to Transform Your Industry?
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-blue-100 mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Join the leading companies who trust INSERA for their industrial solutions
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link
+                to="/contact"
+                className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Schedule a Consultation
+              </Link>
+              <Link
+                to="/about"
+                className="text-white border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition duration-300"
+              >
+                Learn More About Us
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </motion.div>
     </div>
