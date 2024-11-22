@@ -262,57 +262,96 @@ const Home = () => {
       </motion.div>
 
       {/* Industries We Serve */}
-      <motion.div className="relative z-20 bg-white py-20">
+      <motion.div className="relative z-20 bg-gradient-to-br from-gray-50 to-white py-24">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-12"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Industries We Serve</h2>
-            <p className="text-gray-600 text-lg">Delivering innovative solutions across diverse sectors</p>
+            <span className="text-primary font-semibold mb-4 block tracking-wider">CORE INDUSTRIES</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-dark">
+              Industries We Serve
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary-dark mx-auto mb-6"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Delivering innovative solutions and cutting-edge technology to transform industrial processes
+            </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
             {[
               {
                 title: "Packaging Solutions",
-                description: "Innovative packaging solutions for various industries",
-                icon: <Package className="w-12 h-12 text-primary" />,
-                link: "/industries/packaging"
+                description: "Advanced thermoforming technology for sustainable packaging solutions",
+                icon: <Package className="w-12 h-12" />,
+                link: "/industries/packaging",
+                features: ["Thermoforming Systems", "Fiber Technology", "Sustainable Materials"],
+                stats: { value: "40%", label: "Market Share" }
               },
               {
                 title: "Appliance Manufacturing",
-                description: "Cutting-edge technology for appliance production",
-                icon: <Refrigerator className="w-12 h-12 text-primary" />,
-                link: "/industries/appliance/kiefel-appliance"
+                description: "High-performance solutions for appliance component production",
+                icon: <Refrigerator className="w-12 h-12" />,
+                link: "/industries/appliance",
+                features: ["Interior Liners", "Door Components", "Precision Forming"],
+                stats: { value: "15+", label: "Years Experience" }
               },
               {
                 title: "Recycling Systems",
-                description: "Sustainable recycling solutions for a greener future",
-                icon: <Recycle className="w-12 h-12 text-primary" />,
-                link: "/industries/recycling"
+                description: "Complete recycling solutions for a sustainable future",
+                icon: <Recycle className="w-12 h-12" />,
+                link: "/industries/recycling",
+                features: ["Material Recovery", "Washing Systems", "Sorting Technology"],
+                stats: { value: "100+", label: "Installations" }
               }
             ].map((industry, index) => (
               <motion.div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary-dark p-1"
+                className="group relative bg-white rounded-2xl shadow-lg overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ y: -5 }}
               >
-                <Link to={industry.link} className="block">
-                  <div className="bg-white p-6 rounded-2xl h-full transition-transform duration-300 group-hover:translate-y-[-2px]">
-                    <div className="mb-4">{industry.icon}</div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{industry.title}</h3>
-                    <p className="text-gray-600 mb-4">{industry.description}</p>
-                    <div className="flex items-center text-primary font-semibold">
-                      Learn More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-dark transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                <Link to={industry.link} className="block p-8 relative">
+                  <div className="absolute top-0 right-0 p-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">{industry.stats.value}</div>
+                      <div className="text-sm text-gray-500">{industry.stats.label}</div>
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <div className="bg-primary/5 rounded-2xl p-4 w-fit mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-primary">
+                        {industry.icon}
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors">
+                      {industry.title}
+                    </h3>
+                    <p className="text-gray-600 mb-6 line-clamp-2">
+                      {industry.description}
+                    </p>
+                    <div className="space-y-3 mb-8">
+                      {industry.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center text-gray-600">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
+                          <span className="text-sm font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center text-primary font-semibold group-hover:text-primary-dark transition-all duration-300">
+                      Explore Solutions 
+                      <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
                   </div>
                 </Link>
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
               </motion.div>
             ))}
           </div>

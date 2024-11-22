@@ -11,9 +11,21 @@ import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import ScrollToTop from './components/ScrollToTop';
 import PackagingRecycling from './pages/Packaging&Recycling';
-import Appliance from './pages/Appliance';
+import Appliance from './pages/industries/appliance/Appliance';
 import FoodPharmaceutical from './pages/Food&Pharmaceutical';
 import KiefelAppliance from './pages/industries/appliance/KiefelAppliance';
+import Washing from './pages/industries/recycling/Washing';
+import Sorting from './pages/industries/recycling/Sorting';
+import Recycling from './pages/industries/recycling/Recycling';
+import Packaging from './pages/industries/packaging/Packaging';
+import KiefelPackaging from './pages/industries/packaging/KiefelPackaging';
+import SpeedformerKMD from './pages/industries/packaging/machines/SpeedformerKMD';
+import StackingAutomation from './pages/industries/packaging/machines/StackingAutomation';
+import UpstreamDownstream from './pages/industries/packaging/machines/UpstreamDownstream';
+import KmdTooling from './pages/industries/packaging/machines/KmdTooling';
+import SpeedformerKTR from './pages/industries/packaging/machines/SpeedformerKTR';
+import StackingKTR from './pages/industries/packaging/machines/StackingKTR';
+import TiltingTools from './pages/industries/packaging/machines/TiltingTools';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -55,10 +67,27 @@ function App() {
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
             <Route path="/partners" element={<PageWrapper><Partners /></PageWrapper>} />
             <Route path="/news" element={<PageWrapper><News /></PageWrapper>} />
-            <Route path="/industries/packaging-recycling" element={<PageWrapper><PackagingRecycling /></PageWrapper>} />
+            
+            {/* Industry Routes */}
+            <Route path="/industries/packaging" element={<PageWrapper><Packaging /></PageWrapper>} />
             <Route path="/industries/appliance" element={<PageWrapper><Appliance /></PageWrapper>} />
+            <Route path="/industries/recycling" element={<PageWrapper><Recycling /></PageWrapper>} />
             <Route path="/industries/food-pharmaceutical" element={<PageWrapper><FoodPharmaceutical /></PageWrapper>} />
-            <Route path="/industries/appliance/kiefel-appliance" element={<KiefelAppliance />} />
+            
+            {/* Sub-routes */}
+            <Route path="/industries/appliance/kiefel-appliance" element={<PageWrapper><KiefelAppliance /></PageWrapper>} />
+            <Route path="/industries/recycling/washing" element={<PageWrapper><Washing /></PageWrapper>} />
+            <Route path="/industries/recycling/sorting" element={<PageWrapper><Sorting /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel" element={<PageWrapper><KiefelPackaging /></PageWrapper>} />
+            
+            {/* Machine Routes */}
+            <Route path="/industries/packaging/kiefel/kmd" element={<PageWrapper><SpeedformerKMD /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel/stacking" element={<PageWrapper><StackingAutomation /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel/upstream" element={<PageWrapper><UpstreamDownstream /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel/tooling" element={<PageWrapper><KmdTooling /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel/ktr" element={<PageWrapper><SpeedformerKTR /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel/stacking-ktr" element={<PageWrapper><StackingKTR /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel/tilting-tools" element={<PageWrapper><TiltingTools /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>
