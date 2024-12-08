@@ -26,6 +26,10 @@ import KmdTooling from './pages/industries/packaging/machines/KmdTooling';
 import SpeedformerKTR from './pages/industries/packaging/machines/SpeedformerKTR';
 import StackingKTR from './pages/industries/packaging/machines/StackingKTR';
 import TiltingTools from './pages/industries/packaging/machines/TiltingTools';
+import KiefelFiber from './pages/industries/packaging/KiefelFiber';
+import NatureprepKFP from './pages/industries/packaging/machines/fiber/NatureprepKFP';
+import NatureformerKFT from './pages/industries/packaging/machines/fiber/NatureformerKFT';
+import NatureformerKFL from './pages/industries/packaging/machines/fiber/NatureformerKFL';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -88,6 +92,10 @@ function App() {
             <Route path="/industries/packaging/kiefel/ktr" element={<PageWrapper><SpeedformerKTR /></PageWrapper>} />
             <Route path="/industries/packaging/kiefel/stacking-ktr" element={<PageWrapper><StackingKTR /></PageWrapper>} />
             <Route path="/industries/packaging/kiefel/tilting-tools" element={<PageWrapper><TiltingTools /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel-fiber" element={<KiefelFiber />} />
+            <Route path="/industries/packaging/kiefel-fiber/natureprep" element={<PageWrapper><NatureprepKFP /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel-fiber/kft" element={<PageWrapper><NatureformerKFT /></PageWrapper>} />
+            <Route path="/industries/packaging/kiefel-fiber/kfl" element={<PageWrapper><NatureformerKFL /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>
