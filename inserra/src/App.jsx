@@ -17,6 +17,7 @@ import KiefelAppliance from './pages/industries/appliance/KiefelAppliance';
 import Washing from './pages/industries/recycling/Washing';
 import Sorting from './pages/industries/recycling/Sorting';
 import Recycling from './pages/industries/recycling/Recycling';
+import StarlingerRecycling from './pages/industries/recycling/StarlingerRecycling';
 import Packaging from './pages/industries/packaging/Packaging';
 import KiefelPackaging from './pages/industries/packaging/KiefelPackaging';
 import SpeedformerKMD from './pages/industries/packaging/machines/SpeedformerKMD';
@@ -30,6 +31,10 @@ import KiefelFiber from './pages/industries/packaging/KiefelFiber';
 import NatureprepKFP from './pages/industries/packaging/machines/fiber/NatureprepKFP';
 import NatureformerKFT from './pages/industries/packaging/machines/fiber/NatureformerKFT';
 import NatureformerKFL from './pages/industries/packaging/machines/fiber/NatureformerKFL';
+import RecostarDynamic from './pages/industries/recycling/machines/RecostarDynamic';
+import RecostarPET from './pages/industries/recycling/machines/RecostarPET';
+import RecostarUniversal from './pages/industries/recycling/machines/RecostarUniversal';
+import RecostarDirect from './pages/industries/recycling/machines/RecostarDirect';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -82,6 +87,7 @@ function App() {
             <Route path="/industries/appliance/kiefel-appliance" element={<PageWrapper><KiefelAppliance /></PageWrapper>} />
             <Route path="/industries/recycling/washing" element={<PageWrapper><Washing /></PageWrapper>} />
             <Route path="/industries/recycling/sorting" element={<PageWrapper><Sorting /></PageWrapper>} />
+            <Route path="/industries/recycling/starlinger-recycling" element={<PageWrapper><StarlingerRecycling /></PageWrapper>} />
             <Route path="/industries/packaging/kiefel" element={<PageWrapper><KiefelPackaging /></PageWrapper>} />
             
             {/* Machine Routes */}
@@ -96,6 +102,18 @@ function App() {
             <Route path="/industries/packaging/kiefel-fiber/natureprep" element={<PageWrapper><NatureprepKFP /></PageWrapper>} />
             <Route path="/industries/packaging/kiefel-fiber/kft" element={<PageWrapper><NatureformerKFT /></PageWrapper>} />
             <Route path="/industries/packaging/kiefel-fiber/kfl" element={<PageWrapper><NatureformerKFL /></PageWrapper>} />
+            
+            {/* Recycling Routes */}
+            <Route path="/industries/recycling" element={<PageWrapper><Recycling /></PageWrapper>} />
+            <Route path="/industries/recycling/washing" element={<PageWrapper><Washing /></PageWrapper>} />
+            <Route path="/industries/recycling/sorting" element={<PageWrapper><Sorting /></PageWrapper>} />
+            <Route path="/industries/recycling/starlinger-recycling" element={<PageWrapper><StarlingerRecycling /></PageWrapper>} />
+            
+            {/* Starlinger Machine Routes */}
+            <Route path="/industries/recycling/starlinger-recycling/recostar-dynamic" element={<PageWrapper><RecostarDynamic /></PageWrapper>} />
+            <Route path="/industries/recycling/starlinger-recycling/recostar-pet" element={<PageWrapper><RecostarPET /></PageWrapper>} />
+            <Route path="/industries/recycling/starlinger-recycling/recostar-universal" element={<PageWrapper><RecostarUniversal /></PageWrapper>} />
+            <Route path="/industries/recycling/starlinger-recycling/recostar-direct" element={<PageWrapper><RecostarDirect /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>
