@@ -143,6 +143,13 @@ const StarlingerRecycling = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
+              <motion.img 
+                src="https://placehold.co/200x80?text=Starlinger&font=roboto"
+                alt="Starlinger Logo" 
+                className="h-16 w-auto mb-8 mx-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              />
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Starlinger Recycling
                 <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
@@ -222,25 +229,27 @@ const StarlingerRecycling = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Applications</h2>
-            <p className="text-xl text-blue-200">Wide range of recycling solutions</p>
+            <p className="text-xl text-gray-200">Wide range of recycling solutions</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {applications.map((app, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-gray-50/95 rounded-xl p-8 hover:bg-white transition-all duration-300 transform hover:-translate-y-1 group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-xl font-bold mb-6">{app.title}</h3>
+                <div className="border-b border-gray-200 pb-4 mb-6">
+                  <h3 className="text-xl font-bold text-gray-800">{app.title}</h3>
+                </div>
                 <ul className="space-y-4">
                   {app.items.map((item, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <ArrowRight className="w-4 h-4 mr-2" />
-                      {item}
+                    <li key={idx} className="flex items-center text-gray-600">
+                      <ArrowRight className="w-4 h-4 mr-3 text-primary shrink-0" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

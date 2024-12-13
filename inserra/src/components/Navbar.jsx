@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import logo from '../assets/insera.png';
+import logoVar from '../assets/insera_var.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -135,11 +136,17 @@ const Navbar = () => {
   ];
 
   const getNavbarBackground = () => {
-    return 'bg-white shadow-md';
+    const isHome = location.pathname === '/';
+    if (!isHome) return 'bg-white shadow-md';
+    return isScrolled 
+      ? 'bg-white shadow-md' 
+      : 'bg-gradient-to-b from-gray-900/80 via-primary-dark/50 to-transparent';
   };
 
   const getTextColor = () => {
-    return 'text-primary';
+    const isHome = location.pathname === '/';
+    if (!isHome) return 'text-primary';
+    return isScrolled ? 'text-primary' : 'text-white';
   };
 
   const handleLinkClick = () => {
@@ -147,12 +154,28 @@ const Navbar = () => {
     setOpenSubDropdown(null);
   };
 
+  const getLogoStyle = () => {
+    const isHome = location.pathname === '/';
+    if (!isHome) return 'none';
+    return !isScrolled ? 'brightness(0) invert(1)' : 'none';
+  };
+
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${getNavbarBackground()}`}>
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Inserra Logo" className="h-10 w-auto" />
+            <motion.img 
+              src={isScrolled ? logoVar : logo}
+              alt="Insera Logo" 
+              className="h-14 w-auto transition-all duration-300"
+              style={{
+                filter: getLogoStyle()
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              key={isScrolled ? 'scrolled' : 'top'}
+            />
           </Link>
           
           <motion.button
@@ -170,7 +193,7 @@ const Navbar = () => {
           </motion.button>
 
           <nav className="hidden md:block" ref={dropdownRef}>
-            <ul className="flex space-x-6">
+            <ul className="flex space-x-8">
               {navItems.map((item, index) => (
                 <motion.li 
                   key={item.name} 
@@ -182,11 +205,11 @@ const Navbar = () => {
                   {item.subItems ? (
                     <>
                       <button 
-                        className={`flex items-center hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
+                        className={`flex items-center text-lg font-medium hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
                         onClick={() => toggleDropdown(item.name)}
                       >
                         {item.name}
-                        <ChevronDown className="ml-1 h-4 w-4" />
+                        <ChevronDown className="ml-1 h-5 w-5" />
                       </button>
                       <AnimatePresence>
                         {openDropdown === item.name && (
@@ -250,7 +273,7 @@ const Navbar = () => {
                   ) : (
                     <Link 
                       to={item.path} 
-                      className={`hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
+                      className={`text-lg font-medium hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
                       onClick={handleLinkClick}
                     >
                       {item.name}

@@ -80,6 +80,13 @@ const KiefelPackaging = () => {
               animate="visible"
               variants={fadeInUpVariants}
             >
+              <motion.img 
+                src="https://placehold.co/200x80?text=Kiefel&font=roboto"
+                alt="Kiefel Logo" 
+                className="h-16 w-auto mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              />
               <span className="text-blue-300 font-semibold mb-4 block tracking-wider">KIEFEL PACKAGING SOLUTIONS</span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Advanced Thermoforming

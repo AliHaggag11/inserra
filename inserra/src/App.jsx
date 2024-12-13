@@ -35,6 +35,7 @@ import RecostarDynamic from './pages/industries/recycling/machines/RecostarDynam
 import RecostarPET from './pages/industries/recycling/machines/RecostarPET';
 import RecostarUniversal from './pages/industries/recycling/machines/RecostarUniversal';
 import RecostarDirect from './pages/industries/recycling/machines/RecostarDirect';
+import FoodPharma from './pages/industries/food-pharma/FoodPharma';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -114,6 +115,7 @@ function App() {
             <Route path="/industries/recycling/starlinger-recycling/recostar-pet" element={<PageWrapper><RecostarPET /></PageWrapper>} />
             <Route path="/industries/recycling/starlinger-recycling/recostar-universal" element={<PageWrapper><RecostarUniversal /></PageWrapper>} />
             <Route path="/industries/recycling/starlinger-recycling/recostar-direct" element={<PageWrapper><RecostarDirect /></PageWrapper>} />
+            <Route path="/industries/food-pharma" element={<FoodPharma />} />
           </Routes>
         </AnimatePresence>
       </main>

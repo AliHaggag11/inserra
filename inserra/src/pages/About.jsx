@@ -173,14 +173,12 @@ const About = () => {
                 exit="hidden"
                 variants={tabVariants}
                 transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-6 shadow-xl"
+                className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-12"
               >
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-8">
-                  <h3 className="text-3xl font-bold mb-8 text-white">
-                    Our {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
-                  </h3>
-                  <p className="text-xl text-blue-100">{tabContent[activeTab]}</p>
-                </div>
+                <h3 className="text-3xl font-bold mb-8 text-white">
+                  Our {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+                </h3>
+                <p className="text-xl text-blue-100">{tabContent[activeTab]}</p>
               </motion.div>
             </AnimatePresence>
           </motion.div>
@@ -214,30 +212,30 @@ const About = () => {
                 {coreValues.slice(0, 6).map((value, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-6 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1"
+                    className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    <div className="text-blue-300 mb-4">{value.icon}</div>
-                    <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                    <p className="text-blue-100">{value.description}</p>
+                    <div className="text-primary mb-4">{value.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{value.title}</h3>
+                    <p className="text-gray-600">{value.description}</p>
                   </motion.div>
                 ))}
               </div>
               {/* Last item centered */}
               <div className="col-span-1 md:col-span-3 flex justify-center">
                 <motion.div
-                  className="bg-white/10 backdrop-blur-lg rounded-lg p-6 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
+                  className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.6 }}
                 >
-                  <div className="text-blue-300 mb-4">{coreValues[6].icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{coreValues[6].title}</h3>
-                  <p className="text-blue-100">{coreValues[6].description}</p>
+                  <div className="text-primary mb-4">{coreValues[6].icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{coreValues[6].title}</h3>
+                  <p className="text-gray-600">{coreValues[6].description}</p>
                 </motion.div>
               </div>
             </div>

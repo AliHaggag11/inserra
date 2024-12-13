@@ -87,6 +87,13 @@ const KiefelAppliance = () => {
               animate="visible"
               variants={fadeInUpVariants}
             >
+              <motion.img 
+                src="https://placehold.co/200x80?text=Kiefel&font=roboto"
+                alt="Kiefel Logo" 
+                className="h-16 w-auto mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              />
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Machines for the Production of
                 <span className="text-blue-300 block mt-2">
@@ -692,6 +699,29 @@ const KiefelAppliance = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </div>
+
+      {/* Partner Website Button Section */}
+      <div className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">Want to learn more?</h2>
+            <a
+              href="https://www.kiefel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-all duration-300 group"
+            >
+              Visit Partner Website
+              <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+            </a>
+          </motion.div>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Linkedin, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import logo from '../assets/insera.png';
 
 const Footer = () => {
@@ -22,48 +22,24 @@ const Footer = () => {
             <img 
               src={logo} 
               alt="Insera Logo" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
               style={{
-                filter: `
-                  drop-shadow(1px 0 0 rgba(255,255,255,0.8))
-                  drop-shadow(-1px 0 0 rgba(255,255,255,0.8))
-                  drop-shadow(0 1px 0 rgba(255,255,255,0.8))
-                  drop-shadow(0 -1px 0 rgba(255,255,255,0.8))
-                `
+                filter: 'brightness(0) invert(1)'
               }}
             />
             <p className="text-blue-100 leading-relaxed">
               Leading provider of industrial solutions, representing world-class manufacturers 
               and delivering cutting-edge technology across the MENA region.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex">
               <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
-                aria-label="Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter size={18} />
-              </a>
-              <a 
-                href="#" 
+                href="https://www.linkedin.com/company/insera/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram size={18} />
               </a>
             </div>
           </div>

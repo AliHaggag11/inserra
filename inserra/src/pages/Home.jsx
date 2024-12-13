@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck, ArrowRight, Factory, Recycle, Package, Refrigerator } from 'lucide-react';
+import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck, ArrowRight, Factory, Recycle, Package, Refrigerator, FlaskConical } from 'lucide-react';
 import heroImage from '../assets/plastic.png';
 import { FlipWords } from '../components/FlipWords';
 import Slider from "react-slick";
@@ -48,13 +48,30 @@ const Home = () => {
   ];
 
   const partners = [
-    { name: 'Kiefel', logo: 'kiefelLogo' },
-    { name: 'Viscotec', logo: 'viscotecLogo' },
-    { name: 'Bekum', logo: 'bekumLogo' },
-    { name: 'Autefa', logo: 'autefaLogo' },
-    { name: 'Motan Group', logo: 'motanLogo' },
-    { name: 'BB Engineering', logo: 'bbeLogo' },
-    { name: 'kraussmaffe', logo: 'kraussmaffeLogo' },
+    {
+      name: 'Company One',
+      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+1&font=roboto'
+    },
+    {
+      name: 'Company Two',
+      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+2&font=roboto'
+    },
+    {
+      name: 'Company Three',
+      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+3&font=roboto'
+    },
+    {
+      name: 'Company Four',
+      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+4&font=roboto'
+    },
+    {
+      name: 'Company Five',
+      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+5&font=roboto'
+    },
+    {
+      name: 'Company Six',
+      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+6&font=roboto'
+    }
   ];
 
   const featuredProjects = [
@@ -162,14 +179,13 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gray-100 relative">
+    <div className="bg-gray-100 relative overflow-x-hidden">
       {/* Hero Section */}
-      <motion.div
-        className="relative z-10 bg-cover bg-center text-white overflow-hidden min-h-screen flex items-center"
+      <motion.div 
+        className="relative z-10 min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-primary-dark to-primary"
         initial="hidden"
         animate="visible"
         variants={fadeInUpVariants}
-        transition={{ duration: 0.5 }}
       >
         {heroImages.map((img, index) => (
           <motion.div
@@ -181,8 +197,8 @@ const Home = () => {
             transition={{ duration: 1.5 }}
           />
         ))}
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
+        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary-dark/30"></div>
 
         {/* Animated background shapes */}
         <motion.div
@@ -198,7 +214,7 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 leading-tight text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -214,7 +230,7 @@ const Home = () => {
               <FlipWords
                 words={words}
                 duration={3000}
-                className="text-blue-300 inline-block"
+                className="text-gray-100 inline-block"
               />
             </motion.div>
             <motion.p
@@ -235,7 +251,7 @@ const Home = () => {
                 to="/contact"
                 className="inline-flex items-center justify-center bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-blue-100 transition duration-300 group"
               >
-                <span>Work with Us</span>
+                <span>Contact Us</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
@@ -281,36 +297,40 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
               {
                 title: "Packaging Solutions",
                 description: "Advanced thermoforming technology for sustainable packaging solutions",
-                icon: <Package className="w-12 h-12" />,
+                icon: <Package className="w-10 h-10" />,
                 link: "/industries/packaging",
                 features: ["Thermoforming Systems", "Fiber Technology", "Sustainable Materials"],
-                stats: { value: "40%", label: "Market Share" }
               },
               {
                 title: "Appliance Manufacturing",
                 description: "High-performance solutions for appliance component production",
-                icon: <Refrigerator className="w-12 h-12" />,
+                icon: <Refrigerator className="w-10 h-10" />,
                 link: "/industries/appliance",
                 features: ["Interior Liners", "Door Components", "Precision Forming"],
-                stats: { value: "15+", label: "Years Experience" }
               },
               {
                 title: "Recycling Systems",
                 description: "Complete recycling solutions for a sustainable future",
-                icon: <Recycle className="w-12 h-12" />,
+                icon: <Recycle className="w-10 h-10" />,
                 link: "/industries/recycling",
                 features: ["Material Recovery", "Washing Systems", "Sorting Technology"],
-                stats: { value: "100+", label: "Installations" }
+              },
+              {
+                title: "Food & Pharmaceutical",
+                description: "Specialized equipment for food processing and pharmaceutical manufacturing",
+                icon: <FlaskConical className="w-10 h-10" />,
+                link: "/industries/food-pharma",
+                features: ["Clean Room Solutions", "GMP Standards", "Process Automation"],
               }
             ].map((industry, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-white rounded-2xl shadow-lg overflow-hidden"
+                className="group relative bg-white rounded-xl shadow-lg overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -318,36 +338,30 @@ const Home = () => {
                 whileHover={{ y: -5 }}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-dark transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <Link to={industry.link} className="block p-8 relative">
-                  <div className="absolute top-0 right-0 p-4">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-primary">{industry.stats.value}</div>
-                      <div className="text-sm text-gray-500">{industry.stats.label}</div>
-                    </div>
-                  </div>
+                <Link to={industry.link} className="block p-6 relative">
                   <div className="relative">
-                    <div className="bg-primary/5 rounded-2xl p-4 w-fit mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="bg-primary/5 rounded-xl p-4 w-fit mb-6 transform group-hover:scale-110 transition-transform duration-300">
                       <div className="text-primary">
                         {industry.icon}
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">
                       {industry.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 line-clamp-2">
+                    <p className="text-gray-600 mb-6 line-clamp-2 text-sm">
                       {industry.description}
                     </p>
-                    <div className="space-y-3 mb-8">
+                    <div className="space-y-2 mb-6">
                       {industry.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center text-gray-600">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></div>
-                          <span className="text-sm font-medium">{feature}</span>
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:scale-150 transition-transform duration-300"></div>
+                          <span className="text-sm">{feature}</span>
                         </div>
                       ))}
                     </div>
                     <div className="flex items-center text-primary font-semibold group-hover:text-primary-dark transition-all duration-300">
                       Explore Solutions 
-                      <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
+                      <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
                   </div>
                 </Link>
@@ -378,35 +392,35 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Global Presence</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Worldwide Presence</h2>
               <p className="text-blue-200 text-lg">Connecting industries with world-class solutions</p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <motion.div
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300"
+                className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-white mb-4">European Partners</h3>
-                <p className="text-blue-100 mb-6">
-                  Exclusive partnerships with leading European manufacturers, bringing cutting-edge technology to the MENA region.
+                <h3 className="text-2xl font-bold text-primary mb-4">Global Partners</h3>
+                <p className="text-gray-600 mb-6">
+                  Exclusive partnerships with leading Global manufacturers, bringing cutting-edge technology to the MENA region.
                 </p>
-                <div className="flex items-center text-blue-200 font-semibold group cursor-pointer">
+                <div className="flex items-center text-primary font-semibold group cursor-pointer">
                   View Partners <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </motion.div>
               <motion.div
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300"
+                className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-white mb-4">MENA Presence</h3>
-                <p className="text-blue-100 mb-6">
+                <h3 className="text-2xl font-bold text-primary mb-4">MENA Presence</h3>
+                <p className="text-gray-600 mb-6">
                   Strong regional presence with successful implementations across the Middle East and North Africa.
                 </p>
-                <div className="flex items-center text-blue-200 font-semibold group cursor-pointer">
+                <div className="flex items-center text-primary font-semibold group cursor-pointer">
                   Our Projects <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </motion.div>
@@ -426,21 +440,26 @@ const Home = () => {
             
             @media (max-width: 768px) {
               .animate-marquee {
-                animation: marquee 10s linear infinite; /* Even faster on mobile (changed from 15s to 10s) */
+                animation: marquee 20s linear infinite;
               }
             }
             
             @media (min-width: 769px) {
               .animate-marquee {
-                animation: marquee 30s linear infinite; /* Original speed on desktop */
+                animation: marquee 40s linear infinite;
               }
             }
           `}
         </style>
         <div className="flex animate-marquee">
           {[...partners, ...partners].map((partner, index) => (
-            <div key={index} className="flex-shrink-0 w-48 mx-8">
-              <div className="h-16 bg-gray-400 rounded-lg filter grayscale"></div>
+            <div key={index} className="flex-shrink-0 mx-12">
+              <img 
+                src={partner.logo} 
+                alt={partner.name}
+                className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
