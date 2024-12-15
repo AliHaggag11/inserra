@@ -103,7 +103,7 @@ const Navbar = () => {
           subItems: [
             { name: 'Kiefel', path: '/industries/packaging/kiefel' },
             { name: 'Kiefel Fiber', path: '/industries/packaging/kiefel-fiber' },
-            { name: 'Viscotec (Starlinger)', path: '/industries/packaging/viscotec' },
+            { name: 'Viscotec - Starlinger ', path: '/industries/packaging/viscotec' },
           ]
         },
         { 

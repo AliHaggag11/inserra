@@ -36,6 +36,18 @@ import RecostarPET from './pages/industries/recycling/machines/RecostarPET';
 import RecostarUniversal from './pages/industries/recycling/machines/RecostarUniversal';
 import RecostarDirect from './pages/industries/recycling/machines/RecostarDirect';
 import FoodPharma from './pages/industries/food-pharma/FoodPharma';
+import Viscotec from './pages/industries/packaging/Viscotec';
+import NotFound from './pages/NotFound';
+import Sitemap from './pages/Sitemap';
+import Help from './pages/Help';
+import ViscoSheet from './pages/industries/packaging/viscosheet/ViscoSheet';
+import ViscoSheetOne from './pages/industries/packaging/viscosheet-one/ViscoSheetOne';
+import ViscoStar from './pages/industries/packaging/viscostar/ViscoStar';
+import DeCon from './pages/industries/packaging/decon/DeCon';
+import ViscoZero from './pages/industries/packaging/viscozero/ViscoZero';
+import RPet100 from './pages/industries/packaging/rpet100/RPet100';
+import Crystallizer from './pages/industries/packaging/crystallizer/Crystallizer';
+import VacuumSystem from './pages/industries/packaging/vacuum/VacuumSystem';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -116,6 +128,20 @@ function App() {
             <Route path="/industries/recycling/starlinger-recycling/recostar-universal" element={<PageWrapper><RecostarUniversal /></PageWrapper>} />
             <Route path="/industries/recycling/starlinger-recycling/recostar-direct" element={<PageWrapper><RecostarDirect /></PageWrapper>} />
             <Route path="/industries/food-pharma" element={<FoodPharma />} />
+            <Route path="/industries/packaging/viscotec" element={<Viscotec />} />
+            <Route path="/industries/packaging/viscotec/viscosheet" element={<ViscoSheet />} />
+            <Route path="/industries/packaging/viscotec/viscosheet-one" element={<ViscoSheetOne />} />
+            <Route path="/industries/packaging/viscotec/viscostar" element={<ViscoStar />} />
+            <Route path="/industries/packaging/viscotec/decon" element={<DeCon />} />
+            <Route path="/industries/packaging/viscotec/viscozero" element={<ViscoZero />} />
+            <Route path="/industries/packaging/viscotec/rpet100" element={<RPet100 />} />
+            <Route path="/industries/packaging/viscotec/crystallizer" element={<Crystallizer />} />
+            <Route path="/industries/packaging/viscotec/vacuum-system" element={<VacuumSystem />} />
+            
+            {/* Add this at the very end of your Routes */}
+            <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+            <Route path="/sitemap" element={<Sitemap />} />
+            <Route path="/help" element={<PageWrapper><Help /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>
