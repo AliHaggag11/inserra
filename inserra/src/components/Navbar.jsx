@@ -165,17 +165,25 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <motion.img 
-              src={isScrolled ? logoVar : logo}
-              alt="Insera Logo" 
-              className="h-14 w-auto transition-all duration-300"
-              style={{
-                filter: getLogoStyle()
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              key={isScrolled ? 'scrolled' : 'top'}
-            />
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={isScrolled ? 'scrolled-logo' : 'top-logo'}
+                src={isScrolled ? logoVar : logo}
+                alt="Insera Logo" 
+                className="h-14 w-auto"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  filter: getLogoStyle()
+                }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut"
+                }}
+              />
+            </AnimatePresence>
           </Link>
           
           <motion.button
