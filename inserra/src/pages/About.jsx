@@ -79,11 +79,18 @@ const About = () => {
             variants={fadeInUpVariants}
           >
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-8 text-primary">Our Story</h2>
+              <h2 className="text-3xl font-bold mb-8 text-primary">About Us</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Since our establishment in 1992, INSERA has been at the forefront of industrial innovation. 
-                We've grown from a local enterprise to a respected international player, representing world-class 
-                manufacturers and delivering cutting-edge solutions across the MENA region.
+              Founded in 2017, INSERA has quickly established itself as a leading force in
+               the industrial sector, representing global manufacturers of advanced production
+                lines and machinery. Specializing in packaging, recycling, and food and pharmaceutical
+                 manufacturing. We are committed to innovation, sustainability, and supporting 
+                 industries that shape the future. From project development to implementation
+                  and ongoing after-sales support, we partner closely with clients to provide 
+                  tailored solutions that drive their success. Built on principles of integrity, 
+                  reliability, and persistent strive for perfection, INSERA is dedicated to
+                   advancing manufacturing standards and fostering enduring relationships
+                    that empower progress and innovation.
               </p>
             </div>
           </motion.div>
