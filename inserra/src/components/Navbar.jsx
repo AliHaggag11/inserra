@@ -124,10 +124,10 @@ const Navbar = () => {
         },
         { 
           name: 'Food & Pharmaceutical', 
-          path: '/industries/food-pharmaceutical',
+          path: '/industries/pharmaceutical',
           subItems: [
-            { name: 'Hanningfield', path: '/industries/food-pharmaceutical/hanningfield' },
-            { name: 'Kiefel Medical & Pharma', path: '/industries/food-pharmaceutical/kiefel-medical-pharma' },
+            { name: 'Hanningfield', path: '/industries/pharmaceutical/hanningfield' },
+            { name: 'Kiefel Medical & Pharma', path: '/industries/pharmaceutical/kiefel-medical-pharma' },
           ]
         },
       ]

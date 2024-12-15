@@ -48,6 +48,11 @@ import ViscoZero from './pages/industries/packaging/viscozero/ViscoZero';
 import RPet100 from './pages/industries/packaging/rpet100/RPet100';
 import Crystallizer from './pages/industries/packaging/crystallizer/Crystallizer';
 import VacuumSystem from './pages/industries/packaging/vacuum/VacuumSystem';
+import Hanningfield from './pages/industries/pharmaceutical/hanningfield/Hanningfield';
+import KiefelMedical from './pages/industries/pharmaceutical/kiefel/KiefelMedical';
+import BioprocessBags from './pages/industries/pharmaceutical/kiefel/bioprocess/BioprocessBags';
+import BloodPlasma from './pages/industries/pharmaceutical/kiefel/blood-plasma/BloodPlasma';
+import OstomyPouches from './pages/industries/pharmaceutical/kiefel/ostomy/OstomyPouches';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -137,6 +142,11 @@ function App() {
             <Route path="/industries/packaging/viscotec/rpet100" element={<RPet100 />} />
             <Route path="/industries/packaging/viscotec/crystallizer" element={<Crystallizer />} />
             <Route path="/industries/packaging/viscotec/vacuum-system" element={<VacuumSystem />} />
+            <Route path="/industries/pharmaceutical/hanningfield" element={<Hanningfield />} />
+            <Route path="/industries/pharmaceutical/kiefel-medical-pharma" element={<KiefelMedical />} />
+            <Route path="/industries/pharmaceutical/kiefel-medical-pharma/bioprocess-bags" element={<BioprocessBags />} />
+            <Route path="/industries/pharmaceutical/kiefel/blood-plasma" element={<BloodPlasma />} />
+            <Route path="/industries/pharmaceutical/kiefel/ostomy-pouches" element={<OstomyPouches />} />
             
             {/* Add this at the very end of your Routes */}
             <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
