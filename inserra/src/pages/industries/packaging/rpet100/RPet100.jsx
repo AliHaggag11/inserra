@@ -124,7 +124,7 @@ const RPet100 = () => {
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-4">
                 <img
-                  src="https://placehold.co/800x450/e2e8f0/475569?text=rPET100+Products&font=roboto"
+                  src="/images/viscotec/rpethero.png"
                   alt="rPET100 Products"
                   className="w-full h-full object-contain rounded-lg"
                 />
@@ -195,26 +195,19 @@ const RPet100 = () => {
             <p className="text-gray-600">Versatile solutions for various packaging needs</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
-            {applications.map((app, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="mb-4 aspect-square relative">
-                  <img
-                    src={`https://placehold.co/200x200/e2e8f0/475569?text=${app.title}&font=roboto`}
-                    alt={app.title}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">{app.title}</h3>
-              </motion.div>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              className="bg-white rounded-xl p-6 shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src="/images/viscotec/rpetapps.png"
+                alt="rPET100 Applications"
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </motion.div>
           </div>
         </div>
       </div>

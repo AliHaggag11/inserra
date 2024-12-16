@@ -91,7 +91,12 @@ const DeCon = () => {
         outputIvPlus: "-",
         reactorVolume: "4.7",
         height: "7.7",
-        floorspace: "8.3 x 6.8"
+        floorspace: "8.3 x 6.8",
+        vacuum: "<10",
+        energy: "0.10-0.15",
+        moisture: "1",
+        humidity: "<50",
+        foodGrade: "EFSA, FDA"
       },
       {
         name: "deCON 65",
@@ -99,7 +104,12 @@ const DeCon = () => {
         outputIvPlus: "-",
         reactorVolume: "6.4",
         height: "8.6",
-        floorspace: "8.3 x 6.8"
+        floorspace: "8.3 x 6.8",
+        vacuum: "<10",
+        energy: "0.10-0.15",
+        moisture: "1",
+        humidity: "<50",
+        foodGrade: "EFSA, FDA"
       },
       {
         name: "deCON 50 iV+",
@@ -107,7 +117,12 @@ const DeCon = () => {
         outputIvPlus: "500-700",
         reactorVolume: "4.9",
         height: "8.6",
-        floorspace: "8.3 x 6.8"
+        floorspace: "8.3 x 6.8",
+        vacuum: "<10",
+        energy: "0.10-0.15",
+        moisture: "1",
+        humidity: "<50",
+        foodGrade: "EFSA, FDA"
       },
       {
         name: "deCON 75 iV+",
@@ -115,16 +130,14 @@ const DeCon = () => {
         outputIvPlus: "800-1000",
         reactorVolume: "6.9",
         height: "9.3",
-        floorspace: "8.3 x 6.8"
+        floorspace: "8.3 x 6.8",
+        vacuum: "<10",
+        energy: "0.10-0.15",
+        moisture: "1",
+        humidity: "<50",
+        foodGrade: "EFSA, FDA"
       }
-    ],
-    commonSpecs: {
-      vacuum: "<10",
-      energyConsumption: "0.10-0.15",
-      inputMoisture: "1",
-      outputHumidity: "<50",
-      foodGrade: "EFSA, FDA"
-    }
+    ]
   };
 
   return (
@@ -190,7 +203,7 @@ const DeCon = () => {
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-4">
                 <img
-                  src="https://placehold.co/800x450/e2e8f0/475569?text=deCON+Machine&font=roboto"
+                  src="/images/viscotec/deconhero.png"
                   alt="deCON Machine"
                   className="w-full h-full object-contain rounded-lg"
                 />
@@ -213,6 +226,67 @@ const DeCon = () => {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Process Diagram Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-primary mb-4">Process Overview</h2>
+            <p className="text-gray-600">Complete deCON system layout</p>
+          </motion.div>
+
+          {/* Diagram */}
+          <div className="mb-8">
+            <img
+              src="/images/viscotec/decondiagram.png"
+              alt="deCON Process Diagram"
+              className="w-full max-w-6xl mx-auto object-contain"
+            />
+          </div>
+
+          {/* Diagram Key */}
+          <div className="max-w-5xl mx-auto">
+            {/* Process Steps */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+              {[
+                { num: 1, text: "stand alone" },
+                { num: 2, text: "in front of production extruder" },
+                { num: 3, text: "optional crystalizer" }
+              ].map(item => (
+                <div key={item.num} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg col-span-2">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-gray-800 text-white text-sm">
+                    {item.num}
+                  </span>
+                  <span className="text-sm md:text-base">{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Applications */}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold mb-4 px-4">Applications:</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                {[
+                  { text: "pelletizing" },
+                  { text: "injection molding" },
+                  { text: "tapes" },
+                  { text: "strapping" },
+                  { text: "viscoSHEET" }
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                    <span className="text-sm md:text-base">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -309,68 +383,93 @@ const DeCon = () => {
                   <thead className="bg-primary text-white">
                     <tr>
                       <th className="px-6 py-4 text-left">Main Data</th>
-                      <th className="px-6 py-4 text-left">Max. output with flakes deCON mode¹ [kg/h]</th>
-                      <th className="px-6 py-4 text-left">Max. output with flakes iV+mode² [kg/h]</th>
-                      <th className="px-6 py-4 text-left">Net volume of reactor [m³]</th>
-                      <th className="px-6 py-4 text-left">Equipment height [m]</th>
-                      <th className="px-6 py-4 text-left">Floor space [m]</th>
+                      <th className="px-6 py-4 text-left">deCON 50</th>
+                      <th className="px-6 py-4 text-left">deCON 65</th>
+                      <th className="px-6 py-4 text-left">deCON 50 iV+</th>
+                      <th className="px-6 py-4 text-left">deCON 75 iV+</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {technicalSpecs.models.map((spec, index) => (
-                      <tr key={index}>
-                        <td className="px-6 py-4">{spec.name}</td>
-                        <td className="px-6 py-4">{spec.outputDecon}</td>
-                        <td className="px-6 py-4">{spec.outputIvPlus}</td>
-                        <td className="px-6 py-4">{spec.reactorVolume}</td>
-                        <td className="px-6 py-4">{spec.height}</td>
-                        <td className="px-6 py-4">{spec.floorspace}</td>
-                      </tr>
-                    ))}
+                    <tr>
+                      <td className="px-6 py-4">Max. output with flakes deCON<br/>mode¹ [kg/h]</td>
+                      <td className="px-6 py-4">1200</td>
+                      <td className="px-6 py-4">1200 | 1500³</td>
+                      <td className="px-6 py-4">1000-1200</td>
+                      <td className="px-6 py-4">1800-2000</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Max. output with flakes iV+mode²<br/>[kg/h]</td>
+                      <td className="px-6 py-4">-</td>
+                      <td className="px-6 py-4">-</td>
+                      <td className="px-6 py-4">500-700</td>
+                      <td className="px-6 py-4">800-1000</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Net volume of reactor [m³]</td>
+                      <td className="px-6 py-4">4.7</td>
+                      <td className="px-6 py-4">6.4</td>
+                      <td className="px-6 py-4">4.9</td>
+                      <td className="px-6 py-4">6.9</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Equipment hight [m]</td>
+                      <td className="px-6 py-4">7.7</td>
+                      <td className="px-6 py-4">8.6</td>
+                      <td className="px-6 py-4">8.6</td>
+                      <td className="px-6 py-4">9.3</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Floor space [m]</td>
+                      <td className="px-6 py-4">8.3 x 6.8</td>
+                      <td className="px-6 py-4">8.3 x 6.8</td>
+                      <td className="px-6 py-4">8.3 x 6.8</td>
+                      <td className="px-6 py-4">8.3 x 6.8</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">High-vacuum system [mbar]</td>
+                      <td className="px-6 py-4">&lt;10</td>
+                      <td className="px-6 py-4">&lt;10</td>
+                      <td className="px-6 py-4">&lt;10</td>
+                      <td className="px-6 py-4">&lt;10</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Energy consumption [kWh/kg]</td>
+                      <td className="px-6 py-4">0.10-0.15</td>
+                      <td className="px-6 py-4">0.10-0.15</td>
+                      <td className="px-6 py-4">0.10-0.15</td>
+                      <td className="px-6 py-4">0.10-0.15</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Max. surface moisture of input<br/>material [%]</td>
+                      <td className="px-6 py-4">1</td>
+                      <td className="px-6 py-4">1</td>
+                      <td className="px-6 py-4">1</td>
+                      <td className="px-6 py-4">1</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Output humidity [ppm]</td>
+                      <td className="px-6 py-4">&lt;50</td>
+                      <td className="px-6 py-4">&lt;50</td>
+                      <td className="px-6 py-4">&lt;50</td>
+                      <td className="px-6 py-4">&lt;50</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Food grade according to</td>
+                      <td className="px-6 py-4">EFSA, FDA</td>
+                      <td className="px-6 py-4">EFSA, FDA</td>
+                      <td className="px-6 py-4">EFSA, FDA</td>
+                      <td className="px-6 py-4">EFSA, FDA</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
-            </div>
-
-            {/* Additional Specifications */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-4">Process Parameters</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <p className="text-sm text-gray-600">High-vacuum system [mbar]</p>
-                      <p className="font-medium">{technicalSpecs.commonSpecs.vacuum}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Energy consumption [kWh/kg]</p>
-                      <p className="font-medium">{technicalSpecs.commonSpecs.energyConsumption}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Max. surface moisture of input material [%]</p>
-                      <p className="font-medium">{technicalSpecs.commonSpecs.inputMoisture}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Output humidity [ppm]</p>
-                      <p className="font-medium">{technicalSpecs.commonSpecs.outputHumidity}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Food grade according to</p>
-                      <p className="font-medium">{technicalSpecs.commonSpecs.foodGrade}</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-4">Notes</h3>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <p>¹ 1h residence time</p>
-                    <p>² 2h residence time</p>
-                    <p>³ In combination with crystallizing unit (warm feeding of flakes)</p>
-                    <p className="mt-4">Above table represents general technical data and average values, which depend on chemical composition, contamination, pelletizing, etc. of the pellets/flakes. Guaranteed values only after trial with customer material.</p>
-                    <p>The calculated electrical power rate refers only to the reactor and periphery of the reactor and depends on the output rate.</p>
-                    <p>We reserve the right of technical modification.</p>
-                  </div>
-                </div>
+              <div className="p-4 text-sm text-gray-600">
+                <p>¹ 1h residence time</p>
+                <p>² 2h residence time</p>
+                <p>³ In combination with crystallizing unit (warm feeding of flakes)</p>
+                <p className="mt-2">Above table represents general technical data and average values, which depend on chemical composition, contamination, pelletizing, etc. of the pellets/flakes. Guaranteed values only after trial with customer material.</p>
+                <p>The calculated electrical power rate refers only to the reactor and periphery of the reactor and depends on the output rate.</p>
+                <p>We reserve the right of technical modification.</p>
               </div>
             </div>
           </div>

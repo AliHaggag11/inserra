@@ -109,9 +109,9 @@ const ViscoStar = () => {
       }
     ],
     specifications: {
-      highVacuum: "≤ 10 mbar",
-      energyConsumption: "0.06-0.15 kWh/kg",
-      ivIncrease: "0.01-0.04 dl/g/h",
+      highVacuum: "≤ 10",
+      energyConsumption: "0.06-0.15",
+      ivIncrease: "0.01-0.04",
       foodGrade: "EFSA, FDA, brand owner approvals"
     }
   };
@@ -179,7 +179,7 @@ const ViscoStar = () => {
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-4">
                 <img
-                  src="https://placehold.co/800x450/e2e8f0/475569?text=viscoSTAR+Machine&font=roboto"
+                  src="/images/viscotec/vstarhero.png"
                   alt="viscoSTAR Machine"
                   className="w-full h-full object-contain rounded-lg"
                 />
@@ -202,6 +202,80 @@ const ViscoStar = () => {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Process Diagram Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-primary mb-4">Process Overview</h2>
+            <p className="text-gray-600">Complete viscoSTAR system layout</p>
+          </motion.div>
+
+          {/* Diagram */}
+          <div className="mb-8">
+            <img
+              src="/images/viscotec/viscoSTARdiagram.png"
+              alt="viscoSTAR Process Diagram"
+              className="w-full max-w-6xl mx-auto object-contain"
+            />
+          </div>
+
+          {/* Diagram Key */}
+          <div className="max-w-5xl mx-auto">
+            {/* Pre-treatment Options */}
+            <div className="mb-8">
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span>unloading</span>
+                </div>
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span>recycling extruder</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Process Steps */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+              {[
+                { num: 1, text: "stand alone" },
+                { num: 2, text: "in combination with recycling extruder" },
+                { num: 3, text: "in front of production extruder" }
+              ].map(item => (
+                <div key={item.num} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg col-span-2">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-gray-800 text-white text-sm">
+                    {item.num}
+                  </span>
+                  <span className="text-sm md:text-base">{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Applications */}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold mb-4 px-4">Applications:</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                {[
+                  { text: "fibre & yarn" },
+                  { text: "extrusion blowmolding" },
+                  { text: "injection molding" },
+                  { text: "tapes" },
+                  { text: "strapping" },
+                  { text: "viscoSHEET" }
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                    <span className="text-sm md:text-base">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -298,63 +372,79 @@ const ViscoStar = () => {
                   <thead className="bg-primary text-white">
                     <tr>
                       <th className="px-6 py-4 text-left">Model</th>
-                      <th className="px-6 py-4 text-left">Max. output with pellets¹ [kg/h]*</th>
-                      <th className="px-6 py-4 text-left">Max. output with flakes² [kg/h]*</th>
-                      <th className="px-6 py-4 text-left">Net volume of reactor [m³]*</th>
-                      <th className="px-6 py-4 text-left">Equipment height [m]</th>
-                      <th className="px-6 py-4 text-left">Floorspace [m]</th>
+                      <th className="px-6 py-4 text-left">120</th>
+                      <th className="px-6 py-4 text-left">150</th>
+                      <th className="px-6 py-4 text-left">200</th>
+                      <th className="px-6 py-4 text-left">250</th>
+                      <th className="px-6 py-4 text-left">350</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {technicalSpecs.models.map((spec, index) => (
-                      <tr key={index}>
-                        <td className="px-6 py-4">{spec.model}</td>
-                        <td className="px-6 py-4">{spec.outputPellets}</td>
-                        <td className="px-6 py-4">{spec.outputFlakes}</td>
-                        <td className="px-6 py-4">{spec.reactorVolume}</td>
-                        <td className="px-6 py-4">{spec.height}</td>
-                        <td className="px-6 py-4">{spec.floorspace}</td>
-                      </tr>
-                    ))}
+                    <tr>
+                      <td className="px-6 py-4">Max. output with<br/>pellets¹ [kg/h]*</td>
+                      <td className="px-6 py-4">1600</td>
+                      <td className="px-6 py-4">2000</td>
+                      <td className="px-6 py-4">2400</td>
+                      <td className="px-6 py-4">3200</td>
+                      <td className="px-6 py-4">3200</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Max. output with flakes² [kg/h]*</td>
+                      <td className="px-6 py-4">1200</td>
+                      <td className="px-6 py-4">1600</td>
+                      <td className="px-6 py-4">2000</td>
+                      <td className="px-6 py-4">-</td>
+                      <td className="px-6 py-4">-</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Net volume of reactor [m³]*</td>
+                      <td className="px-6 py-4">12</td>
+                      <td className="px-6 py-4">15</td>
+                      <td className="px-6 py-4">20</td>
+                      <td className="px-6 py-4">25</td>
+                      <td className="px-6 py-4">35</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Equipment height [m]</td>
+                      <td className="px-6 py-4">11.3</td>
+                      <td className="px-6 py-4">12.5</td>
+                      <td className="px-6 py-4">14.5</td>
+                      <td className="px-6 py-4">14.7</td>
+                      <td className="px-6 py-4">16.2</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Floorspace [m]</td>
+                      <td className="px-6 py-4">8x8</td>
+                      <td className="px-6 py-4">8x8</td>
+                      <td className="px-6 py-4">8x8</td>
+                      <td className="px-6 py-4">11x9</td>
+                      <td className="px-6 py-4">11x9</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">High-vacuum system [mbar]</td>
+                      <td className="px-6 py-4" colSpan="5">≤ 10</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Energy consumption [kWh/kg]*</td>
+                      <td className="px-6 py-4" colSpan="5">0.06-0.15</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">iV increase<br/>pellets/flakes [dl/g/h]*</td>
+                      <td className="px-6 py-4" colSpan="5">0.01-0.04</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4">Food grade according to</td>
+                      <td className="px-6 py-4" colSpan="5">EFSA, FDA, brand owner approvals</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
-            </div>
-
-            {/* Additional Specifications */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-4">Process Parameters</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <p className="text-sm text-gray-600">High-vacuum system</p>
-                      <p className="font-medium">{technicalSpecs.specifications.highVacuum}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Energy consumption</p>
-                      <p className="font-medium">{technicalSpecs.specifications.energyConsumption}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">iV increase pellets/flakes</p>
-                      <p className="font-medium">{technicalSpecs.specifications.ivIncrease}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Food grade according to</p>
-                      <p className="font-medium">{technicalSpecs.specifications.foodGrade}</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-4">Notes</h3>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <p>¹ 6h residence time</p>
-                    <p>² 3h residence time</p>
-                    <p>* Above table represents general technical data and average values, which depend on chemical composition, contamination, pelletizing, etc. of the pellets/flakes. Guaranteed values only after trial with customer material.</p>
-                    <p>The calculated electrical power rate refers only to the reactor and periphery of the reactor and depends on the output rate.</p>
-                    <p>We reserve the right of technical modifications.</p>
-                  </div>
-                </div>
+              <div className="p-4 text-sm text-gray-600">
+                <p>¹ 6h residence time</p>
+                <p>² 3h residence time</p>
+                <p className="mt-2">*Above table represents general technical data and average values, which depend on chemical composition, contamination, pelletizing, etc. of the pellets/flakes. Guaranteed values only after trial with customer material.</p>
+                <p>The calculated electrical power rate refers only to the reactor and periphery of the reactor and depends on the output rate.</p>
+                <p>We reserve the right of technical modifications.</p>
               </div>
             </div>
           </div>

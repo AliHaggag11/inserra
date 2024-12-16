@@ -102,7 +102,7 @@ const VacuumSystem = () => {
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-4">
                 <img
-                  src="https://placehold.co/800x450/e2e8f0/475569?text=Vacuum+System&font=roboto"
+                  src="/images/viscotec/vachero.png"
                   alt="Vacuum System"
                   className="w-full h-full object-contain rounded-lg"
                 />
@@ -186,34 +186,30 @@ const VacuumSystem = () => {
                   <tbody className="divide-y divide-gray-200">
                     <tr>
                       <td className="px-6 py-4">approx. suction capacity¹ [m³/h]</td>
-                      <td className="px-6 py-4">{technicalSpecs.specs.suctionCapacity}</td>
+                      <td className="px-6 py-4">1000</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">vacuum [mbar]</td>
-                      <td className="px-6 py-4">{technicalSpecs.specs.vacuum}</td>
+                      <td className="px-6 py-4">&lt;10</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Equipment height [m]</td>
-                      <td className="px-6 py-4">{technicalSpecs.specs.height}</td>
+                      <td className="px-6 py-4">2.5</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Floorspace [m]</td>
-                      <td className="px-6 py-4">{technicalSpecs.specs.floorspace}</td>
+                      <td className="px-6 py-4">3.2 x 1.65</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">approx. Energy consumption [kW]</td>
-                      <td className="px-6 py-4">{technicalSpecs.specs.energyConsumption}</td>
+                      <td className="px-6 py-4">5.8</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </div>
-
-            {/* Notes */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden p-6">
-              <div className="space-y-2 text-sm text-gray-600">
+              <div className="p-4 text-sm text-gray-600">
                 <p>¹ at operating point</p>
-                <p className="mt-4">Above table represents general technical data and average values. We reserve the right of technical modifications.</p>
+                <p className="mt-2">Above table represents general technical data and average values. We reserve the right of technical modifications.</p>
               </div>
             </div>
           </div>

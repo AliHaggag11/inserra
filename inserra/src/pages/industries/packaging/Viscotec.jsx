@@ -13,49 +13,49 @@ const Viscotec = () => {
     {
       title: "viscoSHEET",
       description: "rPET sheet extrusion line capable of processing up to 100% rPET and in-house flakes at guaranteed iV levels for direct food contact.",
-      image: "/images/viscotec/viscosheet.jpg",
+      image: "/images/viscotec/viscoSHEET-hero.png",
       link: "/industries/packaging/viscotec/viscosheet"
     },
     {
       title: "viscoSHEETone",
       description: "rPET mono layer sheet extrusion line without compromise. Processes up to 100% rPET and in-house flakes at guaranteed iV levels.",
-      image: "/images/viscotec/viscosheet-one.jpg",
+      image: "/images/viscotec/vsh1hero.png",
       link: "/industries/packaging/viscotec/viscosheet-one"
     },
     {
       title: "viscoSTAR",
       description: "Solid State Polycondensation plant for iV increase and decontamination of polyester pellets and/or flakes.",
-      image: "/images/viscotec/viscostar.jpg",
+      image: "/images/viscotec/vstarhero.png",
       link: "/industries/packaging/viscotec/viscostar"
     },
     {
       title: "deCON | deCON iV+",
       description: "Decontamination dryer for production of food grade, iV increased flakes or skeleton waste directly in front of production extruder.",
-      image: "/images/viscotec/decon.jpg",
+      image: "/images/viscotec/deconhero.png",
       link: "/industries/packaging/viscotec/decon"
     },
     {
       title: "viscoZERO",
       description: "Melt phase decontamination reactor to produce recyclate according to food grade standards.",
-      image: "/images/viscotec/viscozero.jpg",
+      image: "/images/viscotec/v0hero.jpg",
       link: "/industries/packaging/viscotec/viscozero"
     },
     {
       title: "rPET100",
       description: "Heat resistant, fully recyclable sheet material for sustainable packaging solutions.",
-      image: "/images/viscotec/rpet100.jpg",
+      image: "/images/viscotec/rpethero.png",
       link: "/industries/packaging/viscotec/rpet100"
     },
     {
       title: "crystallizer",
       description: "The module for crystallization, drying and dedusting of rPET flakes and pellets.",
-      image: "/images/viscotec/crystallizer.jpg",
+      image: "/images/viscotec/crysthero.png",
       link: "/industries/packaging/viscotec/crystallizer"
     },
     {
       title: "vacuum system",
       description: "The compact and low-maintenance vacuum module for rPET processing.",
-      image: "/images/viscotec/vacuum.jpg",
+      image: "/images/viscotec/vachero.png",
       link: "/industries/packaging/viscotec/vacuum-system"
     }
   ];

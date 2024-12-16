@@ -26,41 +26,77 @@ const ViscoSheet = () => {
     extruders: [
       {
         type: "PET flakes/pellets",
-        output: "1000-2200",
-        material: "I, II, III, IV",
+        pretreatment: "I, II, III, IV",
+        mainOutputs: {
+          S125: "1000",
+          S145: "1300",
+          S165: "1600",
+          S215: "2200"
+        },
+        coOutputs: {
+          S65: "200",
+          S85: "400",
+          S105: "650"
+        },
         thickness: "150-1800"
       },
       {
-        type: "PP, PS, HIPS",
-        output: "700-1500",
-        material: "I",
+        type: "PP, PS, HIPS**",
+        pretreatment: "I",
+        mainOutputs: {
+          S125: "700",
+          S145: "900",
+          S165: "1100",
+          S215: "1500"
+        },
+        coOutputs: {
+          S65: "140",
+          S85: "300",
+          S105: "400"
+        },
         thickness: "150-1800"
       }
     ],
     calendarSpecs: [
       {
         model: "CAL 1200",
-        cooledWidth: "1200 mm",
-        netSheet: "600-1050 mm",
-        capacity: "950-1600 kg/h"
+        cooledWidth: "1200",
+        netSheet: "600-1050",
+        rollstackGap: "950-1600",
+        rollstackGapHC: {
+          pet: "1250-2100",
+          ppPsHips: "900-1500"
+        }
       },
       {
         model: "CAL 1600",
-        cooledWidth: "1600 mm",
-        netSheet: "900-1450 mm",
-        capacity: "1400-2100 kg/h"
+        cooledWidth: "1600",
+        netSheet: "900-1450",
+        rollstackGap: "1400-2100",
+        rollstackGapHC: {
+          pet: "1800-2800",
+          ppPsHips: "1300-2000"
+        }
       },
       {
         model: "CAL 2000",
-        cooledWidth: "2000 mm",
-        netSheet: "1300-1850 mm",
-        capacity: "2000-2700 kg/h"
+        cooledWidth: "2000",
+        netSheet: "1300-1850",
+        rollstackGap: "2000-2700",
+        rollstackGapHC: {
+          pet: "2500-3500",
+          ppPsHips: "1800-2500"
+        }
       },
       {
         model: "CAL 2400",
-        cooledWidth: "2400 mm",
-        netSheet: "1700-2250 mm",
-        capacity: "2500-3300 kg/h"
+        cooledWidth: "2400",
+        netSheet: "1700-2250",
+        rollstackGap: "2500-3300",
+        rollstackGapHC: {
+          pet: "3100-4200",
+          ppPsHips: "2350-3100"
+        }
       }
     ]
   };
@@ -109,7 +145,7 @@ const ViscoSheet = () => {
                 Up to 100% rPET, in-house waste, and virgin can be processed at guaranteed iV levels.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a 
+                {/* <a 
                   href="#" 
                   className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300 flex items-center"
                   onClick={(e) => {
@@ -119,7 +155,7 @@ const ViscoSheet = () => {
                 >
                   Download Product Sheet
                   <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
+                </a> */}
                 <Link
                   to="/contact"
                   className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition duration-300 flex items-center"
@@ -137,7 +173,7 @@ const ViscoSheet = () => {
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-4">
                 <img
-                  src="https://placehold.co/800x450/e2e8f0/475569?text=viscoSHEET+Machine&font=roboto"
+                  src="/images/viscotec/viscoSHEET-hero.png"
                   alt="viscoSHEET Machine"
                   className="w-full h-full object-contain rounded-lg"
                 />
@@ -160,6 +196,102 @@ const ViscoSheet = () => {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Process Diagram Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-primary mb-4">Process Overview</h2>
+            <p className="text-gray-600">Complete viscoSHEET system layout</p>
+          </motion.div>
+
+          {/* Diagram */}
+          <div className="mb-8">
+            <img
+              src="/images/viscotec/viscosheet-diagram.png"
+              alt="viscoSHEET Process Diagram"
+              className="w-full max-w-6xl mx-auto object-contain"
+            />
+          </div>
+
+          {/* Diagram Key */}
+          <div className="max-w-5xl mx-auto">
+            {/* Pre-treatment Options */}
+            <div className="mb-8">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span className="font-bold whitespace-nowrap">I</span>
+                  <span>unloading</span>
+                </div>
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span className="font-bold whitespace-nowrap">II</span>
+                  <span>crystallizer</span>
+                </div>
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span className="font-bold whitespace-nowrap">III</span>
+                  <span>deCON</span>
+                </div>
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span className="font-bold whitespace-nowrap">IV</span>
+                  <span>viscoSTAR</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Process Steps */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+              {[
+                { num: 1, text: "gravimetric dosing" },
+                { num: 2, text: "main extruder" },
+                { num: 3, text: "backflush screen changer" },
+                { num: 4, text: "iVON" },
+                { num: 5, text: "automatic die" },
+                { num: 6, text: "auto dust seperation" },
+                { num: 7, text: "central vacuum for feeding" },
+                { num: 8, text: "vacuum pumps" },
+                { num: 9, text: "master control panel" },
+                { num: 10, text: "roll stack" },
+                { num: 11, text: "thickness measurement" },
+                { num: 12, text: "edge trim cutting" },
+                { num: 13, text: "fully automatic winder" }
+              ].map(item => (
+                <div key={item.num} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-gray-800 text-white text-sm">
+                    {item.num}
+                  </span>
+                  <span className="text-sm md:text-base">{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Optional Components */}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold mb-4 px-4">Optional:</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                {[
+                  { letter: "A", text: "co extruder" },
+                  { letter: "B", text: "PE lamination" },
+                  { letter: "C", text: "edge trim granulator" },
+                  { letter: "D", text: "coating unit" },
+                  { letter: "E", text: "one man operation" }
+                ].map(item => (
+                  <div key={item.letter} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                    <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-gray-400 text-white text-sm">
+                      {item.letter}
+                    </span>
+                    <span className="text-sm md:text-base">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -215,19 +347,37 @@ const ViscoSheet = () => {
                 <table className="w-full">
                   <thead className="bg-primary text-white">
                     <tr>
-                      <th className="px-6 py-4 text-left">Model</th>
-                      <th className="px-6 py-4 text-left">Main Extruder Output (kg/h)</th>
-                      <th className="px-6 py-4 text-left">Material Type</th>
-                      <th className="px-6 py-4 text-left">Thickness Range (μm)</th>
+                      <th className="px-4 py-3 text-left">EXTRUDER</th>
+                      <th className="px-4 py-3 text-left">Pretreatment options</th>
+                      <th className="px-4 py-3 text-center" colSpan="4">Main extruder outputs¹ [kg/h]</th>
+                      <th className="px-4 py-3 text-center" colSpan="3">Co-extruder outputs¹ [kg/h]</th>
+                      <th className="px-4 py-3 text-left">Thickness range [μm]</th>
+                    </tr>
+                    <tr>
+                      <th colSpan="2"></th>
+                      <th className="px-2 py-2">S125</th>
+                      <th className="px-2 py-2">S145</th>
+                      <th className="px-2 py-2">S165</th>
+                      <th className="px-2 py-2">S215</th>
+                      <th className="px-2 py-2">S65</th>
+                      <th className="px-2 py-2">S85</th>
+                      <th className="px-2 py-2">S105</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {technicalSpecs.extruders.map((spec, index) => (
                       <tr key={index}>
-                        <td className="px-6 py-4">{spec.type}</td>
-                        <td className="px-6 py-4">{spec.output}</td>
-                        <td className="px-6 py-4">{spec.material}</td>
-                        <td className="px-6 py-4">{spec.thickness}</td>
+                        <td className="px-4 py-3">{spec.type}</td>
+                        <td className="px-4 py-3">{spec.pretreatment}</td>
+                        <td className="px-4 py-3 text-center">{spec.mainOutputs.S125}</td>
+                        <td className="px-4 py-3 text-center">{spec.mainOutputs.S145}</td>
+                        <td className="px-4 py-3 text-center">{spec.mainOutputs.S165}</td>
+                        <td className="px-4 py-3 text-center">{spec.mainOutputs.S215}</td>
+                        <td className="px-4 py-3 text-center">{spec.coOutputs.S65}</td>
+                        <td className="px-4 py-3 text-center">{spec.coOutputs.S85}</td>
+                        <td className="px-4 py-3 text-center">{spec.coOutputs.S105}</td>
+                        <td className="px-4 py-3">{spec.thickness}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -241,23 +391,38 @@ const ViscoSheet = () => {
                 <table className="w-full">
                   <thead className="bg-primary text-white">
                     <tr>
-                      <th className="px-6 py-4 text-left">Calendar Model</th>
-                      <th className="px-6 py-4 text-left">Cooled Width (mm)</th>
-                      <th className="px-6 py-4 text-left">Net Sheet (mm)</th>
-                      <th className="px-6 py-4 text-left">Capacity (kg/h)</th>
+                      <th className="px-4 py-3 text-left">CALENDAR</th>
+                      <th className="px-4 py-3 text-left">cooled width [mm]</th>
+                      <th className="px-4 py-3 text-left">possible net sheet [mm]</th>
+                      <th className="px-4 py-3 text-left">rollstack vairo GAP [kg/h]</th>
+                      <th className="px-4 py-3 text-center" colSpan="2">rollstack vairo GAP High Capacity [kg/h]</th>
+                    </tr>
+                    <tr>
+                      <th colSpan="3"></th>
+                      <th className="px-2 py-2">PET (150-1500μm)²</th>
+                      <th className="px-2 py-2">PET (150-1500μm)</th>
+                      <th className="px-2 py-2">PP, PS, HIPS (400-1500μm)³</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {technicalSpecs.calendarSpecs.map((spec, index) => (
                       <tr key={index}>
-                        <td className="px-6 py-4">{spec.model}</td>
-                        <td className="px-6 py-4">{spec.cooledWidth}</td>
-                        <td className="px-6 py-4">{spec.netSheet}</td>
-                        <td className="px-6 py-4">{spec.capacity}</td>
+                        <td className="px-4 py-3">{spec.model}</td>
+                        <td className="px-4 py-3">{spec.cooledWidth}</td>
+                        <td className="px-4 py-3">{spec.netSheet}</td>
+                        <td className="px-4 py-3">{spec.rollstackGap}</td>
+                        <td className="px-4 py-3">{spec.rollstackGapHC.pet}</td>
+                        <td className="px-4 py-3">{spec.rollstackGapHC.ppPsHips}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+              </div>
+              <div className="p-4 text-sm text-gray-600">
+                <p>¹ output rates depending on input material</p>
+                <p>² with max. 75m/min</p>
+                <p>³ with max. 60m/min</p>
+                <p>Above table represents general data and average values. We reserve the right of technical modifications.</p>
               </div>
             </div>
           </div>

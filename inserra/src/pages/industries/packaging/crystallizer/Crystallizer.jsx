@@ -121,7 +121,7 @@ const Crystallizer = () => {
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-4">
                 <img
-                  src="https://placehold.co/800x450/e2e8f0/475569?text=Crystallizer+Machine&font=roboto"
+                  src="/images/viscotec/crysthero.png"
                   alt="Crystallizer Machine"
                   className="w-full h-full object-contain rounded-lg"
                 />
@@ -206,47 +206,43 @@ const Crystallizer = () => {
                   <tbody className="divide-y divide-gray-200">
                     <tr>
                       <td className="px-6 py-4">Crystallizing & drying of inhouse regrind/pellets [kg/h]</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[0].crystallizingDrying}</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[1].crystallizingDrying}</td>
+                      <td className="px-6 py-4">1000/800</td>
+                      <td className="px-6 py-4">2000/1600</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Pre-heating of bottle flakes/pellets*/inhouse regrind [kg/h]</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[0].preheating}</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[1].preheating}</td>
+                      <td className="px-6 py-4">2000/1200/1000</td>
+                      <td className="px-6 py-4">4000/2400/2000</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Net volume [m³]</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[0].volume}</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[1].volume}</td>
+                      <td className="px-6 py-4">2</td>
+                      <td className="px-6 py-4">4</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Equipment height [m]</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[0].height}</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[1].height}</td>
+                      <td className="px-6 py-4">5</td>
+                      <td className="px-6 py-4">5.7</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Floorspace [m]</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[0].floorspace}</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[1].floorspace}</td>
+                      <td className="px-6 py-4">4.1 x 3.5</td>
+                      <td className="px-6 py-4">6.2 x 4.2</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Energy consumption [kWh/kg]</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[0].energyConsumption}</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[1].energyConsumption}</td>
+                      <td className="px-6 py-4">0.04-0.09</td>
+                      <td className="px-6 py-4">0.04-0.09</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4">Output humidity [ppm]</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[0].outputHumidity}</td>
-                      <td className="px-6 py-4">{technicalSpecs.models[1].outputHumidity}</td>
+                      <td className="px-6 py-4">&lt;200**</td>
+                      <td className="px-6 py-4">&lt;200**</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </div>
-
-            {/* Notes */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden p-6">
-              <div className="space-y-2 text-sm text-gray-600">
+              <div className="p-4 text-sm text-gray-600">
                 <p>* Crystalline pellets</p>
                 <p>** Depending on local relative humidity and input material (optional dehumidified air dryer)</p>
               </div>

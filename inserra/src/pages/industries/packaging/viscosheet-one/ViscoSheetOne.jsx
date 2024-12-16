@@ -26,17 +26,21 @@ const ViscoSheetOne = () => {
       {
         type: "PET flakes/pellets",
         pretreatment: "I, II, III",
-        s85: "400",
-        s120: "-",
-        s125: "800",
+        outputs: {
+          S85one: "400",
+          S120nonVented: "-",
+          S125one: "800"
+        },
         thickness: "200-1200"
       },
       {
         type: "PET pellets",
         pretreatment: "II, III",
-        s85: "-",
-        s120: "700",
-        s125: "-",
+        outputs: {
+          S85one: "-",
+          S120nonVented: "700",
+          S125one: "-"
+        },
         thickness: "200-1200"
       }
     ],
@@ -45,7 +49,7 @@ const ViscoSheetOne = () => {
         model: "CAL 1000",
         cooledWidth: "1000",
         netSheet: "500-850",
-        capacity: "650-800"
+        rollstackVarioGAP: "650-800"
       }
     ]
   };
@@ -98,7 +102,7 @@ const ViscoSheetOne = () => {
                 multi-material mode.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a 
+                {/* <a 
                   href="#" 
                   className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300 flex items-center"
                   onClick={(e) => {
@@ -108,7 +112,7 @@ const ViscoSheetOne = () => {
                 >
                   Download Product Sheet
                   <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
+                </a> */}
                 <Link
                   to="/contact"
                   className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition duration-300 flex items-center"
@@ -126,7 +130,7 @@ const ViscoSheetOne = () => {
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm p-4">
                 <img
-                  src="https://placehold.co/800x450/e2e8f0/475569?text=viscoSHEETone+Machine&font=roboto"
+                  src="/images/viscotec/vsh1hero.png"
                   alt="viscoSHEETone Machine"
                   className="w-full h-full object-contain rounded-lg"
                 />
@@ -149,6 +153,97 @@ const ViscoSheetOne = () => {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Process Diagram Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-primary mb-4">Process Overview</h2>
+            <p className="text-gray-600">Complete viscoSHEET<sup>one</sup> system layout</p>
+          </motion.div>
+
+          {/* Diagram */}
+          <div className="mb-8">
+            <img
+              src="/images/viscotec/viscosheetone.png"
+              alt="viscoSHEETone Process Diagram"
+              className="w-full max-w-6xl mx-auto object-contain"
+            />
+          </div>
+
+          {/* Diagram Key - Updated without red arrows */}
+          <div className="max-w-5xl mx-auto">
+            {/* Pre-treatment Options */}
+            <div className="mb-8">
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span className="font-bold whitespace-nowrap">I</span>
+                  <span>unloading</span>
+                </div>
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span className="font-bold whitespace-nowrap">II</span>
+                  <span>crystallizer</span>
+                </div>
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-lg">
+                  <span className="font-bold whitespace-nowrap">III</span>
+                  <span>deCON 20</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Process Steps */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+              {[
+                { num: 1, text: "auto dust seperation" },
+                { num: 2, text: "gravimetric dosing" },
+                { num: 3, text: "main extruder" },
+                { num: 4, text: "double degassing" },
+                { num: 5, text: "vacuum pumps" },
+                { num: 6, text: "backflush screen changer" },
+                { num: 7, text: "melt pump" },
+                { num: 8, text: "iVON" },
+                { num: 9, text: "manual die" },
+                { num: 10, text: "roll stack" },
+                { num: 11, text: "master control panel" },
+                { num: 12, text: "thickness measurement" },
+                { num: 13, text: "edge trim cutting" },
+                { num: 14, text: "multi winder" }
+              ].map(item => (
+                <div key={item.num} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-gray-800 text-white text-sm">
+                    {item.num}
+                  </span>
+                  <span className="text-sm md:text-base">{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Optional Components */}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold mb-4 px-4">Optional:</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+                {[
+                  { letter: "A", text: "PE lamination" },
+                  { letter: "B", text: "edge trim granulator" },
+                  { letter: "C", text: "coating unit" }
+                ].map(item => (
+                  <div key={item.letter} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                    <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-gray-400 text-white text-sm">
+                      {item.letter}
+                    </span>
+                    <span className="text-sm md:text-base">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -231,12 +326,17 @@ const ViscoSheetOne = () => {
                 <table className="w-full">
                   <thead className="bg-primary text-white">
                     <tr>
-                      <th className="px-6 py-4 text-left">Extruder</th>
+                      <th className="px-6 py-4 text-left">EXTRUDER</th>
                       <th className="px-6 py-4 text-left">Pretreatment options</th>
-                      <th className="px-6 py-4 text-left">S85<sup>one</sup></th>
-                      <th className="px-6 py-4 text-left">S120<sup>nonVented</sup></th>
-                      <th className="px-6 py-4 text-left">S125<sup>one</sup></th>
+                      <th className="px-6 py-4 text-center" colSpan="3">Extruder outputs¹ [kg/h]</th>
                       <th className="px-6 py-4 text-left">Thickness range [μm]</th>
+                    </tr>
+                    <tr>
+                      <th colSpan="2"></th>
+                      <th className="px-2 py-2">S85<sup>one</sup></th>
+                      <th className="px-2 py-2">S120<sup>nonVented</sup></th>
+                      <th className="px-2 py-2">S125<sup>one</sup></th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
@@ -244,9 +344,9 @@ const ViscoSheetOne = () => {
                       <tr key={index}>
                         <td className="px-6 py-4">{spec.type}</td>
                         <td className="px-6 py-4">{spec.pretreatment}</td>
-                        <td className="px-6 py-4">{spec.s85}</td>
-                        <td className="px-6 py-4">{spec.s120}</td>
-                        <td className="px-6 py-4">{spec.s125}</td>
+                        <td className="px-6 py-4 text-center">{spec.outputs.S85one}</td>
+                        <td className="px-6 py-4 text-center">{spec.outputs.S120nonVented}</td>
+                        <td className="px-6 py-4 text-center">{spec.outputs.S125one}</td>
                         <td className="px-6 py-4">{spec.thickness}</td>
                       </tr>
                     ))}
@@ -261,10 +361,14 @@ const ViscoSheetOne = () => {
                 <table className="w-full">
                   <thead className="bg-primary text-white">
                     <tr>
-                      <th className="px-6 py-4 text-left">Calendar</th>
-                      <th className="px-6 py-4 text-left">Cooled width [mm]</th>
-                      <th className="px-6 py-4 text-left">Possible net sheet [mm]</th>
+                      <th className="px-6 py-4 text-left">CALENDAR</th>
+                      <th className="px-6 py-4 text-left">cooled width [mm]</th>
+                      <th className="px-6 py-4 text-left">possible net sheet [mm]</th>
                       <th className="px-6 py-4 text-left">rollstack varioGAP [kg/h]</th>
+                    </tr>
+                    <tr>
+                      <th colSpan="3"></th>
+                      <th className="px-2 py-2">PET (200-1200μm)²</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
@@ -273,17 +377,17 @@ const ViscoSheetOne = () => {
                         <td className="px-6 py-4">{spec.model}</td>
                         <td className="px-6 py-4">{spec.cooledWidth}</td>
                         <td className="px-6 py-4">{spec.netSheet}</td>
-                        <td className="px-6 py-4">{spec.capacity}</td>
+                        <td className="px-6 py-4">{spec.rollstackVarioGAP}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-            </div>
-            <div className="mt-4 text-sm text-gray-500">
-              <p>¹ output rates depending on input material</p>
-              <p>² with max. 45m/min</p>
-              <p className="mt-2">Above table represents general data and average values. We reserve the right of technical modifications.</p>
+              <div className="p-4 text-sm text-gray-600">
+                <p>¹ output rates depending on input material</p>
+                <p>² with max. 45m/min</p>
+                <p className="mt-2">Above table represents general data and average values. We reserve the right of technical modifications.</p>
+              </div>
             </div>
           </div>
         </div>
