@@ -12,35 +12,21 @@ const SpeedformerKTR = () => {
 
   const models = [
     {
-      name: "KTR 5.1 Speed",
+      name: "KTR 5.2 Speed",
       specs: {
-        formingArea: "500 x 300 mm",
-        toolDimensions: "520 x 320 mm",
-        heightFormedPart: "130 mm",
-        filmWidth: "550 mm",
-        filmThickness: "0.2 - 2.0 mm",
-        tiltingForce: "400 kN",
-        productionSpeed: "40 cycles/min",
-        airPressure: "6 bar",
-        powerConsumption: "35 kW",
-        weight: "10,000 kg",
-        dimensions: "6.5 x 2.2 x 2.5 m"
+        maxFormingArea: "775 x 380 mm",
+        punchingForce: "400 kN",
+        cycleTime: "50 cycles/min",
+        maxHeightFormedPart: "190 mm"
       }
     },
     {
-      name: "KTR 6.1 Speed",
+      name: "KTR 6.2 Speed",
       specs: {
-        formingArea: "650 x 450 mm",
-        toolDimensions: "670 x 470 mm",
-        heightFormedPart: "150 mm",
-        filmWidth: "700 mm",
-        filmThickness: "0.2 - 2.0 mm",
-        tiltingForce: "600 kN",
-        productionSpeed: "35 cycles/min",
-        airPressure: "6 bar",
-        powerConsumption: "40 kW",
-        weight: "12,000 kg",
-        dimensions: "7.0 x 2.5 x 2.5 m"
+        maxFormingArea: "840 x 585 mm",
+        punchingForce: "900 kN",
+        cycleTime: "45 cycles/min",
+        maxHeightFormedPart: "250 mm"
       }
     }
   ];
@@ -119,6 +105,13 @@ const SpeedformerKTR = () => {
     }
   ];
 
+  const specLabels = {
+    maxFormingArea: "Max. forming area",
+    punchingForce: "Punching force",
+    cycleTime: "Cycle time",
+    maxHeightFormedPart: "Max. height of formed part"
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -180,15 +173,14 @@ const SpeedformerKTR = () => {
             variants={fadeInUpVariants}
           >
             <div className="max-w-3xl mx-auto">
-              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200">
-                <img
-                  src="/path/to/ktr-machine.jpg"
-                  alt="SPEEDFORMER KTR"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x450?text=KTR+Machine';
-                  }}
-                />
+              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                  <img
+                    src="/images/kiefel/sfktr.webp"
+                    alt="SPEEDFORMER KTR"
+                    className="w-full h-full object-cover rounded-lg opacity-90"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
@@ -262,18 +254,20 @@ const SpeedformerKTR = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/20">
-                  <th className="px-4 py-2 text-left text-blue-200">Specifications</th>
+                  <th className="px-4 py-2 text-left text-blue-200"></th>
                   {models.map(model => (
                     <th key={model.name} className="px-4 py-2 text-left text-blue-200">{model.name}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {Object.keys(models[0].specs).map((spec, index) => (
-                  <tr key={spec} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
-                    <td className="px-4 py-2 font-semibold text-white">{spec.replace(/([A-Z])/g, ' $1').trim()}</td>
+                {Object.entries(specLabels).map(([key, label], index) => (
+                  <tr key={key} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
+                    <td className="px-4 py-2 font-semibold text-white">{label}</td>
                     {models.map(model => (
-                      <td key={`${model.name}-${spec}`} className="px-4 py-2 text-blue-100">{model.specs[spec]}</td>
+                      <td key={`${model.name}-${key}`} className="px-4 py-2 text-blue-100">
+                        {model.specs[key]}
+                      </td>
                     ))}
                   </tr>
                 ))}

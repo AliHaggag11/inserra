@@ -51,18 +51,18 @@ const KiefelAppliance = () => {
   const applicationExamples = [
     { 
       title: "Door Liners", 
-      description: "High-quality inner door panels",
-      image: "/path/to/door-liners.jpg" // Add actual image path
+      description: "High-quality door panels for refrigerators and freezers",
+      image: "/images/kiefel/doors.webp"
     },
     { 
       title: "Interior Containers", 
-      description: "Refrigerator interior linings",
-      image: "/path/to/interior-containers.jpg" // Add actual image path
+      description: "Precision-formed refrigerator interior linings",
+      image: "/images/kiefel/liners.webp"
     },
     { 
       title: "Special Components", 
-      description: "Custom refrigeration parts",
-      image: "/path/to/special-components.jpg" // Add actual image path
+      description: "Custom-designed refrigeration components",
+      image: "/images/kiefel/specomp.webp"
     }
   ];
 
@@ -87,13 +87,17 @@ const KiefelAppliance = () => {
               animate="visible"
               variants={fadeInUpVariants}
             >
-              <motion.img 
-                src="https://placehold.co/200x80?text=Kiefel&font=roboto"
-                alt="Kiefel Logo" 
-                className="h-16 w-auto mb-8"
+              <motion.div 
+                className="inline-block bg-white p-4 rounded-lg mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-              />
+              >
+                <img 
+                  src="/images/kiefel/kiefel-technologieslogo.svg"
+                  alt="Kiefel Logo" 
+                  className="h-16 w-auto"
+                />
+              </motion.div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Machines for the Production of
                 <span className="text-blue-300 block mt-2">
@@ -124,9 +128,29 @@ const KiefelAppliance = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
-                {/* Replace with actual machine image */}
-                <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-                  <p className="text-gray-400">Machine Overview</p>
+                <img
+                  src="/images/kiefel/kiefelapphero.webp"
+                  alt="Kiefel Machine Overview"
+                  className="w-full h-full object-contain rounded-lg"
+                />
+              </div>
+              {/* Floating Stats */}
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-md">
+                <div className="bg-white rounded-xl shadow-xl p-6">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-primary">300</div>
+                      <div className="text-xs text-gray-600">cycles/hour</div>
+                    </div>
+                    <div className="text-center border-x border-gray-200">
+                      <div className="text-lg font-bold text-primary">20%</div>
+                      <div className="text-xs text-gray-600">material savings</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-primary">6</div>
+                      <div className="text-xs text-gray-600">cavities max</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -295,26 +319,7 @@ const KiefelAppliance = () => {
             </motion.div>
           </div>
 
-          {/* Machine Image Showcase */}
-          <div className="mb-12 relative">
-            <div className="bg-white/10 backdrop-blur-lg p-1 rounded-xl shadow-xl">
-              <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
-                <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                  <p className="text-gray-400">Machine Image</p>
-                </div>
-              </div>
-            </div>
-            {/* Image Gallery */}
-            <div className="grid grid-cols-3 gap-4 mt-4">
-              {[1, 2, 3].map((_, index) => (
-                <div key={index} className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-white/10 backdrop-blur-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                    <p className="text-gray-400">Gallery Image {index + 1}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+         
 
           {/* Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -434,45 +439,6 @@ const KiefelAppliance = () => {
             </button>
           </div>
 
-          {/* Machine Image Showcase */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeModel}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className="mb-12"
-            >
-              <div className="bg-gray-100 p-1 rounded-xl shadow-xl">
-                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
-                  <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                    <p className="text-gray-600">
-                      {activeModel === 'premium' ? 'KID PREMIUM Machine Image' : 'KID SMART Machine Image'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {/* Image Gallery */}
-              <div className="grid grid-cols-3 gap-4 mt-4">
-                {[1, 2, 3].map((_, index) => (
-                  <div 
-                    key={index} 
-                    className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-xl transition-shadow duration-300"
-                  >
-                    <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                      <p className="text-gray-600">
-                        {activeModel === 'premium' 
-                          ? `PREMIUM Gallery Image ${index + 1}` 
-                          : `SMART Gallery Image ${index + 1}`}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
           <div className="max-w-4xl mx-auto mb-12">
             <AnimatePresence mode="wait">
               <motion.div
@@ -522,22 +488,21 @@ const KiefelAppliance = () => {
           </div>
 
           {/* Specifications Table */}
-          <div className="bg-white rounded-lg shadow-lg p-6 overflow-x-auto">
-            <h3 className="text-2xl font-bold text-primary mb-6">Versions of the SHARPFORMER KID PREMIUM & KID SMART</h3>
+          <div className="bg-white/10 backdrop-blur-lg rounded-lg p-6 overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-gray-50">
-                  <th className="px-4 py-2 text-left">Specifications</th>
-                  <th className="px-4 py-2 text-left">KID PREMIUM 1.000</th>
-                  <th className="px-4 py-2 text-left">KID SMART 1.250</th>
+                <tr>
+                  <th className="px-6 py-3 text-left"></th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-primary">KID PREMIUM 1.000</th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-primary">KID SMART 1.250</th>
                 </tr>
               </thead>
               <tbody>
                 {machineSpecs.kidPremium.specs.map((spec, index) => (
                   <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
-                    <td className="px-4 py-2 font-semibold">{spec.label}</td>
-                    <td className="px-4 py-2">{spec.premium}</td>
-                    <td className="px-4 py-2">{spec.smart}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-700">{spec.label}</td>
+                    <td className="px-6 py-4 text-sm text-gray-600">{spec.premium}</td>
+                    <td className="px-6 py-4 text-sm text-gray-600">{spec.smart}</td>
                   </tr>
                 ))}
               </tbody>
@@ -589,7 +554,7 @@ const KiefelAppliance = () => {
             {applicationExamples.map((application, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -599,15 +564,12 @@ const KiefelAppliance = () => {
                   <img 
                     src={application.image} 
                     alt={application.title}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/400x225?text=Product+Image';
-                    }}
+                    className="w-full h-64 object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-2">{application.title}</h3>
-                  <p className="text-gray-600">{application.description}</p>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3">{application.title}</h3>
+                  <p className="text-gray-600 text-lg">{application.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -631,71 +593,51 @@ const KiefelAppliance = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* SHARPFORMER KID PREMIUM & SMART Brochure */}
             <motion.div
-              className="group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 group-hover:-translate-y-2">
-                <img 
-                  src="/path/to/premium-smart-brochure-preview.jpg" // Add actual preview image
-                  alt="SHARPFORMER KID PREMIUM & SMART Brochure"
-                  className="w-full h-64 object-cover"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/600x400?text=Brochure+Preview';
-                  }}
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-primary mb-4">
-                    SHARPFORMER KID PREMIUM & SMART
-                  </h3>
-                  <a
-                    href="/path/to/premium-smart-brochure.pdf" // Add actual PDF path
-                    download
-                    className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
-                  >
-                    <span className="mr-2">Download</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                  </a>
-                </div>
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-2xl font-bold text-primary mb-4">
+                  SHARPFORMER KID PREMIUM & SMART
+                </h3>
+                <a
+                  href="https://www.kiefel.com/downloaddata?id=d3E2bkRQbjJ4bEN1VkJUYU1FRUZuUT09"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
+                >
+                  <span className="mr-2">Download Brochure</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </a>
               </div>
             </motion.div>
 
             {/* SHARPFORMER KID SPEED Brochure */}
             <motion.div
-              className="group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 group-hover:-translate-y-2">
-                <img 
-                  src="/path/to/speed-brochure-preview.jpg" // Add actual preview image
-                  alt="SHARPFORMER KID SPEED Brochure"
-                  className="w-full h-64 object-cover"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/600x400?text=Brochure+Preview';
-                  }}
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-primary mb-4">
-                    SHARPFORMER KID SPEED
-                  </h3>
-                  <a
-                    href="/path/to/speed-brochure.pdf" // Add actual PDF path
-                    download
-                    className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
-                  >
-                    <span className="mr-2">Download</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                  </a>
-                </div>
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-2xl font-bold text-primary mb-4">
+                  SHARPFORMER KID SPEED
+                </h3>
+                <a
+                  href="https://www.kiefel.com/downloaddata?id=QllwNHFIdFlCRUhtVFRDa3lvMjAzUT09"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
+                >
+                  <span className="mr-2">Download Brochure</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </a>
               </div>
             </motion.div>
           </div>

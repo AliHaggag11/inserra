@@ -10,50 +10,87 @@ const KiefelPackaging = () => {
     visible: { opacity: 1, y: 0 }
   };
 
-  const machines = [
-    {
-      title: "SPEEDFORMER KMD",
-      description: "For high quality inner doors",
-      image: "/path/to/kmd-image.jpg",
-      link: "/industries/packaging/kiefel/kmd"
-    },
-    {
-      title: "Stacking & Automation",
-      description: "Automated stacking solutions",
-      image: "/path/to/stacking-image.jpg",
-      link: "/industries/packaging/kiefel/stacking"
-    },
-    {
-      title: "Upstream & Downstream",
-      description: "Complete line solutions",
-      image: "/path/to/upstream-image.jpg",
-      link: "/industries/packaging/kiefel/upstream"
-    },
-    {
-      title: "KMD Tooling",
-      description: "Steel rule cutting tools",
-      image: "/path/to/tooling-image.jpg",
-      link: "/industries/packaging/kiefel/tooling"
-    },
-    {
-      title: "SPEEDFORMER KTR",
-      description: "For high quality inner containers",
-      image: "/path/to/ktr-image.jpg",
-      link: "/industries/packaging/kiefel/ktr"
-    },
-    {
-      title: "KTR Stacking & Automation",
-      description: "Automated handling systems",
-      image: "/path/to/stacking2-image.jpg",
-      link: "/industries/packaging/kiefel/stacking-ktr"
-    },
-    {
-      title: "Tilting Tools",
-      description: "Advanced tilting tools",
-      image: "/path/to/tilting-tools-image.jpg",
-      link: "/industries/packaging/kiefel/tilting-tools"
-    }
-  ];
+  const machines = {
+    steelRule: [
+      {
+        title: "SPEEDFORMER KMD",
+        description: "For high quality inner doors",
+        image: "/images/kiefel/kiefeloverview.webp",
+        link: "/industries/packaging/kiefel/kmd"
+      },
+      {
+        title: "Stacking & Automation",
+        description: "Automated stacking solutions",
+        image: "/images/kiefel/stacking.webp",
+        link: "/industries/packaging/kiefel/stacking"
+      },
+      {
+        title: "Upstream & Downstream",
+        description: "Complete line solutions",
+        image: "/images/kiefel/upstream.webp",
+        link: "/industries/packaging/kiefel/upstream"
+      },
+      {
+        title: "KMD Tooling",
+        description: "Steel rule cutting tools",
+        image: "/images/kiefel/kmdtooling.webp",
+        link: "/industries/packaging/kiefel/tooling"
+      }
+    ],
+    tilting: [
+      {
+        title: "SPEEDFORMER KTR",
+        description: "For high quality inner containers",
+        image: "/images/kiefel/sfktr.webp",
+        link: "/industries/packaging/kiefel/ktr"
+      },
+      {
+        title: "KTR Stacking & Automation",
+        description: "Automated handling systems",
+        image: "/images/kiefel/ktrstack.webp",
+        link: "/industries/packaging/kiefel/stacking-ktr"
+      },
+      {
+        title: "Upstream & Downstream",
+        description: "Complete line solutions",
+        image: "/images/kiefel/upstream.webp",
+        link: "/industries/packaging/kiefel/upstream"
+      },
+      {
+        title: "Tilting Tools",
+        description: "Advanced tilting tools",
+        image: "/images/kiefel/Tilting tool.webp",
+        link: "/industries/packaging/kiefel/tilting-tools"
+      }
+    ]
+  };
+
+  // Common card component style for both sections
+  const CardComponent = ({ machine }) => (
+    <Link to={machine.link} className="block h-full">
+      <div className="bg-white rounded-lg overflow-hidden shadow-md h-full flex flex-col">
+        <div className="aspect-w-16 aspect-h-12">
+          <img
+            src={machine.image}
+            alt={machine.title}
+            className="w-full h-full object-contain p-4"
+          />
+        </div>
+        <div className="p-6 flex flex-col flex-grow">
+          <h3 className="text-xl font-bold text-gray-800 mb-2">
+            {machine.title}
+          </h3>
+          <p className="text-gray-600 mb-4 flex-grow">
+            {machine.description}
+          </p>
+          <div className="flex items-center text-primary hover:text-primary-dark transition-colors mt-auto">
+            Find out more
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -80,13 +117,17 @@ const KiefelPackaging = () => {
               animate="visible"
               variants={fadeInUpVariants}
             >
-              <motion.img 
-                src="https://placehold.co/200x80?text=Kiefel&font=roboto"
-                alt="Kiefel Logo" 
-                className="h-16 w-auto mb-8"
+              <motion.div 
+                className="inline-block bg-white p-4 rounded-lg mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-              />
+              >
+                <img 
+                  src="/images/kiefel/kiefel-technologieslogo.svg"
+                  alt="Kiefel Logo" 
+                  className="h-16 w-auto"
+                />
+              </motion.div>
               <span className="text-blue-300 font-semibold mb-4 block tracking-wider">KIEFEL PACKAGING SOLUTIONS</span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Advanced Thermoforming
@@ -119,12 +160,9 @@ const KiefelPackaging = () => {
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
                 <div className="w-full h-full bg-gray-800 rounded-lg">
                   <img
-                    src="/path/to/machine-image.jpg" // Add actual image path
-                    alt="Kiefel Packaging Machine"
+                    src="/images/kiefel/kiefeloverview.webp"
+                    alt="Kiefel Packaging Machine Overview"
                     className="w-full h-full object-cover rounded-lg"
-                    onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/800x450?text=Kiefel+Machine';
-                    }}
                   />
                 </div>
               </div>
@@ -214,41 +252,16 @@ const KiefelPackaging = () => {
             Technology for steel rule cutting machines
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {machines.slice(0, 4).map((machine, index) => (
+            {machines.steelRule.map((machine, index) => (
               <motion.div
                 key={index}
-                className="group"
+                className="group h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Link to={machine.link} className="block">
-                  <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="aspect-w-16 aspect-h-9">
-                      <img
-                        src={machine.image}
-                        alt={machine.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/400x225?text=Machine+Image';
-                        }}
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-primary mb-2">
-                        {machine.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        {machine.description}
-                      </p>
-                      <div className="flex items-center text-primary group-hover:text-primary-dark transition-colors">
-                        Find out more
-                        <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <CardComponent machine={machine} />
               </motion.div>
             ))}
           </div>
@@ -265,41 +278,16 @@ const KiefelPackaging = () => {
             Technology for tilting machines
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {machines.slice(4).map((machine, index) => (
+            {machines.tilting.map((machine, index) => (
               <motion.div
                 key={index}
-                className="group"
+                className="group h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Link to={machine.link} className="block">
-                  <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="aspect-w-16 aspect-h-9">
-                      <img
-                        src={machine.image}
-                        alt={machine.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/400x225?text=Machine+Image';
-                        }}
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-primary mb-2">
-                        {machine.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        {machine.description}
-                      </p>
-                      <div className="flex items-center text-primary group-hover:text-primary-dark transition-colors">
-                        Find out more
-                        <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <CardComponent machine={machine} />
               </motion.div>
             ))}
           </div>

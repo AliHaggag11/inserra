@@ -148,15 +148,14 @@ const KmdTooling = () => {
             variants={fadeInUpVariants}
           >
             <div className="max-w-3xl mx-auto">
-              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200">
-                <img
-                  src="/path/to/kmd-tooling.jpg"
-                  alt="KMD Tooling System"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x450?text=KMD+Tooling';
-                  }}
-                />
+              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                  <img
+                    src="/images/kiefel/kmdtooling.webp"
+                    alt="KMD Tooling System"
+                    className="w-full h-full object-cover rounded-lg opacity-90"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>

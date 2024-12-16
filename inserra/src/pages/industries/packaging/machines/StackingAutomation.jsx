@@ -148,15 +148,14 @@ const StackingAutomation = () => {
             variants={fadeInUpVariants}
           >
             <div className="max-w-3xl mx-auto">
-              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200">
-                <img
-                  src="/path/to/stacking-automation.jpg"
-                  alt="Stacking & Automation System"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x450?text=Stacking+System';
-                  }}
-                />
+              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                <div className="w-full h-full bg-gray-800 rounded-lg">
+                  <img
+                    src="/images/kiefel/stacking.webp"
+                    alt="Stacking & Automation System"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>

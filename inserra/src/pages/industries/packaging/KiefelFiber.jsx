@@ -81,13 +81,17 @@ const KiefelFiber = () => {
               animate="visible"
               variants={fadeInUpVariants}
             >
-              <motion.img 
-                src="https://placehold.co/200x80?text=Kiefel&font=roboto"
-                alt="Kiefel Logo" 
-                className="h-16 w-auto mb-8"
+              <motion.div 
+                className="inline-block bg-white p-4 rounded-lg mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-              />
+              >
+                <img 
+                  src="/images/kiefel/kiefel-technologieslogo.svg"
+                  alt="Kiefel Logo" 
+                  className="h-16 w-auto"
+                />
+              </motion.div>
               <span className="text-blue-300 font-semibold mb-4 block tracking-wider">KIEFEL FIBER SOLUTIONS</span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Sustainable Fiber
@@ -119,14 +123,11 @@ const KiefelFiber = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
-                <div className="w-full h-full bg-gray-800 rounded-lg">
+                <div className="w-full h-full bg-gray-800/90 rounded-lg">
                   <img
-                    src="/path/to/fiber-machine.jpg"
+                    src="/images/kiefel/kiefelfiberhero.webp"
                     alt="Kiefel Fiber Technology"
-                    className="w-full h-full object-cover rounded-lg"
-                    onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/800x450?text=Fiber+Technology';
-                    }}
+                    className="w-full h-full object-cover rounded-lg opacity-90"
                   />
                 </div>
               </div>

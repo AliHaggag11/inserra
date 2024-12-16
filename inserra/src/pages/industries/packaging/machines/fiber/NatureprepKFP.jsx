@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight } from 'lucide-react';
-import heroImage from '../../../../../assets/plastic.png';
 
 const NatureprepKFP = () => {
   const fadeInUpVariants = {
@@ -209,18 +208,12 @@ const NatureprepKFP = () => {
 
       {/* Hero Section */}
       <div className="relative h-[65vh] overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-        />
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
         
-        <div className="absolute inset-0 flex items-center justify-center text-white">
-          <div className="text-center px-4 pb-32">
+        <div className="container mx-auto px-4 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
             <motion.div
+              className="text-white text-left z-10"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -231,10 +224,27 @@ const NatureprepKFP = () => {
                   High-quality Fiber Preparation
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+              <div className="w-20 h-1 bg-blue-300 mb-6"></div>
+              <p className="text-xl text-blue-100 max-w-2xl">
                 Discover our solutions for the preparation of natural fibers to produce high-quality packaging
               </p>
+            </motion.div>
+
+            <motion.div
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                  <img
+                    src="/images/kiefel/kfpnature.webp"
+                    alt="NATUREPREP KFP"
+                    className="w-full h-full object-cover rounded-lg opacity-90"
+                  />
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -345,51 +355,60 @@ const NatureprepKFP = () => {
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <h2 className="text-3xl font-bold mb-4">Models of the NATUREPREP KFP</h2>
-            <p className="text-xl text-blue-200">Technical specifications and capabilities</p>
+            <h2 className="text-4xl font-bold mb-4">Versions of the NATUREPREP KFP</h2>
+            <p className="text-xl text-gray-400">Kiefel Fiber Preparation</p>
           </motion.div>
 
           <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 overflow-x-auto">
-            <table className="min-w-full">
+            <table className="w-full">
               <thead>
-                <tr>
-                  <th className="p-4 text-left bg-white/10 rounded-tl-lg"></th>
-                  <th className="p-4 text-left bg-white/10">KFP S</th>
-                  <th className="p-4 text-left bg-white/10">KFP M</th>
-                  <th className="p-4 text-left bg-white/10 rounded-tr-lg">KFP L</th>
+                <tr className="border-b border-white/20">
+                  <th className="px-6 py-3 text-left"></th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-blue-200">KFP S</th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-blue-200">KFP M</th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-blue-200">KFP L</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="p-4 font-semibold bg-white/5">Output per hour</td>
-                  <td className="p-4 text-blue-100">30 kg (virgin fiber)</td>
-                  <td className="p-4 text-blue-100">160 kg (virgin fiber)</td>
-                  <td className="p-4 text-blue-100">250 kg (recycled material)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold bg-white/5">Output type</td>
-                  <td className="p-4 text-blue-100">Batch</td>
-                  <td className="p-4 text-blue-100">Continuous production</td>
-                  <td className="p-4 text-blue-100">Continuous production</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold bg-white/5">Application</td>
-                  <td className="p-4 text-blue-100">Low production volume</td>
-                  <td className="p-4 text-blue-100">Medium volume</td>
-                  <td className="p-4 text-blue-100">High volume</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold bg-white/5">Footprint</td>
-                  <td className="p-4 text-blue-100">4.1 x 2.2 x 2.7 m</td>
-                  <td className="p-4 text-blue-100">5.5 x 9.1 x 3.5 m</td>
-                  <td className="p-4 text-blue-100">12.1 x 5.5 x 3.5 m</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-semibold bg-white/5">Recommended system configuration</td>
-                  <td className="p-4 text-blue-100">1 machine</td>
-                  <td className="p-4 text-blue-100">Up to 4 machines</td>
-                  <td className="p-4 text-blue-100">Up to 6 machines</td>
-                </tr>
+                {[
+                  {
+                    label: "Output per hour",
+                    s: "30 kg (virgin fiber)",
+                    m: "160 kg (virgin fiber)",
+                    l: "250 kg (recycled material)"
+                  },
+                  {
+                    label: "Output type",
+                    s: "Batch",
+                    m: "Continuous production",
+                    l: "Continuous production"
+                  },
+                  {
+                    label: "Application",
+                    s: "Low production volume",
+                    m: "Medium volume",
+                    l: "High volume"
+                  },
+                  {
+                    label: "Footprint",
+                    s: "4.1 x 2.2 x 2.7 m",
+                    m: "5.5 x 9.1 x 3.5 m",
+                    l: "12.1 x 5.5 x 3.5 m"
+                  },
+                  {
+                    label: "Recommended system configuration",
+                    s: "1 machine",
+                    m: "Up to 4 machines",
+                    l: "Up to 6 machines"
+                  }
+                ].map((row, index) => (
+                  <tr key={index} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
+                    <td className="px-6 py-4 text-sm font-medium text-white">{row.label}</td>
+                    <td className="px-6 py-4 text-sm text-blue-100">{row.s}</td>
+                    <td className="px-6 py-4 text-sm text-blue-100">{row.m}</td>
+                    <td className="px-6 py-4 text-sm text-blue-100">{row.l}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -504,22 +523,20 @@ const NatureprepKFP = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Download</h2>
           <div className="max-w-xs mx-auto">
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-6 text-center"
+              className="bg-white rounded-lg shadow-md p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <img 
-                src="/path/to/brochure-preview.jpg" 
-                alt="KFP series brochure"
-                className="w-full h-auto mb-4 rounded-lg"
-              />
               <h3 className="text-xl font-bold text-primary mb-4">KFP series</h3>
               <a
-                href="#"
-                className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+                href="https://www.kiefel.com/downloaddata?id=Q080VEpMTEhLWWVhbEhXeW9wL1d3dz09"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
               >
-                Download <ArrowRight className="ml-2 w-4 h-4" />
+                <span className="mr-2">Download Brochure</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>
           </div>

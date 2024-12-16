@@ -15,105 +15,105 @@ const SpeedformerKMD = () => {
     {
       name: "KMD 64.2 Speed",
       specs: {
-        formingArea: "620 x 470 mm",
-        toolDimensions: "640 x 490 mm",
-        heightFormedPart: "120 mm",
-        filmWidth: "670 mm",
-        filmThickness: "0.2 - 1.8 mm",
+        formingAreaMax: "620 x 470 mm",
+        toolDimensionsMax: "640 x 490 mm",
+        heightFormedPartMax: "120 mm",
+        filmWidthMax: "670 mm",
+        filmThickness: "0,2 - 1,8 mm",
         punchingForceBFS: "500 kN",
-        punchingForceStation: "500 kN",
-        productionSpeed: "50 (BFS: 45) c/min"
+        punchingForcePunchingStation: "500 kN",
+        productionSpeedMax: "50 (BFS: 45) c/min"
       }
     },
     {
       name: "KMD 78 Smart",
       specs: {
-        formingArea: "760 x 580 mm",
-        toolDimensions: "780 x 600 mm",
-        heightFormedPart: "130 mm",
-        filmWidth: "810 mm",
-        filmThickness: "0.2 - 1.8 mm",
-        punchingForceBFS: "550 kN",
-        punchingForceStation: "550 kN",
-        productionSpeed: "45 (BFS: 40) c/min"
+        formingAreaMax: "760 x 580 mm",
+        toolDimensionsMax: "780 x 600 mm",
+        heightFormedPartMax: "150 mm",
+        filmWidthMax: "810 mm",
+        filmThickness: "0,2 - 1,8 mm",
+        punchingForceBFS: "450 kN",
+        punchingForcePunchingStation: "500 kN",
+        productionSpeedMax: "40 (BFS: 35) c/min"
       }
     },
     {
       name: "KMD 78.2 Premium",
       specs: {
-        formingArea: "760 x 580 mm",
-        toolDimensions: "780 x 600 mm",
-        heightFormedPart: "150 mm",
-        filmWidth: "810 mm",
-        filmThickness: "0.2 - 1.8 mm",
+        formingAreaMax: "760 x 580 mm",
+        toolDimensionsMax: "780 x 600 mm",
+        heightFormedPartMax: "150 mm",
+        filmWidthMax: "810 mm",
+        filmThickness: "0,2 - 1,8 mm",
         punchingForceBFS: "550 kN",
-        punchingForceStation: "550 kN",
-        productionSpeed: "45 (BFS: 40) c/min"
+        punchingForcePunchingStation: "550 kN",
+        productionSpeedMax: "45 (BFS: 40) c/min"
       }
     },
     {
       name: "KMD 78.2 Speed",
       specs: {
-        formingArea: "760 x 580 mm",
-        toolDimensions: "780 x 600 mm",
-        heightFormedPart: "120 mm",
-        filmWidth: "810 mm",
-        filmThickness: "0.2 - 1.8 mm",
+        formingAreaMax: "760 x 580 mm",
+        toolDimensionsMax: "780 x 600 mm",
+        heightFormedPartMax: "120 mm",
+        filmWidthMax: "810 mm",
+        filmThickness: "0,2 - 1,8 mm",
         punchingForceBFS: "650 kN",
-        punchingForceStation: "600 kN",
-        productionSpeed: "50 (BFS: 45) c/min"
+        punchingForcePunchingStation: "600 kN",
+        productionSpeedMax: "50 (BFS: 45) c/min"
       }
     },
     {
       name: "KMD 78.2 Power",
       specs: {
-        formingArea: "760 x 580 mm",
-        toolDimensions: "780 x 600 mm",
-        heightFormedPart: "150 mm",
-        filmWidth: "810 mm",
-        filmThickness: "0.2 - 2.0 mm",
-        punchingForceBFS: "700 kN",
-        punchingForceStation: "650 kN",
-        productionSpeed: "45 (BFS: 40) c/min"
+        formingAreaMax: "760 X 580 mm",
+        toolDimensionsMax: "780 x 600 mm",
+        heightFormedPartMax: "120 mm",
+        filmWidthMax: "810 mm",
+        filmThickness: "0,2 - 1,8 mm",
+        punchingForceBFS: "650 kN",
+        punchingForcePunchingStation: "600 kN",
+        productionSpeedMax: "50 (BFS: 45) c/min"
       }
     },
     {
       name: "KMD 85 Speed",
       specs: {
-        formingArea: "850 x 600 mm",
-        toolDimensions: "870 x 620 mm",
-        heightFormedPart: "130 mm",
-        filmWidth: "900 mm",
-        filmThickness: "0.2 - 2.0 mm",
-        punchingForceBFS: "750 kN",
-        punchingForceStation: "700 kN",
-        productionSpeed: "45 (BFS: 40) c/min"
+        formingAreaMax: "825 x 675 mm",
+        toolDimensionsMax: "850 x 700 mm",
+        heightFormedPartMax: "150 mm",
+        filmWidthMax: "900 mm",
+        filmThickness: "0,2 - 1,8 mm",
+        punchingForceBFS: "800 kN",
+        punchingForcePunchingStation: "800 kN",
+        productionSpeedMax: "45 (BFS: 40) c/min"
       }
     },
     {
       name: "KMD 90 Smart",
       specs: {
-        formingArea: "900 x 650 mm",
-        toolDimensions: "920 x 670 mm",
-        heightFormedPart: "150 mm",
-        filmWidth: "950 mm",
-        filmThickness: "0.2 - 2.0 mm",
-        punchingForceBFS: "800 kN",
-        punchingForceStation: "750 kN",
-        productionSpeed: "40 (BFS: 35) c/min"
+        formingAreaMax: "870 x 920 mm",
+        toolDimensionsMax: "890 x 940 mm",
+        heightFormedPartMax: "160 mm",
+        filmWidthMax: "925 mm",
+        filmThickness: "0,2 - 1,8 mm",
+        punchingForceBFS: "/",
+        punchingForcePunchingStation: "850 kN",
+        productionSpeedMax: "30 c/min"
       }
     },
     {
       name: "KMD 90.1 Premium",
       specs: {
-        formingArea: "900 x 650 mm",
-        toolDimensions: "920 x 670 mm",
-        heightFormedPart: "150 mm",
-        filmWidth: "950 mm",
-        filmThickness: "0.2 - 2.0 mm",
-        punchingForceBFS: "850 kN",
-        punchingForceStation: "800 kN",
-        productionSpeed: "40 (BFS: 35) c/min"
+        formingAreaMax: "870 x 920 mm",
+        toolDimensionsMax: "890 x 940 mm",
+        heightFormedPartMax: "160 mm",
+        filmWidthMax: "925 mm",
+        filmThickness: "0,2 - 1,8 mm",
+        punchingForceBFS: "/",
+        punchingForcePunchingStation: "850 kN",
+        productionSpeedMax: "30 c/min"
       }
     }
   ];
@@ -169,17 +169,32 @@ const SpeedformerKMD = () => {
     {
       title: "Food Packaging",
       description: "High-quality containers and trays for food industry",
-      image: "/path/to/food-packaging.jpg"
+      details: [
+        "Food-grade materials",
+        "Various sizes and shapes",
+        "Excellent barrier properties",
+        "Temperature resistant"
+      ]
     },
     {
       title: "Medical Packaging",
       description: "Sterile packaging solutions for medical devices",
-      image: "/path/to/medical-packaging.jpg"
+      details: [
+        "Clean room compatible",
+        "Sterilization resistant",
+        "High clarity materials",
+        "Precise specifications"
+      ]
     },
     {
       title: "Industrial Packaging",
       description: "Durable packaging for industrial products",
-      image: "/path/to/industrial-packaging.jpg"
+      details: [
+        "Impact resistant",
+        "Custom dimensions",
+        "Cost-effective solutions",
+        "High volume production"
+      ]
     }
   ];
 
@@ -191,6 +206,18 @@ const SpeedformerKMD = () => {
       "/path/to/kmd-detail-3.jpg",
       "/path/to/kmd-detail-4.jpg"
     ]
+  };
+
+  // Update the table headers to match the image labels
+  const specLabels = {
+    formingAreaMax: "Forming area max.",
+    toolDimensionsMax: "Tool dimensions max.",
+    heightFormedPartMax: "Height formed part max.",
+    filmWidthMax: "Film width max.",
+    filmThickness: "Film thickness",
+    punchingForceBFS: "Punching force BFS",
+    punchingForcePunchingStation: "Punching force punching station",
+    productionSpeedMax: "Production speed max."
   };
 
   return (
@@ -253,17 +280,16 @@ const SpeedformerKMD = () => {
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            {/* Main Machine Image - More Compact */}
+            {/* Main Machine Image */}
             <div className="max-w-3xl mx-auto">
-              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200">
-                <img
-                  src={machineImages.main}
-                  alt="SPEEDFORMER KMD"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x450?text=KMD+Machine';
-                  }}
-                />
+              <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                <div className="w-full h-full bg-gray-800 rounded-lg">
+                  <img
+                    src="/images/kiefel/kiefeloverview.webp"
+                    alt="SPEEDFORMER KMD Overview"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
@@ -337,18 +363,20 @@ const SpeedformerKMD = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/20">
-                  <th className="px-4 py-2 text-left text-blue-200">Specifications</th>
+                  <th className="px-4 py-2 text-left text-blue-200"></th>
                   {models.map(model => (
                     <th key={model.name} className="px-4 py-2 text-left text-blue-200">{model.name}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {Object.keys(models[0].specs).map((spec, index) => (
-                  <tr key={spec} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
-                    <td className="px-4 py-2 font-semibold text-white">{spec.replace(/([A-Z])/g, ' $1').trim()}</td>
+                {Object.entries(specLabels).map(([key, label], index) => (
+                  <tr key={key} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
+                    <td className="px-4 py-2 font-semibold text-white">{label}</td>
                     {models.map(model => (
-                      <td key={`${model.name}-${spec}`} className="px-4 py-2 text-blue-100">{model.specs[spec]}</td>
+                      <td key={`${model.name}-${key}`} className="px-4 py-2 text-blue-100">
+                        {model.specs[key]}
+                      </td>
                     ))}
                   </tr>
                 ))}
@@ -382,24 +410,62 @@ const SpeedformerKMD = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl overflow-hidden">
-                  <div className="aspect-w-16 aspect-h-9">
-                    <img
-                      src={application.image}
-                      alt={application.title}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.src = `https://via.placeholder.com/400x225?text=${application.title.replace(' ', '+')}`;
-                      }}
-                    />
+                <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 h-full">
+                  <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
+                    <div className="text-3xl font-bold text-white">{index + 1}</div>
                   </div>
-                  <div className="p-6 text-white">
-                    <h3 className="text-xl font-bold mb-2">{application.title}</h3>
-                    <p className="text-blue-100">{application.description}</p>
-                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">{application.title}</h3>
+                  <p className="text-blue-100 mb-6">{application.description}</p>
+                  <ul className="space-y-3">
+                    {application.details.map((detail, idx) => (
+                      <li key={idx} className="flex items-center text-blue-100">
+                        <CheckCircle className="w-4 h-4 text-blue-300 mr-2 flex-shrink-0" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* KMI 2.0 Section */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                Kiefel Driving Digital – KMI 2.0
+              </h2>
+              <h3 className="text-2xl text-primary mb-6">Intuitive machine operation</h3>
+              <p className="text-lg text-gray-600 mb-6">
+                Dive into the world of thermoforming 2.0 with the new machine interface 
+                generation KMI 2.0! The <span className="font-semibold">intuitive machine operation simplifies your 
+                thermoforming processes</span> and supports you in many ways:
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Short training time",
+                  "Fast recipe optimization",
+                  "Fast error handling",
+                  "Guided maintenance system"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center text-gray-600">
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative">
+              <img
+                src="/images/kiefel/reddot.webp"
+                alt="Red Dot Award 2020"
+                className="w-full max-w-md mx-auto"
+              />
+            </div>
           </div>
         </div>
       </div>
