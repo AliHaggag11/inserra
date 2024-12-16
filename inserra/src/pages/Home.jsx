@@ -125,7 +125,7 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 6000,
     arrows: false,
     swipe: true,
     swipeToSlide: true,
@@ -137,6 +137,7 @@ const Home = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          autoplaySpeed: 8000,
         }
       },
       {
@@ -144,6 +145,7 @@ const Home = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          autoplaySpeed: 10000,
         }
       }
     ]
@@ -554,7 +556,9 @@ const Home = () => {
                         <img 
                           src={project.partnerLogo} 
                           alt="Partner Logo" 
-                          className="h-8 w-auto object-contain"
+                          className={`w-auto object-contain ${
+                            project.title === 'Al Baraka Pack' ? 'h-6' : 'h-8'
+                          }`}
                         />
                       </div>
                       <h2 className="text-6xl font-bold mb-2 text-primary opacity-20">{project.id}</h2>
