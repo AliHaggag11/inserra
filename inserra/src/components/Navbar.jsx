@@ -137,10 +137,10 @@ const Navbar = () => {
 
   const getNavbarBackground = () => {
     const isHome = location.pathname === '/';
-    if (!isHome) return 'bg-white shadow-md';
+    if (!isHome) return 'bg-white/90 backdrop-blur-sm shadow-sm';
     return isScrolled 
-      ? 'bg-white shadow-md' 
-      : 'bg-gradient-to-b from-gray-900/80 via-primary-dark/50 to-transparent';
+      ? 'bg-white/90 backdrop-blur-sm shadow-sm' 
+      : 'bg-gradient-to-b from-gray-900/40 via-gray-800/30 to-transparent';
   };
 
   const getTextColor = () => {
@@ -213,7 +213,7 @@ const Navbar = () => {
                   {item.subItems ? (
                     <>
                       <button 
-                        className={`flex items-center text-lg font-medium hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
+                        className={`flex items-center text-lg font-medium hover:text-gray-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
                         onClick={() => toggleDropdown(item.name)}
                       >
                         {item.name}
@@ -222,7 +222,7 @@ const Navbar = () => {
                       <AnimatePresence>
                         {openDropdown === item.name && (
                           <motion.div 
-                            className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                            className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white/95 backdrop-blur-sm ring-1 ring-black/5"
                             initial="closed"
                             animate="open"
                             exit="closed"
@@ -281,7 +281,7 @@ const Navbar = () => {
                   ) : (
                     <Link 
                       to={item.path} 
-                      className={`text-lg font-medium hover:text-blue-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
+                      className={`text-lg font-medium hover:text-gray-400 transition-colors duration-300 ease-in-out ${getTextColor()}`}
                       onClick={handleLinkClick}
                     >
                       {item.name}
@@ -296,7 +296,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="fixed inset-0 bg-primary z-40"
+              className="fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-40"
               initial="closed"
               animate="open"
               exit="closed"

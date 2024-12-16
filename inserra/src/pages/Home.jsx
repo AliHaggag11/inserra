@@ -74,16 +74,18 @@ const Home = () => {
     {
       id: '01',
       title: 'Al Baraka Pack',
-      customerLogo: '/path/to/albaraka-logo.png',
-      partnerLogo: '/path/to/viscotec-logo.png',
+      customerLogo: '/images/barakalogo.svg',
+      partnerLogo: '/images/viscotec/logo.svg',
+      projectImage: '/images/barakaproj2.jpeg',
       description: "Al Baraka Pack, with extensive experience in Syrian food packaging, began collaborating with us in September 2021 for their new Egyptian facility. Seeking to enter the Egyptian market with premium packaging products, they required top-tier equipment for high-quality PET sheet production. In partnership with Viscotec, we engaged in thorough discussions to determine the optimal solution for their needs. Our team approach involved close communication and multiple on-site visits throughout implementation, ensuring project success. Q1 2023 saw the successful installation and startup of our PET Extrusion line. Since then, we've provided continuous support for their aftersales requirements.",
       website: 'https://albarakapack.com/about-us/',
     },
     {
       id: '02',
       title: 'IFF',
-      customerLogo: '/path/to/iff-logo.png',
-      partnerLogo: '/path/to/hanningfield-logo.png',
+      customerLogo: '/images/iff logo.svg',
+      partnerLogo: '/images/hanningfield/hanningfield logo.svg',
+      projectImage: '/images/barakaproj.jpeg',
       description: "Our project with IFF, a global leader in food, beverage, scent, home and personal care, and health, was both interesting and challenging. Working on their expansion project alongside our partner Hanningfield, we recognized early on that their needs required a customized solution. Through numerous meetings and extensive discussions, we developed the best technical solution to meet their specific requirements. The project involved coordinating with the customer and third parties to ensure our powder processing equipment integrated seamlessly with their new blending equipment and WIP system.",
       website: 'https://www.iff.com/',
     },
@@ -542,15 +544,32 @@ const Home = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <div className="flex flex-col h-full">
-                    <div className="p-6 bg-gray-100">
+                    <div className="p-6 bg-gray-200">
                       <div className="flex justify-between items-center mb-4">
-                        <img src={project.customerLogo} alt={`${project.title} Logo`} className="w-24 h-12 object-contain" />
-                        <img src={project.partnerLogo} alt="Partner Logo" className="w-24 h-12 object-contain" />
+                        <img 
+                          src={project.customerLogo} 
+                          alt={`${project.title} Logo`} 
+                          className="h-12 w-auto object-contain"
+                        />
+                        <img 
+                          src={project.partnerLogo} 
+                          alt="Partner Logo" 
+                          className="h-8 w-auto object-contain"
+                        />
                       </div>
                       <h2 className="text-6xl font-bold mb-2 text-primary opacity-20">{project.id}</h2>
                       <h3 className="text-2xl font-bold text-primary">{project.title}</h3>
                     </div>
-                    <div className="flex-grow p-6">
+                    {project.projectImage && (
+                      <div className="w-full h-48 overflow-hidden">
+                        <img 
+                          src={project.projectImage} 
+                          alt={`${project.title} Project`} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-grow p-6 bg-gray-50">
                       <p className="text-gray-700 mb-4">{project.description}</p>
                       <a
                         href={project.website}
