@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Layers, Boxes, Wrench, Recycle, Factory, Gauge, Settings, Workflow } from 'lucide-react';
-import heroImage from '../../../../assets/plastic.png';
 
 const RecostarUniversal = () => {
   const fadeInUpVariants = {
@@ -113,6 +112,26 @@ const RecostarUniversal = () => {
     }
   ];
 
+  const machineComponents = [
+    { number: "1", title: "Conveyor belt", description: "Material transport system" },
+    { number: "2", title: "Nip roll feeder", description: "Material feeding control" },
+    { number: "3", title: "Edge trim cyclone", description: "Trim collection system" },
+    { number: "4", title: "ACTIVE shredder", description: "Size reduction unit" },
+    { number: "5", title: "Extruder", description: "Primary processing unit" },
+    { number: "6", title: "Degassing extruder", description: "Volatile removal" },
+    { number: "7", title: "Melt filter, discontinuous", description: "Basic filtration" },
+    { number: "8", title: "Melt filter without backflushing", description: "Standard filtration" },
+    { number: "9", title: "Melt filter with backflushing", description: "Advanced filtration" },
+    { number: "10", title: "Melt filter with power backflushing", description: "Premium filtration" },
+    { number: "11", title: "Continuous melt filter", description: "Uninterrupted filtration" },
+    { number: "12", title: "Waterring pelletiser", description: "Water-based pelletizing" },
+    { number: "13", title: "Strand pelletiser", description: "Strand cutting system" },
+    { number: "14", title: "Automatic strand pelletiser", description: "Automated pelletizing" },
+    { number: "15", title: "Underwater pelletiser (UWP)", description: "Submerged pelletizing" },
+    { number: "16", title: "UWP with inline crystallisation", description: "Integrated crystallization" },
+    { number: "17", title: "Filling station", description: "Product packaging" }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -131,32 +150,24 @@ const RecostarUniversal = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[80vh] overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
-        
+      <div className="relative h-[80vh] overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
+                className="text-white z-10"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   recoSTAR universal
                   <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
                     Multi-Purpose Recycling Solution
                   </span>
                 </h1>
                 <div className="w-20 h-1 bg-blue-300 mb-6"></div>
-                <p className="text-xl md:text-2xl text-blue-100 max-w-2xl">
+                <p className="text-xl text-blue-100 max-w-2xl">
                   One system for all your recycling needs - versatile, efficient, and reliable
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -181,6 +192,23 @@ const RecostarUniversal = () => {
                     <Settings className="w-6 h-6 text-blue-300" />
                     <span className="text-white">Smart Control</span>
                   </motion.div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="relative hidden lg:block z-10"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                  <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                    <img
+                      src="/images/starlinger/recoSTAR_universal.jpg"
+                      alt="recoSTAR universal"
+                      className="w-full h-full object-cover rounded-lg opacity-90"
+                    />
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -309,6 +337,67 @@ const RecostarUniversal = () => {
                 </ul>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Machine Configuration Section */}
+      <div className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-4">Machine Configuration</h2>
+            <p className="text-xl text-gray-600">Comprehensive system components</p>
+          </motion.div>
+
+          <div className="mb-12">
+            <div className="mb-8">
+              <img 
+                src="/images/starlinger/diag4.jpg"
+                alt="recoSTAR universal configuration"
+                className="w-full max-w-4xl mx-auto rounded-xl shadow-lg"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {machineComponents.map((component, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-2 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+                    {component.number}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-sm">{component.title}</h3>
+                    <p className="text-gray-600 text-xs">{component.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Download Brochure Button */}
+          <div className="text-center mt-16">
+            <motion.a
+              href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_universal_6S_E4_24831_09V.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full hover:bg-primary-dark transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="font-bold">Download Technical Brochure</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
           </div>
         </div>
       </div>

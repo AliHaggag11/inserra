@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Gauge, BarChart, Cpu, Workflow, ChevronRight, Cog, Power } from 'lucide-react';
+import { ArrowRight, Gauge, BarChart, Cpu, Workflow, ChevronRight, Cog, Power, ArrowDownCircle, Flame, Filter, Wind, Layers, Download } from 'lucide-react';
 import heroImage from '../../../../assets/plastic.png';
 
 const RecostarDynamic = () => {
@@ -84,38 +84,146 @@ const RecostarDynamic = () => {
     {
       title: "Material Input",
       description: "Flexible feeding system for various materials",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Material+Input",
+      icon: <ArrowDownCircle className="w-8 h-8" />,
       details: "Handles flakes, pellets, and agglomerates"
     },
     {
       title: "Pre-heating",
       description: "Efficient material preparation",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Pre-heating",
+      icon: <Flame className="w-8 h-8" />,
       details: "Optimized temperature control"
     },
     {
       title: "Extrusion",
       description: "High-performance plasticizing",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Extrusion",
+      icon: <Cog className="w-8 h-8" />,
       details: "Advanced screw technology"
     },
     {
       title: "Filtration",
       description: "Superior melt cleaning",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Filtration",
+      icon: <Filter className="w-8 h-8" />,
       details: "Continuous filtration system"
     },
     {
       title: "Degassing",
       description: "Efficient contaminant removal",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Degassing",
+      icon: <Wind className="w-8 h-8" />,
       details: "Multi-stage degassing"
     },
     {
       title: "Pelletizing",
       description: "Precise pellet formation",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Pelletizing",
+      icon: <Layers className="w-8 h-8" />,
       details: "Uniform pellet quality"
+    }
+  ];
+
+  const machineComponents = [
+    {
+      number: "1",
+      title: "Conveyor belt/screw",
+      description: "Material transport system"
+    },
+    {
+      number: "2",
+      title: "Single-shaft cutter, stand-alone",
+      description: "Size reduction unit"
+    },
+    {
+      number: "3",
+      title: "Conveyor belt with metal detector",
+      description: "Contamination detection"
+    },
+    {
+      number: "4",
+      title: "Nip roll feeder",
+      description: "Material feeding control"
+    },
+    {
+      number: "5",
+      title: "Edge trim cyclone",
+      description: "Trim collection system"
+    },
+    {
+      number: "6",
+      title: "SMART feeder",
+      description: "Intelligent feeding system"
+    },
+    {
+      number: "7",
+      title: "Extruder",
+      description: "Primary processing unit"
+    },
+    {
+      number: "8",
+      title: "Degassing extruder",
+      description: "Volatile removal"
+    },
+    {
+      number: "9",
+      title: "Melt filtration, discontinuous",
+      description: "Contaminant removal"
+    },
+    {
+      number: "10",
+      title: "Melt filter without backflushing",
+      description: "Basic filtration system"
+    },
+    {
+      number: "11",
+      title: "Melt filter with backflushing",
+      description: "Advanced filtration system"
+    },
+    {
+      number: "12",
+      title: "Melt filter with power backflushing",
+      description: "Premium filtration system"
+    },
+    {
+      number: "13",
+      title: "Continuous melt filter",
+      description: "Uninterrupted filtration"
+    },
+    {
+      number: "14",
+      title: "Band filter",
+      description: "Specialized filtration"
+    },
+    {
+      number: "15",
+      title: "C-VAC degassing extruder",
+      description: "Advanced degassing system"
+    },
+    {
+      number: "16",
+      title: "Water ring pelletiser",
+      description: "Water-based pellet formation"
+    },
+    {
+      number: "17",
+      title: "Strand pelletiser",
+      description: "Strand cutting system"
+    },
+    {
+      number: "18",
+      title: "Automatic strand pelletiser",
+      description: "Automated pellet production"
+    },
+    {
+      number: "19",
+      title: "Underwater pelletiser (UWP)",
+      description: "Submerged pelletizing"
+    },
+    {
+      number: "20",
+      title: "UWP with inline crystallisation",
+      description: "Integrated crystallization"
+    },
+    {
+      number: "21",
+      title: "Filling station",
+      description: "Product packaging system"
     }
   ];
 
@@ -137,32 +245,24 @@ const RecostarDynamic = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[80vh] overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
-        
+      <div className="relative h-[80vh] overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
+                className="text-white z-10"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   recoSTAR dynamic
                   <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
                     Universal Recycling System
                   </span>
                 </h1>
                 <div className="w-20 h-1 bg-blue-300 mb-6"></div>
-                <p className="text-xl md:text-2xl text-blue-100 max-w-2xl">
+                <p className="text-xl text-blue-100 max-w-2xl">
                   High-performance recycling for a wide range of plastics with maximum flexibility
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -187,6 +287,23 @@ const RecostarDynamic = () => {
                     <Cpu className="w-6 h-6 text-blue-300" />
                     <span className="text-white">Smart Control</span>
                   </motion.div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="relative hidden lg:block z-10"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                  <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                    <img
+                      src="/images/starlinger/recoSTAR_dynamic.jpg"
+                      alt="recoSTAR dynamic"
+                      className="w-full h-full object-cover rounded-lg opacity-90"
+                    />
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -278,7 +395,7 @@ const RecostarDynamic = () => {
       </div>
 
       {/* Process Steps Section */}
-      <div className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+      <div className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -288,37 +405,94 @@ const RecostarDynamic = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-4xl font-bold mb-4">Process Steps</h2>
-            <p className="text-xl text-blue-200">Complete recycling process from input to output</p>
+            <p className="text-xl text-gray-600">Advanced recycling process</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step, index) => (
               <motion.div
                 key={index}
-                className="group relative overflow-hidden rounded-xl"
+                className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="aspect-w-16 aspect-h-9">
-                  <img 
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
+                <div className="text-primary mb-4">
+                  {step.icon}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6">
-                  <div className="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center mb-4">
-                    <span className="text-xl font-bold">{index + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-blue-200 mb-2">{step.description}</p>
-                  <p className="text-sm text-blue-100">{step.details}</p>
+                <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                <p className="text-gray-600 mb-4">{step.description}</p>
+                <p className="text-sm text-gray-500">{step.details}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Machine Diagram Section */}
+      <div className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUpVariants}
+          >
+            <h2 className="text-4xl font-bold mb-4">Machine Components</h2>
+            <p className="text-xl text-gray-600">Comprehensive system overview</p>
+          </motion.div>
+
+          <div className="mb-16 max-w-4xl mx-auto">
+            <img 
+              src="/images/starlinger/recodynadiag.jpg"
+              alt="recoSTAR dynamic diagram"
+              className="w-full rounded-xl shadow-lg"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {machineComponents.map((component, index) => (
+              <motion.div
+                key={index}
+                className="flex items-start gap-4 p-4 rounded-lg hover:bg-white transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                  {component.number}
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900">{component.title}</h3>
+                  <p className="text-gray-600 text-sm">{component.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Download Brochure Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <a 
+              href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_dynamic_24821_08V.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full hover:bg-primary/90 transition-colors font-semibold"
+            >
+              <Download className="w-5 h-5" />
+              Download Brochure
+            </a>
+          </motion.div>
         </div>
       </div>
     </div>

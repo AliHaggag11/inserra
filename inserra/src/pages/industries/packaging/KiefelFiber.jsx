@@ -14,19 +14,19 @@ const KiefelFiber = () => {
     {
       title: "NATUREPREP KFP",
       description: "Preparation of natural fibers to produce high-quality packaging",
-      image: "/path/to/kfp-image.jpg",
+      image: "/images/kiefel/kfpnature.webp",  // Already using this image
       link: "/industries/packaging/kiefel-fiber/natureprep"
     },
     {
       title: "NATUREFORMER KFT",
       description: "Standard solution for a wide variety of fiber packaging",
-      image: "/path/to/kft-image.jpg",
+      image: "/images/kiefel/fiberkft.webp",   // Already using this image
       link: "/industries/packaging/kiefel-fiber/kft"
     },
     {
       title: "NATUREFORMER KFL",
       description: "Fiber thermoforming system for high-end lids & portion cups",
-      image: "/path/to/kfl-image.jpg",
+      image: "/images/kiefel/kflhero.webp",    // Already using this image
       link: "/industries/packaging/kiefel-fiber/kfl"
     }
   ];
@@ -219,34 +219,31 @@ const KiefelFiber = () => {
             {machines.map((machine, index) => (
               <motion.div
                 key={index}
-                className="group"
+                className="group h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Link to={machine.link} className="block">
-                  <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="aspect-w-16 aspect-h-9">
+                <Link to={machine.link} className="block h-full">
+                  <div className="bg-white rounded-lg shadow-md h-full flex flex-col">
+                    <div className="relative h-64">
                       <img
                         src={machine.image}
                         alt={machine.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.src = 'https://via.placeholder.com/400x225?text=Machine+Image';
-                        }}
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-primary mb-2">
+                    <div className="p-8 flex flex-col flex-grow">
+                      <h3 className="text-2xl font-bold text-[#1e293b] mb-3">
                         {machine.title}
                       </h3>
-                      <p className="text-gray-600 mb-4">
+                      <p className="text-gray-600 mb-6 flex-grow">
                         {machine.description}
                       </p>
-                      <div className="flex items-center text-primary group-hover:text-primary-dark transition-colors">
+                      <div className="flex items-center text-primary hover:text-primary-dark transition-colors">
                         Find out more
-                        <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="ml-2 w-4 h-4" />
                       </div>
                     </div>
                   </div>

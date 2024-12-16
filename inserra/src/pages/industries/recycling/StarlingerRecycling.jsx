@@ -20,7 +20,7 @@ const StarlingerRecycling = () => {
         "Smart technology for consistent high quality output",
         "Energy-efficient design"
       ],
-      image: "https://placehold.co/600x400/e2e8f0/1e293b?text=recoSTAR+dynamic",
+      image: "/images/starlinger/recoSTAR_dynamic.jpg",
       path: "/industries/recycling/starlinger-recycling/recostar-dynamic"
     },
     {
@@ -32,7 +32,7 @@ const StarlingerRecycling = () => {
         "Solid state polycondensation (SSP)",
         "Bottle-to-bottle recycling"
       ],
-      image: "https://placehold.co/600x400/e2e8f0/1e293b?text=recoSTAR+PET",
+      image: "/images/starlinger/recopet hero.jpg",
       path: "/industries/recycling/starlinger-recycling/recostar-pet"
     },
     {
@@ -44,7 +44,7 @@ const StarlingerRecycling = () => {
         "High-quality output",
         "Easy operation"
       ],
-      image: "https://placehold.co/600x400/e2e8f0/1e293b?text=recoSTAR+universal",
+      image: "/images/starlinger/recoSTAR_universal.jpg",
       path: "/industries/recycling/starlinger-recycling/recostar-universal"
     },
     {
@@ -56,7 +56,7 @@ const StarlingerRecycling = () => {
         "Energy efficient",
         "Quick material changes"
       ],
-      image: "https://placehold.co/600x400/e2e8f0/1e293b?text=recoSTAR+direct",
+      image: "/images/starlinger/directhero.jpg",
       path: "/industries/recycling/starlinger-recycling/recostar-direct"
     }
   ];
@@ -137,30 +137,36 @@ const StarlingerRecycling = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
         
         <div className="absolute inset-0 flex items-center justify-center text-white">
-          <div className="text-center px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.img 
-                src="https://placehold.co/200x80?text=Starlinger&font=roboto"
-                alt="Starlinger Logo" 
-                className="h-16 w-auto mb-8 mx-auto"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              />
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Starlinger Recycling
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
-                  Advanced Plastic Recycling Technology
-                </span>
-              </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
-                Turn plastic waste into high-quality recyclates
-              </p>
-            </motion.div>
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col items-center justify-center text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <motion.div
+                  className="inline-block bg-white p-4 rounded-lg mb-8"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  <img 
+                    src="/images/starlinger/starlinger-logo.svg"
+                    alt="Starlinger Logo" 
+                    className="h-16 w-auto"
+                  />
+                </motion.div>
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                  Starlinger Recycling
+                  <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                    Advanced Plastic Recycling Technology
+                  </span>
+                </h1>
+                <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
+                <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+                  Turn plastic waste into high-quality recyclates
+                </p>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

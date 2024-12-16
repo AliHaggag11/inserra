@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Gauge, Minimize2, Timer, Zap, Repeat, Factory, LineChart, Workflow } from 'lucide-react';
-import heroImage from '../../../../assets/plastic.png';
 
 const RecostarDirect = () => {
   const fadeInUpVariants = {
@@ -110,6 +109,20 @@ const RecostarDirect = () => {
     }
   ];
 
+  const machineComponents = [
+    { number: "1", title: "Hopper with feeding screw", description: "Material input system" },
+    { number: "2", title: "Extruder", description: "Primary processing unit" },
+    { number: "3", title: "Venting extruder", description: "Degassing system" },
+    { number: "4", title: "Melt filter without backflush", description: "Basic filtration" },
+    { number: "5", title: "Melt filter with backflush", description: "Advanced filtration" },
+    { number: "6", title: "Discontinuous melt filter", description: "Periodic filtration" },
+    { number: "7", title: "Power backflushing filter", description: "Enhanced cleaning" },
+    { number: "8", title: "Water ring pelletiser", description: "Water-based pelletizing" },
+    { number: "9", title: "Underwater pelletiser", description: "Submerged pelletizing" },
+    { number: "10", title: "(Automatic) strand pelletiser", description: "Strand cutting system" },
+    { number: "11", title: "Storage silo", description: "Product storage" }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -128,20 +141,12 @@ const RecostarDirect = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[80vh] overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
-        
+      <div className="relative h-[80vh] overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
+                className="text-white z-10"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -178,6 +183,23 @@ const RecostarDirect = () => {
                     <Timer className="w-6 h-6 text-blue-300" />
                     <span className="text-white">Quick Response</span>
                   </motion.div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="relative hidden lg:block z-10"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                  <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                    <img
+                      src="/images/starlinger/directhero.jpg"
+                      alt="recoSTAR direct"
+                      className="w-full h-full object-cover rounded-lg opacity-90"
+                    />
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -306,6 +328,67 @@ const RecostarDirect = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Machine Configuration Section */}
+      <div className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-4">Machine Configuration</h2>
+            <p className="text-xl text-gray-600">Comprehensive system components</p>
+          </motion.div>
+
+          <div className="mb-12">
+            <div className="mb-8">
+              <img 
+                src="/images/starlinger/directdiag.jpg"
+                alt="recoSTAR direct configuration"
+                className="w-full max-w-4xl mx-auto rounded-xl shadow-lg"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {machineComponents.map((component, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-2 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+                    {component.number}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-sm">{component.title}</h3>
+                    <p className="text-gray-600 text-xs">{component.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Download Brochure Button */}
+          <div className="text-center mt-16">
+            <motion.a
+              href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_direct_24821_08V.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full hover:bg-primary-dark transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="font-bold">Download Technical Brochure</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
           </div>
         </div>
       </div>

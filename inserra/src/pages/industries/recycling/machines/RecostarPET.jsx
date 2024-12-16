@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Beaker, Zap, Settings, Gauge, ChevronRight } from 'lucide-react';
-import heroImage from '../../../../assets/plastic.png';
 
 const RecostarPET = () => {
   const fadeInUpVariants = {
@@ -80,37 +79,53 @@ const RecostarPET = () => {
     }
   ];
 
-  const applications = [
-    {
-      title: "Beverage bottles",
-      description: "Food-grade recycling for bottle-to-bottle applications",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Beverage+Bottles"
-    },
-    {
-      title: "Food containers",
-      description: "High-quality rPET for food packaging",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Food+Containers"
-    },
-    {
-      title: "Thermoform sheets",
-      description: "Premium material for thermoforming applications",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Thermoform+Sheets"
-    },
-    {
-      title: "Strapping materials",
-      description: "High-strength recycled PET for industrial use",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Strapping"
-    },
-    {
-      title: "Technical fibers",
-      description: "Quality fibers for textile applications",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Technical+Fibers"
-    },
-    {
-      title: "Food packaging",
-      description: "Safe and sustainable packaging solutions",
-      image: "https://placehold.co/600x400/1e40af/ffffff?text=Food+Packaging"
-    }
+  const petArtComponents = [
+    { number: "1", title: "Screw conveyor", description: "Material transport system" },
+    { number: "2", title: "Metal separator", description: "Contaminant removal" },
+    { number: "3", title: "Combined drying unit", description: "Material preparation" },
+    { number: "4", title: "Extruder", description: "Primary processing unit" },
+    { number: "5", title: "Melt pump", description: "Flow control system" },
+    { number: "6", title: "Melt filter with backflush", description: "Filtration system" },
+    { number: "7", title: "Underwater pelletizer with inline crystallization", description: "Pellet formation" },
+    { number: "8", title: "Post-crystallization unit", description: "Crystal structure development" },
+    { number: "9", title: "Separate vacuum feeding system", description: "Material handling" },
+    { number: "10", title: "SSP preheater", description: "Temperature preparation" },
+    { number: "11", title: "Heat exchanger for preheater", description: "Thermal management" },
+    { number: "12", title: "SSP reactor", description: "Solid state processing" },
+    { number: "13", title: "Discharge unit", description: "Material output" },
+    { number: "14", title: "Heat exchanger for pellets", description: "Temperature control" },
+    { number: "15", title: "Pellet water cooler", description: "Cooling system" },
+    { number: "16", title: "Storage silo", description: "Product storage" }
+  ];
+
+  const recoStarFGComponents = [
+    { number: "1", title: "Feeding screw", description: "Material input" },
+    { number: "2", title: "Hot air drying unit", description: "Moisture removal" },
+    { number: "3a/b", title: "Pre-drying unit/pre-drying unit under vacuum", description: "Advanced drying" },
+    { number: "4", title: "Extruder", description: "Material processing" },
+    { number: "5", title: "High-vacuum degassing extruder", description: "Contaminant removal" },
+    { number: "6", title: "Melt filter without backflushing", description: "Basic filtration" },
+    { number: "7", title: "Melt filter with backflushing", description: "Advanced filtration" },
+    { number: "8", title: "Strand pelletiser", description: "Pellet formation" },
+    { number: "9", title: "Automatic strand pelletiser", description: "Automated cutting" },
+    { number: "10", title: "Underwater pelletiser", description: "Submerged processing" },
+    { number: "11", title: "Underwater pelletiser with inline crystallisation", description: "Integrated crystallization" },
+    { number: "12", title: "Storage silo", description: "Final storage" }
+  ];
+
+  const recoStarFGPlusComponents = [
+    { number: "1", title: "Feeding screw", description: "Material input" },
+    { number: "2", title: "Hot air drying unit", description: "Moisture removal" },
+    { number: "3a/b", title: "Pre-drying unit/pre-drying unit under vacuum", description: "Advanced drying" },
+    { number: "4", title: "Extruder", description: "Material processing" },
+    { number: "5", title: "High-vacuum degassing extruder", description: "Contaminant removal" },
+    { number: "6", title: "Melt filter without backflushing", description: "Basic filtration" },
+    { number: "7", title: "Melt filter with backflushing", description: "Advanced filtration" },
+    { number: "8", title: "Strand pelletiser", description: "Pellet formation" },
+    { number: "9", title: "Automatic strand pelletiser", description: "Automated cutting" },
+    { number: "10", title: "Underwater pelletiser", description: "Submerged processing" },
+    { number: "11", title: "Underwater pelletiser with inline crystallisation", description: "Integrated crystallization" },
+    { number: "12", title: "Storage silo", description: "Final storage" }
   ];
 
   return (
@@ -131,32 +146,24 @@ const RecostarPET = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[80vh] overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
-        
+      <div className="relative h-[80vh] overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
+                className="text-white z-10"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   recoSTAR PET
                   <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
                     Food-Grade PET Recycling
                   </span>
                 </h1>
                 <div className="w-20 h-1 bg-blue-300 mb-6"></div>
-                <p className="text-xl md:text-2xl text-blue-100 max-w-2xl">
+                <p className="text-xl text-blue-100 max-w-2xl">
                   Advanced bottle-to-bottle recycling technology with superior decontamination performance
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -181,6 +188,23 @@ const RecostarPET = () => {
                     <Settings className="w-6 h-6 text-blue-300" />
                     <span className="text-white">Smart Operation</span>
                   </motion.div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="relative hidden lg:block z-10"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                  <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                    <img
+                      src="/images/starlinger/recopet hero.jpg"
+                      alt="recoSTAR PET"
+                      className="w-full h-full object-cover rounded-lg opacity-90"
+                    />
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -271,43 +295,130 @@ const RecostarPET = () => {
         </div>
       </div>
 
-      {/* Applications Section */}
-      <div className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
+      {/* Process Diagrams Section */}
+      <div className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <h2 className="text-4xl font-bold mb-4">Applications</h2>
-            <p className="text-xl text-blue-200">Wide range of processing capabilities</p>
+            <h2 className="text-4xl font-bold mb-4">Process Configurations</h2>
+            <p className="text-xl text-gray-600">Multiple setup options for different requirements</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {applications.map((app, index) => (
-              <motion.div
-                key={index}
-                className="group relative overflow-hidden rounded-xl"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="aspect-w-16 aspect-h-9">
-                  <img 
-                    src={app.image}
-                    alt={app.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-xl font-bold mb-2">{app.title}</h3>
-                  <p className="text-blue-200">{app.description}</p>
-                </div>
-              </motion.div>
-            ))}
+          {/* PET art Configuration */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-6 text-primary">PET art Configuration</h3>
+            <div className="mb-6">
+              <img 
+                src="/images/starlinger/diag1pet.jpg"
+                alt="PET art configuration diagram"
+                className="w-full max-w-4xl mx-auto rounded-xl shadow-lg"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {petArtComponents.map((component, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-2 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+                    {component.number}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-sm">{component.title}</h3>
+                    <p className="text-gray-600 text-xs">{component.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* recoSTAR FG Configuration */}
+          <div className="mb-20">
+            <h3 className="text-2xl font-bold mb-8 text-primary">recoSTAR FG Configuration</h3>
+            <div className="mb-8">
+              <img 
+                src="/images/starlinger/diag2pet.jpg"
+                alt="recoSTAR FG configuration diagram"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recoStarFGComponents.map((component, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    {component.number}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900">{component.title}</h3>
+                    <p className="text-gray-600 text-sm">{component.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* recoSTAR FG+ Configuration */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-primary">recoSTAR FG+ Configuration</h3>
+            <div className="mb-8">
+              <img 
+                src="/images/starlinger/diag3pet.jpg"
+                alt="recoSTAR FG+ configuration diagram"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recoStarFGPlusComponents.map((component, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    {component.number}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900">{component.title}</h3>
+                    <p className="text-gray-600 text-sm">{component.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Download Brochure Button */}
+          <div className="text-center mt-16">
+            <motion.a
+              href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_direct_E4_24871_04U.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full hover:bg-primary-dark transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="font-bold">Download Technical Brochure</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
           </div>
         </div>
       </div>

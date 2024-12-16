@@ -100,18 +100,12 @@ const NatureformerKFL = () => {
 
       {/* Hero Section */}
       <div className="relative h-[65vh] overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-        />
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
         
-        <div className="absolute inset-0 flex items-center justify-center text-white">
-          <div className="text-center px-4 pb-32">
+        <div className="container mx-auto px-4 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
             <motion.div
+              className="text-white text-left z-10"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -122,10 +116,27 @@ const NatureformerKFL = () => {
                   High-end Fiber Thermoforming
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+              <div className="w-20 h-1 bg-blue-300 mb-6"></div>
+              <p className="text-xl text-blue-100 max-w-2xl">
                 Fiber thermoforming system for high-end lids & portion cups production
               </p>
+            </motion.div>
+
+            <motion.div
+              className="relative hidden lg:block z-10"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                  <img
+                    src="/images/kiefel/kflhero.webp"
+                    alt="NATUREFORMER KFL"
+                    className="w-full h-full object-cover rounded-lg opacity-90"
+                  />
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -182,21 +193,17 @@ const NatureformerKFL = () => {
             {geometries.map((item, index) => (
               <motion.div
                 key={index}
-                className="group relative h-80 overflow-hidden rounded-xl shadow-lg"
+                className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-white/80">{item.description}</p>
+                <div className="bg-white/20 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold">{index + 1}</span>
                 </div>
+                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                <p className="text-blue-100">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -257,11 +264,15 @@ const NatureformerKFL = () => {
           </motion.div>
 
           <div className="relative max-w-4xl mx-auto">
-            <img 
-              src="https://placehold.co/800x400/e2e8f0/1e293b?text=Lid+Diagram"
-              alt="Lid Features"
-              className="w-full mb-12"
-            />
+            <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1 mb-12">
+              <div className="w-full h-full bg-gray-800/90 rounded-lg">
+                <img 
+                  src="/images/kiefel/liddiag.webp"
+                  alt="Lid Features"
+                  className="w-full h-full object-contain rounded-lg opacity-90"
+                />
+              </div>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {uniqueQualities.map((quality, index) => (
