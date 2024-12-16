@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck, ArrowRight, Factory, Recycle, Package, Refrigerator, FlaskConical } from 'lucide-react';
-import heroImage from '../assets/plastic.png';
 import { FlipWords } from '../components/FlipWords';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import plasticImage from '../assets/plastic.png';
 
 const Home = () => {
   const fadeInUpVariants = {
@@ -24,16 +24,16 @@ const Home = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   const heroImages = [
-    heroImage,
-    heroImage,
-    heroImage,
-    heroImage
+    '/images/shutterstock_2174669625.jpg',
+    plasticImage,
+    '/images/shutterstock_2227403169.png',
+    plasticImage
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveImage((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
@@ -49,28 +49,24 @@ const Home = () => {
 
   const partners = [
     {
-      name: 'Company One',
-      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+1&font=roboto'
+      name: 'Starlinger',
+      logo: '/images/starlinger/starlinger-logo.svg',
+      website: 'https://www.starlinger.com/en/'
     },
     {
-      name: 'Company Two',
-      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+2&font=roboto'
+      name: 'Hanningfield',
+      logo: '/images/hanningfield/hanningfield logo.svg',
+      website: 'https://www.hanningfield.com/'
     },
     {
-      name: 'Company Three',
-      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+3&font=roboto'
+      name: 'Kiefel',
+      logo: '/images/kiefel/kiefel-technologieslogo.svg',
+      website: 'https://www.kiefel.com/en'
     },
     {
-      name: 'Company Four',
-      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+4&font=roboto'
-    },
-    {
-      name: 'Company Five',
-      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+5&font=roboto'
-    },
-    {
-      name: 'Company Six',
-      logo: 'https://placehold.co/200x100/e2e8f0/475569?text=Partner+6&font=roboto'
+      name: 'Viscotec',
+      logo: '/images/viscotec/logo.svg',
+      website: 'https://www.viscotec.at/'
     }
   ];
 
@@ -197,7 +193,11 @@ const Home = () => {
             transition={{ duration: 1.5 }}
           />
         ))}
-        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div 
+          className={`absolute inset-0 bg-black transition-opacity duration-1000 ${
+            activeImage === 2 ? 'opacity-60' : 'opacity-40'
+          }`}
+        ></div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary-dark/30"></div>
 
         {/* Animated background shapes */}
@@ -382,7 +382,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${plasticImage})` }}
         ></div>
         <div className="relative container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -430,38 +430,98 @@ const Home = () => {
       </motion.div>
 
       {/* Partner Logos Marquee */}
-      <div className="relative z-40 bg-gray-100 py-12 overflow-hidden">
+      <div className="relative z-40 bg-gray-200 py-12 overflow-hidden">
         <style>
           {`
-            @keyframes marquee {
+            @keyframes scroll {
               0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
+              100% { transform: translateX(calc(-300px * 4))}
             }
             
-            @media (max-width: 768px) {
-              .animate-marquee {
-                animation: marquee 20s linear infinite;
-              }
+            .scroll-wrapper {
+              width: 100%;
+              overflow: hidden;
+              padding: 15px 0;
             }
             
-            @media (min-width: 769px) {
-              .animate-marquee {
-                animation: marquee 40s linear infinite;
-              }
+            .scroll-container {
+              display: flex;
+              animation: scroll 30s linear infinite;
+              width: fit-content;
+            }
+            
+            .scroll-container:hover {
+              animation-play-state: paused;
+            }
+            
+            .partner-logo {
+              width: 300px;
+              flex-shrink: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0 40px;
             }
           `}
         </style>
-        <div className="flex animate-marquee">
-          {[...partners, ...partners].map((partner, index) => (
-            <div key={index} className="flex-shrink-0 mx-12">
-              <img 
-                src={partner.logo} 
-                alt={partner.name}
-                className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                loading="lazy"
-              />
-            </div>
-          ))}
+        
+        <div className="scroll-wrapper">
+          <div className="scroll-container">
+            {/* First set of logos */}
+            {partners.map((partner, index) => (
+              <div key={`first-${index}`} className="partner-logo">
+                <a 
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-100 transition-all duration-300"
+                >
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="h-12 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            ))}
+            {/* Second set of logos */}
+            {partners.map((partner, index) => (
+              <div key={`second-${index}`} className="partner-logo">
+                <a 
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-100 transition-all duration-300"
+                >
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="h-12 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            ))}
+            {/* Third set of logos */}
+            {partners.map((partner, index) => (
+              <div key={`third-${index}`} className="partner-logo">
+                <a 
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-100 transition-all duration-300"
+                >
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="h-12 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -555,7 +615,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${plasticImage})` }}
         ></div>
         <div className="relative container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

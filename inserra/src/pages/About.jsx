@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck,
          HeadphonesIcon, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon } from 'lucide-react';
-import heroImage from '../assets/plastic.png';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('vision');
@@ -39,7 +38,9 @@ const About = () => {
 
   const tabContent = {
     vision: "Our vision is to continuously offer innovative solutions that drive a positive change in the industry to enhance the well-being of communities and create a more sustainable and eco-friendly world.",
-    mission: "At INSERA, our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services.",
+    
+    mission: "At INSERA, our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them. Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology.",
+    
     strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver innovative, sustainable solutions across all segments of the plastic management value chain."
   };
 
@@ -49,7 +50,7 @@ const About = () => {
       <div className="relative h-[60vh] overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url('/images/shutterstock_2174669625.jpg')` }}
         />
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
@@ -195,7 +196,7 @@ const About = () => {
       {/* Background Image Section - Full width image */}
       <motion.div 
         className="relative h-[50vh] bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url('/images/shutterstock_2174669625.jpg')` }}
       >
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
