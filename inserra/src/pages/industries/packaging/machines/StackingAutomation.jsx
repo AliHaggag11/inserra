@@ -12,80 +12,87 @@ const StackingAutomation = () => {
 
   const features = [
     {
-      title: "High-Speed Stacking",
-      description: "Advanced stacking systems for maximum efficiency",
+      title: "Pick & Place",
+      description: "Continuous output rates with ergonomic design",
       details: [
-        "Up to 45 cycles per minute",
-        "Multiple stacking patterns",
-        "Gentle product handling",
-        "Quick format changes"
+        "Continuous output rates",
+        "Buffer with longer conveyor belt",
+        "Ergonomically convenient removal position",
+        "Flexible handling solutions"
       ]
     },
     {
-      title: "Robot Integration",
-      description: "Seamless robotic handling solutions",
+      title: "A/B Stacking",
+      description: "Economical solution for thin films",
       details: [
-        "6-axis robot systems",
-        "Custom end-of-arm tooling",
-        "Flexible programming",
-        "Advanced path planning"
+        "Processing thin films",
+        "High degree of automation",
+        "Economical removal and filling",
+        "Perfectly designed KMD systems"
       ]
     },
     {
-      title: "Quality Control",
-      description: "Integrated quality inspection",
+      title: "Further Stacking Solutions",
+      description: "Versatile stacking options",
       details: [
-        "Vision inspection systems",
-        "Automated quality checks",
-        "Defect detection",
-        "Real-time monitoring"
+        "Tip stacking",
+        "Stacking up",
+        "Stacking down",
+        "Customizable configurations"
       ]
     }
   ];
 
   const specifications = [
     {
-      title: "Stacking Performance",
+      title: "SPEEDPACKER KSP",
       specs: [
-        "Cycle time: Up to 45 cycles/min",
-        "Stack height: Up to 800 mm",
-        "Product dimensions: 150-600 mm",
-        "Multiple stacking patterns"
+        "Removal height product stack: 700 - 1,000 mm",
+        "Removal conveyor dimensions: approx. 1,900 x 780 mm",
+        "Installation surface: appx. 3.5 x 1.9 x 3 m",
+        "Production speed max: 50 cycles/min"
       ]
     },
     {
-      title: "Robot Specifications",
+      title: "System Benefits",
       specs: [
-        "Payload capacity: Up to 50 kg",
-        "Reach: Up to 2000 mm",
-        "Position repeatability: ±0.1 mm",
-        "Advanced motion control"
+        "More buffer time",
+        "Multiple machine operation by one person",
+        "Ergonomic & safe working height",
+        "Reduction of labor costs and associated costs",
+        "Optional: Gate for noise reduction"
       ]
     }
   ];
 
   const automationBenefits = [
     {
-      title: "Increased Productivity",
-      description: "Maximize output with high-speed automated handling",
-      icon: <Zap className="w-8 h-8" />
-    },
-    {
-      title: "Consistent Quality",
-      description: "Ensure reliable and repeatable product handling",
-      icon: <Shield className="w-8 h-8" />
-    },
-    {
       title: "Flexible Integration",
-      description: "Seamless integration with existing production lines",
+      description: "Flexible use with new & existing machines as well as for machines from other manufacturers (on request)",
       icon: <Settings className="w-8 h-8" />
     },
     {
-      title: "Reduced Labor Costs",
-      description: "Minimize manual handling requirements",
+      title: "SPEEDPACKER Integration",
+      description: "Standard automation module for SPEEDFORMER KMD series with automated shuttle transfer",
       icon: <Factory className="w-8 h-8" />
+    },
+    {
+      title: "Ergonomic Design",
+      description: "Optimum buffering of trays with ergonomic removal height",
+      icon: <Shield className="w-8 h-8" />
+    },
+    {
+      title: "Efficient Operation",
+      description: "Multiple machine operation by one person with reduced labor costs",
+      icon: <Zap className="w-8 h-8" />
     }
   ];
+
+  const heroContent = {
+    title: "Stacking & Automation Solutions",
+    subtitle: "for steel rule cutting machines",
+    description: "Increasingly shorter product life cycles, a shortage of skilled workers and the trend towards individualization require flexible stacking and automation solutions tailored to customer requirements."
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -123,14 +130,14 @@ const StackingAutomation = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Stacking & Automation
+                {heroContent.title}
                 <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
-                  Advanced Handling Solutions
+                  {heroContent.subtitle}
                 </span>
               </h1>
               <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
               <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
-                Efficient automated solutions for product handling and stacking
+                {heroContent.description}
               </p>
             </motion.div>
           </div>
@@ -221,25 +228,25 @@ const StackingAutomation = () => {
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <h2 className="text-3xl font-bold mb-4">Technical Specifications</h2>
-            <p className="text-xl text-blue-200">Advanced automation capabilities</p>
+            <h2 className="text-3xl font-bold mb-4">SPEEDPACKER</h2>
+            <p className="text-xl text-blue-200">Technical highlights & benefits</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {specifications.map((section, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-white rounded-xl p-8 text-gray-800"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-2xl font-bold mb-6">{section.title}</h3>
+                <h3 className="text-2xl font-bold mb-6 text-primary">{section.title}</h3>
                 <ul className="space-y-4">
                   {section.specs.map((spec, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <div className="w-2 h-2 bg-blue-300 rounded-full mr-3"></div>
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       <span>{spec}</span>
                     </li>
                   ))}

@@ -167,33 +167,33 @@ const SpeedformerKMD = () => {
 
   const applications = [
     {
-      title: "Food Packaging",
-      description: "High-quality containers and trays for food industry",
+      title: "Materials for Processing",
+      description: "Wide range of materials for packaging production",
       details: [
-        "Food-grade materials",
-        "Various sizes and shapes",
-        "Excellent barrier properties",
-        "Temperature resistant"
+        "PET, PP, PS, PLA, PE",
       ]
     },
     {
-      title: "Medical Packaging",
-      description: "Sterile packaging solutions for medical devices",
+      title: "Food",
+      description: "Food packaging applications and materials",
       details: [
-        "Clean room compatible",
-        "Sterilization resistant",
-        "High clarity materials",
-        "Precise specifications"
+        "Baby food",
+        "Bakery Prodcts; Chococlate, Ready Meals, Margarine",
+        "Patisserie, Delicatessen",
+        "Fruit, Vegetables, Salads, Eggs",
+        "Meat, Seafood",
+        "Pet Food"
       ]
     },
     {
-      title: "Industrial Packaging",
-      description: "Durable packaging for industrial products",
+      title: "Technical Packaging",
+      description: "Specialized technical packaging solutions",
       details: [
-        "Impact resistant",
-        "Custom dimensions",
-        "Cost-effective solutions",
-        "High volume production"
+        "Medicine",
+        "Agriculture",
+        "Engineering & Electronics",
+        "Transportation",
+        "Cosmetics"
       ]
     }
   ];

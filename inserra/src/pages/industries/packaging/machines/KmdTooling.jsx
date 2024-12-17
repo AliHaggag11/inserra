@@ -10,79 +10,76 @@ const KmdTooling = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+  const heroContent = {
+    title: "Tools for steel rule cutting machines",
+    subtitle: "Flexibility and compatibility for tool deployment",
+    description: "With more than 40 years thermoforming technology experience in the packaging industry (cups, trays, blister, etc.), Kiefel Packaging offers its customers customized tools of the highest quality. Everything to achieve one goal: your satisfaction and the unique productivity advantage."
+  };
+
   const toolFeatures = [
     {
-      title: "Steel Rule Cutting",
-      description: "Advanced cutting technology for optimal results",
+      title: "Forming/Cutting tools",
+      description: "The Kiefel Cup-n-Pack (PES) system enables the production of high-quality plastic packaging with the best price-performance ratio.",
       features: [
-        "Precise cutting edges",
-        "Long tool life",
-        "Quick-change system",
-        "Minimal maintenance"
+        "High cutting accuracy even for materials with different shrinkage",
+        "Cutting knives do not need to be positioned",
+        "Low tool costs compared to the conventional forming/cutting system, since no costly profile grinding of the cutting contour is required",
+        "Short equipping times: adjustment of a separate cutting station and the time required for changing blades and the punched counterstide",
+        "High flexibility: all common materials can be processed",
+        "Low space requirements: no need for a separate cutting station"
       ]
     },
     {
-      title: "Tool Design",
-      description: "Innovative design for complex geometries",
+      title: "Thermoform configurator",
+      description: "The most powerful online tool for thermoforming",
       features: [
-        "Custom configurations",
-        "Optimized material flow",
-        "Efficient cooling",
-        "Modular construction"
-      ]
-    },
-    {
-      title: "Quality Control",
-      description: "Comprehensive quality assurance",
-      features: [
-        "Precise measurements",
-        "Surface finish control",
-        "Dimensional stability",
-        "Process monitoring"
+        "Calculate different tool configurations on more than 40 thermoforming machines",
+        "Product weights against material thicknesses and vice versa",
+        "Tool layouts with the number of cavities and material usage for your thermoform machine",
+        "Determine your perforation output"
       ]
     }
   ];
 
   const specifications = [
     {
-      title: "Tool Specifications",
+      title: "Material Compatibility",
       specs: [
-        "Maximum tool size: 1000 x 800 mm",
-        "Steel rule thickness: 0.7 - 2.0 mm",
-        "Cutting force: up to 600 kN",
-        "Quick-change system compatible"
+        "PP, PS, PE, rPET, FLA etc.",
+        "Perfect for making trays and lids",
+        "Compatible with all common thermoforming systems"
       ]
     },
     {
-      title: "Material Compatibility",
+      title: "System Features",
       specs: [
-        "PS, PP, PET, PVC",
-        "Material thickness: 0.1 - 2.0 mm",
-        "Multi-layer materials",
-        "Specialty materials available"
+        "Balance between production output, film utilization, and tool handling",
+        "Shortest change over times",
+        "Customized tools for specific requirements",
+        "Suitable for all standard steel rule cutting machines"
       ]
     }
   ];
 
   const benefits = [
     {
-      title: "Cost Efficiency",
-      description: "Reduced material waste and optimal production efficiency",
+      title: "Experience",
+      description: "Over 40 years of thermoforming technology expertise",
       icon: <Factory className="w-8 h-8" />
     },
     {
-      title: "Precision",
-      description: "High-accuracy cutting for consistent quality",
+      title: "Customization",
+      description: "Tools customized to your specific requirements",
       icon: <Settings className="w-8 h-8" />
     },
     {
-      title: "Durability",
-      description: "Long-lasting tools for extended production runs",
+      title: "Quality",
+      description: "Highest quality standards for optimal production",
       icon: <Shield className="w-8 h-8" />
     },
     {
-      title: "Flexibility",
-      description: "Quick-change system for minimal downtime",
+      title: "Versatility",
+      description: "Compatible with all common thermoforming systems",
       icon: <Wrench className="w-8 h-8" />
     }
   ];
@@ -123,14 +120,14 @@ const KmdTooling = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                KMD Tooling
+                {heroContent.title}
                 <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
-                  Steel Rule Cutting Tools
+                  {heroContent.subtitle}
                 </span>
               </h1>
               <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
               <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
-                High-precision tooling solutions for optimal production results
+                {heroContent.description}
               </p>
             </motion.div>
           </div>
@@ -180,11 +177,11 @@ const KmdTooling = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {toolFeatures.map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white"
+                className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -195,11 +192,11 @@ const KmdTooling = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
                 <p className="text-blue-100 mb-6">{feature.description}</p>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {feature.features.map((item, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
-                      <span>{item}</span>
+                    <li key={idx} className="flex items-start text-blue-100">
+                      <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0 mt-1" />
+                      <span className="flex-1">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -227,17 +224,17 @@ const KmdTooling = () => {
             {specifications.map((section, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-white rounded-xl p-8 text-gray-800"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-2xl font-bold mb-6">{section.title}</h3>
+                <h3 className="text-2xl font-bold mb-6 text-primary">{section.title}</h3>
                 <ul className="space-y-4">
                   {section.specs.map((spec, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <div className="w-2 h-2 bg-blue-300 rounded-full mr-3"></div>
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       <span>{spec}</span>
                     </li>
                   ))}

@@ -14,7 +14,7 @@ const KiefelPackaging = () => {
     steelRule: [
       {
         title: "SPEEDFORMER KMD",
-        description: "For high quality inner doors",
+        description: "Steel rule cutting machines",
         image: "/images/kiefel/kiefeloverview.webp",
         link: "/industries/packaging/kiefel/kmd"
       },
@@ -40,7 +40,7 @@ const KiefelPackaging = () => {
     tilting: [
       {
         title: "SPEEDFORMER KTR",
-        description: "For high quality inner containers",
+        description: "Cup forming machines",
         image: "/images/kiefel/sfktr.webp",
         link: "/industries/packaging/kiefel/ktr"
       },
@@ -201,7 +201,7 @@ const KiefelPackaging = () => {
                 Setting New Standards in Packaging Technology
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed mb-12">
-                KIEFEL's packaging solutions represent the pinnacle of thermoforming technology, 
+                KIEFEL's packaging solutions represent the benchmark of thermoforming technology, 
                 combining German engineering excellence with innovative design to deliver 
                 unparalleled performance and reliability.
               </p>

@@ -12,46 +12,48 @@ const UpstreamDownstream = () => {
 
   const upstreamSolutions = [
     {
-      title: "Material Handling",
-      description: "Automated material feeding and handling systems",
+      title: "Unreeling Unit KA",
+      description: "The KA unreeling unit enables sophisticated control of film rolls --> no stop & go.",
       features: [
-        "Automatic roll changing",
-        "Material pre-heating",
-        "Tension control",
-        "Edge guiding"
+        "Indicates the end of the film",
+        "Can be modularly extended by a lifting device",
+        "Ultrasonic joining unit",
+        "Sophisticated control system"
       ]
     },
     {
-      title: "Pre-Processing",
-      description: "Material preparation and conditioning",
+      title: "Preheating KVH",
+      description: "The preheater KVH has a sophisticated control of the film loops -> no stop & go.",
       features: [
-        "Temperature control",
-        "Surface treatment",
-        "Material alignment",
-        "Quality monitoring"
+        "Efficient film heating",
+        "Power consumption can be kept low",
+        "Can also score as an independent unit",
+        "Compatible with non-Kiefel machines"
       ]
     }
   ];
 
   const downstreamSolutions = [
     {
-      title: "Post-Processing",
-      description: "Product finishing and quality control",
+      title: "SPEEDGRINDER (KSG)",
+      description: "A so-called 'skeleton grinder' which grinds the residual skeleton which is produced in the thermoforming process after the finished parts have been punched out. The ground material can be fed back into the extrusion process and thus be processed into plastic film again.",
       features: [
-        "Trimming systems",
-        "Surface treatment",
-        "Quality inspection",
-        "Marking systems"
+        "Low dust and noise levels due to low rotor speed",
+        "Best material quality due to optimum feed speed and rotor cutting speed",
+        "Good accessibility for maintenance and cleaning",
+        "Closed-loop recycling management"
       ]
     },
     {
-      title: "Packaging Systems",
-      description: "End-of-line packaging solutions",
+      title: "Technical Highlights",
+      description: "SPEEDGRINDER specifications",
       features: [
-        "Automated stacking",
-        "Product counting",
-        "Box filling",
-        "Palletizing"
+        "KSG 90-200: short-term 900 kg/hour, long-term 450 kg/hour",
+        "KSG 50-200: short-term 750 kg/hour, long-term 600 kg/hour",
+        "Motor power: 22 kW (Max.)",
+        "Infeed opening: 600 mm",
+        "Max. noise level: 80 dB (real production)",
+        "Rotor speed: 420 rpm"
       ]
     }
   ];
@@ -115,14 +117,14 @@ const UpstreamDownstream = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Complete Line Solutions
+                Upstream & Downstream
                 <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
-                  Upstream & Downstream Integration
+                  Complete Processing Solutions
                 </span>
               </h1>
               <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
               <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
-                Comprehensive material handling and processing solutions
+                Integrated solutions for material handling and processing
               </p>
             </motion.div>
           </div>
@@ -184,7 +186,7 @@ const UpstreamDownstream = () => {
               >
                 <div className="flex items-start">
                   <div className="bg-white/20 rounded-lg p-4 mr-6">
-                    <ArrowLeft className="w-10 h-10" />
+                    <Factory className="w-8 h-8" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-4">{solution.title}</h3>
@@ -223,23 +225,23 @@ const UpstreamDownstream = () => {
             {downstreamSolutions.map((solution, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-white rounded-xl p-8 text-primary-dark"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="flex items-start">
-                  <div className="bg-white/20 rounded-lg p-4 mr-6">
-                    <ArrowRight className="w-10 h-10" />
+                  <div className="bg-primary/10 rounded-lg p-4 mr-6">
+                    <Settings className="w-8 h-8" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-4">{solution.title}</h3>
-                    <p className="text-blue-100 mb-6">{solution.description}</p>
+                    <p className="text-gray-600 mb-6">{solution.description}</p>
                     <ul className="space-y-3">
                       {solution.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center text-blue-100">
-                          <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                        <li key={idx} className="flex items-center text-gray-600">
+                          <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                           <span>{feature}</span>
                         </li>
                       ))}

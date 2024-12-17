@@ -131,6 +131,14 @@ const Home = () => {
     swipeToSlide: true,
     touchThreshold: 10,
     cssEase: 'cubic-bezier(0.87, 0, 0.13, 1)',
+    dotsClass: "slick-dots !bottom-[-2rem]",
+    customPaging: function(i) {
+      return (
+        <div className="w-3 h-3 mx-1 flex items-center justify-center">
+          <div className="w-3 h-3 rounded-full bg-blue-200 hover:bg-blue-300 transition-colors duration-200 [.slick-active_&]:bg-gray-500" />
+        </div>
+      );
+    },
     responsive: [
       {
         breakpoint: 1024,
@@ -305,7 +313,7 @@ const Home = () => {
             {[
               {
                 title: "Packaging Solutions",
-                description: "Advanced thermoforming technology for sustainable packaging solutions",
+                description: "Advanced technology for sustainable packaging solutions",
                 icon: <Package className="w-10 h-10" />,
                 link: "/industries/packaging",
                 features: ["Thermoforming Systems", "Fiber Technology", "Sustainable Materials"],
@@ -322,14 +330,14 @@ const Home = () => {
                 description: "Complete recycling solutions for a sustainable future",
                 icon: <Recycle className="w-10 h-10" />,
                 link: "/industries/recycling",
-                features: ["Material Recovery", "Washing Systems", "Sorting Technology"],
+                features: ["Recycling Technology", "Washing Lines", "Automatic Sorting"],
               },
               {
                 title: "Food & Pharmaceutical",
                 description: "Specialized equipment for food processing and pharmaceutical manufacturing",
                 icon: <FlaskConical className="w-10 h-10" />,
                 link: "/industries/food-pharma",
-                features: ["Clean Room Solutions", "GMP Standards", "Process Automation"],
+                features: ["Solid Dosage Processing", "IV and Blood bags Manufacturing and Filling", "Ostomy Pouches Manufacturing"],
               }
             ].map((industry, index) => (
               <motion.div

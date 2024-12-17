@@ -41,7 +41,7 @@ const About = () => {
     
     mission: "At INSERA, our mission is to be the leading partner in providing know-how and supplying cutting-edge technology, setting the standard for unparalleled quality in every aspect along with our detail-oriented services. Our commitment extends beyond meeting client expectations; we aspire to consistently exceed them. Through partnering with worldwide technology leaders, we strive to empower industries with reliable, high-performance production lines and machines that guarantee success and develop progress. At the heart of our mission is the solid pursuit of reliability, setting our position as the trusted partner for those who demand nothing but state of the art technology.",
     
-    strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver innovative, sustainable solutions across all segments of the plastic management value chain."
+    strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver  innovative, tailored solutions across the industries we serve."
   };
 
   return (
@@ -82,16 +82,16 @@ const About = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-8 text-primary">About Us</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-              Founded in 2017, INSERA has quickly established itself as a leading force in
-               the industrial sector, representing global manufacturers of advanced production
-                lines and machinery. Specializing in packaging, recycling, and food and pharmaceutical
-                 manufacturing. We are committed to innovation, sustainability, and supporting 
-                 industries that shape the future. From project development to implementation
-                  and ongoing after-sales support, we partner closely with clients to provide 
-                  tailored solutions that drive their success. Built on principles of integrity, 
-                  reliability, and persistent strive for perfection, INSERA is dedicated to
-                   advancing manufacturing standards and fostering enduring relationships
-                    that empower progress and innovation.
+              Founded in 2017, INSERA has quickly established itself as a leading force 
+              in the industrial sector, representing global manufacturers of advanced
+               production lines and machinery to serve the packaging, recycling, and food
+                and pharmaceutical industries. We are committed to innovation, sustainability,
+                 and supporting industries that shape the future. From project development to
+                  implementation and ongoing after-sales support, we partner closely with clients 
+                  to provide tailored solutions that drive their success. Built on principles
+                   of integrity, reliability, and persistent strive for perfection, INSERA is
+                    dedicated to advancing manufacturing standards and fostering enduring
+                     relationships that empower progress and innovation.
               </p>
             </div>
           </motion.div>

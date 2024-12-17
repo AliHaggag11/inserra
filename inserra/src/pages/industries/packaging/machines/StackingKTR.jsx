@@ -12,57 +12,67 @@ const StackingKTR = () => {
 
   const features = [
     {
-      title: "Automated Stacking",
-      description: "Advanced stacking systems for KTR machines",
+      title: "SPEEDSTACKER",
+      description: "Fully automatic stacking and packaging",
       details: [
-        "High-speed stacking capability",
-        "Multiple stacking patterns",
-        "Gentle product handling",
-        "Quick format changes"
+        "Max. Speed & Performance for production",
+        "Fast and easy change of format parts",
+        "Optimized product transfer",
+        "Intelligent systems for efficient format change"
       ]
     },
     {
-      title: "Robot Integration",
-      description: "Seamless robotic handling solutions",
+      title: "SPEEDSTACKER COMPACT",
+      description: "Integrated carton filling solution",
       details: [
-        "6-axis robot systems",
-        "Custom end-of-arm tooling",
-        "Flexible programming",
-        "Advanced path planning"
+        "Fully automatic carton filling",
+        "Optional return conveyor",
+        "Up to 30 cup stacks per minute",
+        "Hygienic and efficient operation"
       ]
     },
     {
-      title: "Quality Control",
-      description: "Integrated quality inspection",
+      title: "Vertisleever",
+      description: "Efficient & hygienic sleeving",
       details: [
-        "Vision inspection systems",
-        "Automated quality checks",
-        "Defect detection",
-        "Real-time monitoring"
+        "Up to 20 stacks per minute",
+        "Easy access to film rolls",
+        "Compact and flexible design",
+        "Automated sleeving process"
       ]
     }
   ];
 
   const specifications = [
     {
-      title: "Stacking Performance",
+      title: "SPEEDSTACKER Technical Highlights",
       specs: [
-        "Cycle time: Up to 40 cycles/min",
-        "Stack height: Up to 800 mm",
-        "Product dimensions: 150-600 mm",
-        "Multiple stacking patterns"
+        "Max. cycles/stacks: 50 per min/25 per min",
+        "Product dimensions: Ø 37 - 150 mm",
+        "Product height: 25 - 200 mm",
+        "Stack length: 500 - 780 mm",
+        "Box dimensions: min. 300 x 340 x 210 mm (l/w/h)",
+        "Box dimensions: max. 800 x 800 x 600 mm (l/w/h)",
+        "Format changeover time: < 1 hour"
       ]
     },
     {
-      title: "Robot Specifications",
+      title: "Vertisleever Technical Highlights",
       specs: [
-        "Payload capacity: Up to 50 kg",
-        "Reach: Up to 2000 mm",
-        "Position repeatability: ±0.1 mm",
-        "Advanced motion control"
+        "Stacks max: 20 stacks/min",
+        "Stack length: 350 - 650 mm",
+        "Film length max: 800 mm",
+        "Film thickness: 0.017 - 0.024 mm",
+        "Material: LD-PE (other materials on demand)"
       ]
     }
   ];
+
+  const heroContent = {
+    title: "Stacking & Automation Solutions",
+    subtitle: "for tilting machines",
+    description: "We provide you with the right stacking & automation solutions for your SPEEDFORMER KTR, from stacking solutions such as the SPEEDSTACKER or the Pick-Up Stacker to intelligent automation such as the Modular Cup Packer (MCP), the RIMMROLLER or the Vertipacker."
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -100,14 +110,14 @@ const StackingKTR = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                KTR Series
+                {heroContent.title}
                 <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
-                  Stacking & Automation
+                  {heroContent.subtitle}
                 </span>
               </h1>
               <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
               <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
-                Advanced automation solutions for KTR thermoforming systems
+                {heroContent.description}
               </p>
             </motion.div>
           </div>
@@ -198,25 +208,25 @@ const StackingKTR = () => {
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <h2 className="text-3xl font-bold mb-4">Technical Specifications</h2>
-            <p className="text-xl text-blue-200">Advanced automation capabilities</p>
+            <h2 className="text-3xl font-bold mb-4">Technical Highlights</h2>
+            <p className="text-xl text-blue-200">Specifications & capabilities</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {specifications.map((section, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-white rounded-xl p-8 text-gray-800"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-2xl font-bold mb-6">{section.title}</h3>
+                <h3 className="text-2xl font-bold mb-6 text-primary">{section.title}</h3>
                 <ul className="space-y-4">
                   {section.specs.map((spec, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <div className="w-2 h-2 bg-blue-300 rounded-full mr-3"></div>
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       <span>{spec}</span>
                     </li>
                   ))}
