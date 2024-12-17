@@ -38,7 +38,10 @@ const NotFound = () => {
     { name: 'Packaging', path: '/industries/packaging' },
     { name: 'Kiefel Packaging', path: '/industries/packaging/kiefel' },
     { name: 'Kiefel Fiber', path: '/industries/packaging/kiefel-fiber' },
-    { name: 'Viscotec', path: '/industries/packaging/viscotec' },
+    { name: 'Viscotec - Starlinger', path: '/industries/packaging/viscotec' },
+    { name: 'ViscoSheet', path: '/industries/packaging/viscosheet' },
+    { name: 'ViscoSheet One', path: '/industries/packaging/viscosheet-one' },
+    { name: 'ViscoZero', path: '/industries/packaging/viscozero' },
     
     // Kiefel Packaging Machines
     { name: 'Speedformer KMD', path: '/industries/packaging/kiefel/kmd' },
@@ -51,8 +54,10 @@ const NotFound = () => {
     
     // Fiber Machines
     { name: 'NATUREPREP KFP', path: '/industries/packaging/kiefel-fiber/natureprep' },
-    { name: 'NATUREFORMER KFT', path: '/industries/packaging/kiefel-fiber/kft' },
+    { name: 'NATUREFORMER KFT', path: '/industries/packaging/machines/fiber/natureformer-kft' },
     { name: 'NATUREFORMER KFL', path: '/industries/packaging/kiefel-fiber/kfl' },
+    { name: 'Upstream & Downstream', path: '/industries/packaging/machines/upstream-downstream' },
+    { name: 'Stacking Automation', path: '/industries/packaging/machines/stacking-automation' },
     
     // Recycling Industry
     { name: 'Recycling', path: '/industries/recycling' },
@@ -60,11 +65,15 @@ const NotFound = () => {
     { name: 'Sorting', path: '/industries/recycling/sorting' },
     { name: 'Starlinger Recycling', path: '/industries/recycling/starlinger-recycling' },
     
-    // Starlinger Machines
+    // Starlinger Machines - Both old and new paths
     { name: 'recoSTAR dynamic', path: '/industries/recycling/starlinger-recycling/recostar-dynamic' },
     { name: 'recoSTAR PET', path: '/industries/recycling/starlinger-recycling/recostar-pet' },
     { name: 'recoSTAR universal', path: '/industries/recycling/starlinger-recycling/recostar-universal' },
     { name: 'recoSTAR direct', path: '/industries/recycling/starlinger-recycling/recostar-direct' },
+    { name: 'recoSTAR dynamic', path: '/industries/recycling/machines/recostar-dynamic' },
+    { name: 'recoSTAR PET', path: '/industries/recycling/machines/recostar-pet' },
+    { name: 'recoSTAR universal', path: '/industries/recycling/machines/recostar-universal' },
+    { name: 'recoSTAR direct', path: '/industries/recycling/machines/recostar-direct' },
     
     // Appliance Industry
     { name: 'Appliance', path: '/industries/appliance' },
@@ -74,16 +83,24 @@ const NotFound = () => {
     { name: 'Food & Pharmaceutical', path: '/industries/food-pharma' },
     { name: 'Food & Pharmaceutical Overview', path: '/industries/food-pharmaceutical' },
 
-    // Add alternate spellings/common misspellings for better matching
+    // Add alternate spellings/common misspellings
+    { name: 'Kieffel', path: '/industries/packaging/kiefel' },
     { name: 'Kieffel Packaging', path: '/industries/packaging/kiefel' },
     { name: 'Kiefel Packging', path: '/industries/packaging/kiefel' },
     { name: 'Viscotech', path: '/industries/packaging/viscotec' },
     { name: 'Visco tec', path: '/industries/packaging/viscotec' },
+    { name: 'Visco Sheet', path: '/industries/packaging/viscosheet' },
+    { name: 'Visco Zero', path: '/industries/packaging/viscozero' },
+    { name: 'Nature Former', path: '/industries/packaging/machines/fiber/natureformer-kft' },
+    { name: 'Natureformer', path: '/industries/packaging/kiefel-fiber' },
     { name: 'Recycling Solutions', path: '/industries/recycling' },
     { name: 'Starlinger', path: '/industries/recycling/starlinger-recycling' },
     { name: 'Recostar', path: '/industries/recycling/starlinger-recycling' },
-    { name: 'Nature Former', path: '/industries/packaging/kiefel-fiber' },
-    { name: 'Natureformer', path: '/industries/packaging/kiefel-fiber' },
+    { name: 'Reco Star', path: '/industries/recycling/starlinger-recycling' },
+    { name: 'Dynamic', path: '/industries/recycling/machines/recostar-dynamic' },
+    { name: 'Universal', path: '/industries/recycling/machines/recostar-universal' },
+    { name: 'Direct', path: '/industries/recycling/machines/recostar-direct' },
+    { name: 'PET', path: '/industries/recycling/machines/recostar-pet' },
     { name: 'KMD', path: '/industries/packaging/kiefel/kmd' },
     { name: 'KTR', path: '/industries/packaging/kiefel/ktr' },
   ];
@@ -169,7 +186,7 @@ const NotFound = () => {
               <div className="text-sm text-gray-500 mb-4">
                 Popular searches:
               </div>
-              {['Viscotec', 'Recycling', 'Kiefel Packaging', 'Support'].map((term, index) => (
+              {['Viscotec', 'recoSTAR', 'Kiefel Packaging', 'Kiefel Fiber', 'Recycling'].map((term, index) => (
                 <button
                   key={index}
                   onClick={() => setSearchQuery(term)}
