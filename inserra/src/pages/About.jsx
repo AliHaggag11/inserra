@@ -52,7 +52,7 @@ const About = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/images/shutterstock_2174669625.jpg')` }}
         />
-        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div 
@@ -62,9 +62,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">About INSERA</h1>
-            <p className="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto">
-              Three Decades of Excellence in Industrial Solutions
-            </p>
+            <em>"Partners for Growth"</em>
           </motion.div>
         </div>
       </div>
@@ -198,7 +196,7 @@ const About = () => {
         className="relative h-[50vh] bg-fixed bg-cover bg-center"
         style={{ backgroundImage: `url('/images/shutterstock_2174669625.jpg')` }}
       >
-        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center px-4">

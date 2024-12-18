@@ -136,7 +136,7 @@ const Viscotec = () => {
                     <div className="text-sm text-gray-600">rPET Processing</div>
                   </div>
                   <div className="text-center border-x border-gray-200">
-                    <div className="text-2xl font-bold text-primary">FDA</div>
+                    <div className="text-2xl font-bold text-primary">FDA - EFSA</div>
                     <div className="text-sm text-gray-600">Approved</div>
                   </div>
                   <div className="text-center">

@@ -24,9 +24,9 @@ const Home = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   const heroImages = [
-    '/images/shutterstock_2174669625.jpg',
+    '/images/shutterstock_2174669625.webp',
     plasticImage,
-    '/images/shutterstock_2227403169.png',
+    '/images/shutterstock_2227403169.webp',
     plasticImage
   ];
 
@@ -77,7 +77,7 @@ const Home = () => {
       customerLogo: '/images/barakalogo.svg',
       partnerLogo: '/images/viscotec/logo.svg',
       projectImage: '/images/barakaproj2.jpeg',
-      description: "Al Baraka Pack, with extensive experience in Syrian food packaging, began collaborating with us in September 2021 for their new Egyptian facility. Seeking to enter the Egyptian market with premium packaging products, they required top-tier equipment for high-quality PET sheet production. In partnership with Viscotec, we engaged in thorough discussions to determine the optimal solution for their needs. Our team approach involved close communication and multiple on-site visits throughout implementation, ensuring project success. Q1 2023 saw the successful installation and startup of our PET Extrusion line. Since then, we've provided continuous support for their aftersales requirements.",
+      description: "Al Baraka Pack is one of our esteemed customers who have a long experience in food packaging manufacturing in Syria. In September 2021 We started cooperating with them for their new facility in Egypt. They wanted to penetrate the Egyptian market with high end packaging products and therefore they were looking for the best equipment available on the market to produce top-notch PET sheet. Along with our partners at Viscotec we had several discussions with the customer in order to reach the best solution that meets their requirements. From the early stages of the project we worked as a team, had close communication, and several trips to the customer’s site throughout the implementation stage to guarantee the success of the project. In Q1 2023 we had a successful installation and startup of our PET Extrusion line and since then we have always been supporting the customer in any of his aftersales requirements.",
       website: 'https://albarakapack.com/about-us/',
     },
     {
@@ -326,7 +326,7 @@ const Home = () => {
                 features: ["Interior Liners", "Door Components", "Precision Forming"],
               },
               {
-                title: "Recycling Systems",
+                title: "Recycling Solutions",
                 description: "Complete recycling solutions for a sustainable future",
                 icon: <Recycle className="w-10 h-10" />,
                 link: "/industries/recycling",
