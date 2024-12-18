@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import plasticImage from '../assets/plastic.png';
+import Forest from '../assets/shutterstock_2174669625.webp';
 
 const Home = () => {
   const fadeInUpVariants = {
@@ -601,7 +602,7 @@ const Home = () => {
       </motion.div>
 
       {/* Testimonials Section */}
-      <motion.div className="relative z-60 bg-gray-100 py-16 sm:py-20">
+      {/* <motion.div className="relative z-60 bg-gray-100 py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-primary">What Our Clients Say</h2>
@@ -634,7 +635,7 @@ const Home = () => {
             ))}
           </Slider>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* New CTA Section */}
       <motion.div 
@@ -646,7 +647,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(${plasticImage})` }}
+          style={{ backgroundImage: `url(${Forest})` }}
         ></div>
         <div className="relative container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
