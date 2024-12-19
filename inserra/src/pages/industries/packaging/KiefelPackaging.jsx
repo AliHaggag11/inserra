@@ -131,7 +131,7 @@ const KiefelPackaging = () => {
               <span className="text-blue-300 font-semibold mb-4 block tracking-wider">KIEFEL PACKAGING SOLUTIONS</span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Advanced Thermoforming
-                <span className="text-blue-300 block mt-2">
+                <span className="text-white block mt-2">
                   Technology
                 </span>
               </h1>
@@ -141,13 +141,13 @@ const KiefelPackaging = () => {
                 efficiency, and sustainability in thermoforming processes.
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Experience</h3>
-                  <p className="text-sm text-blue-100">30+ years of innovation in thermoforming technology</p>
+                <div className="bg-gray-100 rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Experience</h3>
+                  <p className="text-sm text-gray-600">60+ years of innovation in thermoforming technology</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Global Presence</h3>
-                  <p className="text-sm text-blue-100">Worldwide service and support network</p>
+                <div className="bg-white rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Global Presence</h3>
+                  <p className="text-sm text-gray-600">Worldwide service and support network</p>
                 </div>
               </div>
             </motion.div>
@@ -167,7 +167,7 @@ const KiefelPackaging = () => {
                 </div>
               </div>
               {/* Floating Stats */}
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-md">
+              {/* <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-md">
                 <div className="bg-white rounded-xl shadow-xl p-6 grid grid-cols-3 gap-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary">300+</div>
@@ -182,7 +182,7 @@ const KiefelPackaging = () => {
                     <div className="text-sm text-gray-600">Support</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>

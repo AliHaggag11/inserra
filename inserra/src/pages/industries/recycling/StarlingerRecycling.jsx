@@ -27,7 +27,7 @@ const StarlingerRecycling = () => {
       title: "recoSTAR dynamic",
       description: "For post-consumer and post-industrial plastic waste",
       features: [
-        "Inhouse & washed post consumer materials (PE, PP, PET, PES, PA, PLA, PS, PPS))",
+        "Inhouse & washed post consumer materials; PE, PP, PET, PES, PA, PLA, PS, PPS",
         "SMART Feeder technology & dynamic automation package",
         "Increased Energy Efficiency",
         "Wide Range of Applications"
@@ -39,10 +39,10 @@ const StarlingerRecycling = () => {
       title: "recoSTAR universal",
       description: "Universal recycling solution",
       features: [
-        "Versatile application range",
-        "Compact design",
-        "High-quality output",
-        "Easy operation"
+        "Recycling of post industrial scrap; ; PE, PP, PET, PES, PA, PLA, PS, PPS",
+        "Designed for processing films, fibers & filaments, nomwovens, tapes, fabrics as well as solid lumps",
+        "Integrated active shredder for hard to grind materials",
+        "Easy operation & maintenance"
       ],
       image: "/images/starlinger/recoSTAR_universal.jpg",
       path: "/industries/recycling/starlinger-recycling/recostar-universal"
@@ -51,10 +51,10 @@ const StarlingerRecycling = () => {
       title: "recoSTAR direct",
       description: "Direct processing of production waste",
       features: [
-        "Inline recycling",
-        "Space-saving design",
-        "Energy efficient",
-        "Quick material changes"
+        "Cost-effective recycling of regrind with high bulk density (>300 g/l)",
+        "For production & Post-industrial scrap",
+        "Space & Energy saving",
+        "Operator & Maintenance Friendly"
       ],
       image: "/images/starlinger/directhero.jpg",
       path: "/industries/recycling/starlinger-recycling/recostar-direct"

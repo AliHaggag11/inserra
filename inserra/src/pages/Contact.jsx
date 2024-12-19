@@ -60,8 +60,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Our Location",
-      content: "Cairo, Egypt",
-      subContent: "Dubai, UAE"
+      content: "Egypt, UAE",
     },
     {
       icon: <Phone className="w-6 h-6" />,
