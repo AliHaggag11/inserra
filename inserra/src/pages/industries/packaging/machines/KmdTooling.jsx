@@ -13,7 +13,7 @@ const KmdTooling = () => {
   const heroContent = {
     title: "Tools for steel rule cutting machines",
     subtitle: "Flexibility and compatibility for tool deployment",
-    description: "With more than 40 years thermoforming technology experience in the packaging industry (cups, trays, blister, etc.), Kiefel Packaging offers its customers customized tools of the highest quality. Everything to achieve one goal: your satisfaction and the unique productivity advantage."
+    description: "With more than 40 years of thermoforming technology experience in the packaging industry (cups, trays, blister, etc.), Kiefel Packaging offers its customers customized tools of the highest quality. Everything to achieve one goal: your satisfaction and the unique productivity advantage."
   };
 
   const toolFeatures = [
@@ -27,16 +27,6 @@ const KmdTooling = () => {
         "Short equipping times: adjustment of a separate cutting station and the time required for changing blades and the punched counterstide",
         "High flexibility: all common materials can be processed",
         "Low space requirements: no need for a separate cutting station"
-      ]
-    },
-    {
-      title: "Thermoform configurator",
-      description: "The most powerful online tool for thermoforming",
-      features: [
-        "Calculate different tool configurations on more than 40 thermoforming machines",
-        "Product weights against material thicknesses and vice versa",
-        "Tool layouts with the number of cavities and material usage for your thermoform machine",
-        "Determine your perforation output"
       ]
     }
   ];
@@ -177,11 +167,11 @@ const KmdTooling = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="flex justify-center max-w-6xl mx-auto">
             {toolFeatures.map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white h-full"
+                className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white h-full max-w-xl w-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

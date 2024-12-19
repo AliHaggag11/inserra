@@ -14,42 +14,42 @@ const KiefelFiber = () => {
     {
       title: "NATUREPREP KFP",
       description: "Preparation of natural fibers to produce high-quality packaging",
-      image: "/images/kiefel/kfpnature.webp",  // Already using this image
+      image: "/images/kiefel/kfpnature.webp",  
       link: "/industries/packaging/kiefel-fiber/natureprep"
     },
     {
       title: "NATUREFORMER KFT",
       description: "Standard solution for a wide variety of fiber packaging",
-      image: "/images/kiefel/fiberkft.webp",   // Already using this image
+      image: "/images/kiefel/fiberkft.webp",  
       link: "/industries/packaging/kiefel-fiber/kft"
     },
     {
       title: "NATUREFORMER KFL",
       description: "Fiber thermoforming system for high-end lids & portion cups",
-      image: "/images/kiefel/kflhero.webp",    // Already using this image
+      image: "/images/kiefel/kflhero.webp",   
       link: "/industries/packaging/kiefel-fiber/kfl"
     }
   ];
 
   const benefits = [
     {
-      title: "Sustainability",
-      description: "100% recyclable and biodegradable solutions",
-      icon: <Leaf className="w-8 h-8" />
-    },
-    {
-      title: "Efficiency",
-      description: "High-speed production with optimal resource usage",
-      icon: <Zap className="w-8 h-8" />
-    },
-    {
-      title: "Quality",
-      description: "Premium fiber products with consistent quality",
+      title: "Optimal product protection",
+      description: "Shock absorbing, resistant, volume reducing",
       icon: <Shield className="w-8 h-8" />
     },
     {
-      title: "Innovation",
-      description: "Cutting-edge fiber processing technology",
+      title: "Sustainable packaging solutions",
+      description: "Biodegradable, reuse of waste paper or use of renewable raw materials, low CO2 footprint",
+      icon: <Leaf className="w-8 h-8" />
+    },
+    {
+      title: "Refinement",
+      description: "Grease and water repellent products by coating or material composition, surface finishing with ink & printing",
+      icon: <Zap className="w-8 h-8" />
+    },
+    {
+      title: "Customized product design",
+      description: "Various options in product design as well as production of even complex geometries possible",
       icon: <Factory className="w-8 h-8" />
     }
   ];
@@ -150,6 +150,44 @@ const KiefelFiber = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </div>
+
+      {/* Sustainable Solutions Section */}
+      <div className="bg-white py-24">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-primary mb-8">
+                Sustainable packaging solutions from natural fibers
+              </h2>
+              <div className="w-20 h-1 bg-primary/30 mx-auto mb-8"></div>
+            </div>
+            
+            <div className="space-y-8">
+              <div className="bg-gray-50 rounded-xl p-8">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  We put your product <span className="text-primary font-semibold">first</span> and{' '}
+                  <span className="font-semibold">rethink product design and functionality, material and composition towards a more sustainable product</span>.
+                  Depending on that, we{' '}
+                  <span className="font-semibold">adapt the manufacturing process</span> and{' '}
+                  <span className="text-primary">optimize machines and tools for your production</span>.
+                  Your sustainable product can be recycled easier and together we are closing the loop.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Kiefel is also a partner for brand-owners and converters who want to efficiently produce sustainable packaging such as lids and sip-lids, coffee capsules, bowls, cups, and flower pots, from natural fibers. Kiefel offers the right machine solutions for your needs - thermoforming with natural fibers - Kiefel Fiber Thermoforming.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
@@ -264,30 +302,129 @@ const KiefelFiber = () => {
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <h2 className="text-3xl font-bold mb-4">Key Benefits</h2>
-            <p className="text-xl text-gray-200">Why choose our fiber technology</p>
+            <h2 className="text-3xl font-bold mb-4">Benefits of Fiber-based Packaging</h2>
+            <div className="w-20 h-1 bg-white/30 mx-auto mb-4"></div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50/95 rounded-xl p-8 hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white/95 rounded-xl p-8 hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-primary/10 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
-                  <div className="text-primary">
-                    {benefit.icon}
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary/10 rounded-full p-4 w-16 h-16 flex items-center justify-center flex-shrink-0">
+                    <div className="text-primary">
+                      {benefit.icon}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-3 text-gray-800">{benefit.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-800">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Fiber Process Section */}
+      <div className="bg-white py-24">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-primary mb-4">
+                From Waste Paper to New Fiber Formed Packaging
+              </h2>
+              <p className="text-xl text-gray-600">
+                Kiefel technologies and solutions make it possible
+              </p>
+              <div className="w-20 h-1 bg-primary/30 mx-auto mt-8"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+              <div className="space-y-6">
+                <p className="text-gray-700 leading-relaxed">
+                  Paper and cardboard – dissolved in a water bath – create the{' '}
+                  <span className="font-semibold">raw material</span>, known as{' '}
+                  <span className="font-semibold">pulp</span>. Through application of pressure most of the 
+                  water is removed and the wet basic form is created.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  In the next step, the remaining moisture is removed and the basic form is 
+                  dried by applying high pressure and temperature. The combination of the 
+                  applied heat and pressure results in a very robust material for{' '}
+                  <span className="font-semibold">high-quality and dimensional stable packaging</span>.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Alternatively,{' '}
+                  <span className="font-semibold">virgin fibers (unprocessed cellulose)</span>{' '}
+                  can be used to comply with the regulations in the food industry for packaging 
+                  solutions made from paper.
+                </p>
+              </div>
+              <div className="relative">
+                <img 
+                  src="/images/kiefel/fiber-process.webp" 
+                  alt="Kiefel Process Monitoring"
+                  className="rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
+
+            <div className="mt-24">
+              <h2 className="text-3xl font-bold text-primary mb-12 text-center">
+                The Kiefel process
+              </h2>
+              
+              <div className="space-y-6">
+                {[
+                  { step: "Raw Material", desc: "primary or secondary fibers" },
+                  { step: "Fiber Preparation", desc: "refining with water to lower fiber concentration" },
+                  { step: "Forming", desc: "the majority of the water is extracted from the fiber mixture through the forming tool via negative pressure" },
+                  { step: "Pre-Pressing", desc: "continuous extraction of water, preformed product is pre-pressed and further drained with elastic tool" },
+                  { step: "Hot-Pressing", desc: "reduction of residual moisture to a minimum through pressure and heat, refinement of contours/engravings, handover to lifting conveyors" },
+                  { step: "Quality inspection", desc: "e.g. camera inspection systems (add-on)" },
+                  { step: "Automation solutions", desc: "e.g. sleeving, boxing (add-on)" }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-gray-50 rounded-xl p-6 flex items-start gap-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="bg-primary text-white rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center font-bold">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-primary mb-1">{item.step}</h3>
+                      <p className="text-gray-600">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-16">
+                <img 
+                  src="/images/kiefel/fiber-process-diagram.webp" 
+                  alt="Kiefel Fiber Thermoforming Process"
+                  className="w-full max-w-4xl mx-auto"
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

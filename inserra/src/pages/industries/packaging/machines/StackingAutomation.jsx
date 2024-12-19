@@ -54,15 +54,19 @@ const StackingAutomation = () => {
       ]
     },
     {
-      title: "System Benefits",
+      title: "SPEEDAUTOMATION KSA)",
       specs: [
-        "More buffer time",
-        "Multiple machine operation by one person",
-        "Ergonomic & safe working height",
-        "Reduction of labor costs and associated costs",
-        "Optional: Gate for noise reduction"
+        "Modular automation solutions",
+        "Flexible & tailored to customer requirements"
+      ]
+    },
+    {
+      title: "SPEEDPADDER",
+      specs: [
+        "Pad automatic insertion",
       ]
     }
+    
   ];
 
   const automationBenefits = [
@@ -180,10 +184,10 @@ const StackingAutomation = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold text-primary mb-4">
-              Key Features
+              Stacking
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Advanced automation features for optimal performance
+              Diversified stacking solutions
             </p>
           </motion.div>
 
@@ -228,11 +232,11 @@ const StackingAutomation = () => {
             viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <h2 className="text-3xl font-bold mb-4">SPEEDPACKER</h2>
-            <p className="text-xl text-blue-200">Technical highlights & benefits</p>
+            <h2 className="text-3xl font-bold mb-4">Automation</h2>
+            <p className="text-xl text-blue-200">Increasing Efficiency & decreasing manual labor</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {specifications.map((section, index) => (
               <motion.div
                 key={index}

@@ -167,22 +167,15 @@ const SpeedformerKMD = () => {
 
   const applications = [
     {
-      title: "Materials for Processing",
-      description: "Wide range of materials for packaging production",
-      details: [
-        "PET, PP, PS, PLA, PE",
-      ]
-    },
-    {
       title: "Food",
       description: "Food packaging applications and materials",
       details: [
-        "Baby food",
-        "Bakery Prodcts; Chococlate, Ready Meals, Margarine",
         "Patisserie, Delicatessen",
         "Fruit, Vegetables, Salads, Eggs",
-        "Meat, Seafood",
-        "Pet Food"
+        "Cups & Coffee capsules",
+        "Baby food",
+        "Bakery Prodcts; Chococlate, Ready Meals, Margarine",
+        "Meat, Chicken & Seafood",
       ]
     },
     {
@@ -194,6 +187,13 @@ const SpeedformerKMD = () => {
         "Engineering & Electronics",
         "Transportation",
         "Cosmetics"
+      ]
+    },
+    {
+      title: "Materials for Processing",
+      description: "Wide range of materials for packaging production",
+      details: [
+        "PET, PP, PS, PLA, PE",
       ]
     }
   ];
@@ -312,7 +312,14 @@ const SpeedformerKMD = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Steel rule cutting machines of the SPEEDFORMER KMD series are effective in mass production 
               and economical even for small quantities. They can be deployed flexibly, whether in the 
-              food or non-food sector, and are versatile for materials such as PET, PP, PS, PLA, PE.
+              food or non-food sector, and are versatile for materials such as PET, PP, PS, PLA, PE. The modular design offers maximum flexibility.
+
+The high degree of automation and the sophisticated tool change are as much part of the mature concept as the steel rule cutting and the integrated stacking station.
+
+Robust and precise, whether as a standard system or expanded with options. Simple and safe operation.
+
+Kiefel is your reliable partner for turnkey solutions:
+First class thermoforming equipment – cost saving automation – premium steel-rule cutting tools
             </p>
           </motion.div>
 

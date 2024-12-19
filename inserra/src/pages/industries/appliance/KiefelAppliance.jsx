@@ -158,6 +158,70 @@ const KiefelAppliance = () => {
         </div>
       </div>
 
+      {/* New Content Section */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                One of the main focuses of our forming technology is 
+                <span className="font-semibold text-primary"> machines for the production of refrigerator components</span>.
+              </p>
+              
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Whether for refrigerators or freezers, whether 
+                <span className="text-primary font-medium"> inner or door liners</span>, 
+                whether single or combined, even complex shapes and designs can be processed with 
+                the most intelligent solutions thanks to the powerful thermoforming machines.
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                The production of inner door liners is carried out from plastic rolls, plastic plates are used for the production of inner containers.
+              </p>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                For high-quality production of inner door panels and inner containers, the so-called 
+                <span className="text-primary font-medium"> air pressure forming process</span> is used as standard.
+              </p>
+            </div>
+
+            {/* Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <motion.div
+                className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-6 text-white"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-bold mb-3">Material Processing</h3>
+                <p className="text-blue-100">
+                  Advanced processing capabilities for both plastic rolls and plates, 
+                  ensuring optimal material utilization and product quality.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-6 text-white"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-bold mb-3">Forming Technology</h3>
+                <p className="text-blue-100">
+                  State-of-the-art air pressure forming process delivering 
+                  precise, high-quality components for refrigeration applications.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Enhanced Overview Section */}
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">
