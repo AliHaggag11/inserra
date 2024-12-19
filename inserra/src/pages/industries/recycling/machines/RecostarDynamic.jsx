@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Gauge, BarChart, Cpu, Workflow, ChevronRight, Cog, Power, ArrowDownCircle, Flame, Filter, Wind, Layers, Download } from 'lucide-react';
+import { ArrowRight, Gauge, BarChart, Cpu, Workflow, ChevronRight, Cog, Power, ArrowDownCircle, Flame, Filter, Wind, Layers, Download, Settings, Scissors, RefreshCw, RotateCw, Thermometer } from 'lucide-react';
 import heroImage from '../../../../assets/plastic.png';
 
 const RecostarDynamic = () => {
@@ -12,70 +12,70 @@ const RecostarDynamic = () => {
 
   const specifications = [
     {
-      title: "Processing Capacity",
-      value: "100 - 3,300 kg/h",
-      description: "High throughput for industrial scale recycling",
-      icon: <Gauge className="w-8 h-8 text-blue-300" />
-    },
-    {
       title: "Material Range",
       value: "Multi-polymer",
-      description: "For all types of plastics",
-      icon: <BarChart className="w-8 h-8 text-blue-300" />
+      description: "PE, PP, PET, PES, PA, PLA, PS, PPS",
+      icon: <Layers className="w-8 h-8 text-blue-300" />
     },
     {
-      title: "Smart Control",
-      value: "Advanced HMI",
-      description: "Intelligent process management",
+      title: "Smart Features",
+      value: "SMART Feeder",
+      description: "Dynamic automation package",
       icon: <Cpu className="w-8 h-8 text-blue-300" />
     },
     {
-      title: "Energy Usage",
-      value: "Optimized",
-      description: "Best-in-class efficiency",
-      icon: <Power className="w-8 h-8 text-blue-300" />
+      title: "Processing Types",
+      value: "Versatile",
+      description: "Films, fibers, and thermoplastics",
+      icon: <Settings className="w-8 h-8 text-blue-300" />
+    },
+    {
+      title: "Filtration",
+      value: "Advanced",
+      description: "Multiple filtration options available",
+      icon: <Filter className="w-8 h-8 text-blue-300" />
     }
   ];
 
   const features = [
     {
-      title: "Advanced Process Control",
-      description: "Smart technology for consistent output quality",
-      icon: <Cpu className="w-12 h-12 text-primary" />,
+      title: "Advanced Extrusion System",
+      description: "Wear-resistant extruders with specialized modules",
+      icon: <Settings className="w-12 h-12 text-primary" />,
       details: [
-        "Real-time parameter monitoring",
-        "Automated quality control",
-        "Process optimization algorithms"
+        "In-house manufactured extruders",
+        "Optional degassing functionality",
+        "C-VAC and H-VAC modules available"
       ]
     },
     {
-      title: "Multi-Material Processing",
-      description: "Versatile handling of different plastics",
+      title: "Smart Filtration",
+      description: "Comprehensive melt filtration system",
+      icon: <Filter className="w-12 h-12 text-primary" />,
+      details: [
+        "Continuous contaminant removal",
+        "Optional backflushing function",
+        "Power backflush capability"
+      ]
+    },
+    {
+      title: "Flexible Pelletising",
+      description: "Multiple pelletising options",
       icon: <Workflow className="w-12 h-12 text-primary" />,
       details: [
-        "Quick material changeover",
-        "Wide processing window",
-        "Flexible configuration options"
+        "Automatic strand pelletising",
+        "Manual strand options",
+        "Water ring and underwater systems"
       ]
     },
     {
-      title: "Energy Management",
-      description: "Optimized energy consumption system",
-      icon: <Power className="w-12 h-12 text-primary" />,
+      title: "Material Versatility",
+      description: "Wide range of processable materials",
+      icon: <Layers className="w-12 h-12 text-primary" />,
       details: [
-        "Smart power distribution",
-        "Heat recovery system",
-        "Efficient motor control"
-      ]
-    },
-    {
-      title: "Maintenance Friendly",
-      description: "Easy access and service design",
-      icon: <Cog className="w-12 h-12 text-primary" />,
-      details: [
-        "Quick-change components",
-        "Predictive maintenance",
-        "Easy cleaning access"
+        "Post-consumer waste processing",
+        "Production scrap handling",
+        "Hygroscopic and wet materials"
       ]
     }
   ];
@@ -311,6 +311,106 @@ const RecostarDynamic = () => {
         </div>
       </div>
 
+      {/* Introduction Section */}
+      <div className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-4xl font-bold mb-8">
+              Recycling line
+              <div className="text-primary text-5xl mt-2">recoSTAR dynamic</div>
+            </h2>
+
+            <div className="space-y-6 text-lg">
+              <p className="leading-relaxed">
+                <span className="text-primary">State-of-the-art recycling technology</span>
+                <span> with extended functionalities such as </span>
+                <span className="text-primary">SMART feeder</span>
+                <span> and </span>
+                <span className="text-primary">dynamic automation package</span>
+                <span>. Designed for processing </span>
+                <span className="text-primary">film, fibres, thermoplastic</span>
+                <span> in-house production scrap and washed post-consumer waste from materials such as </span>
+                <span className="text-primary">PE, PP, PET, PES, PA, PLA, PS, PPS</span>
+                <span> as well as foamed products. The most efficient solution for </span>
+                <span className="text-primary">hygroscopic and wet materials</span>
+                <span>.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The </span>
+                <span className="text-primary">wear-resistant extruders</span>
+                <span> are designed and manufactured in-house. The optional </span>
+                <span className="text-primary">degassing</span>
+                <span> extruder </span>
+                <span className="text-primary">purifies</span>
+                <span> the melt from volatile contaminants and monomers. Highly </span>
+                <span className="text-primary">printed</span>
+                <span>, very </span>
+                <span className="text-primary">humid</span>
+                <span> or organically contaminated input material requires the </span>
+                <span className="text-primary">C-VAC module</span>
+                <span>, hygroscopic input material the </span>
+                <span className="text-primary">H-VAC module</span>
+                <span>.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>A </span>
+                <span className="text-primary">melt filter</span>
+                <span> continuously removes solid contaminants. The optional </span>
+                <span className="text-primary">backflushing function</span>
+                <span> reduces costs for filter screens and operator intervention. In case of higher contamination, a </span>
+                <span className="text-primary">power backflush</span>
+                <span> or </span>
+                <span className="text-primary">continuous melt filter</span>
+                <span> is recommended.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The </span>
+                <span className="text-primary">pelletising system</span>
+                <span> is chosen with regard to polymer type and preferred pellet shape. In case of an </span>
+                <span className="text-primary">automatic strand pelletiser</span>
+                <span>, broken strands are automatically inserted into the strand pelletiser without operator interference. Alternatively, </span>
+                <span className="text-primary">manual strand, water ring, or underwater pelletisers</span>
+                <span> are available.</span>
+              </p>
+            </div>
+
+            {/* Key Features List */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                "FOR POST-CONSUMER WASTE AND PRODUCTION SCRAP",
+                "WIDE RANGE OF APPLICATIONS",
+                "INLINE RECYCLING",
+                "SUPERIOR FUNCTIONALITY WITH SMART FEEDER",
+                "DYNAMIC AUTOMATION PACKAGE FOR HIGHER OUTPUT",
+                "INCREASED ENERGY EFFICIENCY"
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-3 h-3 rounded-full bg-primary"></div>
+                  </div>
+                  <span className="text-sm font-semibold text-gray-700">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Specifications Section */}
       <div className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -472,6 +572,79 @@ const RecostarDynamic = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* SMART Feeder Section */}
+      <div className="bg-gray-50 py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="bg-white rounded-2xl shadow-lg p-12">
+              <h2 className="text-4xl font-bold mb-8">
+                <span className="text-primary">SMART</span> feeder
+              </h2>
+
+              <p className="text-lg text-gray-600 mb-12">
+                for ideal material preparation prior to extrusion through performing simultaneously the following steps:
+              </p>
+
+              <div className="space-y-6 pl-4">
+                {[
+                  {
+                    letter: "S",
+                    text: "shrink & cut",
+                    color: "text-primary"
+                  },
+                  {
+                    letter: "M",
+                    text: "mix & homogenize",
+                    color: "text-blue-600"
+                  },
+                  {
+                    letter: "A",
+                    text: "active feed & control",
+                    color: "text-primary"
+                  },
+                  {
+                    letter: "R",
+                    text: "rotate & friction",
+                    color: "text-blue-600"
+                  },
+                  {
+                    letter: "T",
+                    text: "temperature & dry",
+                    color: "text-primary"
+                  }
+                ].map((step, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center gap-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="flex items-center gap-3 group">
+                      <span className={`text-2xl font-bold ${step.color} transition-transform duration-300 group-hover:scale-110`}>
+                        {step.letter}
+                      </span>
+                      <span className={`${step.color} transform transition-transform duration-300 group-hover:translate-x-1`}>
+                        →
+                      </span>
+                      <span className="text-lg font-medium text-gray-700 transition-colors duration-300 group-hover:text-primary">
+                        {step.text}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 

@@ -61,8 +61,7 @@ const Contact = () => {
       icon: <MapPin className="w-6 h-6" />,
       title: "Our Location",
       content: "Cairo, Egypt",
-      link: "https://goo.gl/maps/yourLocation",
-      linkText: "Get Directions"
+      subContent: "Dubai, UAE"
     },
     {
       icon: <Phone className="w-6 h-6" />,
@@ -88,8 +87,8 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary to-primary-dark">
-      {/* Hero Section */}
-      <div className="relative pt-32 pb-20 text-white">
+      {/* Hero Section - reduced padding */}
+      <div className="relative pt-20 pb-12 text-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center max-w-3xl mx-auto"
@@ -97,34 +96,34 @@ const Contact = () => {
             animate="visible"
             variants={fadeInUpVariants}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
-            <p className="text-xl text-blue-200">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+            <p className="text-lg text-blue-200">
               Have questions about our solutions? We're here to help you find the perfect fit for your industry needs.
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact Information Cards */}
-          <div className="lg:col-span-1 space-y-6">
+      {/* Main Content - reduced padding */}
+      <div className="container mx-auto px-4 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Contact Information Cards - reduced spacing */}
+          <div className="lg:col-span-1 space-y-4">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
+                className="bg-white/10 backdrop-blur-lg rounded-xl p-4 text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="flex items-start">
-                  <div className="p-3 bg-white/10 rounded-lg">
+                  <div className="p-2 bg-white/10 rounded-lg">
                     {info.icon}
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
-                    <p className="text-blue-200 mb-2">{info.content}</p>
+                    <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
+                    <p className="text-blue-200 mb-1">{info.content}</p>
                     {info.subContent && (
                       <p className="text-blue-200 text-sm">{info.subContent}</p>
                     )}
@@ -144,19 +143,19 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Form - reduced padding */}
           <motion.div 
             className="lg:col-span-2 bg-white rounded-xl shadow-xl overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="p-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+            <div className="p-6">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">Send us a Message</h2>
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div
-                    className="flex flex-col items-center justify-center py-12"
+                    className="flex flex-col items-center justify-center py-8"
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.5 }}
@@ -169,8 +168,8 @@ const Contact = () => {
                     <p className="text-gray-600">We'll get back to you as soon as possible.</p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
                         <input

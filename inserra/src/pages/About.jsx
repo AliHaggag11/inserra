@@ -17,9 +17,9 @@ const About = () => {
   };
 
   const keyStrengths = [
-    { icon: <HeadphonesIcon className="w-10 h-10" />, title: "Prompt Aftersales Support", description: "Providing quick and efficient support after purchase" },
+    { icon: <HeadphonesIcon className="w-10 h-10" />, title: "Prompt Aftersales Support", description: "Providing quick and efficient support" },
     { icon: <Users className="w-10 h-10" />, title: "Strong Relationships", description: "Having strong relationships with our customers and partners" },
-    { icon: <AwardIcon className="w-10 h-10" />, title: "Renowned Reputation", description: "Known for our excellence and quality in the industry" },
+    { icon: <AwardIcon className="w-10 h-10" />, title: "Renowned Reputation", description: "Known for our excellence and quality in the industries we serve" },
     { icon: <ShieldCheckIcon className="w-10 h-10" />, title: "Trustworthiness", description: "Building trust through consistent reliability and integrity" },
     { icon: <ClockIcon className="w-10 h-10" />, title: "Reliability", description: "Consistently delivering on our promises and commitments" },
     { icon: <LightbulbIcon className="w-10 h-10" />, title: "Industry Knowledge", description: "Deep understanding of market and industry dynamics" },
@@ -62,7 +62,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">About INSERA</h1>
-            <em>"Partners for Growth"</em>
+            <em className="text-2xl md:text-3xl">"Partners for Growth"</em>
           </motion.div>
         </div>
       </div>

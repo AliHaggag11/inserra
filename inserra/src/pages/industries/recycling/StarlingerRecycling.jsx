@@ -12,28 +12,28 @@ const StarlingerRecycling = () => {
 
   const technologies = [
     {
-      title: "recoSTAR dynamic",
-      description: "For post-consumer and post-industrial plastic waste",
-      features: [
-        "Processing capacity from 100 to 3,300 kg/h",
-        "For all types of plastics (PET, PE, PP, PA, PS, etc.)",
-        "Smart technology for consistent high quality output",
-        "Energy-efficient design"
-      ],
-      image: "/images/starlinger/recoSTAR_dynamic.jpg",
-      path: "/industries/recycling/starlinger-recycling/recostar-dynamic"
-    },
-    {
-      title: "recoSTAR PET",
+      title: "recoSTAR PET ART",
       description: "Specialized for PET recycling",
       features: [
-        "Food-grade rPET production",
-        "Super-clean technology",
-        "Solid state polycondensation (SSP)",
-        "Bottle-to-bottle recycling"
+        "Bottle to Bottle Recycling Line",
+        "Highest Purity with lowest VOCs",
+        "Highest Energy Efficiency",
+        "Approved by Multinational Brand Owners"
       ],
       image: "/images/starlinger/recopet hero.jpg",
       path: "/industries/recycling/starlinger-recycling/recostar-pet"
+    },
+    {
+      title: "recoSTAR dynamic",
+      description: "For post-consumer and post-industrial plastic waste",
+      features: [
+        "Inhouse & washed post consumer materials (PE, PP, PET, PES, PA, PLA, PS, PPS))",
+        "SMART Feeder technology & dynamic automation package",
+        "Increased Energy Efficiency",
+        "Wide Range of Applications"
+      ],
+      image: "/images/starlinger/recoSTAR_dynamic.jpg",
+      path: "/industries/recycling/starlinger-recycling/recostar-dynamic"
     },
     {
       title: "recoSTAR universal",
@@ -157,7 +157,7 @@ const StarlingerRecycling = () => {
                 </motion.div>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   Starlinger Recycling
-                  <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                  <span className="block text-gray-300 text-3xl md:text-4xl mt-4">
                     Advanced Plastic Recycling Technology
                   </span>
                 </h1>

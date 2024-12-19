@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Layers, Boxes, Wrench, Recycle, Factory, Gauge, Settings, Workflow } from 'lucide-react';
+import { ArrowRight, ChevronRight, Layers, Boxes, Wrench, Recycle, Factory, Gauge, Settings, Workflow, Filter, Cog, Wind } from 'lucide-react';
 
 const RecostarUniversal = () => {
   const fadeInUpVariants = {
@@ -11,102 +11,102 @@ const RecostarUniversal = () => {
 
   const specifications = [
     {
-      title: "Processing Capacity",
-      value: "150 - 1,500 kg/h",
-      description: "Flexible output range",
-      icon: <Gauge className="w-8 h-8 text-blue-300" />
-    },
-    {
-      title: "Material Types",
-      value: "Multiple Polymers",
-      description: "Universal application",
-      icon: <Boxes className="w-8 h-8 text-blue-300" />
-    },
-    {
-      title: "Configuration",
-      value: "Modular",
-      description: "Adaptable setup",
+      title: "Material Range",
+      value: "Multi-Polymer",
+      description: "PE, PP, PS, PA, PES, PET, PPS, PLA",
       icon: <Layers className="w-8 h-8 text-blue-300" />
     },
     {
-      title: "Operation",
-      value: "Automated",
-      description: "Smart control system",
+      title: "Processing Types",
+      value: "Versatile",
+      description: "Films, fibers, nonwovens, tapes, fabrics",
+      icon: <Boxes className="w-8 h-8 text-blue-300" />
+    },
+    {
+      title: "Special Features",
+      value: "ACTIVE",
+      description: "Innovative shredder technology",
       icon: <Settings className="w-8 h-8 text-blue-300" />
+    },
+    {
+      title: "Filtration",
+      value: "Advanced",
+      description: "Multiple filter options with backflushing",
+      icon: <Filter className="w-8 h-8 text-blue-300" />
     }
   ];
 
   const features = [
     {
-      title: "Versatile Processing",
-      description: "Handle various types of plastics and forms",
-      icon: <Boxes className="w-12 h-12 text-primary" />,
+      title: "ACTIVE Shredder",
+      description: "Innovative process adaption for hard-to-grind materials",
+      icon: <Cog className="w-12 h-12 text-primary" />,
       details: [
-        "Multiple polymer compatibility",
-        "Various input forms accepted",
-        "Wide processing window"
+        "Processing of solid lumps",
+        "Start-up scrap handling",
+        "Injection molding parts processing"
       ]
     },
     {
-      title: "Modular Design",
-      description: "Flexible configuration options",
+      title: "Advanced Filtration",
+      description: "Comprehensive melt filtration system",
+      icon: <Filter className="w-12 h-12 text-primary" />,
+      details: [
+        "Optional backflushing function",
+        "Power backflush capability",
+        "Continuous filter options"
+      ]
+    },
+    {
+      title: "Degassing System",
+      description: "Optional purification technology",
+      icon: <Wind className="w-12 h-12 text-primary" />,
+      details: [
+        "Volatile contamination removal",
+        "Monomer purification",
+        "High-vacuum option for hygroscopic polymers"
+      ]
+    },
+    {
+      title: "Pelletising Options",
+      description: "Multiple pelletising solutions",
       icon: <Layers className="w-12 h-12 text-primary" />,
       details: [
-        "Customizable setup",
-        "Easy upgrades",
-        "Space-efficient layout"
-      ]
-    },
-    {
-      title: "Smart Operation",
-      description: "Intelligent control and monitoring",
-      icon: <Settings className="w-12 h-12 text-primary" />,
-      details: [
-        "Automated process control",
-        "Real-time monitoring",
-        "Data-driven optimization"
-      ]
-    },
-    {
-      title: "Easy Maintenance",
-      description: "User-friendly service design",
-      icon: <Wrench className="w-12 h-12 text-primary" />,
-      details: [
-        "Quick access points",
-        "Minimal downtime",
-        "Simple cleaning process"
+        "Water ring pelletiser",
+        "Strand/automatic strand options",
+        "Underwater pelletiser available"
       ]
     }
   ];
 
   const materialTypes = [
     {
-      category: "Post-Industrial",
+      category: "Film & Fiber Materials",
       materials: [
-        "Production waste",
-        "Edge trim",
-        "Start-up lumps",
-        "Fiber waste"
+        "Films and sheets",
+        "Fibers and filaments",
+        "Nonwovens",
+        "Tapes and fabrics"
       ],
-      icon: <Factory className="w-12 h-12" />
+      icon: <Layers className="w-12 h-12" />
     },
     {
-      category: "Post-Consumer",
+      category: "Solid Materials",
       materials: [
-        "Mixed plastics",
-        "Sorted fractions",
-        "Film waste",
-        "Rigid plastics"
+        "Lumps",
+        "Start-up scrap",
+        "Injection molding parts",
+        "Various regrind types"
       ],
-      icon: <Recycle className="w-12 h-12" />
+      icon: <Boxes className="w-12 h-12" />
     },
     {
-      category: "Special Materials",
+      category: "Polymer Types",
       materials: [
-        "Technical polymers",
-        "Engineering plastics",
-        "Fiber materials",
-        "Composites"
+        "PE, PP, PS",
+        "PA, PES, PET",
+        "PPS, PLA",
+        "Other polymers"
       ],
       icon: <Workflow className="w-12 h-12" />
     }
@@ -213,6 +213,131 @@ const RecostarUniversal = () => {
               </motion.div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Introduction Section */}
+      <div className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-4xl font-bold mb-8">
+              Recycling line
+              <div className="text-primary text-5xl mt-2">recoSTAR universal</div>
+            </h2>
+
+            <div className="space-y-6 text-lg">
+              <p className="leading-relaxed">
+                <span className="text-primary">State-of-the-art recycling technology</span>
+                <span> with </span>
+                <span className="text-primary">extended functionality</span>
+                <span> and </span>
+                <span className="text-primary">innovative process adaption through the ACTIVE shredder</span>
+                <span>. Designed for processing </span>
+                <span className="text-primary">films, fibres and filaments, nonwovens, tapes, fabrics</span>
+                <span>, as well as solid </span>
+                <span className="text-primary">lumps, start-up scrap, injection moulding parts</span>
+                <span>, and any type of </span>
+                <span className="text-primary">regrind</span>
+                <span>, from materials such as </span>
+                <span className="text-primary">PE, PP, PS, PA, PES, PET, PPS, PLA</span>
+                <span>, and others.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The </span>
+                <span className="text-primary">optional degassing extruder purifies</span>
+                <span> the melt from </span>
+                <span className="text-primary">volatile contamination and monomers</span>
+                <span>. High-vacuum degassing for </span>
+                <span className="text-primary">hygroscopic polymers</span>
+                <span> is optionally available. </span>
+                <span className="text-primary">Wear-resistant extruder</span>
+                <span> design.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>A variety of </span>
+                <span className="text-primary">melt filters</span>
+                <span> for removing </span>
+                <span className="text-primary">solid contaminants</span>
+                <span> is available. The optional </span>
+                <span className="text-primary">backflushing reduces costs</span>
+                <span> for filter screens and operator intervention. In case of </span>
+                <span className="text-primary">higher contamination</span>
+                <span> a </span>
+                <span className="text-primary">power backflush</span>
+                <span> or </span>
+                <span className="text-primary">continuous filter</span>
+                <span> is recommended.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The </span>
+                <span className="text-primary">water ring pelletiser</span>
+                <span> ensures </span>
+                <span className="text-primary">exact cutting for high pellet quality</span>
+                <span> and </span>
+                <span className="text-primary">low operating costs</span>
+                <span>. Alternatively, a </span>
+                <span className="text-primary">strand, automatic strand, or underwater pelletiser</span>
+                <span> can be used. The </span>
+                <span className="text-primary">remote control panel</span>
+                <span> at the pelletiser allows </span>
+                <span className="text-primary">starting/stopping</span>
+                <span> of the </span>
+                <span className="text-primary">line</span>
+                <span> also from this position.</span>
+              </p>
+            </div>
+
+            {/* Key Features List */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                "FOR PRODUCTION AND POST-INDUSTRIAL SCRAP",
+                "INTEGRATED ACTIVE SHREDDER FOR HARD-TO-GRIND MATERIALS",
+                "INNOVATIVE PROCESS ADAPTION",
+                "FAST MATERIAL CHANGEOVER",
+                "EASY MAINTENANCE",
+                "HIGH-PERFORMANCE DESIGN"
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-3 h-3 rounded-full bg-primary"></div>
+                  </div>
+                  <span className="text-sm font-semibold text-gray-700">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Machine Image */}
+            <motion.div
+              className="mt-20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative aspect-[16/9] w-full max-w-5xl mx-auto rounded-2xl overflow-hidden">
+                <img
+                  src="/images/starlinger/recoSTAR_universal.jpg"
+                  alt="recoSTAR universal"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 

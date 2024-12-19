@@ -66,7 +66,7 @@ const Home = () => {
     },
     {
       name: 'Viscotec',
-      logo: '/images/viscotec/logo.svg',
+      logo: '/images/viscotec/logo.png',
       website: 'https://www.viscotec.at/'
     }
   ];
@@ -76,9 +76,9 @@ const Home = () => {
       id: '01',
       title: 'Al Baraka Pack',
       customerLogo: '/images/barakalogo.svg',
-      partnerLogo: '/images/viscotec/logo.svg',
+      partnerLogo: '/images/viscotec/logo.png',
       projectImage: '/images/barakaproj2.jpeg',
-      description: "Al Baraka Pack is one of our esteemed customers who have a long experience in food packaging manufacturing in Syria. In September 2021 We started cooperating with them for their new facility in Egypt. They wanted to penetrate the Egyptian market with high end packaging products and therefore they were looking for the best equipment available on the market to produce top-notch PET sheet. Along with our partners at Viscotec we had several discussions with the customer in order to reach the best solution that meets their requirements. From the early stages of the project we worked as a team, had close communication, and several trips to the customer’s site throughout the implementation stage to guarantee the success of the project. In Q1 2023 we had a successful installation and startup of our PET Extrusion line and since then we have always been supporting the customer in any of his aftersales requirements.",
+      description: "Al Baraka Pack is one of our esteemed customers who have a long experience in food packaging manufacturing in Syria. In September 2021 We started cooperating with them for their new facility in Egypt. They wanted to penetrate the Egyptian market with high end packaging products and therefore they were looking for the best equipment available on the market to produce top-notch PET sheet. Along with our partners at Viscotec we had several discussions with the customer in order to reach the best solution that meets their requirements. From the early stages of the project we worked as a team, had close communication, and several trips to the customer's site throughout the implementation stage to guarantee the success of the project. In Q1 2023 we had a successful installation and startup of our PET Extrusion line and since then we have always been supporting the customer in any of his aftersales requirements.",
       website: 'https://albarakapack.com/about-us/',
     },
     {
@@ -86,7 +86,6 @@ const Home = () => {
       title: 'IFF',
       customerLogo: '/images/iff logo.svg',
       partnerLogo: '/images/hanningfield/hanningfield logo.svg',
-      projectImage: '/images/barakaproj.jpeg',
       description: "Our project with IFF, a global leader in food, beverage, scent, home and personal care, and health, was both interesting and challenging. Working on their expansion project alongside our partner Hanningfield, we recognized early on that their needs required a customized solution. Through numerous meetings and extensive discussions, we developed the best technical solution to meet their specific requirements. The project involved coordinating with the customer and third parties to ensure our powder processing equipment integrated seamlessly with their new blending equipment and WIP system.",
       website: 'https://www.iff.com/',
     },

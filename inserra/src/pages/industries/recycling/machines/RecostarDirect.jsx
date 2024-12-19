@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Gauge, Minimize2, Timer, Zap, Repeat, Factory, LineChart, Workflow } from 'lucide-react';
+import { ArrowRight, ChevronRight, Gauge, Minimize2, Timer, Zap, Repeat, Factory, LineChart, Workflow, Layers, Scale, Monitor, Award, ArrowDownToLine, Disc, Settings, Filter } from 'lucide-react';
 
 const RecostarDirect = () => {
   const fadeInUpVariants = {
@@ -11,101 +11,101 @@ const RecostarDirect = () => {
 
   const specifications = [
     {
-      title: "Processing Capacity",
-      value: "100 - 1,200 kg/h",
-      description: "Direct inline recycling",
-      icon: <Gauge className="w-8 h-8 text-blue-300" />
+      title: "Material Range",
+      value: "Multi-Polymer",
+      description: "PE, PP, PS, PA and PLA",
+      icon: <Layers className="w-8 h-8 text-blue-300" />
     },
     {
-      title: "Space Efficiency",
-      value: "Compact",
-      description: "Minimal footprint",
-      icon: <Minimize2 className="w-8 h-8 text-blue-300" />
+      title: "Bulk Density",
+      value: "> 300 g/l",
+      description: "High density regrind processing",
+      icon: <Scale className="w-8 h-8 text-blue-300" />
     },
     {
-      title: "Response Time",
-      value: "Immediate",
-      description: "Quick material changes",
-      icon: <Timer className="w-8 h-8 text-blue-300" />
+      title: "Control System",
+      value: "Touch-screen",
+      description: "RFID chip-controlled operation",
+      icon: <Monitor className="w-8 h-8 text-blue-300" />
     },
     {
-      title: "Energy Usage",
-      value: "Optimized",
-      description: "Efficient operation",
-      icon: <Zap className="w-8 h-8 text-blue-300" />
+      title: "Output Quality",
+      value: "Virgin-like",
+      description: "100% reusable pellets",
+      icon: <Award className="w-8 h-8 text-blue-300" />
     }
   ];
 
   const features = [
     {
-      title: "Direct Processing",
-      description: "Immediate recycling of production waste",
-      icon: <Factory className="w-12 h-12 text-primary" />,
+      title: "Direct Feeding System",
+      description: "Efficient material input process",
+      icon: <ArrowDownToLine className="w-12 h-12 text-primary" />,
       details: [
-        "No intermediate storage",
-        "Reduced handling costs",
-        "Immediate material recovery"
+        "Top-mounted feeding screw",
+        "Masterbatch dosing capability",
+        "Additives integration possible"
       ]
     },
     {
-      title: "Space Optimization",
-      description: "Compact design for production integration",
-      icon: <Minimize2 className="w-12 h-12 text-primary" />,
+      title: "Smart Control Interface",
+      description: "User-friendly operation system",
+      icon: <Monitor className="w-12 h-12 text-primary" />,
       details: [
-        "Small footprint",
-        "Flexible positioning",
-        "Easy integration"
+        "RFID chip-controlled access",
+        "Recipe management system",
+        "USB data export capability"
       ]
     },
     {
-      title: "Process Efficiency",
-      description: "Optimized energy and resource usage",
-      icon: <LineChart className="w-12 h-12 text-primary" />,
+      title: "Advanced Filtration",
+      description: "Comprehensive melt cleaning system",
+      icon: <Filter className="w-12 h-12 text-primary" />,
       details: [
-        "Low energy consumption",
-        "Minimal material loss",
-        "High output quality"
+        "Optional backflushing system",
+        "Power backflush capability",
+        "Continuous rotation filter option"
       ]
     },
     {
-      title: "Quick Changes",
-      description: "Fast adaptation to production needs",
-      icon: <Repeat className="w-12 h-12 text-primary" />,
+      title: "Superior Pelletising",
+      description: "Patented pelletising technology",
+      icon: <Disc className="w-12 h-12 text-primary" />,
       details: [
-        "Rapid color changes",
-        "Fast material transitions",
-        "Minimal downtime"
+        "Water ring pelletiser system",
+        "Exact cutting mechanism",
+        "Multiple pelletising options"
       ]
     }
   ];
 
   const benefits = [
     {
-      title: "Cost Reduction",
-      stats: [
-        { label: "Material Savings", value: "Up to 30%" },
-        { label: "Energy Savings", value: "Up to 20%" },
-        { label: "Labor Cost", value: "Minimal" }
-      ],
-      icon: <LineChart className="w-16 h-16" />
-    },
-    {
       title: "Production Efficiency",
       stats: [
-        { label: "Setup Time", value: "Minutes" },
-        { label: "Material Changes", value: "Quick" },
-        { label: "Maintenance", value: "Simple" }
+        { label: "Material Reuse", value: "Up to 100%" },
+        { label: "Quality Level", value: "Virgin-like" },
+        { label: "Operation", value: "One-button" }
       ],
       icon: <Factory className="w-16 h-16" />
     },
     {
-      title: "Quality Control",
+      title: "Cost Benefits",
       stats: [
-        { label: "Output Quality", value: "High" },
-        { label: "Consistency", value: "Excellent" },
-        { label: "Contamination", value: "Minimal" }
+        { label: "Filter Costs", value: "Reduced" },
+        { label: "Knife Wear", value: "Minimal" },
+        { label: "Energy Usage", value: "Optimized" }
       ],
-      icon: <Workflow className="w-16 h-16" />
+      icon: <LineChart className="w-16 h-16" />
+    },
+    {
+      title: "System Features",
+      stats: [
+        { label: "Control", value: "Touch-screen" },
+        { label: "Maintenance", value: "User-friendly" },
+        { label: "Integration", value: "Flexible" }
+      ],
+      icon: <Settings className="w-16 h-16" />
     }
   ];
 
@@ -204,6 +204,141 @@ const RecostarDirect = () => {
               </motion.div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Introduction Section */}
+      <div className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-4xl font-bold mb-8">
+              Recycling line
+              <div className="text-primary text-5xl mt-2">recoSTAR direct</div>
+            </h2>
+
+            <div className="space-y-6 text-lg">
+              <p className="leading-relaxed">
+                <span className="text-primary">State-of-the-art recycling technology</span>
+                <span> for the </span>
+                <span className="text-primary">cost-effective processing</span>
+                <span> of </span>
+                <span className="text-primary">regrind with high bulk density (&gt; 300 g/l)</span>
+                <span>: production and </span>
+                <span className="text-primary">post-industrial scrap</span>
+                <span> from materials such as </span>
+                <span className="text-primary">PE, PP, PS, PA</span>
+                <span> and </span>
+                <span className="text-primary">PLA</span>
+                <span>.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The </span>
+                <span className="text-primary">direct feeding</span>
+                <span> of the input material is done by a </span>
+                <span className="text-primary">feeding screw mounted on top of the extruder</span>
+                <span>. Additional dosing of </span>
+                <span className="text-primary">masterbatches</span>
+                <span> or </span>
+                <span className="text-primary">additives</span>
+                <span> is possible.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The </span>
+                <span className="text-primary">user-friendly touch-screen</span>
+                <span> allows simple operation with </span>
+                <span className="text-primary">RFID chip-controlled user levels, alarm history, recipe management, maintenance control</span>
+                <span>, etc. Screenshots can be </span>
+                <span className="text-primary">downloaded via USB-port</span>
+                <span>.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>A variety of </span>
+                <span className="text-primary">different melt filters</span>
+                <span> for </span>
+                <span className="text-primary">dirt particle removal</span>
+                <span> are available. The </span>
+                <span className="text-primary">optional backflushing reduces costs for filter screens</span>
+                <span> and operator intervention. For higher contamination, a </span>
+                <span className="text-primary">power backflush</span>
+                <span> or </span>
+                <span className="text-primary">continuous rotation filter</span>
+                <span> is recommended.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The </span>
+                <span className="text-primary">patented water ring pelletiser</span>
+                <span> ensures </span>
+                <span className="text-primary">exact cutting</span>
+                <span> for </span>
+                <span className="text-primary">increased pellet quality</span>
+                <span> and </span>
+                <span className="text-primary">reduced wear of knives</span>
+                <span>. Alternatively, </span>
+                <span className="text-primary">strand, automatic strand, or under-water pelletisers</span>
+                <span> can be used.</span>
+              </p>
+
+              <p className="leading-relaxed">
+                <span>The produced </span>
+                <span className="text-primary">uniform high-quality pellets have flow characteristics like virgin resin</span>
+                <span> and can be </span>
+                <span className="text-primary">reused up to 100 %</span>
+                <span> in the same application or upcycled for other uses.</span>
+              </p>
+            </div>
+
+            {/* Key Features List */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                "FOR PRODUCTION AND POST-INDUSTRIAL SCRAP",
+                "REGRIND WITH HIGH BULK DENSITY",
+                "WIDE RANGE OF THERMOPLASTICS",
+                "SPACE AND ENERGY SAVING",
+                "ONE-BUTTON START/STOP",
+                "COST-EFFECTIVE RECYCLING SOLUTION"
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-3 h-3 rounded-full bg-primary"></div>
+                  </div>
+                  <span className="text-sm font-semibold text-gray-700">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Machine Image */}
+            <motion.div
+              className="mt-20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative aspect-[16/9] w-full max-w-5xl mx-auto rounded-2xl overflow-hidden">
+                <img
+                  src="/images/starlinger/directhero.jpg"
+                  alt="recoSTAR direct"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
