@@ -74,6 +74,11 @@ import IBCs from './pages/industries/pharmaceutical/hanningfield/ibcs';
 import TabletIBCs from './pages/industries/pharmaceutical/hanningfield/tablet-ibcs';
 import StainlessSteelDrums from './pages/industries/pharmaceutical/hanningfield/stainless-steel-drums';
 import RDBlenders from './pages/industries/pharmaceutical/hanningfield/rd-blenders';
+import ContainmentAndControl from './pages/industries/pharmaceutical/hanningfield/ContainmentAndControl';
+import Cyclones from './pages/industries/pharmaceutical/hanningfield/Cyclones';
+import HygienicValves from './pages/industries/pharmaceutical/hanningfield/HygienicValves';
+import SiliconeDustCaps from './pages/industries/pharmaceutical/hanningfield/SiliconeDustCaps';
+import SiliconeConnectorSleeves from './pages/industries/pharmaceutical/hanningfield/SiliconeConnectorSleeves';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -189,6 +194,11 @@ function App() {
             <Route path="/industries/pharmaceutical/hanningfield/tablet-ibcs" element={<TabletIBCs />} />
             <Route path="/industries/pharmaceutical/hanningfield/stainless-steel-drums" element={<StainlessSteelDrums />} />
             <Route path="/industries/pharmaceutical/hanningfield/rd-blenders" element={<RDBlenders />} />
+            <Route path="/industries/pharmaceutical/hanningfield/containment-and-control" element={<ContainmentAndControl />} />
+            <Route path="/industries/pharmaceutical/hanningfield/cyclones" element={<Cyclones />} />
+            <Route path="/industries/pharmaceutical/hanningfield/hygienic-valves" element={<HygienicValves />} />
+            <Route path="/industries/pharmaceutical/hanningfield/silicone-dust-caps" element={<SiliconeDustCaps />} />
+            <Route path="/industries/pharmaceutical/hanningfield/connector-sleeves" element={<SiliconeConnectorSleeves />} />
             
             {/* Add this at the very end of your Routes */}
             <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />

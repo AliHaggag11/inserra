@@ -102,6 +102,7 @@ const Hanningfield = () => {
     {
       title: "Containment & Control",
       image: "/images/hanningfield/cont.jpg",
+      path: "/industries/pharmaceutical/hanningfield/containment-and-control",
       products: [
         "Cyclones",
         "Hygienic Valves",
