@@ -65,6 +65,15 @@ import VacuumConveyors from './pages/industries/pharmaceutical/hanningfield/Vacu
 import SackTipStations from './pages/industries/pharmaceutical/hanningfield/SackTipStations';
 import CapsuleConveyors from './pages/industries/pharmaceutical/hanningfield/CapsuleConveyors';
 import PowderFlowControl from './pages/industries/pharmaceutical/hanningfield/PowderFlowControl';
+import LiftingAndHandling from './pages/industries/pharmaceutical/hanningfield/LiftingAndHandling';
+import Hoists from './pages/industries/pharmaceutical/hanningfield/hoists';
+import BinBlenders from './pages/industries/pharmaceutical/hanningfield/bin-blenders';
+import DrumTumblers from './pages/industries/pharmaceutical/hanningfield/drum-tumblers';
+import DrumTippers from './pages/industries/pharmaceutical/hanningfield/drum-tippers';
+import IBCs from './pages/industries/pharmaceutical/hanningfield/ibcs';
+import TabletIBCs from './pages/industries/pharmaceutical/hanningfield/tablet-ibcs';
+import StainlessSteelDrums from './pages/industries/pharmaceutical/hanningfield/stainless-steel-drums';
+import RDBlenders from './pages/industries/pharmaceutical/hanningfield/rd-blenders';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -171,6 +180,15 @@ function App() {
             <Route path="/industries/pharmaceutical/hanningfield/sack-tip-stations" element={<PageWrapper><SackTipStations /></PageWrapper>} />
             <Route path="/industries/pharmaceutical/hanningfield/capsule-conveyors" element={<PageWrapper><CapsuleConveyors /></PageWrapper>} />
             <Route path="/industries/pharmaceutical/hanningfield/powder-flow-control" element={<PageWrapper><PowderFlowControl /></PageWrapper>} />
+            <Route path="/industries/pharmaceutical/hanningfield/lifting-and-handling" element={<PageWrapper><LiftingAndHandling /></PageWrapper>} />
+            <Route path="/industries/pharmaceutical/hanningfield/hoists" element={<Hoists />} />
+            <Route path="/industries/pharmaceutical/hanningfield/bin-blenders" element={<BinBlenders />} />
+            <Route path="/industries/pharmaceutical/hanningfield/drum-tumblers" element={<DrumTumblers />} />
+            <Route path="/industries/pharmaceutical/hanningfield/drum-tippers" element={<DrumTippers />} />
+            <Route path="/industries/pharmaceutical/hanningfield/ibcs" element={<IBCs />} />
+            <Route path="/industries/pharmaceutical/hanningfield/tablet-ibcs" element={<TabletIBCs />} />
+            <Route path="/industries/pharmaceutical/hanningfield/stainless-steel-drums" element={<StainlessSteelDrums />} />
+            <Route path="/industries/pharmaceutical/hanningfield/rd-blenders" element={<RDBlenders />} />
             
             {/* Add this at the very end of your Routes */}
             <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />

@@ -87,6 +87,7 @@ const Hanningfield = () => {
     {
       title: "Lifting & Handling",
       image: "/images/hanningfield/lifting.jpg",
+      path: "/industries/pharmaceutical/hanningfield/lifting-and-handling",
       products: [
         "Hoists (Lift Systems)",
         "Bin Blenders",
