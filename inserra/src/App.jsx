@@ -53,6 +53,13 @@ import KiefelMedical from './pages/industries/pharmaceutical/kiefel/KiefelMedica
 import BioprocessBags from './pages/industries/pharmaceutical/kiefel/bioprocess/BioprocessBags';
 import BloodPlasma from './pages/industries/pharmaceutical/kiefel/blood-plasma/BloodPlasma';
 import OstomyPouches from './pages/industries/pharmaceutical/kiefel/ostomy/OstomyPouches';
+import MillingAndSizing from './pages/industries/pharmaceutical/hanningfield/MillingAndSizing';
+import UniMillUSeries from './pages/industries/pharmaceutical/hanningfield/UniMillUSeries';
+import UniMillBSeries from './pages/industries/pharmaceutical/hanningfield/UniMillBSeries';
+import KwikSift from './pages/industries/pharmaceutical/hanningfield/KwikSift';
+import PreBreakers from './pages/industries/pharmaceutical/hanningfield/PreBreakers';
+import ParticleSizingSolution from './pages/industries/pharmaceutical/hanningfield/ParticleSizingSolution';
+import LumpBreakers from './pages/industries/pharmaceutical/hanningfield/LumpBreakers';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -143,10 +150,17 @@ function App() {
             <Route path="/industries/packaging/viscotec/crystallizer" element={<Crystallizer />} />
             <Route path="/industries/packaging/viscotec/vacuum-system" element={<VacuumSystem />} />
             <Route path="/industries/pharmaceutical/hanningfield" element={<Hanningfield />} />
+            <Route path="/industries/pharmaceutical/hanningfield/milling-sizing" element={<PageWrapper><MillingAndSizing /></PageWrapper>} />
             <Route path="/industries/pharmaceutical/kiefel-medical-pharma" element={<KiefelMedical />} />
             <Route path="/industries/pharmaceutical/kiefel-medical-pharma/bioprocess-bags" element={<BioprocessBags />} />
             <Route path="/industries/pharmaceutical/kiefel/blood-plasma" element={<BloodPlasma />} />
             <Route path="/industries/pharmaceutical/kiefel/ostomy-pouches" element={<OstomyPouches />} />
+            <Route path="/industries/pharmaceutical/hanningfield/uni-mill-u-series" element={<UniMillUSeries />} />
+            <Route path="/industries/pharmaceutical/hanningfield/uni-mill-b-series" element={<UniMillBSeries />} />
+            <Route path="/industries/pharmaceutical/hanningfield/kwik-sift" element={<KwikSift />} />
+            <Route path="/industries/pharmaceutical/hanningfield/pre-breakers" element={<PreBreakers />} />
+            <Route path="/industries/pharmaceutical/hanningfield/particle-sizing-solution" element={<ParticleSizingSolution />} />
+            <Route path="/industries/pharmaceutical/hanningfield/lump-breakers" element={<LumpBreakers />} />
             
             {/* Add this at the very end of your Routes */}
             <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />

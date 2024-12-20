@@ -15,7 +15,7 @@ const KiefelMedical = () => {
     {
       title: "Bioprocess Bags",
       description: "Advanced solutions for bioprocessing applications",
-      image: "https://placehold.co/600x400/e2e8f0/475569?text=Bioprocess+Bags&font=roboto",
+      image: "/images/kiefel/Bioprocess_Bag.webp",
       features: [
         "High-quality materials",
         "Sterile processing",
@@ -27,7 +27,7 @@ const KiefelMedical = () => {
     {
       title: "Blood, Plasma, Transfusion",
       description: "Specialized bags for medical fluid storage and transfer",
-      image: "https://placehold.co/600x400/e2e8f0/475569?text=Blood+and+Plasma+Bags&font=roboto",
+      image: "/images/kiefel/Blood bags@2x.webp",
       features: [
         "Medical-grade materials",
         "Precise volume control",
@@ -39,7 +39,7 @@ const KiefelMedical = () => {
     {
       title: "Ostomy Pouches",
       description: "Innovative solutions for ostomy care",
-      image: "https://placehold.co/600x400/e2e8f0/475569?text=Ostomy+Pouches&font=roboto",
+      image: "/images/kiefel/Bild 07_Kolostony bags quer038@2x.webp",
       features: [
         "Comfort-focused design",
         "Secure sealing",
@@ -219,11 +219,11 @@ const KiefelMedical = () => {
                   }
                 }}
               >
-                <div className="aspect-w-16 aspect-h-9">
+                <div className="relative h-48 w-full">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="absolute inset-0 w-full h-full object-cover p-4 bg-white"
                   />
                 </div>
                 <div className="p-6 group-hover:bg-gray-50 transition-colors duration-300">

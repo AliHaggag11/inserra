@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Factory, Settings, Shield, FileCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ImageCarousel = ({ images }) => {
@@ -59,87 +59,57 @@ const ImageCarousel = ({ images }) => {
 };
 
 const Hanningfield = () => {
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
-  const customers = [
+  const productCategories = [
     {
-      name: "Givaudan",
-      logo: "https://www.givaudan.com/themes/custom/givaudan/logo.svg"
+      title: "Milling & Sizing",
+      image: "/images/hanningfield/milling.jpg",
+      path: "/industries/pharmaceutical/hanningfield/milling-sizing",
+      products: [
+        "Conical Mills (Under-Driven)",
+        "Conical Mills (Over-Driven)",
+        "Sifters (Centrifugal Screening)",
+        "Pre-Breakers",
+        "Particle Sizing Solution",
+        "Lump Breakers"
+      ]
     },
     {
-      name: "ABInBev",
-      logo: "https://www.ab-inbev.com/content/dam/abinbev/logos/ABI_Logo_RGB_Horizontal.png"
+      title: "Conveying & Transfer",
+      image: "/images/hanningfield/conv.jpg",
+      products: [
+        "Vacuum Conveyors",
+        "Sack Tip Stations",
+        "Capsule Conveyors",
+        "Powder Flow Control Systems"
+      ]
     },
     {
-      name: "Kelloggs",
-      logo: "https://www.kelloggs.com/content/dam/kelloggs/kelloggs-logo.png"
+      title: "Lifting & Handling",
+      image: "/images/hanningfield/lifting.jpg",
+      products: [
+        "Hoists (Lift Systems)",
+        "Bin Blenders",
+        "Drum Tumblers",
+        "Drum Tippers",
+        "IBCs",
+        "Tablet IBCs",
+        "Stainless Steel Drums",
+        "R & D Blenders"
+      ]
     },
     {
-      name: "Kraft Heinz",
-      logo: "https://www.kraftheinzcompany.com/images/kraft_heinz_logo.png"
-    },
-    {
-      name: "Nestle",
-      logo: "https://www.nestle.com/sites/default/files/nestle-logo-white.png"
-    },
-    {
-      name: "P&G",
-      logo: "https://us.pg.com/-/media/project/pg/pg-com/design-system/logo.png"
-    },
-    {
-      name: "Reckitt Benckiser",
-      logo: "https://www.reckitt.com/static/rb-logo-black.svg"
-    },
-    {
-      name: "Tetley",
-      logo: "https://www.tetley.co.uk/themes/custom/tetley_theme/logo.svg"
-    },
-    {
-      name: "Unilever",
-      logo: "https://www.unilever.com/Images/unilever-logo-2_tcm244-545507_w400.png"
+      title: "Containment & Control",
+      image: "/images/hanningfield/cont.jpg",
+      products: [
+        "Cyclones",
+        "Hygienic Valves",
+        "Silicone Dust Caps",
+        "Silicone Connector Sleeves"
+      ]
     }
   ];
 
-  const features = [
-    {
-      title: "GMP Standards",
-      description: "All equipment manufactured to hygienic food-grade standards",
-      icon: <Factory className="w-6 h-6" />
-    },
-    {
-      title: "Custom Solutions",
-      description: "Fully customizable equipment to suit your requirements",
-      icon: <Settings className="w-6 h-6" />
-    },
-    {
-      title: "Food Safety",
-      description: "Equipment designed to meet food safety standards",
-      icon: <FileCheck className="w-6 h-6" />
-    },
-    {
-      title: "Certification",
-      description: "3.1 mill certificates provided",
-      icon: <Shield className="w-6 h-6" />
-    }
-  ];
-
-  const carouselImages = [
-    {
-      url: "https://placehold.co/800x450/e2e8f0/475569?text=Powder+Handling+Equipment&font=roboto",
-      alt: "Powder Handling Equipment"
-    },
-    {
-      url: "https://placehold.co/800x450/e2e8f0/475569?text=Processing+Systems&font=roboto",
-      alt: "Processing Systems"
-    },
-    {
-      url: "https://placehold.co/800x450/e2e8f0/475569?text=Containment+Solutions&font=roboto",
-      alt: "Containment Solutions"
-    }
-  ];
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -163,114 +133,76 @@ const Hanningfield = () => {
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto text-center flex flex-col items-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUpVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
           >
             <img 
-              src="https://placehold.co/300x100/e2e8f0/475569?text=Hanningfield+Logo&font=roboto"
+              src="/images/hanningfield/hanningfield logo.svg"
               alt="Hanningfield Logo"
-              className="h-20 w-auto mb-12 bg-white/10 backdrop-blur-sm p-4 rounded-lg"
+              className="h-20 w-auto mb-12 bg-white p-4 rounded-lg"
             />
-            <h1 className="text-5xl font-bold mb-6">Hanningfield F&B</h1>
+            <h1 className="text-5xl font-bold mb-6">Powder Processing Solutions</h1>
             <p className="text-xl text-blue-100 mb-8">
-              Hanningfield is an expert in the design, manufacture and supply of powder handling and powder 
-              processing systems for the food industry.
+              Expert design and manufacture of powder handling and processing systems
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Image Carousel Section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold text-primary mb-4">Our Solutions</h2>
-            <p className="text-gray-600">Explore our range of pharmaceutical equipment</p>
-          </motion.div>
-
-          <div className="max-w-3xl mx-auto">
-            <ImageCarousel images={carouselImages} />
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
+      {/* Product Categories */}
       <div className="py-16">
         <div className="container mx-auto px-4">
           <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              Hanningfield offer a wide range of hygienic food-grade stainless steel machinery for powder handling, 
-              powder processing and powder containment suitable for the food and beverage industry.
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Alongside our standard range of equipment, we are capable of supplying fully integrated and installed 
-              systems for your project in the food and beverage industry. As a manufacturer, and not just a supplier, 
-              Hanningfield can design and fabricate the necessary interfaces between processes and can also build 
-              custom-designed special purpose machinery to satisfy any requirement.
-            </p>
-          </motion.div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-16">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="text-primary mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Customers Section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-primary mb-4">Our Customers</h2>
-            <p className="text-gray-600">Trusted by leading pharmaceutical companies worldwide</p>
+            <h2 className="text-3xl font-bold text-primary mb-4">Our Product Range</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comprehensive solutions for powder processing, handling, and containment
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {customers.map((customer, index) => (
-              <motion.div
-                key={customer.name}
-                className="flex items-center justify-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <img
-                  src={customer.logo}
-                  alt={customer.name}
-                  className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 filter brightness-0"
-                />
-              </motion.div>
-            ))}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {productCategories.map((category, index) => (
+                <motion.div
+                  key={category.title}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  onClick={() => category.path && navigate(category.path)}
+                >
+                  <div className="aspect-w-16 aspect-h-9">
+                    <img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-xl font-bold text-primary mb-3 flex items-center">
+                      {category.title}
+                      <ArrowRight className="w-4 h-4 ml-2 opacity-70" />
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {category.products.map((product, idx) => (
+                        <li 
+                          key={idx} 
+                          className="flex items-center text-sm text-gray-600 hover:text-primary cursor-pointer group"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2 group-hover:bg-primary"></div>
+                          {product}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -279,19 +211,17 @@ const Hanningfield = () => {
       <div className="bg-gradient-to-br from-primary to-primary-dark text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Production?</h2>
+            <h2 className="text-3xl font-bold mb-6">Need a Custom Solution?</h2>
             <p className="text-xl text-blue-100 mb-8">
-              Contact us to learn more about our pharmaceutical solutions
+              Contact us to discuss your powder processing requirements
             </p>
-            <div className="flex justify-center space-x-4">
-              <Link
-                to="/contact"
-                className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300 flex items-center"
-              >
-                Contact Us
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </div>
+            <Link
+              to="/contact"
+              className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300 inline-flex items-center"
+            >
+              Contact Us
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>
