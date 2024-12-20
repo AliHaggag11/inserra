@@ -92,26 +92,26 @@ const KiefelFiber = () => {
                   className="h-16 w-auto"
                 />
               </motion.div>
-              <span className="text-blue-300 font-semibold mb-4 block tracking-wider">KIEFEL FIBER SOLUTIONS</span>
+              <span className="text-gray-300 font-semibold mb-4 block tracking-wider">KIEFEL FIBER SOLUTIONS</span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Sustainable Fiber
                 <span className="text-gray-300 block mt-2">
                   Technology
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300/30 mb-6"></div>
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              <div className="w-20 h-1 bg-gray-300/30 mb-6"></div>
+              <p className="text-xl text-white mb-8 leading-relaxed">
                 Innovative fiber-based packaging solutions for a sustainable future, combining 
                 eco-friendly materials with cutting-edge technology.
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Eco-friendly</h3>
-                  <p className="text-sm text-blue-100">100% recyclable and biodegradable materials</p>
+                <div className="bg-gray-100 rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Eco-friendly</h3>
+                  <p className="text-sm text-gray-600">100% recyclable and biodegradable materials</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Versatile</h3>
-                  <p className="text-sm text-blue-100">Wide range of packaging applications</p>
+                <div className="bg-gray-100 rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Versatile</h3>
+                  <p className="text-sm text-gray-600">Wide range of packaging applications</p>
                 </div>
               </div>
             </motion.div>
@@ -352,7 +352,7 @@ const KiefelFiber = () => {
               <div className="w-20 h-1 bg-primary/30 mx-auto mt-8"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div className="max-w-4xl mx-auto mb-16">
               <div className="space-y-6">
                 <p className="text-gray-700 leading-relaxed">
                   Paper and cardboard – dissolved in a water bath – create the{' '}
@@ -372,13 +372,6 @@ const KiefelFiber = () => {
                   can be used to comply with the regulations in the food industry for packaging 
                   solutions made from paper.
                 </p>
-              </div>
-              <div className="relative">
-                <img 
-                  src="/images/kiefel/fiber-process.webp" 
-                  alt="Kiefel Process Monitoring"
-                  className="rounded-xl shadow-lg"
-                />
               </div>
             </div>
 
@@ -418,7 +411,7 @@ const KiefelFiber = () => {
 
               <div className="mt-16">
                 <img 
-                  src="/images/kiefel/fiber-process-diagram.webp" 
+                  src="/images/kiefel/Fiber_Prozess_en_2500@2x.webp" 
                   alt="Kiefel Fiber Thermoforming Process"
                   className="w-full max-w-4xl mx-auto"
                 />

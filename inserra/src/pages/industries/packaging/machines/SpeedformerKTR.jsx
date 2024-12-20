@@ -68,17 +68,17 @@ const SpeedformerKTR = () => {
     {
       title: "Food Containers",
       description: "High-quality food packaging solutions",
-      icon: <Factory className="w-8 h-8" />
+      icon: <Factory className="w-8 h-8 text-primary" />
     },
     {
       title: "Technical Parts",
       description: "Complex technical components",
-      icon: <Settings className="w-8 h-8" />
+      icon: <Settings className="w-8 h-8 text-primary" />
     },
     {
       title: "Special Applications",
       description: "Custom packaging solutions",
-      icon: <Wrench className="w-8 h-8" />
+      icon: <Wrench className="w-8 h-8 text-primary" />
     }
   ];
 
@@ -86,22 +86,22 @@ const SpeedformerKTR = () => {
     {
       title: "Maximum output & efficiency",
       description: "High-speed production with optimal material distribution",
-      icon: <Zap className="w-8 h-8" />
+      icon: <Zap className="w-8 h-8 text-primary" />
     },
     {
       title: "Superior product quality",
       description: "Precise process control for consistent results",
-      icon: <Shield className="w-8 h-8" />
+      icon: <Shield className="w-8 h-8 text-primary" />
     },
     {
       title: "Flexible production",
       description: "Quick changeovers and versatile applications",
-      icon: <Settings className="w-8 h-8" />
+      icon: <Settings className="w-8 h-8 text-primary" />
     },
     {
       title: "Energy efficient",
       description: "Optimized energy consumption and recovery",
-      icon: <Factory className="w-8 h-8" />
+      icon: <Factory className="w-8 h-8 text-primary" />
     }
   ];
 
@@ -149,12 +149,12 @@ const SpeedformerKTR = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 SPEEDFORMER KTR
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                <span className="block text-white text-3xl md:text-4xl mt-4">
                   Tilting Technology
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+              <div className="w-20 h-1 bg-gray-100 mx-auto mb-6"></div>
+              <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto">
                 Advanced tilting thermoforming for complex packaging solutions
               </p>
             </motion.div>
@@ -215,17 +215,17 @@ const SpeedformerKTR = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  {index === 0 && <Factory className="w-10 h-10" />}
-                  {index === 1 && <Settings className="w-10 h-10" />}
-                  {index === 2 && <Shield className="w-10 h-10" />}
+                <div className="bg-white rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
+                  {index === 0 && <Factory className="w-10 h-10 text-primary" />}
+                  {index === 1 && <Settings className="w-10 h-10 text-primary" />}
+                  {index === 2 && <Shield className="w-10 h-10 text-primary" />}
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100 mb-6">{feature.description}</p>
+                <p className="text-gray-100 mb-6">{feature.description}</p>
                 <ul className="space-y-3">
                   {feature.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                    <li key={idx} className="flex items-center text-gray-100">
+                      <CheckCircle className="w-5 h-5 text-gray-100 mr-3 flex-shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -247,25 +247,25 @@ const SpeedformerKTR = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Technical Specifications</h2>
-            <p className="text-xl text-blue-200">Available models and their capabilities</p>
+            <p className="text-xl text-gray-100">Available models and their capabilities</p>
           </motion.div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 overflow-x-auto">
+          <div className="bg-black/10 backdrop-blur-lg rounded-xl p-8 overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/20">
-                  <th className="px-4 py-2 text-left text-blue-200"></th>
+                <tr className="border-b border-gray-400/20">
+                  <th className="px-4 py-2 text-left text-gray-100"></th>
                   {models.map(model => (
-                    <th key={model.name} className="px-4 py-2 text-left text-blue-200">{model.name}</th>
+                    <th key={model.name} className="px-4 py-2 text-left text-gray-100">{model.name}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {Object.entries(specLabels).map(([key, label], index) => (
-                  <tr key={key} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
+                  <tr key={key} className={`border-b border-gray-400/20 ${index % 2 === 0 ? 'bg-black/5' : ''}`}>
                     <td className="px-4 py-2 font-semibold text-white">{label}</td>
                     {models.map(model => (
-                      <td key={`${model.name}-${key}`} className="px-4 py-2 text-blue-100">
+                      <td key={`${model.name}-${key}`} className="px-4 py-2 text-gray-100">
                         {model.specs[key]}
                       </td>
                     ))}
@@ -303,11 +303,11 @@ const SpeedformerKTR = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white transform transition-all duration-300 group-hover:shadow-xl">
-                  <div className="bg-white/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
+                  <div className="bg-white rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
                     {application.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{application.title}</h3>
-                  <p className="text-blue-100">{application.description}</p>
+                  <p className="text-gray-100">{application.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -326,24 +326,24 @@ const SpeedformerKTR = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Key Benefits</h2>
-            <p className="text-xl text-blue-200">Advantages of the SPEEDFORMER KTR</p>
+            <p className="text-xl text-gray-100">Advantages of the SPEEDFORMER KTR</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {keyBenefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-gray-100 rounded-xl p-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
+                <div className="bg-white rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
                   {benefit.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-4">{benefit.title}</h3>
-                <p className="text-blue-100">{benefit.description}</p>
+                <h3 className="text-xl font-bold mb-4 text-primary">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

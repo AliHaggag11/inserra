@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Beaker, Zap, Settings, Gauge, ChevronRight } from 'lucide-react';
+import { ArrowRight, Beaker, Zap, Settings, Gauge, ChevronRight, Download } from 'lucide-react';
 
 const RecostarPET = () => {
   const fadeInUpVariants = {
@@ -14,25 +14,25 @@ const RecostarPET = () => {
       title: "Product Line",
       value: "Three Versions",
       description: "All systems with FIFO pre-drying and single-screw extrusion",
-      icon: <Settings className="w-8 h-8 text-blue-300" />
+      icon: <Settings className="w-8 h-8 text-primary" />
     },
     {
       title: "Process Type",
       value: "FIFO Pre-drying",
       description: "Single-stage drying with hot, desiccant air",
-      icon: <Beaker className="w-8 h-8 text-blue-300" />
+      icon: <Beaker className="w-8 h-8 text-primary" />
     },
     {
       title: "Energy Efficiency",
       value: "High Recovery",
       description: "Available for pre-heater and final pellets",
-      icon: <Zap className="w-8 h-8 text-blue-300" />
+      icon: <Zap className="w-8 h-8 text-primary" />
     },
     {
       title: "Layout Options",
       value: "L, U, or Line",
       description: "Flexible setup with minimal footprint",
-      icon: <Gauge className="w-8 h-8 text-blue-300" />
+      icon: <Gauge className="w-8 h-8 text-primary" />
     }
   ];
 
@@ -176,37 +176,48 @@ const RecostarPET = () => {
               >
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   recoSTAR PET
-                  <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                  <span className="block text-white text-3xl md:text-4xl mt-4">
                     High-end bottle-to-bottle recycling
                   </span>
                 </h1>
-                <div className="w-20 h-1 bg-blue-300 mb-6"></div>
+                <div className="w-20 h-1 bg-gray-300 mb-6"></div>
                 <p className="text-xl text-blue-100 max-w-2xl">
                   State-of-the-art recycling technology for post-consumer bottle flakes
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Gauge className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Up to 2,000 kg/h</span>
+                    <Gauge className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Up to 2,000 kg/h</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Beaker className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Food-grade Quality</span>
+                    <Beaker className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Food-grade Quality</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Settings className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Smart Operation</span>
+                    <Settings className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Smart Operation</span>
                   </motion.div>
                 </div>
+
+                <motion.a
+                  href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_PET_art_24821_08V.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-gray-100 text-primary rounded-full hover:bg-white transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Download className="w-5 h-5" />
+                  <span className="font-bold">Download Brochure</span>
+                </motion.a>
               </motion.div>
 
               <motion.div
@@ -425,35 +436,8 @@ const RecostarPET = () => {
       </div>
 
       {/* Image Grid Section */}
-      <div className="bg-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3, 4, 5, 6].map((num) => (
-                <motion.div
-                  key={num}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: num * 0.1 }}
-                >
-                  <div className="bg-white rounded-xl shadow-lg p-2">
-                    <div className="relative w-full pb-[56.25%]"> {/* 16:9 aspect ratio */}
-                      <div className="absolute inset-0">
-                        <img
-                          src={`https://via.placeholder.com/800x450/2563eb/FFFFFF?text=Image+${num}`}
-                          alt={`recoSTAR PET Process ${num}`}
-                          className="w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-105"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      
+     
 
       {/* recoSTAR PET FG/FG+ Section */}
       <div className="bg-gray-50 py-20">
@@ -656,21 +640,23 @@ const RecostarPET = () => {
             {specifications.map((spec, index) => (
               <motion.div
                 key={index}
-                className="relative bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white overflow-hidden"
+                className="relative bg-gray-100 rounded-xl p-8 overflow-hidden hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ translateY: -5 }}
               >
-                <div className="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+                <div className="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4 text-blue-900">
                   {spec.icon}
                 </div>
                 <div className="relative z-10">
-                  {spec.icon}
-                  <h3 className="text-xl font-bold mt-4 mb-2">{spec.title}</h3>
-                  <div className="text-3xl font-bold text-blue-300 mb-2">{spec.value}</div>
-                  <p className="text-blue-100">{spec.description}</p>
+                  <div className="text-blue-900">
+                    {spec.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mt-4 mb-2 text-gray-800">{spec.title}</h3>
+                  <div className="text-3xl font-bold text-primary mb-2">{spec.value}</div>
+                  <p className="text-gray-600">{spec.description}</p>
                 </div>
               </motion.div>
             ))}

@@ -118,10 +118,9 @@ const NatureformerKFT = () => {
       </div> */}
 
       {/* Hero Section */}
-      <div className="relative h-[80vh] overflow-hidden">
+      <div className="relative h-[80vh] overflow-hidden bg-primary">
         <motion.div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
           initial={{ scale: 1.2 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
@@ -138,12 +137,12 @@ const NatureformerKFT = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Machine solutions for natural fiber
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                <span className="block text-gray-200 text-3xl md:text-4xl mt-4">
                   NATUREFORMER KFT
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mb-6"></div>
-              <p className="text-xl text-blue-100 max-w-2xl">
+              <div className="w-20 h-1 bg-gray-200 mb-6"></div>
+              <p className="text-xl text-gray-100 max-w-2xl">
                 The NATUREFORMER KFT 90 includes a range of innovative features that will increase the productivity
               </p>
             </motion.div>
@@ -205,7 +204,7 @@ const NatureformerKFT = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Distinct Kiefel production process</h2>
-            <p className="text-xl text-blue-200">Advanced thermoforming process with integrated quality control</p>
+            <p className="text-xl text-gray-200">Advanced thermoforming process with integrated quality control</p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
@@ -219,29 +218,22 @@ const NatureformerKFT = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 h-full hover:bg-white/20 transition-all duration-300 transform group-hover:-translate-y-2">
+                  <div className="bg-gray-100 rounded-xl p-6 h-full hover:bg-gray-200 transition-all duration-300 transform group-hover:-translate-y-2">
                     {/* Step Number */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-blue-300 text-primary font-bold flex items-center justify-center">
+                    <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white text-primary font-bold flex items-center justify-center shadow-md">
                       {index + 1}
                     </div>
                     
                     {/* Icon */}
-                    <div className="bg-white/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:bg-white/30 transition-all duration-300">
+                    <div className="bg-primary/10 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
                       {step.icon}
                     </div>
                     
                     {/* Content */}
                     <div className="text-center">
-                      <h3 className="text-lg font-bold mb-3">{step.title}</h3>
-                      <p className="text-sm text-blue-100">{step.description}</p>
+                      <h3 className="text-lg font-bold mb-3 text-primary">{step.title}</h3>
+                      <p className="text-sm text-gray-600">{step.description}</p>
                     </div>
-
-                    {/* Arrow indicator for non-last items */}
-                    {index < processSteps.length - 1 && (
-                      <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                        <ArrowRight className="w-6 h-6 text-blue-300" />
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               ))}
@@ -254,15 +246,15 @@ const NatureformerKFT = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4 text-blue-300">Water extraction procedure</h3>
-                <p className="text-blue-100">
+              <div className="bg-gray-100 rounded-xl p-8 hover:bg-gray-200 transition-all duration-300">
+                <h3 className="text-xl font-bold mb-4 text-primary">Water extraction procedure</h3>
+                <p className="text-gray-600">
                   The water extraction procedure in combination with the cold pre-pressing technology reduces the moisture up to 60%
                 </p>
               </div>
-              <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4 text-blue-300">Final press with heated tools</h3>
-                <p className="text-blue-100">
+              <div className="bg-gray-100 rounded-xl p-8 hover:bg-gray-200 transition-all duration-300">
+                <h3 className="text-xl font-bold mb-4 text-primary">Final press with heated tools</h3>
+                <p className="text-gray-600">
                   The final press with heated tools reduces the residual moisture of the packed product to approximately 7%
                 </p>
               </div>
@@ -282,7 +274,7 @@ const NatureformerKFT = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Why NATUREFORMER KFT?</h2>
-            <p className="text-xl text-blue-200">Advanced features for optimal performance</p>
+            <p className="text-xl text-gray-200">Advanced features for optimal performance</p>
           </motion.div>
 
           {/* Add the diagram before the features */}
@@ -307,17 +299,17 @@ const NatureformerKFT = () => {
             {whyKFT.map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-gray-100 rounded-xl p-8 hover:bg-gray-200 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <span className="text-2xl font-bold">{index + 1}</span>
+                <div className="bg-primary/10 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold text-primary">{index + 1}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100">{feature.description}</p>
+                <h3 className="text-xl font-bold mb-4 text-primary">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -338,13 +330,13 @@ const NatureformerKFT = () => {
             <p className="text-xl text-gray-400">Kiefel Fiber Preparation</p>
           </motion.div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 overflow-x-auto">
+          <div className="bg-gray-100 rounded-xl p-8 overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/20">
+                <tr className="border-b border-gray-200">
                   <th className="px-6 py-3 text-left"></th>
                   {specifications.map((spec, index) => (
-                    <th key={index} className="px-6 py-3 text-left text-lg font-bold text-blue-200">
+                    <th key={index} className="px-6 py-3 text-left text-lg font-bold text-primary">
                       {spec.name}
                     </th>
                   ))}
@@ -352,10 +344,10 @@ const NatureformerKFT = () => {
               </thead>
               <tbody>
                 {Object.keys(specifications[0].specs).map((key, index) => (
-                  <tr key={index} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
-                    <td className="px-6 py-4 text-sm font-medium text-white">{key}</td>
+                  <tr key={index} className={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : ''}`}>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{key}</td>
                     {specifications.map((spec, specIndex) => (
-                      <td key={specIndex} className="px-6 py-4 text-sm text-blue-100">
+                      <td key={specIndex} className="px-6 py-4 text-sm text-gray-600">
                         {spec.specs[key]}
                       </td>
                     ))}
@@ -363,7 +355,7 @@ const NatureformerKFT = () => {
                 ))}
               </tbody>
             </table>
-            <div className="mt-4 text-sm text-blue-100 italic">
+            <div className="mt-4 text-sm text-gray-100 italic">
               {note}
             </div>
           </div>
@@ -388,15 +380,18 @@ const NatureformerKFT = () => {
             {[
               {
                 title: "Steam Flow Technology",
-                description: "Improved steam management enables a 30% reduction in cycle time"
+                description: "Improved steam management enables a 30% reduction in cycle time",
+                icon: <Settings className="w-8 h-8" />
               },
               {
                 title: "Temperature Control",
-                description: "New temperature controller ensures the highest process reliability"
+                description: "New temperature controller ensures the highest process reliability",
+                icon: <Zap className="w-8 h-8" />
               },
               {
                 title: "Energy Efficiency",
-                description: "Up to 10kW lower energy consumption and 900L/h less water consumption"
+                description: "Up to 10kW lower energy consumption and 900L/h less water consumption",
+                icon: <Factory className="w-8 h-8" />
               }
             ].map((feature, index) => (
               <motion.div
@@ -407,11 +402,13 @@ const NatureformerKFT = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <Settings className="w-8 h-8" />
+                <div className="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-gray-50 transition-colors">
+                  <div className="text-primary">
+                    {feature.icon}
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100">{feature.description}</p>
+                <p className="text-gray-100">{feature.description}</p>
               </motion.div>
             ))}
           </div>

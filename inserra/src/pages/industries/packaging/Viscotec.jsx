@@ -105,13 +105,13 @@ const Viscotec = () => {
                 with maximum efficiency and sustainability.
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Sustainability</h3>
-                  <p className="text-sm text-blue-100">100% recyclable solutions for circular economy</p>
+                <div className="bg-gray-100 rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Sustainability</h3>
+                  <p className="text-sm text-gray-600">100% recyclable solutions for circular economy</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Food Grade</h3>
-                  <p className="text-sm text-blue-100">Certified food-safe processing technology</p>
+                <div className="bg-gray-100 rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Food Grade</h3>
+                  <p className="text-sm text-gray-600">Certified food-safe processing technology</p>
                 </div>
               </div>
             </motion.div>

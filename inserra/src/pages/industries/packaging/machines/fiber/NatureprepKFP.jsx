@@ -206,10 +206,8 @@ const NatureprepKFP = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <div className="relative h-[65vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
-        
+      {/* Enhanced Hero Section */}
+      <div className="relative h-[65vh] overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
         <div className="container mx-auto px-4 h-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
             <motion.div
@@ -220,12 +218,12 @@ const NatureprepKFP = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 NATUREPREP KFP
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                <span className="block text-gray-200 text-3xl md:text-4xl mt-4">
                   High-quality Fiber Preparation
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mb-6"></div>
-              <p className="text-xl text-blue-100 max-w-2xl">
+              <div className="w-20 h-1 bg-gray-200 mb-6"></div>
+              <p className="text-xl text-gray-100 max-w-2xl">
                 Discover our solutions for the preparation of natural fibers to produce high-quality packaging
               </p>
             </motion.div>
@@ -307,11 +305,11 @@ const NatureprepKFP = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <span className="text-2xl font-bold">{index + 1}</span>
+                <div className="bg-gray-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+                  <span className="text-2xl font-bold bg-gradient-to-br from-primary to-primary-dark bg-clip-text text-transparent">{index + 1}</span>
                 </div>
                 <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100">{feature.description}</p>
+                <p className="text-gray-100">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -356,17 +354,17 @@ const NatureprepKFP = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-4xl font-bold mb-4">Versions of the NATUREPREP KFP</h2>
-            <p className="text-xl text-gray-400">Kiefel Fiber Preparation</p>
+            <p className="text-xl text-gray-200">Kiefel Fiber Preparation</p>
           </motion.div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 overflow-x-auto">
+          <div className="bg-gray-100 rounded-xl p-8 overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/20">
+                <tr className="border-b border-gray-200">
                   <th className="px-6 py-3 text-left"></th>
-                  <th className="px-6 py-3 text-left text-lg font-bold text-blue-200">KFP S</th>
-                  <th className="px-6 py-3 text-left text-lg font-bold text-blue-200">KFP M</th>
-                  <th className="px-6 py-3 text-left text-lg font-bold text-blue-200">KFP L</th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-primary">KFP S</th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-primary">KFP M</th>
+                  <th className="px-6 py-3 text-left text-lg font-bold text-primary">KFP L</th>
                 </tr>
               </thead>
               <tbody>
@@ -402,11 +400,11 @@ const NatureprepKFP = () => {
                     l: "Up to 6 machines"
                   }
                 ].map((row, index) => (
-                  <tr key={index} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
-                    <td className="px-6 py-4 text-sm font-medium text-white">{row.label}</td>
-                    <td className="px-6 py-4 text-sm text-blue-100">{row.s}</td>
-                    <td className="px-6 py-4 text-sm text-blue-100">{row.m}</td>
-                    <td className="px-6 py-4 text-sm text-blue-100">{row.l}</td>
+                  <tr key={index} className={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : ''}`}>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{row.label}</td>
+                    <td className="px-6 py-4 text-sm text-gray-600">{row.s}</td>
+                    <td className="px-6 py-4 text-sm text-gray-600">{row.m}</td>
+                    <td className="px-6 py-4 text-sm text-gray-600">{row.l}</td>
                   </tr>
                 ))}
               </tbody>
@@ -440,7 +438,7 @@ const NatureprepKFP = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <h3 className="text-xl font-bold mb-3">{material.name}</h3>
-                <p className="text-blue-100">{material.fullName}</p>
+                <p className="text-gray-100">{material.fullName}</p>
               </motion.div>
             ))}
           </div>
@@ -458,24 +456,24 @@ const NatureprepKFP = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Various Modules & Options</h2>
-            <p className="text-xl text-blue-200">Comprehensive system components</p>
+            <p className="text-xl text-gray-200">Comprehensive system components</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {modules.map((module, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300"
+                className="bg-gray-100 rounded-xl p-8 hover:bg-gray-200 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <span className="text-2xl font-bold">{index + 1}</span>
+                <div className="bg-primary/10 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold text-primary">{index + 1}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-4">{module.title}</h3>
-                <p className="text-blue-100">{module.description}</p>
+                <h3 className="text-xl font-bold mb-4 text-primary">{module.title}</h3>
+                <p className="text-gray-600">{module.description}</p>
               </motion.div>
             ))}
           </div>
@@ -506,11 +504,11 @@ const NatureprepKFP = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-white/30 transition-colors">
-                  <span className="text-2xl font-bold">{index + 1}</span>
+                <div className="bg-gray-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+                  <span className="text-2xl font-bold bg-gradient-to-br from-primary to-primary-dark bg-clip-text text-transparent">{index + 1}</span>
                 </div>
                 <h3 className="text-xl font-bold mb-3">{application.sector}</h3>
-                <p className="text-blue-100">{application.description}</p>
+                <p className="text-gray-100">{application.description}</p>
               </motion.div>
             ))}
           </div>

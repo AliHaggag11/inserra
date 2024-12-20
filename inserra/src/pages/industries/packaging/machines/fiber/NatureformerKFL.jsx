@@ -99,7 +99,7 @@ const NatureformerKFL = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[65vh] overflow-hidden">
+      <div className="relative h-[65vh] overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
         
         <div className="container mx-auto px-4 h-full">
@@ -112,12 +112,12 @@ const NatureformerKFL = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 mt-6">
                 NATUREFORMER KFL 90.1
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                <span className="block text-gray-200 text-3xl md:text-4xl mt-4">
                   High-end Fiber Thermoforming
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mb-6"></div>
-              <p className="text-xl text-blue-100 max-w-2xl">
+              <div className="w-20 h-1 bg-gray-200 mb-6"></div>
+              <p className="text-xl text-gray-100 max-w-2xl">
                 Fiber thermoforming system for high-end lids & portion cups production
               </p>
             </motion.div>
@@ -199,11 +199,11 @@ const NatureformerKFL = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <span className="text-2xl font-bold">{index + 1}</span>
+                <div className="bg-gray-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+                  <span className="text-2xl font-bold bg-gradient-to-br from-primary to-primary-dark bg-clip-text text-transparent">{index + 1}</span>
                 </div>
                 <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-blue-100">{item.description}</p>
+                <p className="text-gray-100">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -221,24 +221,24 @@ const NatureformerKFL = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Why is the KFL 90.1 your solution?</h2>
-            <p className="text-xl text-blue-200">Advanced technology for superior performance</p>
+            <p className="text-xl text-gray-200">Advanced technology for superior performance</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300"
+                className="bg-gray-100 rounded-xl p-8 hover:bg-gray-200 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <span className="text-2xl font-bold">{index + 1}</span>
+                <div className="bg-primary/10 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
+                  <span className="text-2xl font-bold text-primary">{index + 1}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100">{feature.description}</p>
+                <h3 className="text-xl font-bold mb-4 text-primary">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -284,11 +284,11 @@ const NatureformerKFL = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="bg-white/20 rounded-full p-4 w-12 h-12 flex items-center justify-center mb-6">
-                    <span className="text-xl font-bold">{quality.number}</span>
+                  <div className="bg-gray-100 rounded-full p-4 w-12 h-12 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+                    <span className="text-xl font-bold bg-gradient-to-br from-primary to-primary-dark bg-clip-text text-transparent">{quality.number}</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">{quality.title}</h3>
-                  <p className="text-blue-100">{quality.description}</p>
+                  <p className="text-gray-100">{quality.description}</p>
                 </motion.div>
               ))}
             </div>

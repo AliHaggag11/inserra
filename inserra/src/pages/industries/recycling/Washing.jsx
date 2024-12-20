@@ -98,10 +98,10 @@ const Washing = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Plastic Washing
-                <span className="block text-blue-300">Solutions</span>
+                <span className="block text-white">Solutions</span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+              <div className="w-20 h-1 bg-gray-100 mx-auto mb-6"></div>
+              <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto">
                 Advanced washing technology for high-quality recycled materials
               </p>
             </motion.div>
@@ -111,7 +111,7 @@ const Washing = () => {
 
       {/* Interactive Process Flow */}
       <div className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-transparent"></div>
         <div className="container mx-auto px-4 relative">
           <motion.div 
             className="text-center mb-16"
@@ -141,17 +141,17 @@ const Washing = () => {
                   <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary-dark transform translate-y-[-50%] z-0"></div>
                 )}
                 
-                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative z-10">
-                  <div className="bg-gradient-to-br from-primary to-primary-dark text-white rounded-lg p-4 mb-6">
-                    <Droplets className="w-10 h-10 mb-2" />
-                    <span className="text-4xl font-bold">{index + 1}</span>
+                <div className="bg-primary-dark rounded-xl p-6 relative z-10 min-h-[420px]">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Droplets className="w-8 h-8 text-white" />
+                    <span className="text-4xl font-bold text-white">{index + 1}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">{step.title}</h3>
-                  <p className="text-gray-600 mb-4">{step.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-gray-100 mb-4">{step.description}</p>
                   <ul className="space-y-2">
                     {step.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start text-gray-600">
-                        <CheckCircle className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start text-gray-100">
+                        <CheckCircle className="w-5 h-5 text-white mr-2 flex-shrink-0 mt-0.5" />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -177,7 +177,7 @@ const Washing = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Benefits of Advanced Washing</h2>
-            <p className="text-xl text-blue-200">Maximize the value of your recycled materials</p>
+            <p className="text-xl text-gray-100">Maximize the value of your recycled materials</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -191,10 +191,10 @@ const Washing = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 h-full transform transition-all duration-300 group-hover:shadow-xl">
+                <div className="bg-gray-100 rounded-xl p-8 h-full transform transition-all duration-300 group-hover:shadow-xl">
                   <div className="flex items-start">
-                    <div className="bg-white/20 rounded-lg p-3 mr-4">
-                      <div className="w-12 h-12 flex items-center justify-center text-blue-300">
+                    <div className="bg-primary/5 rounded-lg p-3 mr-4">
+                      <div className="w-12 h-12 flex items-center justify-center text-primary">
                         {index === 0 && <Filter className="w-8 h-8" />}
                         {index === 1 && <Recycle className="w-8 h-8" />}
                         {index === 2 && <ArrowRight className="w-8 h-8" />}
@@ -202,8 +202,8 @@ const Washing = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-4">{benefit.title}</h3>
-                      <p className="text-blue-200 text-lg">{benefit.description}</p>
+                      <h3 className="text-2xl font-bold mb-4 text-primary-dark">{benefit.title}</h3>
+                      <p className="text-gray-600 text-lg">{benefit.description}</p>
                     </div>
                   </div>
                 </div>
@@ -255,11 +255,11 @@ const Washing = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white transform transition-all duration-300 group-hover:shadow-xl">
-                  <div className="bg-white/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
-                    {feature.icon}
+                  <div className="bg-gray-100 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
+                    {React.cloneElement(feature.icon, { className: "w-8 h-8 text-primary" })}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-blue-100">{feature.description}</p>
+                  <p className="text-gray-100">{feature.description}</p>
                 </div>
               </motion.div>
             ))}

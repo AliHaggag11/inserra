@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Gauge, Minimize2, Timer, Zap, Repeat, Factory, LineChart, Workflow, Layers, Scale, Monitor, Award, ArrowDownToLine, Disc, Settings, Filter } from 'lucide-react';
+import { ArrowRight, ChevronRight, Gauge, Minimize2, Timer, Zap, Repeat, Factory, LineChart, Workflow, Layers, Scale, Monitor, Award, ArrowDownToLine, Disc, Settings, Filter, Download } from 'lucide-react';
 
 const RecostarDirect = () => {
   const fadeInUpVariants = {
@@ -14,25 +14,25 @@ const RecostarDirect = () => {
       title: "Material Range",
       value: "Multi-Polymer",
       description: "PE, PP, PS, PA and PLA",
-      icon: <Layers className="w-8 h-8 text-blue-300" />
+      icon: <Layers className="w-8 h-8 text-gray-100" />
     },
     {
       title: "Bulk Density",
       value: "> 300 g/l",
       description: "High density regrind processing",
-      icon: <Scale className="w-8 h-8 text-blue-300" />
+      icon: <Scale className="w-8 h-8 text-gray-100" />
     },
     {
       title: "Control System",
       value: "Touch-screen",
       description: "RFID chip-controlled operation",
-      icon: <Monitor className="w-8 h-8 text-blue-300" />
+      icon: <Monitor className="w-8 h-8 text-gray-100" />
     },
     {
       title: "Output Quality",
       value: "Virgin-like",
       description: "100% reusable pellets",
-      icon: <Award className="w-8 h-8 text-blue-300" />
+      icon: <Award className="w-8 h-8 text-gray-100" />
     }
   ];
 
@@ -153,7 +153,7 @@ const RecostarDirect = () => {
               >
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
                   recoSTAR direct
-                  <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                  <span className="block text-white text-3xl md:text-4xl mt-4">
                     Inline Production Waste Recycling
                   </span>
                 </h1>
@@ -163,27 +163,38 @@ const RecostarDirect = () => {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Factory className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Inline Processing</span>
+                    <Factory className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Inline Processing</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Minimize2 className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Space Saving</span>
+                    <Minimize2 className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Space Saving</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Timer className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Quick Response</span>
+                    <Timer className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Quick Response</span>
                   </motion.div>
                 </div>
+
+                <motion.a
+                  href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_direct_24821_08V.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-gray-100 text-primary rounded-full hover:bg-white transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Download className="w-5 h-5" />
+                  <span className="font-bold">Download Brochure</span>
+                </motion.a>
               </motion.div>
 
               <motion.div
@@ -373,7 +384,7 @@ const RecostarDirect = () => {
                 <div className="relative z-10">
                   {spec.icon}
                   <h3 className="text-xl font-bold mt-4 mb-2">{spec.title}</h3>
-                  <div className="text-3xl font-bold text-blue-300 mb-2">{spec.value}</div>
+                  <div className="text-3xl font-bold text-white mb-2">{spec.value}</div>
                   <p className="text-blue-100">{spec.description}</p>
                 </div>
               </motion.div>
@@ -436,28 +447,28 @@ const RecostarDirect = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-4xl font-bold mb-4">Business Benefits</h2>
-            <p className="text-xl text-blue-200">Measurable advantages for your production</p>
+            <p className="text-xl text-gray-100">Measurable advantages for your production</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-gray-100 rounded-xl p-8 text-primary-dark"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="flex items-center justify-center mb-6">
+                <div className="flex items-center justify-center mb-6 text-primary">
                   {benefit.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-center mb-6">{benefit.title}</h3>
+                <h3 className="text-2xl font-bold text-center mb-6 text-primary-dark">{benefit.title}</h3>
                 <div className="space-y-4">
                   {benefit.stats.map((stat, idx) => (
-                    <div key={idx} className="flex justify-between items-center border-b border-white/20 pb-2">
-                      <span className="text-blue-200">{stat.label}</span>
-                      <span className="font-bold text-white">{stat.value}</span>
+                    <div key={idx} className="flex justify-between items-center border-b border-gray-200 pb-2">
+                      <span className="text-gray-600">{stat.label}</span>
+                      <span className="font-bold text-primary-dark">{stat.value}</span>
                     </div>
                   ))}
                 </div>

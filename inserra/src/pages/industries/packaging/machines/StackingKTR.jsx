@@ -111,12 +111,12 @@ const StackingKTR = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 {heroContent.title}
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                <span className="block text-white text-3xl md:text-4xl mt-4">
                   {heroContent.subtitle}
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+              <div className="w-20 h-1 bg-gray-100 mx-auto mb-6"></div>
+              <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto">
                 {heroContent.description}
               </p>
             </motion.div>
@@ -177,17 +177,17 @@ const StackingKTR = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  {index === 0 && <Factory className="w-10 h-10" />}
-                  {index === 1 && <Settings className="w-10 h-10" />}
-                  {index === 2 && <Shield className="w-10 h-10" />}
+                <div className="bg-white rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
+                  {index === 0 && <Factory className="w-10 h-10 text-primary" />}
+                  {index === 1 && <Settings className="w-10 h-10 text-primary" />}
+                  {index === 2 && <Shield className="w-10 h-10 text-primary" />}
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100 mb-6">{feature.description}</p>
+                <p className="text-gray-100 mb-6">{feature.description}</p>
                 <ul className="space-y-3">
                   {feature.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                    <li key={idx} className="flex items-center text-gray-100">
+                      <CheckCircle className="w-5 h-5 text-gray-100 mr-3 flex-shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -209,7 +209,7 @@ const StackingKTR = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Technical Highlights</h2>
-            <p className="text-xl text-blue-200">Specifications & capabilities</p>
+            <p className="text-xl text-gray-100">Specifications & capabilities</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -256,17 +256,17 @@ const StackingKTR = () => {
               {
                 title: "Increased Efficiency",
                 description: "Optimize production throughput with automated handling",
-                icon: <Zap className="w-8 h-8" />
+                icon: <Zap className="w-8 h-8 text-primary" />
               },
               {
                 title: "Consistent Quality",
                 description: "Ensure reliable and repeatable product handling",
-                icon: <Shield className="w-8 h-8" />
+                icon: <Shield className="w-8 h-8 text-primary" />
               },
               {
                 title: "Flexible Integration",
                 description: "Seamless integration with KTR series machines",
-                icon: <Settings className="w-8 h-8" />
+                icon: <Settings className="w-8 h-8 text-primary" />
               }
             ].map((benefit, index) => (
               <motion.div
@@ -277,11 +277,11 @@ const StackingKTR = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
+                <div className="bg-white rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4">{benefit.title}</h3>
-                <p className="text-blue-100">{benefit.description}</p>
+                <p className="text-gray-100">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

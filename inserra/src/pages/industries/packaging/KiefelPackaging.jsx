@@ -128,14 +128,14 @@ const KiefelPackaging = () => {
                   className="h-16 w-auto"
                 />
               </motion.div>
-              <span className="text-blue-300 font-semibold mb-4 block tracking-wider">KIEFEL PACKAGING SOLUTIONS</span>
+              <span className="text-gray-300 font-semibold mb-4 block tracking-wider">KIEFEL PACKAGING SOLUTIONS</span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Advanced Thermoforming
                 <span className="text-white block mt-2">
                   Technology
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300/30 mb-6"></div>
+              <div className="w-20 h-1 bg-gray-300/30 mb-6"></div>
               <p className="text-xl text-blue-100 mb-8 leading-relaxed">
                 Industry-leading solutions for packaging manufacturing, offering superior quality, 
                 efficiency, and sustainability in thermoforming processes.
@@ -145,7 +145,7 @@ const KiefelPackaging = () => {
                   <h3 className="text-primary font-semibold mb-2">Experience</h3>
                   <p className="text-sm text-gray-600">60+ years of innovation in thermoforming technology</p>
                 </div>
-                <div className="bg-white rounded-lg p-4">
+                <div className="bg-gray-100 rounded-lg p-4">
                   <h3 className="text-primary font-semibold mb-2">Global Presence</h3>
                   <p className="text-sm text-gray-600">Worldwide service and support network</p>
                 </div>

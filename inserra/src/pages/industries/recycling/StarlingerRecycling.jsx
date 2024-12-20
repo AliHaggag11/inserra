@@ -145,14 +145,14 @@ const StarlingerRecycling = () => {
                 transition={{ duration: 0.8 }}
               >
                 <motion.div
-                  className="inline-block bg-white p-4 rounded-lg mb-8"
+                  className="inline-block mb-8"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
                   <img 
                     src="/images/starlinger/starlinger-logo.svg"
                     alt="Starlinger Logo" 
-                    className="h-16 w-auto"
+                    className="h-24 w-auto"
                   />
                 </motion.div>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -189,7 +189,7 @@ const StarlingerRecycling = () => {
             {technologies.map((tech, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -200,22 +200,23 @@ const StarlingerRecycling = () => {
                   alt={tech.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl font-bold text-primary mb-3">{tech.title}</h3>
                   <p className="text-gray-600 mb-4">{tech.description}</p>
                   <ul className="space-y-2 mb-6">
                     {tech.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-gray-700">
-                        <ArrowRight className="w-4 h-4 text-primary mr-2" />
+                        <ArrowRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <Link
                     to={tech.path}
-                    className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors w-full"
+                    className="mt-auto bg-primary text-white py-4 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2"
                   >
-                    Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                    <span>Learn More</span>
+                    <ArrowRight className="w-5 h-5" />
                   </Link>
                 </div>
               </motion.div>
@@ -289,11 +290,11 @@ const StarlingerRecycling = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <span className="text-2xl font-bold">{index + 1}</span>
+                <div className="bg-gray-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+                  <span className="text-2xl font-bold bg-gradient-to-br from-primary to-primary-dark bg-clip-text text-transparent">{index + 1}</span>
                 </div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-blue-100">{feature.description}</p>
+                <p className="text-gray-100">{feature.description}</p>
               </motion.div>
             ))}
           </div>

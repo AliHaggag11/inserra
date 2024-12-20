@@ -68,17 +68,17 @@ const TiltingTools = () => {
     {
       title: "Deep-Draw Parts",
       description: "Complex geometries with optimal material distribution",
-      icon: <Factory className="w-8 h-8" />
+      icon: <Factory className="w-8 h-8 text-primary" />
     },
     {
       title: "Technical Components",
       description: "Precision parts for industrial applications",
-      icon: <Settings className="w-8 h-8" />
+      icon: <Settings className="w-8 h-8 text-primary" />
     },
     {
       title: "Custom Solutions",
       description: "Specialized tools for unique requirements",
-      icon: <Wrench className="w-8 h-8" />
+      icon: <Wrench className="w-8 h-8 text-primary" />
     }
   ];
 
@@ -119,12 +119,12 @@ const TiltingTools = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Tilting Tools
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                <span className="block text-white text-3xl md:text-4xl mt-4">
                   Advanced Thermoforming Technology
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+              <div className="w-20 h-1 bg-gray-100 mx-auto mb-6"></div>
+              <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto">
                 Precision tools for complex thermoforming applications
               </p>
             </motion.div>
@@ -185,15 +185,15 @@ const TiltingTools = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <Wrench className="w-10 h-10" />
+                <div className="bg-white rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
+                  <Wrench className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100 mb-6">{feature.description}</p>
+                <p className="text-gray-100 mb-6">{feature.description}</p>
                 <ul className="space-y-3">
                   {feature.features.map((item, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                    <li key={idx} className="flex items-center text-gray-100">
+                      <CheckCircle className="w-5 h-5 text-gray-100 mr-3 flex-shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -215,24 +215,24 @@ const TiltingTools = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Technical Specifications</h2>
-            <p className="text-xl text-blue-200">Advanced tooling capabilities</p>
+            <p className="text-xl text-gray-100">Advanced tooling capabilities</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {specifications.map((section, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-gray-100 rounded-xl p-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-2xl font-bold mb-6">{section.title}</h3>
+                <h3 className="text-2xl font-bold mb-6 text-primary">{section.title}</h3>
                 <ul className="space-y-4">
                   {section.specs.map((spec, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <div className="w-2 h-2 bg-blue-300 rounded-full mr-3"></div>
+                    <li key={idx} className="flex items-center text-gray-600">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       <span>{spec}</span>
                     </li>
                   ))}
@@ -261,19 +261,19 @@ const TiltingTools = () => {
             {applications.map((application, index) => (
               <motion.div
                 key={index}
-                className="group cursor-pointer"
+                className="group cursor-pointer h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white transform transition-all duration-300 group-hover:shadow-xl">
-                  <div className="bg-white/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
+                <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white transform transition-all duration-300 group-hover:shadow-xl h-full flex flex-col">
+                  <div className="bg-white rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
                     {application.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{application.title}</h3>
-                  <p className="text-blue-100">{application.description}</p>
+                  <p className="text-gray-100 flex-grow">{application.description}</p>
                 </div>
               </motion.div>
             ))}

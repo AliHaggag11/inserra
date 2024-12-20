@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Layers, Boxes, Wrench, Recycle, Factory, Gauge, Settings, Workflow, Filter, Cog, Wind } from 'lucide-react';
+import { ArrowRight, ChevronRight, Layers, Boxes, Wrench, Recycle, Factory, Gauge, Settings, Workflow, Filter, Cog, Wind, Download } from 'lucide-react';
 
 const RecostarUniversal = () => {
   const fadeInUpVariants = {
@@ -14,25 +14,25 @@ const RecostarUniversal = () => {
       title: "Material Range",
       value: "Multi-Polymer",
       description: "PE, PP, PS, PA, PES, PET, PPS, PLA",
-      icon: <Layers className="w-8 h-8 text-blue-300" />
+      icon: <Layers className="w-8 h-8 text-gray-100" />
     },
     {
       title: "Processing Types",
       value: "Versatile",
       description: "Films, fibers, nonwovens, tapes, fabrics",
-      icon: <Boxes className="w-8 h-8 text-blue-300" />
+      icon: <Boxes className="w-8 h-8 text-gray-100" />
     },
     {
       title: "Special Features",
       value: "ACTIVE",
       description: "Innovative shredder technology",
-      icon: <Settings className="w-8 h-8 text-blue-300" />
+      icon: <Settings className="w-8 h-8 text-gray-100" />
     },
     {
       title: "Filtration",
       value: "Advanced",
       description: "Multiple filter options with backflushing",
-      icon: <Filter className="w-8 h-8 text-blue-300" />
+      icon: <Filter className="w-8 h-8 text-gray-100" />
     }
   ];
 
@@ -162,7 +162,7 @@ const RecostarUniversal = () => {
               >
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   recoSTAR universal
-                  <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                  <span className="block text-white text-3xl md:text-4xl mt-4">
                     Multi-Purpose Recycling Solution
                   </span>
                 </h1>
@@ -172,27 +172,38 @@ const RecostarUniversal = () => {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Boxes className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Multi-Material</span>
+                    <Boxes className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Multi-Material</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Layers className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Modular Design</span>
+                    <Layers className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Modular Design</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Settings className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Smart Control</span>
+                    <Settings className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Smart Control</span>
                   </motion.div>
                 </div>
+
+                <motion.a
+                  href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_universal_6S_E4_24831_09V.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-gray-100 text-primary rounded-full hover:bg-white transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Download className="w-5 h-5" />
+                  <span className="font-bold">Download Brochure</span>
+                </motion.a>
               </motion.div>
 
               <motion.div
@@ -372,7 +383,7 @@ const RecostarUniversal = () => {
                 <div className="relative z-10">
                   {spec.icon}
                   <h3 className="text-xl font-bold mt-4 mb-2">{spec.title}</h3>
-                  <div className="text-3xl font-bold text-blue-300 mb-2">{spec.value}</div>
+                  <div className="text-3xl font-bold text-white mb-2">{spec.value}</div>
                   <p className="text-blue-100">{spec.description}</p>
                 </div>
               </motion.div>
@@ -435,27 +446,27 @@ const RecostarUniversal = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-4xl font-bold mb-4">Material Types</h2>
-            <p className="text-xl text-blue-200">Comprehensive material processing capabilities</p>
+            <p className="text-xl text-gray-100">Comprehensive material processing capabilities</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {materialTypes.map((type, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-8"
+                className="bg-gray-100 rounded-xl p-8 text-primary-dark"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-full p-4 w-20 h-20 flex items-center justify-center mb-6">
-                  {type.icon}
+                <div className="bg-primary/10 rounded-full p-4 w-20 h-20 flex items-center justify-center mb-6">
+                  {React.cloneElement(type.icon, { className: "w-12 h-12 text-primary" })}
                 </div>
-                <h3 className="text-2xl font-bold mb-6">{type.category}</h3>
+                <h3 className="text-2xl font-bold mb-6 text-primary-dark">{type.category}</h3>
                 <ul className="space-y-4">
                   {type.materials.map((material, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <ArrowRight className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <li key={idx} className="flex items-center text-gray-600">
+                      <ArrowRight className="w-4 h-4 mr-2 flex-shrink-0 text-primary" />
                       <span>{material}</span>
                     </li>
                   ))}

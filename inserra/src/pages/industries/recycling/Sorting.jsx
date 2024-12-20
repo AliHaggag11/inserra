@@ -77,12 +77,11 @@ const Sorting = () => {
       <div className="relative h-[70vh] overflow-hidden">
         <motion.div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
           initial={{ scale: 1.2 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
+        <div className="absolute inset-0 bg-primary"></div>
         
         {/* Animated Grid Pattern */}
         <div className="absolute inset-0">
@@ -98,10 +97,10 @@ const Sorting = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 Advanced Sorting
-                <span className="block text-blue-300">Technology</span>
+                <span className="block text-white">Technology</span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
+              <div className="w-20 h-1 bg-gray-100 mx-auto mb-6"></div>
+              <p className="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto">
                 Precision sorting solutions for optimal material separation
               </p>
             </motion.div>
@@ -138,16 +137,16 @@ const Sorting = () => {
               >
                 <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white transform transition-all duration-300 group-hover:shadow-xl">
                   <div className="flex items-start">
-                    <div className="bg-white/20 rounded-lg p-4 mr-6">
-                      <Filter className="w-10 h-10" />
+                    <div className="bg-gray-100 rounded-lg p-4 mr-6">
+                      <Filter className="w-10 h-10 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold mb-4">{tech.title}</h3>
-                      <p className="text-blue-100 mb-6">{tech.description}</p>
+                      <p className="text-gray-100 mb-6">{tech.description}</p>
                       <ul className="space-y-3">
                         {tech.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center text-blue-100">
-                            <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                          <li key={idx} className="flex items-center text-gray-100">
+                            <CheckCircle className="w-5 h-5 text-white mr-3 flex-shrink-0" />
                             <span>{feature}</span>
                           </li>
                         ))}
@@ -172,7 +171,7 @@ const Sorting = () => {
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Benefits of Advanced Sorting</h2>
-            <p className="text-xl text-blue-200">Maximize the value of your recycling operation</p>
+            <p className="text-xl text-gray-100">Maximize the value of your recycling operation</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -185,11 +184,11 @@ const Sorting = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 h-full transform transition-all duration-300 group-hover:translate-y-[-10px]">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-white/5 rounded-bl-full"></div>
-                  <h3 className="text-xl font-bold mb-3 relative z-10">{benefit.title}</h3>
-                  <p className="text-blue-200 relative z-10">{benefit.description}</p>
-                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/5 rounded-tr-full"></div>
+                <div className="bg-gray-100 rounded-xl p-6 h-full transform transition-all duration-300 group-hover:translate-y-[-10px]">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full"></div>
+                  <h3 className="text-xl font-bold mb-3 relative z-10 text-primary-dark">{benefit.title}</h3>
+                  <p className="text-gray-600 relative z-10">{benefit.description}</p>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-primary/5 rounded-tr-full"></div>
                 </div>
               </motion.div>
             ))}
@@ -239,11 +238,11 @@ const Sorting = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white transform transition-all duration-300 group-hover:shadow-xl">
-                  <div className="bg-white/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
-                    {application.icon}
+                  <div className="bg-gray-100 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
+                    {React.cloneElement(application.icon, { className: "w-8 h-8 text-primary" })}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{application.title}</h3>
-                  <p className="text-blue-100">{application.description}</p>
+                  <p className="text-gray-100">{application.description}</p>
                 </div>
               </motion.div>
             ))}

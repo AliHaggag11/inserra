@@ -100,24 +100,24 @@ const KiefelAppliance = () => {
               </motion.div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Machines for the Production of
-                <span className="text-blue-300 block mt-2">
+                <span className="text-white-300 block mt-2">
                   Refrigerator Components
                 </span>
               </h1>
               <div className="flex items-center space-x-4 mb-8">
-                <div className="h-1 w-20 bg-blue-300"></div>
-                <p className="text-xl text-blue-200">
+                <div className="h-1 w-20 bg-gray-300"></div>
+                <p className="text-xl text-white-200">
                   Interior & Door Liners
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Materials</h3>
-                  <p className="text-sm text-blue-100">Plastic rolls & plates processing</p>
+                <div className="bg-gray-100 rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Materials</h3>
+                  <p className="text-sm text-gray-600">Plastic rolls & plates processing</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4">
-                  <h3 className="text-blue-300 font-semibold mb-2">Process</h3>
-                  <p className="text-sm text-blue-100">Air pressure forming technology</p>
+                <div className="bg-gray-100 rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Process</h3>
+                  <p className="text-sm text-gray-600">Air pressure forming technology</p>
                 </div>
               </div>
             </motion.div>
@@ -322,13 +322,13 @@ const KiefelAppliance = () => {
             >
               <div className="text-center mb-12">
                 <h2 className="text-2xl font-bold mb-2">
-                  <span className="text-blue-200">Why</span> SHARPFORMER KID SPEED<span className="text-blue-200">?</span>
+                  <span className="text-primary">Why</span> SHARPFORMER KID SPEED<span className="text-primary">?</span>
                 </h2>
-                <div className="w-20 h-1 bg-blue-300/30 mx-auto"></div>
+                <div className="w-20 h-1 bg-gray-300 mx-auto"></div>
               </div>
 
               <div className="relative">
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-300/20"></div>
+                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300"></div>
                 {[
                   {
                     number: "1",
@@ -352,7 +352,7 @@ const KiefelAppliance = () => {
                   },
                   {
                     number: "5",
-                    title: "Max. machine availability",
+                    title: "Max. machine availability", 
                     description: "Optimized uptime and performance"
                   }
                 ].map((item, index) => (
@@ -365,15 +365,15 @@ const KiefelAppliance = () => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <div className="absolute left-0 w-16 h-16 flex items-center justify-center">
-                      <div className="absolute w-4 h-4 bg-blue-300 rounded-full"></div>
-                      <div className="absolute w-8 h-8 bg-blue-300/20 rounded-full animate-ping"></div>
+                      <div className="absolute w-4 h-4 bg-primary rounded-full"></div>
+                      <div className="absolute w-8 h-8 bg-primary/20 rounded-full animate-ping"></div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-lg rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
+                    <div className="bg-gray-100 rounded-lg p-6 hover:bg-gray-200 transition-all duration-300">
                       <div className="flex items-baseline gap-4">
-                        <span className="text-4xl font-bold text-blue-300">{item.number}</span>
+                        <span className="text-4xl font-bold text-primary">{item.number}</span>
                         <div>
-                          <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                          <p className="text-blue-200">{item.description}</p>
+                          <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                          <p className="text-gray-600">{item.description}</p>
                         </div>
                       </div>
                     </div>
@@ -395,20 +395,20 @@ const KiefelAppliance = () => {
             ].map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-lg"
+                className="bg-gray-100 p-6 rounded-lg shadow-lg"
                 variants={fadeInUpVariants}
                 transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
-                <p className="text-blue-200">{benefit.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Technical Features */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold text-white mb-4">Technical Highlights</h3>
+            <div className="bg-gray-100 rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Technical Highlights</h3>
               <ul className="space-y-3">
                 {[
                   "High-pressure forming technology",
@@ -418,14 +418,14 @@ const KiefelAppliance = () => {
                   "Precise material distribution control"
                 ].map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="text-blue-300 mt-1 mr-2 flex-shrink-0" />
-                    <span className="text-blue-100">{feature}</span>
+                    <CheckCircle className="text-primary mt-1 mr-2 flex-shrink-0" />
+                    <span className="text-gray-600">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold text-white mb-4">Production Benefits</h3>
+            <div className="bg-gray-100 rounded-lg shadow-lg p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Production Benefits</h3>
               <ul className="space-y-3">
                 {[
                   "Up to 20% material savings",
@@ -435,8 +435,8 @@ const KiefelAppliance = () => {
                   "Compact machine footprint"
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="text-blue-300 mt-1 mr-2 flex-shrink-0" />
-                    <span className="text-blue-100">{benefit}</span>
+                    <CheckCircle className="text-primary mt-1 mr-2 flex-shrink-0" />
+                    <span className="text-gray-600">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -444,22 +444,22 @@ const KiefelAppliance = () => {
           </div>
 
           {/* Specifications Table */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-6 overflow-x-auto">
-            <h3 className="text-2xl font-bold text-white mb-6">Versions of the SHARPFORMER KID SPEED</h3>
+          <div className="bg-gray-100 rounded-lg shadow-lg p-6 overflow-x-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Versions of the SHARPFORMER KID SPEED</h3>
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/20">
-                  <th className="px-4 py-2 text-left text-blue-200">Specifications</th>
-                  <th className="px-4 py-2 text-left text-blue-200">KID SPEED 1.000</th>
-                  <th className="px-4 py-2 text-left text-blue-200">KID SPEED 1.100</th>
+                <tr className="border-b border-gray-300">
+                  <th className="px-4 py-2 text-left text-gray-700">Specifications</th>
+                  <th className="px-4 py-2 text-left text-gray-700">KID SPEED 1.000</th>
+                  <th className="px-4 py-2 text-left text-gray-700">KID SPEED 1.100</th>
                 </tr>
               </thead>
               <tbody>
                 {machineSpecs.kidSpeed.specs.map((spec, index) => (
-                  <tr key={index} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
-                    <td className="px-4 py-2 font-semibold text-white">{spec.label}</td>
-                    <td className="px-4 py-2 text-blue-100">{spec.speed1000}</td>
-                    <td className="px-4 py-2 text-blue-100">{spec.speed1100}</td>
+                  <tr key={index} className={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : ''}`}>
+                    <td className="px-4 py-2 font-semibold text-gray-900">{spec.label}</td>
+                    <td className="px-4 py-2 text-gray-600">{spec.speed1000}</td>
+                    <td className="px-4 py-2 text-gray-600">{spec.speed1100}</td>
                   </tr>
                 ))}
               </tbody>
@@ -576,9 +576,9 @@ const KiefelAppliance = () => {
       </div>
 
       {/* Process Animation Section */}
-      <div className="bg-gradient-to-br from-primary to-primary-dark py-16 text-white">
+      <div className="bg-gradient-to-br from-primary to-primary-dark py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Production Process</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-white">Production Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { step: "1", title: "Material Loading", description: "Automated material feeding system" },
@@ -594,16 +594,11 @@ const KiefelAppliance = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/10 backdrop-blur-lg rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
-                  <div className="text-4xl font-bold text-blue-300 mb-3">Step {process.step}</div>
-                  <h3 className="text-xl font-bold mb-2">{process.title}</h3>
-                  <p className="text-blue-100">{process.description}</p>
+                <div className="bg-gray-100 rounded-lg p-6 hover:bg-gray-200 transition-all duration-300 shadow-md">
+                  <div className="text-4xl font-bold text-primary mb-3">Step {process.step}</div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">{process.title}</h3>
+                  <p className="text-gray-600">{process.description}</p>
                 </div>
-                {index < 3 && (
-                  <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                    <ArrowRight className="w-8 h-8 text-blue-300" />
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>

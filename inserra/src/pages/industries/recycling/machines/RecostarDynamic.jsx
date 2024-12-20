@@ -15,25 +15,25 @@ const RecostarDynamic = () => {
       title: "Material Range",
       value: "Multi-polymer",
       description: "PE, PP, PET, PES, PA, PLA, PS, PPS",
-      icon: <Layers className="w-8 h-8 text-blue-300" />
+      icon: <Layers className="w-8 h-8 text-white" />
     },
     {
       title: "Smart Features",
       value: "SMART Feeder",
       description: "Dynamic automation package",
-      icon: <Cpu className="w-8 h-8 text-blue-300" />
+      icon: <Cpu className="w-8 h-8 text-white" />
     },
     {
       title: "Processing Types",
       value: "Versatile",
       description: "Films, fibers, and thermoplastics",
-      icon: <Settings className="w-8 h-8 text-blue-300" />
+      icon: <Settings className="w-8 h-8 text-white" />
     },
     {
       title: "Filtration",
       value: "Advanced",
       description: "Multiple filtration options available",
-      icon: <Filter className="w-8 h-8 text-blue-300" />
+      icon: <Filter className="w-8 h-8 text-white" />
     }
   ];
 
@@ -257,7 +257,7 @@ const RecostarDynamic = () => {
               >
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   recoSTAR dynamic
-                  <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                  <span className="block text-white text-3xl md:text-4xl mt-4">
                     Universal Recycling System
                   </span>
                 </h1>
@@ -267,27 +267,38 @@ const RecostarDynamic = () => {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Gauge className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Up to 3,300 kg/h</span>
+                    <Gauge className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Up to 3,300 kg/h</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Workflow className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Multi-polymer Processing</span>
+                    <Workflow className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Multi-polymer Processing</span>
                   </motion.div>
                   <motion.div 
-                    className="bg-white/10 backdrop-blur-lg rounded-lg p-4 flex items-center gap-3"
+                    className="bg-gray-100 rounded-lg p-4 flex items-center gap-3"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Cpu className="w-6 h-6 text-blue-300" />
-                    <span className="text-white">Smart Control</span>
+                    <Cpu className="w-6 h-6 text-primary" />
+                    <span className="text-gray-800">Smart Control</span>
                   </motion.div>
                 </div>
+
+                <motion.a
+                  href="https://www.starlinger.com/fileadmin/user_upload/Broschueren_pdf/recoSTAR_dynamic_24821_08V.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-gray-100 text-primary rounded-full hover:bg-white transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Download className="w-5 h-5" />
+                  <span className="font-bold">Download Brochure</span>
+                </motion.a>
               </motion.div>
 
               <motion.div
@@ -442,7 +453,7 @@ const RecostarDynamic = () => {
                 <div className="relative z-10">
                   {spec.icon}
                   <h3 className="text-xl font-bold mt-4 mb-2">{spec.title}</h3>
-                  <div className="text-3xl font-bold text-blue-300 mb-2">{spec.value}</div>
+                  <div className="text-3xl font-bold text-white mb-2">{spec.value}</div>
                   <p className="text-blue-100">{spec.description}</p>
                 </div>
               </motion.div>

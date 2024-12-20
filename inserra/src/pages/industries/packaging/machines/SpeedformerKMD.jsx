@@ -128,7 +128,7 @@ const SpeedformerKMD = () => {
         "Robust cast steel construction",
         "Energy-efficient operation"
       ],
-      icon: <Factory className="w-8 h-8" />
+      icon: <Factory className="w-8 h-8 text-primary" />
     },
     {
       title: "Maximum machine availability",
@@ -139,7 +139,7 @@ const SpeedformerKMD = () => {
         "Minimal maintenance required",
         "Quick tool changes"
       ],
-      icon: <Settings className="w-8 h-8" />
+      icon: <Settings className="w-8 h-8 text-primary" />
     },
     {
       title: "Highest product quality",
@@ -150,7 +150,7 @@ const SpeedformerKMD = () => {
         "Consistent part quality",
         "Advanced process monitoring"
       ],
-      icon: <Shield className="w-8 h-8" />
+      icon: <Shield className="w-8 h-8 text-primary" />
     },
     {
       title: "Efficient & sustainable",
@@ -161,7 +161,7 @@ const SpeedformerKMD = () => {
         "Reduced material waste",
         "Environmental sustainability"
       ],
-      icon: <Zap className="w-8 h-8" />
+      icon: <Zap className="w-8 h-8 text-primary" />
     }
   ];
 
@@ -257,11 +257,11 @@ const SpeedformerKMD = () => {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 SPEEDFORMER KMD
-                <span className="block text-blue-300 text-3xl md:text-4xl mt-4">
+                <span className="block text-white text-3xl md:text-4xl mt-4">
                   Steel Rule Cutting Machines
                 </span>
               </h1>
-              <div className="w-20 h-1 bg-blue-300 mx-auto mb-6"></div>
+              <div className="w-20 h-1 bg-gray-100 mx-auto mb-6"></div>
               <p className="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto">
                 Thermoforming at its best: Maximum Output and Efficiency
               </p>
@@ -333,15 +333,15 @@ First class thermoforming equipment – cost saving automation – premium steel
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
+                <div className="bg-white rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-blue-100 mb-6">{feature.description}</p>
+                <p className="text-gray-100 mb-6">{feature.description}</p>
                 <ul className="space-y-2">
                   {feature.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-center text-blue-100">
-                      <CheckCircle className="w-4 h-4 text-blue-300 mr-2 flex-shrink-0" />
+                    <li key={idx} className="flex items-center text-gray-100">
+                      <CheckCircle className="w-4 h-4 text-gray-100 mr-2 flex-shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -363,25 +363,25 @@ First class thermoforming equipment – cost saving automation – premium steel
             variants={fadeInUpVariants}
           >
             <h2 className="text-3xl font-bold mb-4">Models of the SPEEDFORMER KMD</h2>
-            <p className="text-xl text-blue-200">Technical specifications and capabilities</p>
+            <p className="text-xl text-gray-100">Technical specifications and capabilities</p>
           </motion.div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 overflow-x-auto">
+          <div className="bg-black/10 backdrop-blur-lg rounded-xl p-8 overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/20">
-                  <th className="px-4 py-2 text-left text-blue-200"></th>
+                <tr className="border-b border-gray-400/20">
+                  <th className="px-4 py-2 text-left text-gray-100"></th>
                   {models.map(model => (
-                    <th key={model.name} className="px-4 py-2 text-left text-blue-200">{model.name}</th>
+                    <th key={model.name} className="px-4 py-2 text-left text-gray-100">{model.name}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {Object.entries(specLabels).map(([key, label], index) => (
-                  <tr key={key} className={`border-b border-white/10 ${index % 2 === 0 ? 'bg-white/5' : ''}`}>
+                  <tr key={key} className={`border-b border-gray-400/20 ${index % 2 === 0 ? 'bg-black/5' : ''}`}>
                     <td className="px-4 py-2 font-semibold text-white">{label}</td>
                     {models.map(model => (
-                      <td key={`${model.name}-${key}`} className="px-4 py-2 text-blue-100">
+                      <td key={`${model.name}-${key}`} className="px-4 py-2 text-gray-100">
                         {model.specs[key]}
                       </td>
                     ))}
@@ -418,15 +418,15 @@ First class thermoforming equipment – cost saving automation – premium steel
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 h-full">
-                  <div className="bg-white/20 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
-                    <div className="text-3xl font-bold text-white">{index + 1}</div>
+                  <div className="bg-white rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-6">
+                    <div className="text-3xl font-bold text-primary">{index + 1}</div>
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">{application.title}</h3>
-                  <p className="text-blue-100 mb-6">{application.description}</p>
+                  <p className="text-gray-100 mb-6">{application.description}</p>
                   <ul className="space-y-3">
                     {application.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-center text-blue-100">
-                        <CheckCircle className="w-4 h-4 text-blue-300 mr-2 flex-shrink-0" />
+                      <li key={idx} className="flex items-center text-gray-100">
+                        <CheckCircle className="w-4 h-4 text-gray-100 mr-2 flex-shrink-0" />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -497,19 +497,19 @@ First class thermoforming equipment – cost saving automation – premium steel
                 title: "Stacking & Automation",
                 description: "Automated solutions for efficient product handling",
                 link: "/industries/packaging/kiefel/stacking",
-                icon: <Factory className="w-8 h-8" />
+                icon: <Factory className="w-8 h-8 text-primary" />
               },
               {
                 title: "Upstream & Downstream",
                 description: "Complete line integration solutions",
                 link: "/industries/packaging/kiefel/upstream",
-                icon: <Settings className="w-8 h-8" />
+                icon: <Settings className="w-8 h-8 text-primary" />
               },
               {
                 title: "KMD Tooling",
                 description: "High-quality tools for optimal production",
                 link: "/industries/packaging/kiefel/tooling",
-                icon: <Wrench className="w-8 h-8" />
+                icon: <Wrench className="w-8 h-8 text-primary" />
               }
             ].map((solution, index) => (
               <motion.div
@@ -522,12 +522,12 @@ First class thermoforming equipment – cost saving automation – premium steel
               >
                 <Link to={solution.link} className="block">
                   <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white h-full transform transition-all duration-300 group-hover:scale-105">
-                    <div className="bg-white/20 rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
+                    <div className="bg-white rounded-full p-4 mb-6 w-16 h-16 flex items-center justify-center">
                       {solution.icon}
                     </div>
                     <h3 className="text-xl font-bold mb-4">{solution.title}</h3>
-                    <p className="text-blue-100 mb-6">{solution.description}</p>
-                    <div className="flex items-center text-blue-300 group-hover:text-white transition-colors">
+                    <p className="text-gray-100 mb-6">{solution.description}</p>
+                    <div className="flex items-center text-gray-100 group-hover:text-white transition-colors">
                       Learn More
                       <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                     </div>
