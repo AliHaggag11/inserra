@@ -60,6 +60,11 @@ import KwikSift from './pages/industries/pharmaceutical/hanningfield/KwikSift';
 import PreBreakers from './pages/industries/pharmaceutical/hanningfield/PreBreakers';
 import ParticleSizingSolution from './pages/industries/pharmaceutical/hanningfield/ParticleSizingSolution';
 import LumpBreakers from './pages/industries/pharmaceutical/hanningfield/LumpBreakers';
+import ConveyingAndTransfer from './pages/industries/pharmaceutical/hanningfield/ConveyingAndTransfer';
+import VacuumConveyors from './pages/industries/pharmaceutical/hanningfield/VacuumConveyors';
+import SackTipStations from './pages/industries/pharmaceutical/hanningfield/SackTipStations';
+import CapsuleConveyors from './pages/industries/pharmaceutical/hanningfield/CapsuleConveyors';
+import PowderFlowControl from './pages/industries/pharmaceutical/hanningfield/PowderFlowControl';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -161,6 +166,11 @@ function App() {
             <Route path="/industries/pharmaceutical/hanningfield/pre-breakers" element={<PreBreakers />} />
             <Route path="/industries/pharmaceutical/hanningfield/particle-sizing-solution" element={<ParticleSizingSolution />} />
             <Route path="/industries/pharmaceutical/hanningfield/lump-breakers" element={<LumpBreakers />} />
+            <Route path="/industries/pharmaceutical/hanningfield/conveying-and-transfer" element={<PageWrapper><ConveyingAndTransfer /></PageWrapper>} />
+            <Route path="/industries/pharmaceutical/hanningfield/vacuum-conveyors" element={<PageWrapper><VacuumConveyors /></PageWrapper>} />
+            <Route path="/industries/pharmaceutical/hanningfield/sack-tip-stations" element={<PageWrapper><SackTipStations /></PageWrapper>} />
+            <Route path="/industries/pharmaceutical/hanningfield/capsule-conveyors" element={<PageWrapper><CapsuleConveyors /></PageWrapper>} />
+            <Route path="/industries/pharmaceutical/hanningfield/powder-flow-control" element={<PageWrapper><PowderFlowControl /></PageWrapper>} />
             
             {/* Add this at the very end of your Routes */}
             <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />

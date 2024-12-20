@@ -76,6 +76,7 @@ const Hanningfield = () => {
     {
       title: "Conveying & Transfer",
       image: "/images/hanningfield/conv.jpg",
+      path: "/industries/pharmaceutical/hanningfield/conveying-and-transfer",
       products: [
         "Vacuum Conveyors",
         "Sack Tip Stations",
