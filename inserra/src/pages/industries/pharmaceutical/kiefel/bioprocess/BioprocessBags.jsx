@@ -104,11 +104,17 @@ const BioprocessBags = () => {
             animate="visible"
             variants={fadeInUpVariants}
           >
-            <img 
-              src="https://placehold.co/200x50/e2e8f0/475569?text=KIEFEL&font=roboto"
-              alt="Kiefel Logo"
-              className="h-16 w-auto bg-white/10 backdrop-blur-sm p-3 rounded-lg mb-8"
-            />
+            <motion.div 
+              className="inline-block bg-white p-4 rounded-lg mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <img 
+                src="/images/kiefel/kiefel-technologieslogo.svg"
+                alt="Kiefel Logo" 
+                className="h-16 w-auto"
+              />
+            </motion.div>
             <h1 className="text-5xl font-bold mb-6">
               Flexible solutions for producing highest-quality bioprocess bags & containers
             </h1>
@@ -133,9 +139,9 @@ const BioprocessBags = () => {
             <h2 className="text-2xl font-semibold text-center text-gray-800 mb-8">
               Bioprocess bag machine
             </h2>
-            <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-md bg-gray-100">
+            <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-md">
               <img
-                src="https://placehold.co/1200x675/e2e8f0/64748b?text=Bioprocess+Bag+Machine&font=roboto"
+                src="/images/kiefel/Bioprocess-Bag-machine_backgr@2x.webp"
                 alt="Kiefel Bioprocess Bag Manufacturing Machine"
                 className="w-full h-full object-cover"
               />

@@ -144,11 +144,17 @@ const BloodPlasma = () => {
             animate="visible"
             variants={fadeInUpVariants}
           >
-            <img 
-              src="https://placehold.co/200x50/e2e8f0/475569?text=KIEFEL&font=roboto"
-              alt="Kiefel Logo"
-              className="h-16 w-auto bg-white/10 backdrop-blur-sm p-3 rounded-lg mb-8"
-            />
+            <motion.div 
+              className="inline-block bg-white p-4 rounded-lg mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <img 
+                src="/images/kiefel/kiefel-technologieslogo.svg"
+                alt="Kiefel Logo" 
+                className="h-16 w-auto"
+              />
+            </motion.div>
             <h1 className="text-5xl font-bold mb-6">
               Blood & Plasma Bags, Blood Filters
             </h1>
@@ -180,6 +186,29 @@ const BloodPlasma = () => {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Machine Showcase Section */}
+      <div className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl font-semibold text-center text-gray-800 mb-8">
+              Blood & Plasma Bag Machine
+            </h2>
+            <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-md">
+              <img
+                src="/images/kiefel/Blood bag machine_KIR63@2x.webp"
+                alt="Kiefel Blood & Plasma Bag Machine KIR63"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
 
@@ -220,7 +249,7 @@ const BloodPlasma = () => {
               <div className="order-1 md:order-2">
                 <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg bg-gray-100 transform hover:scale-105 transition-transform duration-300">
                   <img
-                    src="https://placehold.co/800x800/e2e8f0/64748b?text=Blood+Filter&font=roboto"
+                    src="/images/kiefel/Blood filter@2x.webp"
                     alt="Leukoreduction Blood Filter"
                     className="w-full h-full object-cover"
                   />
@@ -232,7 +261,7 @@ const BloodPlasma = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg bg-gray-100 transform hover:scale-105 transition-transform duration-300">
                 <img
-                  src="https://placehold.co/800x800/e2e8f0/64748b?text=Blood+Bags&font=roboto"
+                  src="/images/kiefel/Blood bags@2x.webp"
                   alt="Blood Bags & Separation Products"
                   className="w-full h-full object-cover"
                 />

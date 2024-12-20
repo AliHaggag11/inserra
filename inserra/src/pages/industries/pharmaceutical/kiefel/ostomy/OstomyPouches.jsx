@@ -128,11 +128,17 @@ const OstomyPouches = () => {
             animate="visible"
             variants={fadeInUpVariants}
           >
-            <img 
-              src="https://placehold.co/200x50/e2e8f0/475569?text=KIEFEL&font=roboto"
-              alt="Kiefel Logo"
-              className="h-16 w-auto bg-white/10 backdrop-blur-sm p-3 rounded-lg mb-8"
-            />
+            <motion.div 
+              className="inline-block bg-white p-4 rounded-lg mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <img 
+                src="/images/kiefel/kiefel-technologieslogo.svg"
+                alt="Kiefel Logo" 
+                className="h-16 w-auto"
+              />
+            </motion.div>
             <h1 className="text-5xl font-bold mb-6">
               Ostomy Pouches
               <span className="block text-2xl mt-4 text-blue-100">
@@ -187,10 +193,21 @@ const OstomyPouches = () => {
                 on quality, comfort and reliability.
               </p>
             </div>
-            <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-gray-100">
+            
+            {/* Machine Image */}
+            <div className="aspect-video rounded-xl overflow-hidden shadow-lg mb-12">
               <img
-                src="https://placehold.co/1200x675/e2e8f0/64748b?text=Ostomy+Pouches&font=roboto"
-                alt="Ostomy Pouches Manufacturing"
+                src="/images/kiefel/KIEFEL_ostomy bag machine@2x.webp"
+                alt="Kiefel Ostomy Pouch Manufacturing Machine"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Product Image */}
+            <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+              <img
+                src="/images/kiefel/Bild 07_Kolostony bags quer038@2x.webp"
+                alt="Ostomy Pouches Products"
                 className="w-full h-full object-cover"
               />
             </div>

@@ -88,33 +88,84 @@ const KiefelMedical = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
+      {/* Enhanced Hero Section */}
       <div className="bg-gradient-to-br from-primary to-primary-dark text-white py-20">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-4xl mx-auto text-center flex flex-col items-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUpVariants}
-          >
-            <img 
-              src="https://placehold.co/200x50/e2e8f0/475569?text=KIEFEL&font=roboto"
-              alt="Kiefel Logo"
-              className="h-16 w-auto bg-white/10 backdrop-blur-sm p-3 rounded-lg mb-8"
-            />
-            <h1 className="text-5xl font-bold mb-6">
-              KIEFEL
-              <span className="block mt-2">Medical, Pharma, Bioprocess</span>
-            </h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Reliable partner for innovative solutions in the medical and pharmaceutical industry
-            </p>
-            <p className="text-lg text-blue-100">
-              The medical and pharmaceutical sector demand the highest standards. Kiefel's systems for producing 
-              pharmaceutical and medical specialty bags and special application units guarantee high-quality products 
-              in these important sectors.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="text-left"
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUpVariants}
+            >
+              <motion.div 
+                className="inline-block bg-white p-4 rounded-lg mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                <img 
+                  src="/images/kiefel/kiefel-technologieslogo.svg"
+                  alt="Kiefel Logo" 
+                  className="h-16 w-auto"
+                />
+              </motion.div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Medical, Pharma &
+                <span className="text-white block mt-2">
+                  Bioprocess Solutions
+                </span>
+              </h1>
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="h-1 w-20 bg-gray-100"></div>
+                <p className="text-xl text-gray-100">
+                  Innovative Medical Technology
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-6 mt-8">
+                <div className="bg-gray-100 backdrop-blur-lg rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Applications</h3>
+                  <p className="text-sm text-gray-600">Medical & pharmaceutical bags</p>
+                </div>
+                <div className="bg-gray-100 backdrop-blur-lg rounded-lg p-4">
+                  <h3 className="text-primary font-semibold mb-2">Technology</h3>
+                  <p className="text-sm text-gray-600">High-frequency & thermo-contact welding</p>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-white/10 backdrop-blur-lg p-1">
+                <img
+                  src="/images/kiefel/Bioprocess_Bag.webp"
+                  alt="Kiefel Bioprocess Bag"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              {/* Floating Stats */}
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-md">
+                <div className="bg-white rounded-xl shadow-xl p-6">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-primary">30+</div>
+                      <div className="text-xs text-gray-600">years experience</div>
+                    </div>
+                    <div className="text-center border-x border-gray-200">
+                      <div className="text-lg font-bold text-primary">100%</div>
+                      <div className="text-xs text-gray-600">quality control</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-primary">24/7</div>
+                      <div className="text-xs text-gray-600">support</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
