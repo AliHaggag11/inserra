@@ -79,6 +79,7 @@ import Cyclones from './pages/industries/pharmaceutical/hanningfield/Cyclones';
 import HygienicValves from './pages/industries/pharmaceutical/hanningfield/HygienicValves';
 import SiliconeDustCaps from './pages/industries/pharmaceutical/hanningfield/SiliconeDustCaps';
 import SiliconeConnectorSleeves from './pages/industries/pharmaceutical/hanningfield/SiliconeConnectorSleeves';
+import { HelmetProvider } from 'react-helmet-async';
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -108,108 +109,110 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <ScrollToTop />
-      <Navbar />
-      <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-            <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-            <Route path="/careers" element={<PageWrapper><Careers /></PageWrapper>} />
-            <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-            <Route path="/partners" element={<PageWrapper><Partners /></PageWrapper>} />
-            <Route path="/news" element={<PageWrapper><News /></PageWrapper>} />
-            
-            {/* Industry Routes */}
-            <Route path="/industries/packaging" element={<PageWrapper><Packaging /></PageWrapper>} />
-            <Route path="/industries/appliance" element={<PageWrapper><Appliance /></PageWrapper>} />
-            <Route path="/industries/recycling" element={<PageWrapper><Recycling /></PageWrapper>} />
-            <Route path="/industries/food-pharmaceutical" element={<PageWrapper><FoodPharmaceutical /></PageWrapper>} />
-            
-            {/* Sub-routes */}
-            <Route path="/industries/appliance/kiefel-appliance" element={<PageWrapper><KiefelAppliance /></PageWrapper>} />
-            <Route path="/industries/recycling/washing" element={<PageWrapper><Washing /></PageWrapper>} />
-            <Route path="/industries/recycling/sorting" element={<PageWrapper><Sorting /></PageWrapper>} />
-            <Route path="/industries/recycling/starlinger-recycling" element={<PageWrapper><StarlingerRecycling /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel" element={<PageWrapper><KiefelPackaging /></PageWrapper>} />
-            
-            {/* Machine Routes */}
-            <Route path="/industries/packaging/kiefel/kmd" element={<PageWrapper><SpeedformerKMD /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel/stacking" element={<PageWrapper><StackingAutomation /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel/upstream" element={<PageWrapper><UpstreamDownstream /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel/tooling" element={<PageWrapper><KmdTooling /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel/ktr" element={<PageWrapper><SpeedformerKTR /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel/stacking-ktr" element={<PageWrapper><StackingKTR /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel/tilting-tools" element={<PageWrapper><TiltingTools /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel-fiber" element={<KiefelFiber />} />
-            <Route path="/industries/packaging/kiefel-fiber/natureprep" element={<PageWrapper><NatureprepKFP /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel-fiber/kft" element={<PageWrapper><NatureformerKFT /></PageWrapper>} />
-            <Route path="/industries/packaging/kiefel-fiber/kfl" element={<PageWrapper><NatureformerKFL /></PageWrapper>} />
-            
-            {/* Recycling Routes */}
-            <Route path="/industries/recycling" element={<PageWrapper><Recycling /></PageWrapper>} />
-            <Route path="/industries/recycling/washing" element={<PageWrapper><Washing /></PageWrapper>} />
-            <Route path="/industries/recycling/sorting" element={<PageWrapper><Sorting /></PageWrapper>} />
-            <Route path="/industries/recycling/starlinger-recycling" element={<PageWrapper><StarlingerRecycling /></PageWrapper>} />
-            
-            {/* Starlinger Machine Routes */}
-            <Route path="/industries/recycling/starlinger-recycling/recostar-dynamic" element={<PageWrapper><RecostarDynamic /></PageWrapper>} />
-            <Route path="/industries/recycling/starlinger-recycling/recostar-pet" element={<PageWrapper><RecostarPET /></PageWrapper>} />
-            <Route path="/industries/recycling/starlinger-recycling/recostar-universal" element={<PageWrapper><RecostarUniversal /></PageWrapper>} />
-            <Route path="/industries/recycling/starlinger-recycling/recostar-direct" element={<PageWrapper><RecostarDirect /></PageWrapper>} />
-            <Route path="/industries/food-pharma" element={<FoodPharma />} />
-            <Route path="/industries/packaging/viscotec" element={<Viscotec />} />
-            <Route path="/industries/packaging/viscotec/viscosheet" element={<ViscoSheet />} />
-            <Route path="/industries/packaging/viscotec/viscosheet-one" element={<ViscoSheetOne />} />
-            <Route path="/industries/packaging/viscotec/viscostar" element={<ViscoStar />} />
-            <Route path="/industries/packaging/viscotec/decon" element={<DeCon />} />
-            <Route path="/industries/packaging/viscotec/viscozero" element={<ViscoZero />} />
-            <Route path="/industries/packaging/viscotec/rpet100" element={<RPet100 />} />
-            <Route path="/industries/packaging/viscotec/crystallizer" element={<Crystallizer />} />
-            <Route path="/industries/packaging/viscotec/vacuum-system" element={<VacuumSystem />} />
-            <Route path="/industries/pharmaceutical/hanningfield" element={<Hanningfield />} />
-            <Route path="/industries/pharmaceutical/hanningfield/milling-sizing" element={<PageWrapper><MillingAndSizing /></PageWrapper>} />
-            <Route path="/industries/pharmaceutical/kiefel-medical-pharma" element={<KiefelMedical />} />
-            <Route path="/industries/pharmaceutical/kiefel-medical-pharma/bioprocess-bags" element={<BioprocessBags />} />
-            <Route path="/industries/pharmaceutical/kiefel/blood-plasma" element={<BloodPlasma />} />
-            <Route path="/industries/pharmaceutical/kiefel/ostomy-pouches" element={<OstomyPouches />} />
-            <Route path="/industries/pharmaceutical/hanningfield/uni-mill-u-series" element={<UniMillUSeries />} />
-            <Route path="/industries/pharmaceutical/hanningfield/uni-mill-b-series" element={<UniMillBSeries />} />
-            <Route path="/industries/pharmaceutical/hanningfield/kwik-sift" element={<KwikSift />} />
-            <Route path="/industries/pharmaceutical/hanningfield/pre-breakers" element={<PreBreakers />} />
-            <Route path="/industries/pharmaceutical/hanningfield/particle-sizing-solution" element={<ParticleSizingSolution />} />
-            <Route path="/industries/pharmaceutical/hanningfield/lump-breakers" element={<LumpBreakers />} />
-            <Route path="/industries/pharmaceutical/hanningfield/conveying-and-transfer" element={<PageWrapper><ConveyingAndTransfer /></PageWrapper>} />
-            <Route path="/industries/pharmaceutical/hanningfield/vacuum-conveyors" element={<PageWrapper><VacuumConveyors /></PageWrapper>} />
-            <Route path="/industries/pharmaceutical/hanningfield/sack-tip-stations" element={<PageWrapper><SackTipStations /></PageWrapper>} />
-            <Route path="/industries/pharmaceutical/hanningfield/capsule-conveyors" element={<PageWrapper><CapsuleConveyors /></PageWrapper>} />
-            <Route path="/industries/pharmaceutical/hanningfield/powder-flow-control" element={<PageWrapper><PowderFlowControl /></PageWrapper>} />
-            <Route path="/industries/pharmaceutical/hanningfield/lifting-and-handling" element={<PageWrapper><LiftingAndHandling /></PageWrapper>} />
-            <Route path="/industries/pharmaceutical/hanningfield/hoists" element={<Hoists />} />
-            <Route path="/industries/pharmaceutical/hanningfield/bin-blenders" element={<BinBlenders />} />
-            <Route path="/industries/pharmaceutical/hanningfield/drum-tumblers" element={<DrumTumblers />} />
-            <Route path="/industries/pharmaceutical/hanningfield/drum-tippers" element={<DrumTippers />} />
-            <Route path="/industries/pharmaceutical/hanningfield/ibcs" element={<IBCs />} />
-            <Route path="/industries/pharmaceutical/hanningfield/tablet-ibcs" element={<TabletIBCs />} />
-            <Route path="/industries/pharmaceutical/hanningfield/stainless-steel-drums" element={<StainlessSteelDrums />} />
-            <Route path="/industries/pharmaceutical/hanningfield/rd-blenders" element={<RDBlenders />} />
-            <Route path="/industries/pharmaceutical/hanningfield/containment-and-control" element={<ContainmentAndControl />} />
-            <Route path="/industries/pharmaceutical/hanningfield/cyclones" element={<Cyclones />} />
-            <Route path="/industries/pharmaceutical/hanningfield/hygienic-valves" element={<HygienicValves />} />
-            <Route path="/industries/pharmaceutical/hanningfield/silicone-dust-caps" element={<SiliconeDustCaps />} />
-            <Route path="/industries/pharmaceutical/hanningfield/connector-sleeves" element={<SiliconeConnectorSleeves />} />
-            
-            {/* Add this at the very end of your Routes */}
-            <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
-            <Route path="/sitemap" element={<Sitemap />} />
-            <Route path="/help" element={<PageWrapper><Help /></PageWrapper>} />
-          </Routes>
-        </AnimatePresence>
-      </main>
-      <Footer />
-      <ScrollToTopButton />
-    </div>
+    <HelmetProvider>
+      <div className="flex flex-col min-h-screen">
+        <ScrollToTop />
+        <Navbar />
+        <main className="flex-grow">
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+              <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+              <Route path="/careers" element={<PageWrapper><Careers /></PageWrapper>} />
+              <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+              <Route path="/partners" element={<PageWrapper><Partners /></PageWrapper>} />
+              <Route path="/news" element={<PageWrapper><News /></PageWrapper>} />
+              
+              {/* Industry Routes */}
+              <Route path="/industries/packaging" element={<PageWrapper><Packaging /></PageWrapper>} />
+              <Route path="/industries/appliance" element={<PageWrapper><Appliance /></PageWrapper>} />
+              <Route path="/industries/recycling" element={<PageWrapper><Recycling /></PageWrapper>} />
+              <Route path="/industries/food-pharmaceutical" element={<PageWrapper><FoodPharmaceutical /></PageWrapper>} />
+              
+              {/* Sub-routes */}
+              <Route path="/industries/appliance/kiefel-appliance" element={<PageWrapper><KiefelAppliance /></PageWrapper>} />
+              <Route path="/industries/recycling/washing" element={<PageWrapper><Washing /></PageWrapper>} />
+              <Route path="/industries/recycling/sorting" element={<PageWrapper><Sorting /></PageWrapper>} />
+              <Route path="/industries/recycling/starlinger-recycling" element={<PageWrapper><StarlingerRecycling /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel" element={<PageWrapper><KiefelPackaging /></PageWrapper>} />
+              
+              {/* Machine Routes */}
+              <Route path="/industries/packaging/kiefel/kmd" element={<PageWrapper><SpeedformerKMD /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel/stacking" element={<PageWrapper><StackingAutomation /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel/upstream" element={<PageWrapper><UpstreamDownstream /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel/tooling" element={<PageWrapper><KmdTooling /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel/ktr" element={<PageWrapper><SpeedformerKTR /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel/stacking-ktr" element={<PageWrapper><StackingKTR /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel/tilting-tools" element={<PageWrapper><TiltingTools /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel-fiber" element={<KiefelFiber />} />
+              <Route path="/industries/packaging/kiefel-fiber/natureprep" element={<PageWrapper><NatureprepKFP /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel-fiber/kft" element={<PageWrapper><NatureformerKFT /></PageWrapper>} />
+              <Route path="/industries/packaging/kiefel-fiber/kfl" element={<PageWrapper><NatureformerKFL /></PageWrapper>} />
+              
+              {/* Recycling Routes */}
+              <Route path="/industries/recycling" element={<PageWrapper><Recycling /></PageWrapper>} />
+              <Route path="/industries/recycling/washing" element={<PageWrapper><Washing /></PageWrapper>} />
+              <Route path="/industries/recycling/sorting" element={<PageWrapper><Sorting /></PageWrapper>} />
+              <Route path="/industries/recycling/starlinger-recycling" element={<PageWrapper><StarlingerRecycling /></PageWrapper>} />
+              
+              {/* Starlinger Machine Routes */}
+              <Route path="/industries/recycling/starlinger-recycling/recostar-dynamic" element={<PageWrapper><RecostarDynamic /></PageWrapper>} />
+              <Route path="/industries/recycling/starlinger-recycling/recostar-pet" element={<PageWrapper><RecostarPET /></PageWrapper>} />
+              <Route path="/industries/recycling/starlinger-recycling/recostar-universal" element={<PageWrapper><RecostarUniversal /></PageWrapper>} />
+              <Route path="/industries/recycling/starlinger-recycling/recostar-direct" element={<PageWrapper><RecostarDirect /></PageWrapper>} />
+              <Route path="/industries/food-pharma" element={<FoodPharma />} />
+              <Route path="/industries/packaging/viscotec" element={<Viscotec />} />
+              <Route path="/industries/packaging/viscotec/viscosheet" element={<ViscoSheet />} />
+              <Route path="/industries/packaging/viscotec/viscosheet-one" element={<ViscoSheetOne />} />
+              <Route path="/industries/packaging/viscotec/viscostar" element={<ViscoStar />} />
+              <Route path="/industries/packaging/viscotec/decon" element={<DeCon />} />
+              <Route path="/industries/packaging/viscotec/viscozero" element={<ViscoZero />} />
+              <Route path="/industries/packaging/viscotec/rpet100" element={<RPet100 />} />
+              <Route path="/industries/packaging/viscotec/crystallizer" element={<Crystallizer />} />
+              <Route path="/industries/packaging/viscotec/vacuum-system" element={<VacuumSystem />} />
+              <Route path="/industries/pharmaceutical/hanningfield" element={<Hanningfield />} />
+              <Route path="/industries/pharmaceutical/hanningfield/milling-sizing" element={<PageWrapper><MillingAndSizing /></PageWrapper>} />
+              <Route path="/industries/pharmaceutical/kiefel-medical-pharma" element={<KiefelMedical />} />
+              <Route path="/industries/pharmaceutical/kiefel-medical-pharma/bioprocess-bags" element={<BioprocessBags />} />
+              <Route path="/industries/pharmaceutical/kiefel/blood-plasma" element={<BloodPlasma />} />
+              <Route path="/industries/pharmaceutical/kiefel/ostomy-pouches" element={<OstomyPouches />} />
+              <Route path="/industries/pharmaceutical/hanningfield/uni-mill-u-series" element={<UniMillUSeries />} />
+              <Route path="/industries/pharmaceutical/hanningfield/uni-mill-b-series" element={<UniMillBSeries />} />
+              <Route path="/industries/pharmaceutical/hanningfield/kwik-sift" element={<KwikSift />} />
+              <Route path="/industries/pharmaceutical/hanningfield/pre-breakers" element={<PreBreakers />} />
+              <Route path="/industries/pharmaceutical/hanningfield/particle-sizing-solution" element={<ParticleSizingSolution />} />
+              <Route path="/industries/pharmaceutical/hanningfield/lump-breakers" element={<LumpBreakers />} />
+              <Route path="/industries/pharmaceutical/hanningfield/conveying-and-transfer" element={<PageWrapper><ConveyingAndTransfer /></PageWrapper>} />
+              <Route path="/industries/pharmaceutical/hanningfield/vacuum-conveyors" element={<PageWrapper><VacuumConveyors /></PageWrapper>} />
+              <Route path="/industries/pharmaceutical/hanningfield/sack-tip-stations" element={<PageWrapper><SackTipStations /></PageWrapper>} />
+              <Route path="/industries/pharmaceutical/hanningfield/capsule-conveyors" element={<PageWrapper><CapsuleConveyors /></PageWrapper>} />
+              <Route path="/industries/pharmaceutical/hanningfield/powder-flow-control" element={<PageWrapper><PowderFlowControl /></PageWrapper>} />
+              <Route path="/industries/pharmaceutical/hanningfield/lifting-and-handling" element={<PageWrapper><LiftingAndHandling /></PageWrapper>} />
+              <Route path="/industries/pharmaceutical/hanningfield/hoists" element={<Hoists />} />
+              <Route path="/industries/pharmaceutical/hanningfield/bin-blenders" element={<BinBlenders />} />
+              <Route path="/industries/pharmaceutical/hanningfield/drum-tumblers" element={<DrumTumblers />} />
+              <Route path="/industries/pharmaceutical/hanningfield/drum-tippers" element={<DrumTippers />} />
+              <Route path="/industries/pharmaceutical/hanningfield/ibcs" element={<IBCs />} />
+              <Route path="/industries/pharmaceutical/hanningfield/tablet-ibcs" element={<TabletIBCs />} />
+              <Route path="/industries/pharmaceutical/hanningfield/stainless-steel-drums" element={<StainlessSteelDrums />} />
+              <Route path="/industries/pharmaceutical/hanningfield/rd-blenders" element={<RDBlenders />} />
+              <Route path="/industries/pharmaceutical/hanningfield/containment-and-control" element={<ContainmentAndControl />} />
+              <Route path="/industries/pharmaceutical/hanningfield/cyclones" element={<Cyclones />} />
+              <Route path="/industries/pharmaceutical/hanningfield/hygienic-valves" element={<HygienicValves />} />
+              <Route path="/industries/pharmaceutical/hanningfield/silicone-dust-caps" element={<SiliconeDustCaps />} />
+              <Route path="/industries/pharmaceutical/hanningfield/connector-sleeves" element={<SiliconeConnectorSleeves />} />
+              
+              {/* Add this at the very end of your Routes */}
+              <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+              <Route path="/sitemap" element={<Sitemap />} />
+              <Route path="/help" element={<PageWrapper><Help /></PageWrapper>} />
+            </Routes>
+          </AnimatePresence>
+        </main>
+        <Footer />
+        <ScrollToTopButton />
+      </div>
+    </HelmetProvider>
   );
 }
 

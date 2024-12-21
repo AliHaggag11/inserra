@@ -19,7 +19,17 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-gradient-to-br from-primary to-primary-dark text-white">
+      <footer className="bg-gradient-to-br from-primary to-primary-dark text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+          <div className="absolute inset-[-50%] right-[-20%]" style={{
+            backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.1) 50%, transparent 50%)`,
+            backgroundSize: '120px 120px',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'repeat',
+            width: '150%',
+            height: '150%'
+          }}></div>
+        </div>
         {/* Main Footer Content */}
         <div className="container mx-auto px-4 pt-16 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
