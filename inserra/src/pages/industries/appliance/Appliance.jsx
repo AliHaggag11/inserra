@@ -152,9 +152,12 @@ const Appliance = () => {
                   Learn More <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>
-              <div className="md:w-1/2 bg-white/5 rounded-lg p-4">
-                {/* Placeholder for machine image */}
-                <div className="aspect-video bg-white/10 rounded-lg"></div>
+              <div className="md:w-1/2 bg-white/5 rounded-lg p-8 flex items-center justify-center">
+                <img 
+                  src="/images/kiefel/kiefel-technologieslogo.svg" 
+                  alt="Kiefel Technologies"
+                  className="w-full h-auto max-w-[240px] brightness-0 invert opacity-90"
+                />
               </div>
             </div>
           </div>

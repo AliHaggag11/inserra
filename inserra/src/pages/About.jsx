@@ -251,15 +251,26 @@ const About = () => {
 
       {/* Background Image Section - Full width image */}
       <motion.div 
-        className="relative h-[50vh] bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: `url('/images/shutterstock_2174669625.jpg')` }}
+        className="relative h-[50vh] bg-cover bg-center overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: isMobile ? 0.3 : 0.5 }}
       >
-        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{ 
+            backgroundImage: `url('/images/shutterstock_2174669625.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            transform: 'scale(1.1)',
+            filter: 'brightness(0.9)'
+          }}
+        />
+        
+        <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
+        
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center px-4">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Leading Industrial Innovation</h2>

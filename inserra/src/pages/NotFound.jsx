@@ -39,9 +39,16 @@ const NotFound = () => {
     { name: 'Kiefel Packaging', path: '/industries/packaging/kiefel' },
     { name: 'Kiefel Fiber', path: '/industries/packaging/kiefel-fiber' },
     { name: 'Viscotec - Starlinger', path: '/industries/packaging/viscotec' },
-    { name: 'ViscoSheet', path: '/industries/packaging/viscosheet' },
-    { name: 'ViscoSheet One', path: '/industries/packaging/viscosheet-one' },
-    { name: 'ViscoZero', path: '/industries/packaging/viscozero' },
+    
+    // Viscotec Products
+    { name: 'ViscoSheet', path: '/industries/packaging/viscotec/viscosheet' },
+    { name: 'ViscoSheet One', path: '/industries/packaging/viscotec/viscosheet-one' },
+    { name: 'ViscoStar', path: '/industries/packaging/viscotec/viscostar' },
+    { name: 'DeCon', path: '/industries/packaging/viscotec/decon' },
+    { name: 'ViscoZero', path: '/industries/packaging/viscotec/viscozero' },
+    { name: 'rPET 100', path: '/industries/packaging/viscotec/rpet100' },
+    { name: 'Crystallizer', path: '/industries/packaging/viscotec/crystallizer' },
+    { name: 'Vacuum System', path: '/industries/packaging/viscotec/vacuum-system' },
     
     // Kiefel Packaging Machines
     { name: 'Speedformer KMD', path: '/industries/packaging/kiefel/kmd' },
@@ -54,10 +61,8 @@ const NotFound = () => {
     
     // Fiber Machines
     { name: 'NATUREPREP KFP', path: '/industries/packaging/kiefel-fiber/natureprep' },
-    { name: 'NATUREFORMER KFT', path: '/industries/packaging/machines/fiber/natureformer-kft' },
+    { name: 'NATUREFORMER KFT', path: '/industries/packaging/kiefel-fiber/kft' },
     { name: 'NATUREFORMER KFL', path: '/industries/packaging/kiefel-fiber/kfl' },
-    { name: 'Upstream & Downstream', path: '/industries/packaging/machines/upstream-downstream' },
-    { name: 'Stacking Automation', path: '/industries/packaging/machines/stacking-automation' },
     
     // Recycling Industry
     { name: 'Recycling', path: '/industries/recycling' },
@@ -65,15 +70,11 @@ const NotFound = () => {
     { name: 'Sorting', path: '/industries/recycling/sorting' },
     { name: 'Starlinger Recycling', path: '/industries/recycling/starlinger-recycling' },
     
-    // Starlinger Machines - Both old and new paths
+    // Starlinger Machines
     { name: 'recoSTAR dynamic', path: '/industries/recycling/starlinger-recycling/recostar-dynamic' },
     { name: 'recoSTAR PET', path: '/industries/recycling/starlinger-recycling/recostar-pet' },
     { name: 'recoSTAR universal', path: '/industries/recycling/starlinger-recycling/recostar-universal' },
     { name: 'recoSTAR direct', path: '/industries/recycling/starlinger-recycling/recostar-direct' },
-    { name: 'recoSTAR dynamic', path: '/industries/recycling/machines/recostar-dynamic' },
-    { name: 'recoSTAR PET', path: '/industries/recycling/machines/recostar-pet' },
-    { name: 'recoSTAR universal', path: '/industries/recycling/machines/recostar-universal' },
-    { name: 'recoSTAR direct', path: '/industries/recycling/machines/recostar-direct' },
     
     // Appliance Industry
     { name: 'Appliance', path: '/industries/appliance' },
@@ -81,28 +82,62 @@ const NotFound = () => {
     
     // Food & Pharmaceutical
     { name: 'Food & Pharmaceutical', path: '/industries/food-pharma' },
-    { name: 'Food & Pharmaceutical Overview', path: '/industries/food-pharmaceutical' },
+    { name: 'Hanningfield', path: '/industries/pharmaceutical/hanningfield' },
+    { name: 'Kiefel Medical & Pharma', path: '/industries/pharmaceutical/kiefel-medical-pharma' },
+    
+    // Kiefel Medical Products
+    { name: 'Bioprocess Bags', path: '/industries/pharmaceutical/kiefel-medical-pharma/bioprocess-bags' },
+    { name: 'Blood Plasma', path: '/industries/pharmaceutical/kiefel/blood-plasma' },
+    { name: 'Ostomy Pouches', path: '/industries/pharmaceutical/kiefel/ostomy-pouches' },
+    
+    // Hanningfield Products
+    { name: 'Milling & Sizing', path: '/industries/pharmaceutical/hanningfield/milling-sizing' },
+    { name: 'UniMill U Series', path: '/industries/pharmaceutical/hanningfield/uni-mill-u-series' },
+    { name: 'UniMill B Series', path: '/industries/pharmaceutical/hanningfield/uni-mill-b-series' },
+    { name: 'Kwik Sift', path: '/industries/pharmaceutical/hanningfield/kwik-sift' },
+    { name: 'Pre Breakers', path: '/industries/pharmaceutical/hanningfield/pre-breakers' },
+    { name: 'Particle Sizing Solution', path: '/industries/pharmaceutical/hanningfield/particle-sizing-solution' },
+    { name: 'Lump Breakers', path: '/industries/pharmaceutical/hanningfield/lump-breakers' },
+    { name: 'Conveying & Transfer', path: '/industries/pharmaceutical/hanningfield/conveying-and-transfer' },
+    { name: 'Vacuum Conveyors', path: '/industries/pharmaceutical/hanningfield/vacuum-conveyors' },
+    { name: 'Sack Tip Stations', path: '/industries/pharmaceutical/hanningfield/sack-tip-stations' },
+    { name: 'Capsule Conveyors', path: '/industries/pharmaceutical/hanningfield/capsule-conveyors' },
+    { name: 'Powder Flow Control', path: '/industries/pharmaceutical/hanningfield/powder-flow-control' },
+    { name: 'Lifting & Handling', path: '/industries/pharmaceutical/hanningfield/lifting-and-handling' },
+    { name: 'Hoists', path: '/industries/pharmaceutical/hanningfield/hoists' },
+    { name: 'Bin Blenders', path: '/industries/pharmaceutical/hanningfield/bin-blenders' },
+    { name: 'Drum Tumblers', path: '/industries/pharmaceutical/hanningfield/drum-tumblers' },
+    { name: 'Drum Tippers', path: '/industries/pharmaceutical/hanningfield/drum-tippers' },
+    { name: 'IBCs', path: '/industries/pharmaceutical/hanningfield/ibcs' },
+    { name: 'Tablet IBCs', path: '/industries/pharmaceutical/hanningfield/tablet-ibcs' },
+    { name: 'Stainless Steel Drums', path: '/industries/pharmaceutical/hanningfield/stainless-steel-drums' },
+    { name: 'RD Blenders', path: '/industries/pharmaceutical/hanningfield/rd-blenders' },
+    { name: 'Containment & Control', path: '/industries/pharmaceutical/hanningfield/containment-and-control' },
+    { name: 'Cyclones', path: '/industries/pharmaceutical/hanningfield/cyclones' },
+    { name: 'Hygienic Valves', path: '/industries/pharmaceutical/hanningfield/hygienic-valves' },
+    { name: 'Silicone Dust Caps', path: '/industries/pharmaceutical/hanningfield/silicone-dust-caps' },
+    { name: 'Silicone Connector Sleeves', path: '/industries/pharmaceutical/hanningfield/connector-sleeves' },
 
-    // Add alternate spellings/common misspellings
+    // Common Misspellings and Alternates (keep existing ones)
     { name: 'Kieffel', path: '/industries/packaging/kiefel' },
     { name: 'Kieffel Packaging', path: '/industries/packaging/kiefel' },
     { name: 'Kiefel Packging', path: '/industries/packaging/kiefel' },
     { name: 'Viscotech', path: '/industries/packaging/viscotec' },
     { name: 'Visco tec', path: '/industries/packaging/viscotec' },
-    { name: 'Visco Sheet', path: '/industries/packaging/viscosheet' },
-    { name: 'Visco Zero', path: '/industries/packaging/viscozero' },
-    { name: 'Nature Former', path: '/industries/packaging/machines/fiber/natureformer-kft' },
+    { name: 'Visco Sheet', path: '/industries/packaging/viscotec/viscosheet' },
+    { name: 'Visco Zero', path: '/industries/packaging/viscotec/viscozero' },
+    { name: 'Nature Former', path: '/industries/packaging/kiefel-fiber' },
     { name: 'Natureformer', path: '/industries/packaging/kiefel-fiber' },
     { name: 'Recycling Solutions', path: '/industries/recycling' },
     { name: 'Starlinger', path: '/industries/recycling/starlinger-recycling' },
     { name: 'Recostar', path: '/industries/recycling/starlinger-recycling' },
     { name: 'Reco Star', path: '/industries/recycling/starlinger-recycling' },
-    { name: 'Dynamic', path: '/industries/recycling/machines/recostar-dynamic' },
-    { name: 'Universal', path: '/industries/recycling/machines/recostar-universal' },
-    { name: 'Direct', path: '/industries/recycling/machines/recostar-direct' },
-    { name: 'PET', path: '/industries/recycling/machines/recostar-pet' },
+    { name: 'Dynamic', path: '/industries/recycling/starlinger-recycling/recostar-dynamic' },
+    { name: 'Universal', path: '/industries/recycling/starlinger-recycling/recostar-universal' },
+    { name: 'Direct', path: '/industries/recycling/starlinger-recycling/recostar-direct' },
+    { name: 'PET', path: '/industries/recycling/starlinger-recycling/recostar-pet' },
     { name: 'KMD', path: '/industries/packaging/kiefel/kmd' },
-    { name: 'KTR', path: '/industries/packaging/kiefel/ktr' },
+    { name: 'KTR', path: '/industries/packaging/kiefel/ktr' }
   ];
 
   // Initialize Fuse instance with options for fuzzy search

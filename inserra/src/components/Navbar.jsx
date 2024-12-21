@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight, Factory, HeadphonesIcon } from 'lucide-react';
 import logo from '../assets/insera.png';
 import logoVar from '../assets/insera_var.png';
 
@@ -34,6 +34,18 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setOpenDropdown(null);
@@ -52,7 +64,7 @@ const Navbar = () => {
   const menuVariants = {
     closed: { 
       opacity: 0,
-      height: 0,
+      y: -20,
       transition: {
         duration: 0.3,
         when: "afterChildren"
@@ -60,33 +72,39 @@ const Navbar = () => {
     },
     open: { 
       opacity: 1,
-      height: "100vh",
+      y: 0,
       transition: {
         duration: 0.3,
         when: "beforeChildren",
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     }
   };
 
   const menuItemVariants = {
     closed: { opacity: 0, y: -10 },
-    open: { opacity: 1, y: 0 }
+    open: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.2 }
+    }
   };
 
   const dropdownVariants = {
     closed: { 
       opacity: 0,
-      height: 0,
+      y: -10,
       transition: {
-        duration: 0.3
+        duration: 0.2
       }
     },
     open: { 
       opacity: 1,
-      height: "auto",
+      y: 0,
       transition: {
-        duration: 0.3
+        type: "spring",
+        stiffness: 300,
+        damping: 24
       }
     }
   };
@@ -124,10 +142,10 @@ const Navbar = () => {
         },
         { 
           name: 'Food & Pharmaceutical', 
-          path: '/industries/pharmaceutical',
+          path: '/industries/food-pharma',
           subItems: [
-            { name: 'Hanningfield', path: '/industries/pharmaceutical/hanningfield' },
-            { name: 'Kiefel Medical & Pharma', path: '/industries/pharmaceutical/kiefel-medical-pharma' },
+            { name: 'Hanningfield', path: '/industries/food-pharma/hanningfield' },
+            { name: 'Kiefel Medical & Pharma', path: '/industries/food-pharma/kiefel-medical-pharma' },
           ]
         },
       ]
@@ -137,10 +155,10 @@ const Navbar = () => {
 
   const getNavbarBackground = () => {
     const isHome = location.pathname === '/';
-    if (!isHome) return 'bg-white/90 backdrop-blur-sm shadow-sm';
+    if (!isHome) return 'bg-white shadow-sm';
     return isScrolled 
-      ? 'bg-white/90 backdrop-blur-sm shadow-sm' 
-      : 'bg-gradient-to-b from-gray-900/40 via-gray-800/30 to-transparent';
+      ? 'bg-white shadow-sm' 
+      : 'bg-gradient-to-b from-gray-900/60 via-gray-800/50 to-transparent';
   };
 
   const getTextColor = () => {
@@ -162,7 +180,7 @@ const Navbar = () => {
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${getNavbarBackground()}`}>
-      <div className="container mx-auto px-4 py-2">
+      <div className="container relative mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <AnimatePresence mode="wait">
@@ -222,57 +240,85 @@ const Navbar = () => {
                       <AnimatePresence>
                         {openDropdown === item.name && (
                           <motion.div 
-                            className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white/95 backdrop-blur-sm ring-1 ring-black/5"
+                            className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-screen max-w-4xl rounded-lg shadow-xl bg-white border border-gray-200 divide-y divide-gray-100"
+                            style={{
+                              marginLeft: 'calc(-50vw + 50%)',
+                              marginRight: 'calc(-50vw + 50%)',
+                              left: '50%',
+                              right: '50%'
+                            }}
                             initial="closed"
                             animate="open"
                             exit="closed"
                             variants={dropdownVariants}
                           >
-                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                              {item.subItems.map((subItem) => (
-                                <div key={subItem.name} className="relative">
-                                  {subItem.subItems ? (
-                                    <button 
-                                      className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex items-center justify-between"
-                                      onClick={() => toggleSubDropdown(subItem.name)}
-                                    >
-                                      {subItem.name}
-                                      <ChevronDown className="ml-1 h-4 w-4" />
-                                    </button>
-                                  ) : (
-                                    <Link
-                                      to={subItem.path}
-                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                                      onClick={handleLinkClick}
-                                    >
-                                      {subItem.name}
-                                    </Link>
-                                  )}
-                                  <AnimatePresence>
-                                    {openSubDropdown === subItem.name && subItem.subItems && (
-                                      <motion.div 
-                                        className="mt-2 w-full bg-gray-50"
-                                        initial="closed"
-                                        animate="open"
-                                        exit="closed"
-                                        variants={dropdownVariants}
-                                      >
-                                        {subItem.subItems.map((subSubItem) => (
-                                          <Link
-                                            key={subSubItem.name}
-                                            to={subSubItem.path}
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                                            onClick={handleLinkClick}
-                                            role="menuitem"
-                                          >
-                                            {subSubItem.name}
-                                          </Link>
-                                        ))}
-                                      </motion.div>
-                                    )}
-                                  </AnimatePresence>
+                            <div className="max-w-4xl mx-auto">
+                              <div className="px-8 py-4 bg-gray-50 flex items-center justify-between">
+                                <h3 className="text-lg font-semibold text-gray-800 flex items-center">
+                                  <span className="bg-primary p-1.5 rounded-md mr-3">
+                                    <Factory className="w-5 h-5 text-white" />
+                                  </span>
+                                  Our Industries
+                                </h3>
+                                <div className="text-sm text-gray-500">
+                                  Explore our comprehensive solutions
                                 </div>
-                              ))}
+                              </div>
+                              <div className="p-8" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <div className="grid grid-cols-4 gap-x-12">
+                                  {item.subItems.map((subItem) => (
+                                    <div key={subItem.name} className="group">
+                                      <Link
+                                        to={subItem.path}
+                                        className="flex items-center text-gray-800 hover:text-primary transition-colors duration-300 mb-4 group/item border-l-2 border-transparent hover:border-primary pl-3 -ml-3"
+                                        onClick={handleLinkClick}
+                                      >
+                                        <span className="font-medium tracking-wide">{subItem.name}</span>
+                                        <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+                                      </Link>
+                                      {subItem.subItems && (
+                                        <ul className="space-y-1">
+                                          {subItem.subItems.map((subSubItem) => (
+                                            <li key={subSubItem.name}>
+                                              <Link
+                                                to={subSubItem.path}
+                                                className="block text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-3 py-2 transition-all duration-300 relative pl-6 group/bullet"
+                                                onClick={handleLinkClick}
+                                              >
+                                                <div className="absolute left-2 top-1/2 -translate-y-1/2 w-1 h-1 rounded-sm bg-gray-300 group-hover/bullet:bg-primary transition-colors duration-300" />
+                                                <span className="tracking-wide">{subSubItem.name}</span>
+                                              </Link>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
+                                <div className="mt-8 -mx-8 -mb-8">
+                                  <div className="bg-gray-50 p-6 border-t border-gray-200">
+                                    <div className="flex items-center justify-between">
+                                      <div className="text-gray-800">
+                                        <h4 className="font-medium mb-1 flex items-center">
+                                          <span className="bg-primary/10 p-1 rounded mr-2">
+                                            <HeadphonesIcon className="w-4 h-4 text-primary" />
+                                          </span>
+                                          Need Expert Guidance?
+                                        </h4>
+                                        <p className="text-sm text-gray-600">Our team is here to help you find the perfect solution</p>
+                                      </div>
+                                      <Link 
+                                        to="/contact"
+                                        className="inline-flex items-center bg-primary text-white hover:bg-primary-dark font-medium text-sm px-5 py-2.5 rounded-md shadow-sm hover:shadow transition-all duration-300 group"
+                                        onClick={handleLinkClick}
+                                      >
+                                        Contact Our Team
+                                        <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-300" />
+                                      </Link>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </motion.div>
                         )}
@@ -296,32 +342,51 @@ const Navbar = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-primary/95 backdrop-blur-2xl z-40"
               initial="closed"
               animate="open"
               exit="closed"
               variants={menuVariants}
             >
-              <nav className="flex flex-col items-center justify-center h-full">
-                <ul className="space-y-6 text-center">
+              <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+                <div 
+                  className="absolute inset-[-50%] right-[-20%]" 
+                  style={{
+                    backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.1) 50%, transparent 50%)`,
+                    backgroundSize: '120px 120px',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'repeat',
+                    width: '150%',
+                    height: '150%'
+                  }}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/40 via-primary/20 to-transparent"></div>
+              <nav className="flex flex-col items-center justify-center h-full relative z-10 px-6">
+                <ul className="space-y-4 text-center w-full max-w-md">
                   {navItems.map((item, index) => (
                     <motion.li 
                       key={item.name}
                       variants={menuItemVariants}
+                      className="border-b border-white/10 last:border-b-0"
                     >
                       {item.subItems ? (
-                        <div>
+                        <div className="py-3">
                           <button 
-                            className="text-2xl font-semibold text-white hover:text-blue-200 transition duration-300"
+                            className="text-xl font-semibold text-white/90 hover:text-white transition-all duration-300 w-full flex items-center justify-center"
                             onClick={() => toggleDropdown(item.name)}
                           >
                             {item.name}
-                            <ChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform duration-300 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                            <ChevronDown 
+                              className={`ml-2 h-5 w-5 transform transition-transform duration-300 ${
+                                openDropdown === item.name ? 'rotate-180' : ''
+                              }`} 
+                            />
                           </button>
                           <AnimatePresence>
                             {openDropdown === item.name && (
                               <motion.ul 
-                                className="mt-2 space-y-2"
+                                className="mt-2 space-y-2 bg-white/5 rounded-lg p-3"
                                 initial="closed"
                                 animate="open"
                                 exit="closed"
@@ -331,20 +396,25 @@ const Navbar = () => {
                                   <motion.li 
                                     key={subItem.name}
                                     variants={menuItemVariants}
+                                    className="py-1"
                                   >
                                     <button 
-                                      className="text-xl font-semibold text-white hover:text-blue-200 transition duration-300"
+                                      className="text-lg font-medium text-white/80 hover:text-white transition-all duration-300 w-full flex items-center justify-center"
                                       onClick={() => toggleSubDropdown(subItem.name)}
                                     >
                                       {subItem.name}
                                       {subItem.subItems && (
-                                        <ChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform duration-300 ${openSubDropdown === subItem.name ? 'rotate-180' : ''}`} />
+                                        <ChevronDown 
+                                          className={`ml-2 h-4 w-4 transform transition-transform duration-300 ${
+                                            openSubDropdown === subItem.name ? 'rotate-180' : ''
+                                          }`} 
+                                        />
                                       )}
                                     </button>
                                     <AnimatePresence>
                                       {openSubDropdown === subItem.name && subItem.subItems && (
                                         <motion.ul 
-                                          className="mt-1 space-y-1"
+                                          className="mt-1 space-y-1 bg-white/5 rounded-lg p-2"
                                           initial="closed"
                                           animate="open"
                                           exit="closed"
@@ -357,7 +427,7 @@ const Navbar = () => {
                                             >
                                               <Link 
                                                 to={subSubItem.path}
-                                                className="text-lg text-white hover:text-blue-200 transition duration-300" 
+                                                className="block text-base text-white/70 hover:text-white transition-all duration-300 py-1" 
                                                 onClick={toggleMenu}
                                               >
                                                 {subSubItem.name}
@@ -376,7 +446,7 @@ const Navbar = () => {
                       ) : (
                         <Link 
                           to={item.path}
-                          className="text-2xl font-semibold text-white hover:text-blue-200 transition duration-300" 
+                          className="block text-xl font-semibold text-white/90 hover:text-white transition-all duration-300 py-3" 
                           onClick={toggleMenu}
                         >
                           {item.name}
