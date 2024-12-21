@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import plasticImage from '../assets/plastic.png';
 import Forest from '../assets/shutterstock_2174669625.webp';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Home = () => {
   const fadeInUpVariants = {
@@ -25,10 +27,22 @@ const Home = () => {
   const [activeImage, setActiveImage] = useState(0);
 
   const heroImages = [
-    '/images/shutterstock_2174669625.webp',
-    plasticImage,
-    '/images/shutterstock_2227403169.webp',
-    plasticImage
+    {
+      src: '/images/shutterstock_2174669625.webp',
+      blur: '/images/shutterstock_2174669625-thumb.webp',
+    },
+    {
+      src: plasticImage,
+      blur: '/images/plastic-thumb.webp',
+    },
+    {
+      src: '/images/shutterstock_2227403169.webp',
+      blur: '/images/shutterstock_2227403169-thumb.webp',
+    },
+    {
+      src: plasticImage,
+      blur: '/images/plastic-thumb.webp',
+    }
   ];
 
   useEffect(() => {
@@ -199,11 +213,28 @@ const Home = () => {
           <motion.div
             key={index}
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${img})` }}
+            style={{ 
+              backgroundImage: `url(${img.blur})`,
+              filter: 'blur(10px)',
+              transform: 'scale(1.1)'
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: index === activeImage ? 1 : 0 }}
             transition={{ duration: 1.5 }}
-          />
+          >
+            <img
+              src={img.src}
+              alt=""
+              className="w-full h-full object-cover"
+              loading="lazy"
+              onLoad={(e) => {
+                e.target.parentElement.style.backgroundImage = `url(${img.src})`;
+                e.target.parentElement.style.filter = 'none';
+                e.target.parentElement.style.transform = 'none';
+              }}
+              style={{ opacity: 0 }}
+            />
+          </motion.div>
         ))}
         <div 
           className={`absolute inset-0 bg-black transition-opacity duration-1000 ${
@@ -488,11 +519,12 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="hover:opacity-100 transition-all duration-300"
                 >
-                  <img 
-                    src={partner.logo} 
+                  <LazyLoadImage
+                    src={partner.logo}
                     alt={partner.name}
                     className="h-12 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
-                    loading="lazy"
+                    effect="blur"
+                    threshold={300}
                   />
                 </a>
               </div>
@@ -506,11 +538,12 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="hover:opacity-100 transition-all duration-300"
                 >
-                  <img 
-                    src={partner.logo} 
+                  <LazyLoadImage
+                    src={partner.logo}
                     alt={partner.name}
                     className="h-12 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
-                    loading="lazy"
+                    effect="blur"
+                    threshold={300}
                   />
                 </a>
               </div>
@@ -524,11 +557,12 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="hover:opacity-100 transition-all duration-300"
                 >
-                  <img 
-                    src={partner.logo} 
+                  <LazyLoadImage
+                    src={partner.logo}
                     alt={partner.name}
                     className="h-12 w-auto object-contain opacity-75 hover:opacity-100 transition-all duration-300"
-                    loading="lazy"
+                    effect="blur"
+                    threshold={300}
                   />
                 </a>
               </div>
@@ -556,17 +590,21 @@ const Home = () => {
                   <div className="flex flex-col h-full">
                     <div className="p-6 bg-gray-200">
                       <div className="flex justify-between items-center mb-4">
-                        <img 
-                          src={project.customerLogo} 
-                          alt={`${project.title} Logo`} 
+                        <LazyLoadImage
+                          src={project.customerLogo}
+                          alt={`${project.title} Logo`}
                           className="h-12 w-auto object-contain"
+                          effect="blur"
+                          threshold={300}
                         />
-                        <img 
-                          src={project.partnerLogo} 
-                          alt="Partner Logo" 
+                        <LazyLoadImage
+                          src={project.partnerLogo}
+                          alt="Partner Logo"
                           className={`w-auto object-contain ${
                             project.title === 'Al Baraka Pack' ? 'h-6' : 'h-8'
                           }`}
+                          effect="blur"
+                          threshold={300}
                         />
                       </div>
                       <h2 className="text-6xl font-bold mb-2 text-primary opacity-20">{project.id}</h2>
@@ -574,10 +612,12 @@ const Home = () => {
                     </div>
                     {project.projectImage && (
                       <div className="w-full h-48 overflow-hidden">
-                        <img 
-                          src={project.projectImage} 
-                          alt={`${project.title} Project`} 
+                        <LazyLoadImage
+                          src={project.projectImage}
+                          alt={`${project.title} Project`}
                           className="w-full h-full object-cover"
+                          effect="blur"
+                          threshold={300}
                         />
                       </div>
                     )}
