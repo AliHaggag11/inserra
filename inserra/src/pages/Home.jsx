@@ -12,18 +12,32 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Helmet } from 'react-helmet-async';
 
-const isMobile = () => {
-  return window.innerWidth <= 768;
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile;
 };
 
 const Home = () => {
+  const isMobile = useIsMobile();
+
   const fadeInUpVariants = {
-    hidden: { opacity: 0, y: isMobile() ? 10 : 20 },
+    hidden: { opacity: 0, y: isMobile ? 10 : 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
-        duration: isMobile() ? 0.3 : 0.5
+        duration: isMobile ? 0.3 : 0.5
       }
     }
   };
@@ -252,7 +266,7 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ 
                 opacity: index === activeImage ? 1 : 0,
-                transition: { duration: isMobile() ? 0.8 : 1.5 }
+                transition: { duration: isMobile ? 0.8 : 1.5 }
               }}
             >
               <img
@@ -277,7 +291,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary-dark/30"></div>
 
           {/* Animated background shapes */}
-          {!isMobile() && (
+          {!isMobile && (
             <motion.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
@@ -295,7 +309,7 @@ const Home = () => {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 leading-tight text-white"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: isMobile() ? 0.3 : 0.5, delay: 0.1 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0.1 }}
               >
                 Empowering Industries with
               </motion.h1>
@@ -303,7 +317,7 @@ const Home = () => {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: isMobile() ? 0.3 : 0.5, delay: 0.2 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0.2 }}
               >
                 <FlipWords
                   words={words}
@@ -315,7 +329,7 @@ const Home = () => {
                 className="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-10 text-blue-100"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: isMobile() ? 0.3 : 0.5, delay: 0.3 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0.3 }}
               >
                 <em>"Partners for Growth"</em>
               </motion.p>
@@ -323,7 +337,7 @@ const Home = () => {
                 className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: isMobile() ? 0.3 : 0.5, delay: 0.4 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0.4 }}
               >
                 <Link
                   to="/contact"
@@ -343,7 +357,7 @@ const Home = () => {
           </div>
 
           {/* Animated scroll indicator */}
-          {!isMobile() && (
+          {!isMobile && (
             <motion.div
               className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
               initial={{ opacity: 0, y: -10 }}
@@ -415,10 +429,10 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ 
-                    duration: isMobile() ? 0.2 : 0.3, 
-                    delay: isMobile() ? index * 0.05 : index * 0.1 
+                    duration: isMobile ? 0.2 : 0.3, 
+                    delay: isMobile ? index * 0.05 : index * 0.1 
                   }}
-                  whileHover={isMobile() ? {} : { y: -5 }}
+                  whileHover={isMobile ? {} : { y: -5 }}
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-dark transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                   <Link to={industry.link} className="block p-6 relative">
@@ -736,7 +750,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: isMobile() ? 0.3 : 0.5, delay: 0.1 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0.1 }}
               >
                 Ready to Transform Your Industry?
               </motion.h2>
@@ -745,7 +759,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: isMobile() ? 0.3 : 0.5, delay: 0.2 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0.2 }}
               >
                 Join the leading companies who trust INSERA for their industrial solutions
               </motion.p>
@@ -754,7 +768,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: isMobile() ? 0.3 : 0.5, delay: 0.3 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: 0.3 }}
               >
                 <Link
                   to="/contact"
