@@ -3,17 +3,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Lightbulb, Users, Network, Cpu, HeartHandshake, ClipboardCheck,
          HeadphonesIcon, AwardIcon, ShieldCheckIcon, ClockIcon, LightbulbIcon, TrendingUpIcon } from 'lucide-react';
 
+const isMobile = () => {
+  return window.innerWidth <= 768;
+};
+
 const About = () => {
   const [activeTab, setActiveTab] = useState('vision');
   
   const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: isMobile() ? 10 : 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: isMobile() ? 0.3 : 0.5
+      }
+    }
   };
 
   const tabVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 }
+    hidden: { opacity: 0, x: isMobile() ? -10 : -20 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: isMobile() ? 0.3 : 0.5
+      }
+    }
   };
 
   const keyStrengths = [
@@ -57,9 +73,9 @@ const About = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div 
             className="text-center px-4"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: isMobile() ? 10 : 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: isMobile() ? 0.5 : 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">About INSERA</h1>
             <em className="text-2xl md:text-3xl">"Partners for Growth"</em>
@@ -107,10 +123,14 @@ const About = () => {
                   <motion.div
                     key={index}
                     className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ 
+                      duration: isMobile() ? 0.2 : 0.3, 
+                      delay: isMobile() ? index * 0.05 : index * 0.1 
+                    }}
+                    whileHover={isMobile() ? {} : { y: -4 }}
                   >
                     <div className="flex items-center mb-4">
                       <div className="bg-primary/10 p-3 rounded-full mr-4">
@@ -126,10 +146,14 @@ const About = () => {
               <div className="col-span-1 md:col-span-3 flex justify-center">
                 <motion.div
                   className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.6 }}
+                  transition={{ 
+                    duration: isMobile() ? 0.2 : 0.3, 
+                    delay: isMobile() ? 0.3 : 0.6 
+                  }}
+                  whileHover={isMobile() ? {} : { y: -4 }}
                 >
                   <div className="flex items-center mb-4">
                     <div className="bg-primary/10 p-3 rounded-full mr-4">
@@ -178,7 +202,7 @@ const About = () => {
                 animate="visible"
                 exit="hidden"
                 variants={tabVariants}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: isMobile() ? 0.2 : 0.3 }}
                 className="bg-gradient-to-br from-primary to-primary-dark rounded-lg p-12"
               >
                 <h3 className="text-3xl font-bold mb-8 text-white">
@@ -195,6 +219,10 @@ const About = () => {
       <motion.div 
         className="relative h-[50vh] bg-fixed bg-cover bg-center"
         style={{ backgroundImage: `url('/images/shutterstock_2174669625.jpg')` }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: isMobile() ? 0.3 : 0.5 }}
       >
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/50"></div>
@@ -219,10 +247,14 @@ const About = () => {
                   <motion.div
                     key={index}
                     className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ 
+                      duration: isMobile() ? 0.2 : 0.3, 
+                      delay: isMobile() ? index * 0.05 : index * 0.1 
+                    }}
+                    whileHover={isMobile() ? {} : { y: -4 }}
                   >
                     <div className="text-primary mb-4">{value.icon}</div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-800">{value.title}</h3>
@@ -234,10 +266,14 @@ const About = () => {
               <div className="col-span-1 md:col-span-3 flex justify-center">
                 <motion.div
                   className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.6 }}
+                  transition={{ 
+                    duration: isMobile() ? 0.2 : 0.3, 
+                    delay: isMobile() ? 0.3 : 0.6 
+                  }}
+                  whileHover={isMobile() ? {} : { y: -4 }}
                 >
                   <div className="text-primary mb-4">{coreValues[6].icon}</div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-800">{coreValues[6].title}</h3>
@@ -257,7 +293,16 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUpVariants}
+            variants={{
+              hidden: { opacity: 0, y: isMobile() ? 10 : 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: isMobile() ? 0.3 : 0.5
+                }
+              }
+            }}
           >
             <h2 className="text-3xl font-bold mb-6 text-primary">Ready to Work Together?</h2>
             <p className="text-xl text-gray-600 mb-8">
