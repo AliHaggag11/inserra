@@ -78,6 +78,32 @@ const About = () => {
     strategy: "Our strategy is to leverage our partnerships with global technology leaders to deliver  innovative, tailored solutions across the industries we serve."
   };
 
+  const getCardAnimation = (index, isMobile) => {
+    if (isMobile) {
+      return {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        viewport: { once: true, margin: "50px" },
+        transition: { 
+          duration: 0.2,
+          delay: index * 0.05 // Shorter delays for mobile
+        }
+      };
+    }
+    
+    return {
+      initial: { opacity: 0 },
+      whileInView: { opacity: 1 },
+      viewport: { once: true, margin: "-20%" },
+      transition: { 
+        duration: 0.3,
+        ease: "easeOut",
+        delay: index * 0.1 
+      },
+      whileHover: { scale: 1.02 }
+    };
+  };
+
   return (
     <div className="min-h-screen text-white -mt-20">
       {/* Hero Section - Dark gradient background */}
@@ -140,16 +166,10 @@ const About = () => {
                 {keyStrengths.slice(0, 6).map((strength, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 will-change-transform"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-20%" }}
-                    transition={{ 
-                      duration: 0.3,
-                      ease: "easeOut",
-                      delay: index * 0.1 
-                    }}
-                    whileHover={isMobile ? {} : { scale: 1.02 }}
+                    className={`bg-white rounded-lg p-6 shadow-lg ${
+                      isMobile ? '' : 'hover:shadow-xl transition-all duration-300 will-change-transform'
+                    }`}
+                    {...getCardAnimation(index, isMobile)}
                   >
                     <div className="flex items-center mb-4">
                       <div className="bg-primary/10 p-3 rounded-full mr-4">
@@ -164,16 +184,10 @@ const About = () => {
               {/* Last item centered */}
               <div className="col-span-1 md:col-span-3 flex justify-center">
                 <motion.div
-                  className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 will-change-transform w-full md:w-1/3"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-20%" }}
-                  transition={{ 
-                    duration: 0.3,
-                    ease: "easeOut",
-                    delay: 0.3
-                  }}
-                  whileHover={isMobile ? {} : { scale: 1.02 }}
+                  className={`bg-white rounded-lg p-6 shadow-lg w-full md:w-1/3 ${
+                    isMobile ? '' : 'hover:shadow-xl transition-all duration-300 will-change-transform'
+                  }`}
+                  {...getCardAnimation(6, isMobile)}
                 >
                   <div className="flex items-center mb-4">
                     <div className="bg-primary/10 p-3 rounded-full mr-4">
@@ -266,16 +280,10 @@ const About = () => {
                 {coreValues.slice(0, 6).map((value, index) => (
                   <motion.div
                     key={index}
-                    className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 will-change-transform"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-20%" }}
-                    transition={{ 
-                      duration: 0.3,
-                      ease: "easeOut",
-                      delay: index * 0.1 
-                    }}
-                    whileHover={isMobile ? {} : { scale: 1.02 }}
+                    className={`bg-gray-50/95 rounded-lg p-6 ${
+                      isMobile ? '' : 'hover:bg-white transition-all duration-300 will-change-transform'
+                    }`}
+                    {...getCardAnimation(index, isMobile)}
                   >
                     <div className="text-primary mb-4">{value.icon}</div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-800">{value.title}</h3>
@@ -286,16 +294,10 @@ const About = () => {
               {/* Last item centered */}
               <div className="col-span-1 md:col-span-3 flex justify-center">
                 <motion.div
-                  className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 will-change-transform w-full md:w-1/3"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-20%" }}
-                  transition={{ 
-                    duration: 0.3,
-                    ease: "easeOut",
-                    delay: 0.3
-                  }}
-                  whileHover={isMobile ? {} : { scale: 1.02 }}
+                  className={`bg-gray-50/95 rounded-lg p-6 ${
+                    isMobile ? '' : 'hover:bg-white transition-all duration-300 will-change-transform'
+                  }`}
+                  {...getCardAnimation(6, isMobile)}
                 >
                   <div className="text-primary mb-4">{coreValues[6].icon}</div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-800">{coreValues[6].title}</h3>

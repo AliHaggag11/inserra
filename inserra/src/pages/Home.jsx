@@ -28,6 +28,32 @@ const useIsMobile = () => {
   return isMobile;
 };
 
+const getCardAnimation = (index, isMobile) => {
+  if (isMobile) {
+    return {
+      initial: { opacity: 0 },
+      whileInView: { opacity: 1 },
+      viewport: { once: true, margin: "50px" },
+      transition: { 
+        duration: 0.2,
+        delay: index * 0.05
+      }
+    };
+  }
+  
+  return {
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+    viewport: { once: true, margin: "-20%" },
+    transition: { 
+      duration: 0.3,
+      ease: "easeOut",
+      delay: index * 0.1 
+    },
+    whileHover: { y: -5 }
+  };
+};
+
 const Home = () => {
   const isMobile = useIsMobile();
 
@@ -424,15 +450,10 @@ const Home = () => {
               ].map((industry, index) => (
                 <motion.div
                   key={index}
-                  className="group relative bg-white rounded-xl shadow-lg overflow-hidden"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    duration: isMobile ? 0.2 : 0.3, 
-                    delay: isMobile ? index * 0.05 : index * 0.1 
-                  }}
-                  whileHover={isMobile ? {} : { y: -5 }}
+                  className={`group relative bg-white rounded-xl shadow-lg overflow-hidden ${
+                    isMobile ? '' : 'transition-all duration-300'
+                  }`}
+                  {...getCardAnimation(index, isMobile)}
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-dark transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                   <Link to={industry.link} className="block p-6 relative">
@@ -494,14 +515,10 @@ const Home = () => {
               </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <motion.div
-                  className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300 will-change-transform"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-20%" }}
-                  transition={{ 
-                    duration: 0.3,
-                    ease: "easeOut"
-                  }}
+                  className={`bg-white rounded-xl p-8 ${
+                    isMobile ? '' : 'hover:shadow-lg transition-all duration-300 will-change-transform'
+                  }`}
+                  {...getCardAnimation(0, isMobile)}
                 >
                   <h3 className="text-2xl font-bold text-primary mb-4">Global Partners</h3>
                   <p className="text-gray-600 mb-6">
@@ -512,14 +529,10 @@ const Home = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300 will-change-transform"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-20%" }}
-                  transition={{ 
-                    duration: 0.3,
-                    ease: "easeOut"
-                  }}
+                  className={`bg-white rounded-xl p-8 ${
+                    isMobile ? '' : 'hover:shadow-lg transition-all duration-300 will-change-transform'
+                  }`}
+                  {...getCardAnimation(1, isMobile)}
                 >
                   <h3 className="text-2xl font-bold text-primary mb-4">MENA Presence</h3>
                   <p className="text-gray-600 mb-6">
