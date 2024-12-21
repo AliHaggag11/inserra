@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Linkedin, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import logo from '../assets/insera.png';
 import Modal from './Modal';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Footer = () => {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
@@ -149,123 +150,127 @@ const Footer = () => {
       </footer>
 
       {/* Privacy Policy Modal */}
-      <Modal
-        isOpen={isPrivacyOpen}
-        onClose={() => setIsPrivacyOpen(false)}
-        title="Privacy Policy"
-      >
-        <div className="text-gray-700 space-y-8">
-          <section>
-            <h4 className="text-xl font-semibold text-primary mb-4">1. Information Collection</h4>
-            <div className="space-y-4">
-              <p className="text-gray-600 leading-relaxed">
-                We collect information that you provide directly to us, including when you:
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
-                <li>Fill out forms on our website</li>
-                <li>Subscribe to our newsletter</li>
-                <li>Request information about our services</li>
-                <li>Communicate with us via email or other channels</li>
-              </ul>
-            </div>
-          </section>
+      <AnimatePresence>
+        {isPrivacyOpen && (
+          <Modal
+            isOpen={isPrivacyOpen}
+            onClose={() => setIsPrivacyOpen(false)}
+            title="Privacy Policy"
+          >
+            <motion.div 
+              className="text-gray-700 space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <section>
+                <h4 className="text-xl font-semibold text-primary mb-4">Our Commitment to Privacy</h4>
+                <div className="space-y-4">
+                  <p className="text-gray-600 leading-relaxed">
+                    At Insera, we respect your privacy and are committed to protecting it. Our website is informational in nature, and we do not collect any personal data from visitors.
+                  </p>
+                </div>
+              </section>
 
-          <section>
-            <h4 className="text-xl font-semibold text-primary mb-4">2. Use of Information</h4>
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <p className="text-gray-600 leading-relaxed">
-                We use the information we collect to provide and improve our services, communicate with you,
-                and comply with legal obligations. This includes:
-              </p>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li className="flex items-start">
-                  <span className="mr-3 text-primary">•</span>
-                  Providing the information and services you request
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-primary">•</span>
-                  Sending you technical notices and support messages
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-primary">•</span>
-                  Improving our website and services
-                </li>
-              </ul>
-            </div>
-          </section>
+              <section>
+                <h4 className="text-xl font-semibold text-primary mb-4">Information Collection</h4>
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <p className="text-gray-600 leading-relaxed">
+                    Our website serves as an informational platform only. We do not:
+                  </p>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li className="flex items-start">
+                      <span className="mr-3 text-primary">•</span>
+                      Use cookies or tracking technologies
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-primary">•</span>
+                      Collect personal information
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-primary">•</span>
+                      Store any user data
+                    </li>
+                  </ul>
+                </div>
+              </section>
 
-          <section>
-            <h4 className="text-xl font-semibold text-primary mb-4">3. Information Sharing</h4>
-            <div className="border-l-4 border-primary pl-6">
-              <p className="text-gray-600 leading-relaxed mb-4">
-                We do not sell or rent your personal information to third parties. We may share your
-                information with service providers who assist in our operations.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                These service providers are bound by strict confidentiality agreements and are only
-                authorized to use your information as necessary to provide services to us.
-              </p>
-            </div>
-          </section>
-        </div>
-      </Modal>
+              <section>
+                <h4 className="text-xl font-semibold text-primary mb-4">Contact Information</h4>
+                <div className="border-l-4 border-primary pl-6">
+                  <p className="text-gray-600 leading-relaxed">
+                    If you have any questions about our privacy practices, you can contact us directly through the contact information provided on our website.
+                  </p>
+                </div>
+              </section>
+            </motion.div>
+          </Modal>
+        )}
+      </AnimatePresence>
 
       {/* Terms of Service Modal */}
-      <Modal
-        isOpen={isTermsOpen}
-        onClose={() => setIsTermsOpen(false)}
-        title="Terms of Service"
-      >
-        <div className="text-gray-700 space-y-8">
-          <section>
-            <h4 className="text-xl font-semibold text-primary mb-4">1. Acceptance of Terms</h4>
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <p className="text-gray-600 leading-relaxed">
-                By accessing and using this website, you accept and agree to be bound by these Terms of Service.
-                Please read these terms carefully before using our services.
-              </p>
-            </div>
-          </section>
+      <AnimatePresence>
+        {isTermsOpen && (
+          <Modal
+            isOpen={isTermsOpen}
+            onClose={() => setIsTermsOpen(false)}
+            title="Terms of Service"
+          >
+            <motion.div 
+              className="text-gray-700 space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <section>
+                <h4 className="text-xl font-semibold text-primary mb-4">1. Website Usage</h4>
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <p className="text-gray-600 leading-relaxed">
+                    This website is provided for informational purposes only. By accessing and using this website, you agree to these terms and conditions.
+                  </p>
+                </div>
+              </section>
 
-          <section>
-            <h4 className="text-xl font-semibold text-primary mb-4">2. Use License</h4>
-            <div className="border-l-4 border-primary pl-6">
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Permission is granted to temporarily view the materials on Insera's website for personal,
-                non-commercial use only. This is the grant of a license, not a transfer of title.
-              </p>
-              <div className="bg-gray-50 p-4 rounded-lg mt-4">
-                <h5 className="font-medium text-gray-900 mb-2">Under this license, you may not:</h5>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-start">
-                    <span className="mr-3 text-primary">•</span>
-                    Modify or copy the materials
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-primary">•</span>
-                    Use the materials for any commercial purpose
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-primary">•</span>
-                    Transfer the materials to another person
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
+              <section>
+                <h4 className="text-xl font-semibold text-primary mb-4">2. Intellectual Property</h4>
+                <div className="border-l-4 border-primary pl-6">
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    All content on this website, including text, graphics, logos, and images, is the property of Insera and is protected by intellectual property laws.
+                  </p>
+                  <div className="bg-gray-50 p-4 rounded-lg mt-4">
+                    <h5 className="font-medium text-gray-900 mb-2">Usage Restrictions:</h5>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-start">
+                        <span className="mr-3 text-primary">•</span>
+                        Content is for informational purposes only
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-3 text-primary">•</span>
+                        No commercial use without permission
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-3 text-primary">•</span>
+                        No reproduction without written consent
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
 
-          <section>
-            <h4 className="text-xl font-semibold text-primary mb-4">3. Disclaimer</h4>
-            <div className="prose prose-gray max-w-none">
-              <p className="text-gray-600 leading-relaxed">
-                The materials on Insera's website are provided on an 'as is' basis. Insera makes no
-                warranties, expressed or implied, and hereby disclaims and negates all other warranties,
-                including without limitation, implied warranties or conditions of merchantability.
-              </p>
-            </div>
-          </section>
-        </div>
-      </Modal>
+              <section>
+                <h4 className="text-xl font-semibold text-primary mb-4">3. Disclaimer</h4>
+                <div className="prose prose-gray max-w-none">
+                  <p className="text-gray-600 leading-relaxed">
+                    The information on this website is provided "as is" without any warranties. Insera reserves the right to modify or discontinue any aspect of the website without notice.
+                  </p>
+                </div>
+              </section>
+            </motion.div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </>
   );
 };
