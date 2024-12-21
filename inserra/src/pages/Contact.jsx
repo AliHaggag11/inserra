@@ -105,31 +105,31 @@ const Contact = () => {
 
       {/* Main Content - reduced padding */}
       <div className="container mx-auto px-4 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Contact Information Cards - reduced spacing */}
-          <div className="lg:col-span-1 space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+          {/* Contact Information Cards */}
+          <div className="lg:col-span-1 h-full flex flex-col justify-between">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
-                className="bg-white/10 backdrop-blur-lg rounded-xl p-4 text-white"
+                className="bg-gray-100 rounded-xl p-4 text-gray-800 mb-4 last:mb-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="flex items-start">
-                  <div className="p-2 bg-white/10 rounded-lg">
+                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
                     {info.icon}
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
-                    <p className="text-blue-200 mb-1">{info.content}</p>
+                    <h3 className="text-lg font-semibold mb-1 text-gray-900">{info.title}</h3>
+                    <p className="text-gray-600 mb-1">{info.content}</p>
                     {info.subContent && (
-                      <p className="text-blue-200 text-sm">{info.subContent}</p>
+                      <p className="text-gray-500 text-sm">{info.subContent}</p>
                     )}
                     {info.link && (
                       <a 
                         href={info.link}
-                        className="inline-flex items-center text-blue-300 hover:text-white transition-colors duration-300"
+                        className="inline-flex items-center text-primary hover:text-primary-dark transition-colors duration-300"
                         target={info.link.startsWith('http') ? '_blank' : undefined}
                         rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >
@@ -142,9 +142,9 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Contact Form - reduced padding */}
+          {/* Contact Form */}
           <motion.div 
-            className="lg:col-span-2 bg-white rounded-xl shadow-xl overflow-hidden"
+            className="lg:col-span-2 bg-white rounded-xl shadow-xl overflow-hidden h-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}

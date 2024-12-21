@@ -12,40 +12,40 @@ const FoodPharma = () => {
   const solutions = [
     {
       icon: <Microscope className="w-8 h-8" />,
-      title: "Clean Room Technology",
-      description: "State-of-the-art clean room solutions meeting GMP standards for pharmaceutical and food processing environments."
+      title: "Medical & Pharmaceutical",
+      description: "Advanced systems for producing pharmaceutical and medical specialty bags, including bioprocess, blood plasma, and ostomy solutions."
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Quality Control Systems",
-      description: "Advanced quality control and monitoring systems ensuring product consistency and safety."
+      title: "Powder Processing",
+      description: "Comprehensive powder handling systems including milling, sizing, conveying, and containment solutions for pharmaceutical manufacturing."
     },
     {
       icon: <Factory className="w-8 h-8" />,
       title: "Process Automation",
-      description: "Fully automated processing systems for enhanced efficiency and reduced contamination risks."
+      description: "High-frequency and thermo-contact welding systems with cutting-edge automation for medical and pharmaceutical applications."
     },
     {
       icon: <Gauge className="w-8 h-8" />,
-      title: "Precision Equipment",
-      description: "High-precision machinery for pharmaceutical manufacturing and food processing."
+      title: "Material Handling",
+      description: "Advanced lifting, handling, and containment solutions including hoists, bin blenders, and specialized containment systems."
     }
   ];
 
   const features = [
     {
-      title: "GMP Compliance",
-      description: "All equipment and solutions meet Good Manufacturing Practice standards",
+      title: "Quality Assurance",
+      description: "100% quality control with built-in monitoring systems for consistent product quality",
       icon: <Award className="w-6 h-6" />
     },
     {
-      title: "Sustainable Operations",
-      description: "Energy-efficient systems with minimal environmental impact",
+      title: "Industry Experience",
+      description: "Over 30 years of expertise in medical and pharmaceutical manufacturing",
       icon: <Leaf className="w-6 h-6" />
     },
     {
-      title: "Quality Assurance",
-      description: "Built-in quality control systems for consistent product quality",
+      title: "GMP Standards",
+      description: "All equipment and processes meet Good Manufacturing Practice standards",
       icon: <Shield className="w-6 h-6" />
     }
   ];
@@ -68,7 +68,7 @@ const FoodPharma = () => {
                 Food & Pharmaceutical Solutions
               </h1>
               <p className="text-xl text-blue-100 mb-8">
-                Advanced equipment and systems for food processing and pharmaceutical manufacturing
+                Specialized equipment and systems for pharmaceutical manufacturing, medical technology, and food processing
               </p>
               <Link
                 to="/contact"
@@ -95,7 +95,7 @@ const FoodPharma = () => {
               Comprehensive Solutions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From clean room technology to automated processing systems, we provide complete solutions for the food and pharmaceutical industries
+              From medical bag production to powder processing systems, we provide complete solutions for the pharmaceutical and food industries through our partners Kiefel and Hanningfield
             </p>
           </div>
 
@@ -156,10 +156,10 @@ const FoodPharma = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">
-              Ready to Upgrade Your Production Facilities?
+              Transform Your Production Facilities
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Let's discuss how our solutions can enhance your food processing or pharmaceutical manufacturing operations
+              Let's discuss how our specialized medical, pharmaceutical, and food processing solutions can enhance your operations
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
@@ -168,12 +168,6 @@ const FoodPharma = () => {
               >
                 Contact Us
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                to="/industries"
-                className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition duration-300"
-              >
-                View All Industries
               </Link>
             </div>
           </div>
