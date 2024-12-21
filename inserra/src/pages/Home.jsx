@@ -494,10 +494,14 @@ const Home = () => {
               </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <motion.div
-                  className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300 will-change-transform"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-20%" }}
+                  transition={{ 
+                    duration: 0.3,
+                    ease: "easeOut"
+                  }}
                 >
                   <h3 className="text-2xl font-bold text-primary mb-4">Global Partners</h3>
                   <p className="text-gray-600 mb-6">
@@ -508,10 +512,14 @@ const Home = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  className="bg-white rounded-xl p-8 hover:shadow-lg transition-all duration-300 will-change-transform"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-20%" }}
+                  transition={{ 
+                    duration: 0.3,
+                    ease: "easeOut"
+                  }}
                 >
                   <h3 className="text-2xl font-bold text-primary mb-4">MENA Presence</h3>
                   <p className="text-gray-600 mb-6">

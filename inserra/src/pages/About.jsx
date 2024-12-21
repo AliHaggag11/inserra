@@ -140,15 +140,16 @@ const About = () => {
                 {keyStrengths.slice(0, 6).map((strength, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 will-change-transform"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-20%" }}
                     transition={{ 
-                      duration: isMobile ? 0.2 : 0.3, 
-                      delay: isMobile ? index * 0.05 : index * 0.1 
+                      duration: 0.3,
+                      ease: "easeOut",
+                      delay: index * 0.1 
                     }}
-                    whileHover={isMobile ? {} : { y: -4 }}
+                    whileHover={isMobile ? {} : { scale: 1.02 }}
                   >
                     <div className="flex items-center mb-4">
                       <div className="bg-primary/10 p-3 rounded-full mr-4">
@@ -163,15 +164,16 @@ const About = () => {
               {/* Last item centered */}
               <div className="col-span-1 md:col-span-3 flex justify-center">
                 <motion.div
-                  className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 will-change-transform w-full md:w-1/3"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-20%" }}
                   transition={{ 
-                    duration: isMobile ? 0.2 : 0.3, 
-                    delay: isMobile ? 0.3 : 0.6 
+                    duration: 0.3,
+                    ease: "easeOut",
+                    delay: 0.3
                   }}
-                  whileHover={isMobile ? {} : { y: -4 }}
+                  whileHover={isMobile ? {} : { scale: 1.02 }}
                 >
                   <div className="flex items-center mb-4">
                     <div className="bg-primary/10 p-3 rounded-full mr-4">
@@ -264,15 +266,16 @@ const About = () => {
                 {coreValues.slice(0, 6).map((value, index) => (
                   <motion.div
                     key={index}
-                    className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 transform hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 will-change-transform"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-20%" }}
                     transition={{ 
-                      duration: isMobile ? 0.2 : 0.3, 
-                      delay: isMobile ? index * 0.05 : index * 0.1 
+                      duration: 0.3,
+                      ease: "easeOut",
+                      delay: index * 0.1 
                     }}
-                    whileHover={isMobile ? {} : { y: -4 }}
+                    whileHover={isMobile ? {} : { scale: 1.02 }}
                   >
                     <div className="text-primary mb-4">{value.icon}</div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-800">{value.title}</h3>
@@ -283,15 +286,16 @@ const About = () => {
               {/* Last item centered */}
               <div className="col-span-1 md:col-span-3 flex justify-center">
                 <motion.div
-                  className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 transform hover:-translate-y-1 w-full md:w-1/3"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  className="bg-gray-50/95 rounded-lg p-6 hover:bg-white transition-all duration-300 will-change-transform w-full md:w-1/3"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-20%" }}
                   transition={{ 
-                    duration: isMobile ? 0.2 : 0.3, 
-                    delay: isMobile ? 0.3 : 0.6 
+                    duration: 0.3,
+                    ease: "easeOut",
+                    delay: 0.3
                   }}
-                  whileHover={isMobile ? {} : { y: -4 }}
+                  whileHover={isMobile ? {} : { scale: 1.02 }}
                 >
                   <div className="text-primary mb-4">{coreValues[6].icon}</div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-800">{coreValues[6].title}</h3>
